@@ -5,7 +5,7 @@ title: Toh Hong Xian (Ray)'s Project Portfolio Page
 
 ## Project: CANdidates
 
-CANdidates is a powerful contact management desktop app optimised for job recruiters to manage job applicants. 
+CANdidates is a powerful contact management desktop app optimised for job recruiters to manage job applicants.
 
 The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
 
@@ -17,12 +17,12 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 
 Given below are my contributions to the project.
 
-* **New Feature**: 
+* **New Feature**:
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#search=raythx98&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByAuthors&breakdown=false&tabOpen=false)
 
 * **Project management**:
-  * Managed releases `v1.1` - `v1.x` (x releases) on GitHub
+  * Managed releases `v1.1` - `v1.x` (x releases) on GitHub.
   * Ensured that project deliverables are done on time and in the right format.
   * In charge of versioning of the code, maintaining the code repository, integrating various parts of the software to create a whole.
 
@@ -35,7 +35,7 @@ Given below are my contributions to the project.
   * User Guide:
     * Added documentation for the features `add` and `list` [\#]()
   * Developer Guide:
-    * 
+    *
 
 * **Community**:
   * PRs reviewed (with non-trivial review comments): [\#]()
