@@ -236,42 +236,64 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* has a need to manage a significant number of contacts, specifically companies and job applicants
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: Manage contacts faster than a typical mouse/GUI driven app. Contacts are centralised and
+categorised.
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
-
-*{More to be added}*
+| Priority | As a …​                                 | I want to …​                                                                       | So that I can…​                                                                         |
+| -------- | ------------------------------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `* *`    | new user exploring the application         | see sample data stored in the App                                                     | see how the App would work when it is in use                                               |
+| `* *`    | user that is ready to start using the app  | have an easy way to clear all the sample data                                         | fill in my data                                                                            |
+| `* *`    | technology inept person                    | have an App that is intuitive to use                                                  |                                                                                            |
+| `* *`    | long term user of the App                  | have a way to archive some of the unused data                                         | prevent cluttering                                                                         |
+| `* *`    | aesthetic individual                       | have an App that is clean and aesthetically pleasing                                  |                                                                                            |
+| `* *`    | veteran job recruiter                      | be able to store as many contacts as possible without lagging the software            |                                                                                            |
+| `* *`    | efficient person                           | be able to perform mass operations like deleting multiple entries at once             |                                                                                            |
+| `* * *`  | job recruiter                              | have a platform to consolidate all information of candidates                          |  avoid receiving applications from the same people repeatedly                              |
+| `* *`    | job recruiter                              | have a way to filter job applicants by their gender                                   |                                                                                            |
+| `* *`    | job recruiter                              | have a way to filter candidates by the date they applied for the job                  |                                                                                            |
+| `* * *`  | job recruiter                              | have a way to filter candidates by the type of job they are applying for              |                                                                                            |
+| `* *`    | job recruiter                              | have a way to filter candidates by their years of experience                          |                                                                                            |
+| `* *`    | job recruiter                              | have a way to blacklist candidates that do not respond or have poor attitudes         | take note to not consider them again in the future                                         |
+| `* *`    | job recruiter                              | have a way to organise my contact information easily                                  |                                                                                            |
+| `* * *`  | job recruiter                              | have a way to be able to delete candidates when they are successfully hired           | optimise my search                                                                         |
+| `* *`    | job recruiter                              | have a way to sort candidates based on their expected salary                          |                                                                                            |
+| `* * *`  | job recruiter                              | have a way to keep track of duplicate candidates                                      | avoid adding the same candidate multiple times                                             |
+| `* *`    | efficient job recruiter                    | be able to effectively search for candidates whenever there is a new job opening      | answer to hiring companies quickly                                                         |
+| `* * *`  | careless job recruiter                     | have a way to edit the contacts                                                       | rectify wrong entries                                                                      |
+| `* * *`  | job recruiter                              | keep the links to candidates' resumes (GitHub, LinkedIn, etc.)                        | review them conveniently                                                                   |
+| `* *`    | job recruiter                              | be brought directly to the relevant pages to view the candidates’ further information |                                                                                            |
+| `* *`    | job recruiter                              | be able to view the ranking of the candidates based on various criteria(s)            | provide a list of candidates that best fulfil the recruitment criteria(s) to the companies |
+| `* *`    | job recruiter                              | be notified of duplicate job listings when adding a new entry to the list             |                                                                                            |
+| `* * *`  | job recruiter                              | be able to delete job listings when they are filled up                                |                                                                                            |
+| `* * *`  | job recruiter                              | be able to filter jobs by their vacancies                                             |                                                                                            |
+| `* * *`  | job recruiter                              | be able to tag jobs with different priorities                                         |                                                                                            |
+| `* * *`  | job recruiter                              | be able to filter jobs by their priorities                                            |                                                                                            |
+| `* *`    | job recruiter                              | have a way to keep track of interview schedules                                       |                                                                                            |
+| `*`      | single person                              | have a way to store the contacts of cute job applicants                               |                                                                                            |
 
 ### Use cases
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: Delete a candidate**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User requests to list candidates
+2.  AddressBook shows a list of candidates
+3.  User requests to delete a specific candidate in the list
+4.  AddressBook deletes the candidate
 
     Use case ends.
 
@@ -286,6 +308,79 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. AddressBook shows an error message.
 
       Use case resumes at step 2.
+
+
+**Use case: Add a candidate**
+
+**MSS**
+
+1.  User adds a candidate
+2.  AddressBook shows a list of candidates, containing the newly added candidate
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. Input format is invalid.
+
+    * 1a1. AddressBook shows an error message.
+    
+      Use case ends.
+
+* 1b. The given candidate already exists.
+
+    * 1b1. AddressBook shows an error message.
+
+      Use case ends.
+
+
+**Use case: Edit a candidate**
+
+**MSS**
+
+1.  User requests to list candidates
+2.  AddressBook shows a list of candidates
+3.  User requests to edit a specific candidate in the list
+4.  AddressBook edits the candidate
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+
+* 3a. The given index is invalid.
+
+    * 3a1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+* 3b. The format of the given details are invalid.
+
+    * 3b1. AddressBook shows an error message.
+
+      Use case resumes at step 2.
+
+
+**Use case: Clear all entries**
+
+**MSS**
+
+1.  User requests to list candidates
+2.  AddressBook shows a list of candidates
+3.  User requests to clear all entries in the list
+4.  AddressBook clears the list
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. The list is empty.
+
+  Use case ends.
+  
 
 *{More to be added}*
 
