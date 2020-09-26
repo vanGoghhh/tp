@@ -6,8 +6,26 @@ title: User Guide
 CANdidates is a powerful and optimized contact management 
 app for job recruiters to manage job applicants and job listings. 
 
-* Table of Contents
-{:toc}
+## Table of Contents
+
+* [Quick start](#quick-start)
+* [Features](#features)
+     * [Viewing help: help](#viewing-help-help)
+     * [Adding a candidate: add can](#adding-a-candidate-coming-soon-add-can)
+     * [Adding a job listing: add job](#adding-a-job-listing-coming-soon-add-job)
+     * [Listing all candidates: list can](#listing-all-candidates-coming-soon-list-can)
+     * [Listing all jobs: list job](#listing-all-jobs-coming-soon-list-job)
+     * [Editing a candidate: edit can](#editing-a-candidate-coming-soon-edit-can)
+     * [Editing a job: edit job](#editing-a-job-coming-soon-edit-job)
+     * [Deleting a candidate: delete can](#deleting-a-candidate-coming-soon-delete-can)
+     * [Deleting a job: delete job](#deleting-a-job-coming-soon-delete-job)
+     * [Clearing all candidate entries: clear can](#clearing-all-candidate-entries-coming-soon-clear-can)
+     * [Clearing all job entries: clear job](#clearing-all-job-entries-coming-soon-clear-job)
+     * [Exiting the program : exit](#exiting-the-program--exit)
+     * [Saving the data](#saving-the-data)
+* [FAQ](#faq)
+* [Command summary](#command-summary)
+
 
 --------------------------------------------------------------------------------------------------------------------
 
