@@ -284,16 +284,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `CANdidates` and the **Actor** is the `user`, unless specified otherwise)
 
 **Use case: Delete a candidate**
 
 **MSS**
 
 1.  User requests to list candidates
-2.  AddressBook shows a list of candidates
+2.  CANdidates shows a list of candidates
 3.  User requests to delete a specific candidate in the list
-4.  AddressBook deletes the candidate
+4.  CANdidates deletes the candidate
 
     Use case ends.
 
@@ -305,7 +305,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. CANdidates shows an error message.
 
       Use case resumes at step 2.
 
@@ -315,7 +315,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  User adds a candidate
-2.  AddressBook shows a list of candidates, containing the newly added candidate
+2.  CANdidates shows a list of candidates, containing the newly added candidate
 
     Use case ends.
 
@@ -323,13 +323,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. Input format is invalid.
 
-    * 1a1. AddressBook shows an error message.
+    * 1a1. CANdidates shows an error message.
     
       Use case ends.
 
 * 1b. The given candidate already exists.
 
-    * 1b1. AddressBook shows an error message.
+    * 1b1. CANdidates shows an error message.
 
       Use case ends.
 
@@ -339,9 +339,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  User requests to list candidates
-2.  AddressBook shows a list of candidates
-3.  User requests to edit a specific candidate in the list
-4.  AddressBook edits the candidate
+2.  CANdidates shows a list of candidates
+3.  User requests to edit the details of a specific candidate index in the list
+4.  CANdidates edits the candidate
 
     Use case ends.
 
@@ -353,13 +353,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. CANdidates shows an error message.
 
       Use case resumes at step 2.
 
 * 3b. The format of the given details are invalid.
 
-    * 3b1. AddressBook shows an error message.
+    * 3b1. CANdidates shows an error message.
 
       Use case resumes at step 2.
 
@@ -369,9 +369,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  User requests to list candidates
-2.  AddressBook shows a list of candidates
+2.  CANdidates shows a list of candidates
 3.  User requests to clear all entries in the list
-4.  AddressBook clears the list
+4.  CANdidates clears the list
 
     Use case ends.
 
@@ -397,6 +397,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  The project is expected to adhere to a schedule that delivers a feature set every one to two weeks.
 1.  Should have an intuitive interface for new users to pick up the application easily.
 1.  Should be able to work without an internet connection.
+
+*{More to be added}*
 
 ### Glossary
 
