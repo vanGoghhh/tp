@@ -77,7 +77,7 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]…​`
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A candidates can have any number of job type tags (including 0)
 </div>
-
+<br>
 Examples:
 * `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/Dog Groomer
 `
@@ -87,7 +87,7 @@ Examples:
 
 Adds a job to the job listings.
 
-Format: `add job n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]... [pr/PRIORITY]`
+Format: `add job n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]… [pr/PRIORITY]`
 
 <div markdown="span" class="alert alert-primary">:exclamation:
 Priority can be specified as low, moderate or high. 
@@ -97,7 +97,7 @@ Priority is an optional field and default priority for jobs is moderate unless t
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A job can have any number of job type tags (including 0)
 </div>
-
+<br>
 Examples:
 * `add job n/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 t/chef t/waiter pr/low
 `
@@ -124,15 +124,15 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…`
 * Edits the candidate at the specified `INDEX`. The index refers to the index number shown in the displayed candidate list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing job type tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
+* When editing job type tags, the existing tags of the candidate will be removed i.e adding of tags is not cumulative.
 * You can remove all the candidate’s tags by typing `t/` without
     specifying any tags after it.
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` <br> 
-Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
+Edits the phone number and email address of the 1st candidate to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` <br> 
-Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+Edits the name of the 2nd candidate to be `Betsy Crower` and clears all existing tags.
 
 ### Editing a job : `edit job`
 
@@ -213,7 +213,7 @@ All data is saved in the hard disk automatically after any command that changes 
 ## Command summary
 
 Action | Candidate Format | Job Format
---------|------------------------------------
+--------------------------------------------
 **Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]…​` | `add job n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]…​ [pr/PRIORITY]`
 **Clear** | `clear can` | `clear job`
 **Delete** | `delete can INDEX` | `delete job INDEX`
