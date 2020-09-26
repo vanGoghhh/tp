@@ -259,7 +259,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | aesthetic individual                       | have an App that is clean and aesthetically pleasing                                  |                                                                                            |
 | `* *`    | veteran job recruiter                      | be able to store as many contacts as possible without lagging the software            |                                                                                            |
 | `* *`    | efficient person                           | be able to perform mass operations like deleting multiple entries at once             |                                                                                            |
-| `* * *`  | job recruiter                              | have a platform to consolidate all information of candidates                          |  avoid receiving applications from the same people repeatedly                              |
+| `* * *`  | job recruiter                              | have a platform to consolidate all _information_ of candidates                          |  avoid receiving applications from the same people repeatedly                              |
 | `* *`    | job recruiter                              | have a way to filter job applicants by their gender                                   |                                                                                            |
 | `* *`    | job recruiter                              | have a way to filter candidates by the date they applied for the job                  |                                                                                            |
 | `* * *`  | job recruiter                              | have a way to filter candidates by the type of job they are applying for              |                                                                                            |
@@ -273,7 +273,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | careless job recruiter                     | have a way to edit the contacts                                                       | rectify wrong entries                                                                      |
 | `* * *`  | job recruiter                              | keep the links to candidates' resumes (GitHub, LinkedIn, etc.)                        | review them conveniently                                                                   |
 | `* *`    | job recruiter                              | be brought directly to the relevant pages to view the candidates’ further information |                                                                                            |
-| `* *`    | job recruiter                              | be able to view the ranking of the candidates based on various criteria(s)            | provide a list of candidates that best fulfil the recruitment criteria(s) to the companies |
+| `* *`    | job recruiter                              | be able to view the ranking of the candidates based on various _criteria_            | provide a list of candidates that best fulfil the recruitment criteria(s) to the companies |
 | `* *`    | job recruiter                              | be notified of duplicate job listings when adding a new entry to the list             |                                                                                            |
 | `* * *`  | job recruiter                              | be able to delete job listings when they are filled up                                |                                                                                            |
 | `* * *`  | job recruiter                              | be able to filter jobs by their vacancies                                             |                                                                                            |
@@ -387,16 +387,24 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-
-*{More to be added}*
+1.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+1.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands)
+ should be able to accomplish most of the tasks faster using commands than using the mouse.
+1.  Should be a single user product.
+1.  The data should be stored locally in a human editable text file.
+1.  Should work without requiring an installer.
+1.  Should not include _hard-to-test features_.
+1.  The project is expected to adhere to a schedule that delivers a feature set every one to two weeks.
+1.  Should have an intuitive interface for new users to pick up the application easily.
+1.  Should be able to work without an internet connection.
 
 ### Glossary
 
+* **Information**: Name, phone number, address, job type etc.
+* **Criteria**: Education background, work experience, language and other skills.
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
-
+* **Hard-to-test features**: Features that heavily depend on remote APIs, audio-related features, 
+as well as features requiring creation of user accounts etc.
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Instructions for manual testing**
