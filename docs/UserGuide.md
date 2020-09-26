@@ -3,7 +3,8 @@ layout: page
 title: User Guide
 ---
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+CANdidates is a powerful and optimized contact management 
+app for job recruiters to manage job applicants and job listings. 
 
 * Table of Contents
 {:toc}
@@ -14,7 +15,7 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+1. Download the latest `addressbook.jar` from [here]() [Coming soon].
 
 1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
 
@@ -24,13 +25,13 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * **`list`** : Lists all contacts.
+   * **`list can`** : Lists all candidates.
 
-   * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+   * **`add can`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a candidate named `John Doe` to the candidate list.
 
-   * **`delete`**`3` : Deletes the 3rd contact shown in the current list.
+   * **`delete can`**`3` : Deletes the 3rd candidate shown in the current candidate list.
 
-   * **`clear`** : Deletes all contacts.
+   * **`clear can`** : Deletes all candidates.
 
    * **`exit`** : Exits the app.
 
@@ -48,10 +49,10 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+  e.g `n/NAME [t/JOB_TYPE]` can be used as `n/John Doe t/programmer` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/accountant`, `t/programmer t/technician` etc.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -60,87 +61,134 @@ AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized fo
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message explaining how to access the help page.
 
 ![help message](images/helpMessage.png)
 
 Format: `help`
 
 
-### Adding a person: `add`
+### Adding a candidate: `add can`
 
-Adds a person to the address book.
+Adds a candidate to the candidate list.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags (including 0)
+A candidates can have any number of job type tags (including 0)
 </div>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/Dog Groomer
+`
+* `add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 t/HR t/Office Lady`
 
-### Listing all persons : `list`
+### Adding a job listing: `add job`
 
-Shows a list of all persons in the address book.
+Adds a job to the job listings.
 
-Format: `list`
+Format: `add job n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]... [pr/PRIORITY]`
 
-### Editing a person : `edit`
+<div markdown="span" class="alert alert-primary">:exclamation:
+Priority can be specified as low, moderate or high. 
+Priority is an optional field and default priority for jobs is moderate unless tagged otherwise.
+</div>
 
-Edits an existing person in the address book.
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+A job can have any number of job type tags (including 0)
+</div>
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+Examples:
+* `add job n/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 t/chef t/waiter pr/low
+`
+* `add job n/FedEx e/fedex@example.com a/Joo Koon p/93333222 t/Delivery Man pr/high`
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+### Listing all candidates : `list can`
+
+Shows a list of all candidates in the address book.
+
+Format: `list can`
+
+### Listing all jobs : `list job`
+
+Shows a list of all jobs in the job listings.
+
+Format: `list job`
+
+### Editing a candidate : `edit can`
+
+Edits an existing candidate in the candidate list.
+
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…`
+
+* Edits the candidate at the specified `INDEX`. The index refers to the index number shown in the displayed candidate list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
+* When editing job type tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
+* You can remove all the candidate’s tags by typing `t/` without
     specifying any tags after it.
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+*  `edit 1 p/91234567 e/johndoe@example.com` <br> 
+Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
+*  `edit 2 n/Betsy Crower t/` <br> 
+Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
 
-### Locating persons by name: `find`
+### Editing a job : `edit job`
 
-Finds persons whose names contain any of the given keywords.
+Edits an existing job in the job list.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Format: `edit job INDEX [n/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]… [pr/PRIORITY]`
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+* Edits the job at the specified `INDEX`. The index refers to the index number shown in the displayed job list. The index **must be a positive integer** 1, 2, 3, …​
+* At least one of the optional fields must be provided.
+* Existing values will be updated to the input values.
+* When editing job type tags, the existing tags of the job will be removed i.e adding of tags is not cumulative.
+* You can remove all the job’s tags by typing `t/` without specifying any tags after it.
 
 Examples:
-* `find John` returns `john` and `John Doe`
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
 
-### Deleting a person : `delete`
+*  `edit job 2 n/Dog Cafe p/82827731 a/Dog Street pr/high` <br>
+Edits the job company name, phone number, address and priority of 
+the 2nd job to be Dog Cafe, 82827731, Dog Street and high respectively.
 
-Deletes the specified person from the address book.
+### Deleting a candidate : `delete can`
 
-Format: `delete INDEX`
+Deletes the specified candidate from the candidate list.
 
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+Format: `delete can INDEX`
+
+* Deletes the candidate at the specified `INDEX`.
+* The index refers to the index number shown in the displayed candidate list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* `list can` followed by `delete can 2` deletes the 2nd candidate in the candidate list.
 
-### Clearing all entries : `clear`
+### Deleting a job : `delete job`
 
-Clears all entries from the address book.
+Deletes the specified job from the job listing.
 
-Format: `clear`
+Format: `delete job INDEX`
+
+* Deletes the job at the specified `INDEX`.
+* The index refers to the index number shown in the displayed candidate list.
+* The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `list job` followed by `delete job2` deletes the 2nd job in the job list.
+
+### Clearing all candidate entries : `clear can`
+
+Clears all entries from the candidate list.
+
+Format: `clear can`
+
+### Clearing all job entries : `clear job`
+
+Clears all entries from the job list.
+
+Format: `clear job`
 
 ### Exiting the program : `exit`
 
@@ -150,29 +198,27 @@ Format: `exit`
 
 ### Saving the data
 
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+All data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
-### Archiving data files `[coming in v2.0]`
-
-_{explain the feature here}_
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CANdidates home folder.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+Action | Candidate Format | Job Format
+--------|------------------------------------
+**Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]…​` | `add job n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]…​ [pr/PRIORITY]`
+**Clear** | `clear can` | `clear job`
+**Delete** | `delete can INDEX` | `delete job INDEX`
+**Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…​` | `edit job INDEX [n/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…​ [pr/PRIORITY]`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
+**List** | `list can` | `list job`
 **Help** | `help`
+**Exit** | `exit`
