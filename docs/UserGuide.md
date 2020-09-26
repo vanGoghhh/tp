@@ -15,7 +15,7 @@ app for job recruiters to manage job applicants and job listings.
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here]() [Coming soon].
+1. Download the latest `addressbook.jar` from [here]() [coming soon].
 
 1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
 
@@ -59,7 +59,7 @@ app for job recruiters to manage job applicants and job listings.
 
 </div>
 
-### Viewing help : `help`
+### Viewing help: `help`
 
 Shows a message explaining how to access the help page.
 
@@ -68,7 +68,7 @@ Shows a message explaining how to access the help page.
 Format: `help`
 
 
-### Adding a candidate: `add can`
+### Adding a candidate [coming soon]: `add can` 
 
 Adds a candidate to the candidate list.
 
@@ -83,7 +83,7 @@ Examples:
 `
 * `add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 t/HR t/Office Lady`
 
-### Adding a job listing: `add job`
+### Adding a job listing [coming soon]: `add job`
 
 Adds a job to the job listings.
 
@@ -103,19 +103,19 @@ Examples:
 `
 * `add job n/FedEx e/fedex@example.com a/Joo Koon p/93333222 t/Delivery Man pr/high`
 
-### Listing all candidates : `list can`
+### Listing all candidates [coming soon]: `list can`
 
 Shows a list of all candidates in the address book.
 
 Format: `list can`
 
-### Listing all jobs : `list job`
+### Listing all jobs [coming soon]: `list job`
 
 Shows a list of all jobs in the job listings.
 
 Format: `list job`
 
-### Editing a candidate : `edit can`
+### Editing a candidate [coming soon]: `edit can`
 
 Edits an existing candidate in the candidate list.
 
@@ -134,7 +134,7 @@ Edits the phone number and email address of the 1st candidate to be `91234567` a
 *  `edit 2 n/Betsy Crower t/` <br> 
 Edits the name of the 2nd candidate to be `Betsy Crower` and clears all existing tags.
 
-### Editing a job : `edit job`
+### Editing a job [coming soon]: `edit job`
 
 Edits an existing job in the job list.
 
@@ -152,7 +152,7 @@ Examples:
 Edits the job company name, phone number, address and priority of 
 the 2nd job to be Dog Cafe, 82827731, Dog Street and high respectively.
 
-### Deleting a candidate : `delete can`
+### Deleting a candidate [coming soon]: `delete can`
 
 Deletes the specified candidate from the candidate list.
 
@@ -165,7 +165,7 @@ Format: `delete can INDEX`
 Examples:
 * `list can` followed by `delete can 2` deletes the 2nd candidate in the candidate list.
 
-### Deleting a job : `delete job`
+### Deleting a job [coming soon]: `delete job`
 
 Deletes the specified job from the job listing.
 
@@ -178,13 +178,13 @@ Format: `delete job INDEX`
 Examples:
 * `list job` followed by `delete job2` deletes the 2nd job in the job list.
 
-### Clearing all candidate entries : `clear can`
+### Clearing all candidate entries [coming soon]: `clear can`
 
 Clears all entries from the candidate list.
 
 Format: `clear can`
 
-### Clearing all job entries : `clear job`
+### Clearing all job entries [coming soon]: `clear job`
 
 Clears all entries from the job list.
 
@@ -213,12 +213,11 @@ All data is saved in the hard disk automatically after any command that changes 
 ## Command summary
 
 Action | Candidate Format | Job Format
---------------------------------------------
+--------|------------------|------------------
 **Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]…​` | `add job n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]…​ [pr/PRIORITY]`
 **Clear** | `clear can` | `clear job`
 **Delete** | `delete can INDEX` | `delete job INDEX`
 **Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…​` | `edit job INDEX [n/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…​ [pr/PRIORITY]`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list can` | `list job`
-**Help** | `help`
-**Exit** | `exit`
+**Help** | `help` | `help`
+**Exit** | `exit` | `exit`
