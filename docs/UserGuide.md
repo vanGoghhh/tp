@@ -15,9 +15,9 @@ app for job recruiters to manage job applicants and job listings.
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `addressbook.jar` from [here]() [coming soon].
+1. Download the latest `candidates.jar` from [here]() [coming soon].
 
-1. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
+1. Copy the file to the folder you want to use as the _home folder_ for your CANdidates.
 
 1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
@@ -52,7 +52,7 @@ app for job recruiters to manage job applicants and job listings.
   e.g `n/NAME [t/JOB_TYPE]` can be used as `n/John Doe t/programmer` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/accountant`, `t/programmer t/technician` etc.
+  e.g. `[t/JOB_TYPE]…​` can be used as ` ` (i.e. 0 times), `t/accountant`, `t/programmer t/technician` etc.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -79,8 +79,8 @@ A candidates can have any number of job type tags (including 0)
 </div>
 <br>
 Examples:
-* `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/Dog Groomer
-`
+
+* `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/Dog Groomer`
 * `add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 t/HR t/Office Lady`
 
 ### Adding a job listing [coming soon]: `add job`
@@ -89,29 +89,27 @@ Adds a job to the job listings.
 
 Format: `add job n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]… [pr/PRIORITY]`
 
-<div markdown="span" class="alert alert-primary">:exclamation:
-Priority can be specified as low, moderate or high. 
-Priority is an optional field and default priority for jobs is moderate unless tagged otherwise.
-</div>
+* Priority can be specified as low, moderate or high. 
+* Priority is an optional field and default priority for jobs is moderate unless specified otherwise.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A job can have any number of job type tags (including 0)
 </div>
 <br>
 Examples:
-* `add job n/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 t/chef t/waiter pr/low
-`
+
+* `add job n/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 t/chef t/waiter pr/low`
 * `add job n/FedEx e/fedex@example.com a/Joo Koon p/93333222 t/Delivery Man pr/high`
 
 ### Listing all candidates [coming soon]: `list can`
 
-Shows a list of all candidates in the address book.
+Shows a list of all candidates in the candidates listing.
 
 Format: `list can`
 
 ### Listing all jobs [coming soon]: `list job`
 
-Shows a list of all jobs in the job listings.
+Shows a list of all jobs in the jobs listing.
 
 Format: `list job`
 
@@ -129,6 +127,7 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…`
     specifying any tags after it.
 
 Examples:
+
 *  `edit 1 p/91234567 e/johndoe@example.com` <br> 
 Edits the phone number and email address of the 1st candidate to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` <br> 
@@ -145,6 +144,7 @@ Format: `edit job INDEX [n/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_
 * Existing values will be updated to the input values.
 * When editing job type tags, the existing tags of the job will be removed i.e adding of tags is not cumulative.
 * You can remove all the job’s tags by typing `t/` without specifying any tags after it.
+* Priority of job can be specified as low, moderate or high. 
 
 Examples:
 
