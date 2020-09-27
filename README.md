@@ -2,7 +2,7 @@
 
 [![CI Status](https://github.com/se-edu/addressbook-level3/workflows/Java%20CI/badge.svg)](https://github.com/se-edu/addressbook-level3/actions)
 
-![Ui](docs/images/UIMockup.png)
+![Ui](docs/images/Ui.png)
 
 CANdidates is a powerful contact management application optimised for job recruiters; a brownfield project based on [Address Book Level-3](https://se-education.org/addressbook-level3/). 
 
