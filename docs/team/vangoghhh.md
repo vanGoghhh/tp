@@ -1,4 +1,7 @@
-# Nigel Ng's Project Portfolio Page
+---
+layout: page
+title: Nigel Ng's Project Portfolio Page
+---
 
 ## Project: CANdidates
 
