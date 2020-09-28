@@ -1,4 +1,7 @@
-# Lee Joon Jie's Project Portfolio Page
+---
+layout: page
+title: Lee Joon Jie's Project Portfolio Page
+---
 
 ## Project: CANdidates
 

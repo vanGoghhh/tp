@@ -1,4 +1,7 @@
-# Amelia Tan's Project Portfolio Page
+---
+layout: page
+title: Amelia Tan's Project Portfolio Page
+---
 
 ## Project: CANdidates
 
