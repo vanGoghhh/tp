@@ -18,10 +18,10 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Lee Joon Jie
 
-<img src="images/BreadPeanutButter.png" width="200px">
+<img src="images/breadpeanutbutter.png" width="200px">
 
 [[github](http://github.com/BreadPeanutButter)]
-[[portfolio](team/BreadPeanutButter.md)]
+[[portfolio](team/breadpeanutbutter.md)]
 
 * Role: Developer
 * Responsibilities: Code Quality
@@ -37,10 +37,10 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Nigel Ng
 
-<img src="images/vanGoghhh.png" width="200px">
+<img src="images/vangoghhh.png" width="200px">
 
 [[github](http://github.com/vanGoghhh)]
-[[portfolio](team/vanGoghhh.md)]
+[[portfolio](team/vangoghhh.md)]
 
 * Role: Developer
 * Responsibilities: UI
