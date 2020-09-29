@@ -8,7 +8,9 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import seedu.address.model.information.exceptions.DuplicateJobException;
 import seedu.address.model.information.exceptions.DuplicatePersonException;
+import seedu.address.model.information.exceptions.JobNotFoundException;
 import seedu.address.model.information.exceptions.PersonNotFoundException;
 
 /**
@@ -43,7 +45,7 @@ public class UniqueJobList implements Iterable<Job> {
     public void add(Job toAdd) {
         requireNonNull(toAdd);
         if (contains(toAdd)) {
-            throw new DuplicatePersonException(); // TODO: to construct DuplicateJobException()
+            throw new DuplicateJobException();
         }
         internalList.add(toAdd);
     }
@@ -58,11 +60,11 @@ public class UniqueJobList implements Iterable<Job> {
 
         int index = internalList.indexOf(target);
         if (index == -1) {
-            throw new PersonNotFoundException(); // TODO: to construct JobNotFoundException()
+            throw new JobNotFoundException();
         }
 
         if (!target.isSameJob(editedJob) && contains(editedJob)) {
-            throw new DuplicatePersonException(); // TODO: to construct DuplicateJobException()
+            throw new DuplicateJobException();
         }
 
         internalList.set(index, editedJob);
@@ -75,7 +77,7 @@ public class UniqueJobList implements Iterable<Job> {
     public void remove(Job toRemove) {
         requireNonNull(toRemove);
         if (!internalList.remove(toRemove)) {
-            throw new PersonNotFoundException(); // TODO: to construct JobNotFoundException()
+            throw new JobNotFoundException();
         }
     }
 
