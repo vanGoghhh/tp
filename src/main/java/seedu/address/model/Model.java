@@ -5,7 +5,6 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.information.Job;
 import seedu.address.model.information.Person;
 
 /**
@@ -36,12 +35,12 @@ public interface Model {
     void setGuiSettings(GuiSettings guiSettings);
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' person address book file path.
      */
     Path getPersonAddressBookFilePath();
 
     /**
-     * Sets the user prefs' address book file path.
+     * Sets the user prefs' person address book file path.
      */
     void setPersonAddressBookFilePath(Path addressBookFilePath);
 
@@ -50,7 +49,7 @@ public interface Model {
      */
     void setPersonAddressBook(ReadOnlyPersonAddressBook addressBook);
 
-    /** Returns the AddressBook */
+    /** Returns the PersonAddressBook */
     ReadOnlyPersonAddressBook getPersonAddressBook();
 
     /**
@@ -85,6 +84,24 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+//    /**
+//     * Returns the user prefs' job address book file path.
+//     */
+//    Path getJobAddressBookFilePath();
+//
+//    /**
+//     * Sets the user prefs' job address book file path.
+//     */
+//    void setJobAddressBookFilePath(Path addressBookFilePath);
+//
+//    /**
+//     * Replaces address book data with the data in {@code addressBook}.
+//     */
+//    void setJobAddressBook(ReadOnlyJobAddressBook addressBook);
+//
+//    /** Returns the JobAddressBook */
+//    ReadOnlyJobAddressBook getJobAddressBook();
 
 //    /**
 //     * Returns true if a job with the same identity as {@code job} exists in the address book.
