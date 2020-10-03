@@ -31,7 +31,7 @@ public class JsonPersonAddressBookStorageTest {
     }
 
     private java.util.Optional<ReadOnlyPersonAddressBook> readAddressBook(String filePath) throws Exception {
-        return new JsonAddressBookStorage(Paths.get(filePath)).readPersonAddressBook(addToTestDataPathIfNotNull(filePath));
+        return new JsonPersonAddressBookStorage(Paths.get(filePath)).readPersonAddressBook(addToTestDataPathIfNotNull(filePath));
     }
 
     private Path addToTestDataPathIfNotNull(String prefsFileInTestDataFolder) {
@@ -64,7 +64,7 @@ public class JsonPersonAddressBookStorageTest {
     public void readAndSaveAddressBook_allInOrder_success() throws Exception {
         Path filePath = testFolder.resolve("TempAddressBook.json");
         PersonAddressBook original = getTypicalAddressBook();
-        JsonAddressBookStorage jsonAddressBookStorage = new JsonAddressBookStorage(filePath);
+        JsonPersonAddressBookStorage jsonAddressBookStorage = new JsonPersonAddressBookStorage(filePath);
 
         // Save in new file and read back
         jsonAddressBookStorage.savePersonAddressBook(original, filePath);
@@ -96,7 +96,7 @@ public class JsonPersonAddressBookStorageTest {
      */
     private void saveAddressBook(ReadOnlyPersonAddressBook addressBook, String filePath) {
         try {
-            new JsonAddressBookStorage(Paths.get(filePath))
+            new JsonPersonAddressBookStorage(Paths.get(filePath))
                     .savePersonAddressBook(addressBook, addToTestDataPathIfNotNull(filePath));
         } catch (IOException ioe) {
             throw new AssertionError("There should not be an error writing to the file.", ioe);

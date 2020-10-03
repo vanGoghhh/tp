@@ -27,7 +27,7 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyPersonAddressBook;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.information.Person;
-import seedu.address.storage.JsonAddressBookStorage;
+import seedu.address.storage.JsonPersonAddressBookStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.StorageManager;
 import seedu.address.testutil.PersonBuilder;
@@ -43,8 +43,8 @@ public class LogicManagerTest {
 
     @BeforeEach
     public void setUp() {
-        JsonAddressBookStorage addressBookStorage =
-                new JsonAddressBookStorage(temporaryFolder.resolve("addressBook.json"));
+        JsonPersonAddressBookStorage addressBookStorage =
+                new JsonPersonAddressBookStorage(temporaryFolder.resolve("addressBook.json"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
         StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
         logic = new LogicManager(model, storage);
@@ -71,7 +71,7 @@ public class LogicManagerTest {
     @Test
     public void execute_storageThrowsIoException_throwsCommandException() {
         // Setup LogicManager with JsonPersonAddressBookIoExceptionThrowingStub
-        JsonAddressBookStorage addressBookStorage =
+        JsonPersonAddressBookStorage addressBookStorage =
                 new JsonPersonAddressBookIoExceptionThrowingStub(temporaryFolder.resolve("ioExceptionAddressBook.json"));
         JsonUserPrefsStorage userPrefsStorage =
                 new JsonUserPrefsStorage(temporaryFolder.resolve("ioExceptionUserPrefs.json"));
@@ -149,7 +149,7 @@ public class LogicManagerTest {
     /**
      * A stub class to throw an {@code IOException} when the save method is called.
      */
-    private static class JsonPersonAddressBookIoExceptionThrowingStub extends JsonAddressBookStorage {
+    private static class JsonPersonAddressBookIoExceptionThrowingStub extends JsonPersonAddressBookStorage {
         private JsonPersonAddressBookIoExceptionThrowingStub(Path filePath) {
             super(filePath);
         }
