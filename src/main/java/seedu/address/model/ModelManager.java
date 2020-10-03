@@ -66,12 +66,12 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public Path getAddressBookFilePath() {
+    public Path getPersonAddressBookFilePath() {
         return userPrefs.getAddressBookFilePath();
     }
 
     @Override
-    public void setAddressBookFilePath(Path addressBookFilePath) {
+    public void setPersonAddressBookFilePath(Path addressBookFilePath) {
         requireNonNull(addressBookFilePath);
         userPrefs.setAddressBookFilePath(addressBookFilePath);
     }
@@ -79,12 +79,12 @@ public class ModelManager implements Model {
     //=========== AddressBook ================================================================================
 
     @Override
-    public void setAddressBook(ReadOnlyPersonAddressBook addressBook) {
+    public void setPersonAddressBook(ReadOnlyPersonAddressBook addressBook) {
         this.addressBook.resetData(addressBook);
     }
 
     @Override
-    public ReadOnlyPersonAddressBook getAddressBook() {
+    public ReadOnlyPersonAddressBook getPersonAddressBook() {
         return addressBook;
     }
 
