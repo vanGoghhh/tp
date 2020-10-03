@@ -8,9 +8,9 @@ import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.ReadOnlyPersonAddressBook;
 
 /**
- * Represents a storage for {@link seedu.address.model.AddressBook}.
+ * Represents a storage for {@link seedu.address.model.PersonAddressBook}.
  */
-public interface AddressBookStorage {
+public interface PersonAddressBookStorage {
 
     /**
      * Returns the file path of the data file.
