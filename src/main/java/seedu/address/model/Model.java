@@ -85,55 +85,56 @@ public interface Model {
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
 
-//    /**
-//     * Returns the user prefs' job address book file path.
-//     */
-//    Path getJobAddressBookFilePath();
-//
-//    /**
-//     * Sets the user prefs' job address book file path.
-//     */
-//    void setJobAddressBookFilePath(Path addressBookFilePath);
-//
-//    /**
-//     * Replaces address book data with the data in {@code addressBook}.
-//     */
-//    void setJobAddressBook(ReadOnlyJobAddressBook addressBook);
-//
-//    /** Returns the JobAddressBook */
-//    ReadOnlyJobAddressBook getJobAddressBook();
+    /*
+    /**
+     * Returns the user prefs' job address book file path.
+     * /
+    Path getJobAddressBookFilePath();
 
-//    /**
-//     * Returns true if a job with the same identity as {@code job} exists in the address book.
-//     */
-//    boolean hasJob(Job job);
-//
-//    /**
-//     * Deletes the given job.
-//     * The job must exist in the address book.
-//     */
-//    void deleteJob(Job target);
-//
-//    /**
-//     * Adds the given job.
-//     * {@code job} must not already exist in the address book.
-//     */
-//    void addJob(Job job);
-//
-//    /**
-//     * Replaces the given job {@code target} with {@code editedJob}.
-//     * {@code target} must exist in the address book.
-//     * The job identity of {@code editedJob} must not be the same as another existing job in the address book.
-//     */
-//    void setJob(Job target, Job editedJob);
-//
-//    /** Returns an unmodifiable view of the filtered job list */
-//    ObservableList<Job> getFilteredJobList();
-//
-//    /**
-//     * Updates the filter of the filtered job list to filter by the given {@code predicate}.
-//     * @throws NullPointerException if {@code predicate} is null.
-//     */
-//    void updateFilteredJobList(Predicate<Job> predicate);
+    /**
+     * Sets the user prefs' job address book file path.
+     * /
+    void setJobAddressBookFilePath(Path addressBookFilePath);
+
+    /**
+     * Replaces address book data with the data in {@code addressBook}.
+     * /
+    void setJobAddressBook(ReadOnlyJobAddressBook addressBook);
+
+    /** Returns the JobAddressBook * /
+    ReadOnlyJobAddressBook getJobAddressBook();
+    /**
+     * Returns true if a job with the same identity as {@code job} exists in the address book.
+     * /
+    boolean hasJob(Job job);
+
+    /**
+     * Deletes the given job.
+     * The job must exist in the address book.
+     * /
+    void deleteJob(Job target);
+
+    /**
+     * Adds the given job.
+     * {@code job} must not already exist in the address book.
+     * /
+    void addJob(Job job);
+
+    /**
+     * Replaces the given job {@code target} with {@code editedJob}.
+     * {@code target} must exist in the address book.
+     * The job identity of {@code editedJob} must not be the same as another existing job in the address book.
+     * /
+    void setJob(Job target, Job editedJob);
+
+    /** Returns an unmodifiable view of the filtered job list * /
+    ObservableList<Job> getFilteredJobList();
+
+    /**
+     * Updates the filter of the filtered job list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     * /
+    void updateFilteredJobList(Predicate<Job> predicate);
+    */
 
 }

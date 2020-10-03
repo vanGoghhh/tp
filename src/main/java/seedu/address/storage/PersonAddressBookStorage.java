@@ -28,7 +28,8 @@ public interface PersonAddressBookStorage {
     /**
      * @see #getPersonAddressBookFilePath()
      */
-    Optional<ReadOnlyPersonAddressBook> readPersonAddressBook(Path filePath) throws DataConversionException, IOException;
+    Optional<ReadOnlyPersonAddressBook> readPersonAddressBook(Path filePath)
+            throws DataConversionException, IOException;
 
     /**
      * Saves the given {@link ReadOnlyPersonAddressBook} to the storage.

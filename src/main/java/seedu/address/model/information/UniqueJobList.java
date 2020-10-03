@@ -11,7 +11,6 @@ import javafx.collections.ObservableList;
 import seedu.address.model.information.exceptions.DuplicateJobException;
 import seedu.address.model.information.exceptions.DuplicatePersonException;
 import seedu.address.model.information.exceptions.JobNotFoundException;
-import seedu.address.model.information.exceptions.PersonNotFoundException;
 
 /**
  * A list of jobs that enforces uniqueness between its elements and does not allow nulls.

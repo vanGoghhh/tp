@@ -12,8 +12,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.information.Address;
 import seedu.address.model.information.Email;
-import seedu.address.model.information.Name;
 import seedu.address.model.information.Job;
+import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
 import seedu.address.model.tag.Tag;
 
@@ -35,8 +35,9 @@ class JsonAdaptedJob {
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
-    public JsonAdaptedJob(@JsonProperty("jobtitle") String jobTitle, @JsonProperty("company") String company, @JsonProperty("phone") String phone,
-                             @JsonProperty("email") String email, @JsonProperty("address") String address,
+    public JsonAdaptedJob(@JsonProperty("jobtitle") String jobTitle, @JsonProperty("company") String company,
+                             @JsonProperty("phone") String phone, @JsonProperty("email") String email,
+                             @JsonProperty("address") String address,
                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.jobTitle = jobTitle;
         this.company = company;
