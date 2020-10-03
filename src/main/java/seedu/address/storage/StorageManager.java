@@ -50,30 +50,30 @@ public class StorageManager implements Storage {
     // ================ AddressBook methods ==============================
 
     @Override
-    public Path getAddressBookFilePath() {
-        return addressBookStorage.getAddressBookFilePath();
+    public Path getPersonAddressBookFilePath() {
+        return addressBookStorage.getPersonAddressBookFilePath();
     }
 
     @Override
-    public Optional<ReadOnlyPersonAddressBook> readAddressBook() throws DataConversionException, IOException {
-        return readAddressBook(addressBookStorage.getAddressBookFilePath());
+    public Optional<ReadOnlyPersonAddressBook> readPersonAddressBook() throws DataConversionException, IOException {
+        return readPersonAddressBook(addressBookStorage.getPersonAddressBookFilePath());
     }
 
     @Override
-    public Optional<ReadOnlyPersonAddressBook> readAddressBook(Path filePath) throws DataConversionException, IOException {
+    public Optional<ReadOnlyPersonAddressBook> readPersonAddressBook(Path filePath) throws DataConversionException, IOException {
         logger.fine("Attempting to read data from file: " + filePath);
-        return addressBookStorage.readAddressBook(filePath);
+        return addressBookStorage.readPersonAddressBook(filePath);
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyPersonAddressBook addressBook) throws IOException {
-        saveAddressBook(addressBook, addressBookStorage.getAddressBookFilePath());
+    public void savePersonAddressBook(ReadOnlyPersonAddressBook addressBook) throws IOException {
+        savePersonAddressBook(addressBook, addressBookStorage.getPersonAddressBookFilePath());
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyPersonAddressBook addressBook, Path filePath) throws IOException {
+    public void savePersonAddressBook(ReadOnlyPersonAddressBook addressBook, Path filePath) throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
-        addressBookStorage.saveAddressBook(addressBook, filePath);
+        addressBookStorage.savePersonAddressBook(addressBook, filePath);
     }
 
 }

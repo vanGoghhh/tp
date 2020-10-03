@@ -27,22 +27,22 @@ public class JsonAddressBookStorage implements PersonAddressBookStorage {
         this.filePath = filePath;
     }
 
-    public Path getAddressBookFilePath() {
+    public Path getPersonAddressBookFilePath() {
         return filePath;
     }
 
     @Override
-    public Optional<ReadOnlyPersonAddressBook> readAddressBook() throws DataConversionException {
-        return readAddressBook(filePath);
+    public Optional<ReadOnlyPersonAddressBook> readPersonAddressBook() throws DataConversionException {
+        return readPersonAddressBook(filePath);
     }
 
     /**
-     * Similar to {@link #readAddressBook()}.
+     * Similar to {@link #readPersonAddressBook()}.
      *
      * @param filePath location of the data. Cannot be null.
      * @throws DataConversionException if the file is not in the correct format.
      */
-    public Optional<ReadOnlyPersonAddressBook> readAddressBook(Path filePath) throws DataConversionException {
+    public Optional<ReadOnlyPersonAddressBook> readPersonAddressBook(Path filePath) throws DataConversionException {
         requireNonNull(filePath);
 
         Optional<JsonSerializableAddressBook> jsonAddressBook = JsonUtil.readJsonFile(
@@ -60,16 +60,16 @@ public class JsonAddressBookStorage implements PersonAddressBookStorage {
     }
 
     @Override
-    public void saveAddressBook(ReadOnlyPersonAddressBook addressBook) throws IOException {
-        saveAddressBook(addressBook, filePath);
+    public void savePersonAddressBook(ReadOnlyPersonAddressBook addressBook) throws IOException {
+        savePersonAddressBook(addressBook, filePath);
     }
 
     /**
-     * Similar to {@link #saveAddressBook(ReadOnlyPersonAddressBook)}.
+     * Similar to {@link #savePersonAddressBook(ReadOnlyPersonAddressBook)}.
      *
      * @param filePath location of the data. Cannot be null.
      */
-    public void saveAddressBook(ReadOnlyPersonAddressBook addressBook, Path filePath) throws IOException {
+    public void savePersonAddressBook(ReadOnlyPersonAddressBook addressBook, Path filePath) throws IOException {
         requireNonNull(addressBook);
         requireNonNull(filePath);
 

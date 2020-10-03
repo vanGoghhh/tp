@@ -15,7 +15,7 @@ public interface PersonAddressBookStorage {
     /**
      * Returns the file path of the data file.
      */
-    Path getAddressBookFilePath();
+    Path getPersonAddressBookFilePath();
 
     /**
      * Returns AddressBook data as a {@link ReadOnlyPersonAddressBook}.
@@ -23,23 +23,23 @@ public interface PersonAddressBookStorage {
      * @throws DataConversionException if the data in storage is not in the expected format.
      * @throws IOException if there was any problem when reading from the storage.
      */
-    Optional<ReadOnlyPersonAddressBook> readAddressBook() throws DataConversionException, IOException;
+    Optional<ReadOnlyPersonAddressBook> readPersonAddressBook() throws DataConversionException, IOException;
 
     /**
-     * @see #getAddressBookFilePath()
+     * @see #getPersonAddressBookFilePath()
      */
-    Optional<ReadOnlyPersonAddressBook> readAddressBook(Path filePath) throws DataConversionException, IOException;
+    Optional<ReadOnlyPersonAddressBook> readPersonAddressBook(Path filePath) throws DataConversionException, IOException;
 
     /**
      * Saves the given {@link ReadOnlyPersonAddressBook} to the storage.
      * @param addressBook cannot be null.
      * @throws IOException if there was any problem writing to the file.
      */
-    void saveAddressBook(ReadOnlyPersonAddressBook addressBook) throws IOException;
+    void savePersonAddressBook(ReadOnlyPersonAddressBook addressBook) throws IOException;
 
     /**
-     * @see #saveAddressBook(ReadOnlyPersonAddressBook)
+     * @see #savePersonAddressBook(ReadOnlyPersonAddressBook)
      */
-    void saveAddressBook(ReadOnlyPersonAddressBook addressBook, Path filePath) throws IOException;
+    void savePersonAddressBook(ReadOnlyPersonAddressBook addressBook, Path filePath) throws IOException;
 
 }
