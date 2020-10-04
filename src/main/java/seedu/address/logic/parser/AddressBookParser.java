@@ -8,7 +8,6 @@ import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddJobCommand;
 import seedu.address.logic.commands.AddPersonCommand;
-import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.ClearPersonCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeletePersonCommand;
