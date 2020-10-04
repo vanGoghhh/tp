@@ -74,24 +74,28 @@ public class JobAddressBook implements ReadOnlyJobAddressBook {
         jobs.add(j);
     }
 
+    /*
     /**
      * Replaces the given job {@code target} in the list with {@code editedJob}.
      * {@code target} must exist in the address book.
      * The job identity of {@code editedJob} must not be the same as another existing job in the address book.
-     */
+     * /
     public void setJob(Job target, Job editedJob) {
         requireNonNull(editedJob);
 
         jobs.setJob(target, editedJob);
     }
+     */
 
+    /*
     /**
      * Removes {@code key} from this {@code JobAddressBook}.
      * {@code key} must exist in the job address book.
-     */
+     * /
     public void removeJob(Job key) {
         jobs.remove(key);
     }
+     */
 
     //// util methods
 

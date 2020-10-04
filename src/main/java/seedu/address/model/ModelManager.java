@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.model.information.Job;
 import seedu.address.model.information.Person;
 
 /**
@@ -20,25 +21,30 @@ public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
     private final PersonAddressBook addressBook;
+    private final JobAddressBook jobAddressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
+    private final FilteredList<Job> filteredJobs;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyPersonAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
+    public ModelManager(ReadOnlyPersonAddressBook addressBook, ReadOnlyJobAddressBook jobAddressBook,
+            ReadOnlyUserPrefs userPrefs) {
         super();
-        requireAllNonNull(addressBook, userPrefs);
+        requireAllNonNull(addressBook, jobAddressBook, userPrefs);
 
         logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
 
         this.addressBook = new PersonAddressBook(addressBook);
+        this.jobAddressBook = new JobAddressBook(jobAddressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
+        filteredJobs = new FilteredList<>(this.jobAddressBook.getJobList());
     }
 
     public ModelManager() {
-        this(new PersonAddressBook(), new UserPrefs());
+        this(new PersonAddressBook(), new JobAddressBook(), new UserPrefs());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -127,6 +133,24 @@ public class ModelManager implements Model {
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
+    }
+
+    @Override
+    public boolean hasJob(Job job) {
+        requireNonNull(job);
+        return jobAddressBook.hasJob(job);
+    }
+
+    @Override
+    public void addJob(Job job) {
+        jobAddressBook.addJob(job);
+        updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS);
+    }
+
+    @Override
+    public void updateFilteredJobList(Predicate<Job> predicate) {
+        requireNonNull(predicate);
+        filteredJobs.setPredicate(predicate);
     }
 
     @Override
