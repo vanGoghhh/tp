@@ -1,6 +1,6 @@
 # CANdidates
 
-[![CI Status](https://github.com/se-edu/addressbook-level3/workflows/Java%20CI/badge.svg)](https://github.com/se-edu/addressbook-level3/actions)
+[![CI Status](https://github.com/AY2021S1-CS2103T-T17-3/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2021S1-CS2103T-T17-3/tp/actions)
 
 ![Ui](docs/images/Ui.png)
 
@@ -13,7 +13,6 @@ Job Recruiters can:
 * Track candidates according to which job listing they are interested in
 * Centralised and categorised relevant contacts of all candidiates 
 * Reduce the hassle of having to look for applicants repeatedly on different platforms for each new job posting.
-
 
 #### Quick Links
 * [User Guide](https://ay2021s1-cs2103t-t17-3.github.io/tp/UserGuide.html)
