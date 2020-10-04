@@ -7,10 +7,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.ClearCommand;
+import seedu.address.logic.commands.ClearPersonCommand;
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.logic.commands.EditCommand;
+import seedu.address.logic.commands.DeletePersonCommand;
+import seedu.address.logic.commands.EditPersonCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
@@ -25,7 +25,9 @@ public class AddressBookParser {
     /**
      * Used for initial separation of command word and args.
      */
-    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
+    private static final Pattern COMPLEX_COMMAND_FORMAT =
+            Pattern.compile("(?<firstCommandWord>\\S+) (?<secondCommandWord>\\S+)(?<arguments>.*)");
+    private static final Pattern SIMPLE_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)");
 
     /**
      * Parses user input into command for execution.
@@ -35,32 +37,71 @@ public class AddressBookParser {
      * @throws ParseException if the user input does not conform the expected format
      */
     public Command parseCommand(String userInput) throws ParseException {
-        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
-        if (!matcher.matches()) {
+
+        final Matcher simpleMatcher = SIMPLE_COMMAND_FORMAT.matcher(userInput.trim());
+        final Matcher complexMatcher = COMPLEX_COMMAND_FORMAT.matcher(userInput.trim());
+
+        if (simpleMatcher.matches()) {
+            // Simple command
+            return parseSimpleCommand(simpleMatcher);
+        } else if (complexMatcher.matches()) {
+            // Complex command
+            return parseComplexCommand(complexMatcher);
+        } else {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
+    }
 
-        final String commandWord = matcher.group("commandWord");
-        final String arguments = matcher.group("arguments");
-        switch (commandWord) {
+    /**
+     * Parses user input into complex command for execution.
+     * This is to be used for commands with more than 1 command word.
+     *
+     * @param complexCommandMatcher Matcher that stores the complex command
+     * @return the command based on the user input
+     * @throws ParseException if the user input does not conform the expected format
+     */
+    private Command parseComplexCommand(Matcher complexCommandMatcher) throws ParseException {
+
+        final String firstCommandWord = complexCommandMatcher.group("firstCommandWord");
+        final String secondCommandWord = complexCommandMatcher.group("secondCommandWord");
+        final String fullCommandWord = firstCommandWord + " " + secondCommandWord;
+        final String arguments = complexCommandMatcher.group("arguments");
+        switch (fullCommandWord) {
 
         case AddCommand.COMMAND_WORD:
             return new AddCommandParser().parse(arguments);
 
-        case EditCommand.COMMAND_WORD:
-            return new EditCommandParser().parse(arguments);
+        case EditPersonCommand.COMMAND_WORD:
+            return new EditPersonCommandParser().parse(arguments);
 
-        case DeleteCommand.COMMAND_WORD:
-            return new DeleteCommandParser().parse(arguments);
+        case DeletePersonCommand.COMMAND_WORD:
+            return new DeletePersonCommandParser().parse(arguments);
 
-        case ClearCommand.COMMAND_WORD:
-            return new ClearCommand();
+        case ClearPersonCommand.COMMAND_WORD:
+            return new ClearPersonCommand();
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);
 
         case ListCommand.COMMAND_WORD:
             return new ListCommand();
+
+        default:
+            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+        }
+    }
+
+    /**
+     * Parses user input into simple command for execution.
+     * This is to be used for commands with only 1 command word and no arguments.
+     *
+     * @param simpleCommandMatcher Matcher that stores the complex command
+     * @return the command based on the user input
+     * @throws ParseException if the user input does not conform the expected format
+     */
+    private Command parseSimpleCommand(Matcher simpleCommandMatcher) throws ParseException {
+        final String commandWord = simpleCommandMatcher.group("commandWord");
+        switch (commandWord) {
 
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
