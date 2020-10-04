@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.Tab;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
@@ -49,6 +51,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane statusbarPlaceholder;
+
+    @FXML
+    private StackPane personAndJobTabPanePlaceholder;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -115,6 +120,9 @@ public class MainWindow extends UiPart<Stage> {
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
+
+        TabBar personAndJobTabPane = new TabBar();
+        personAndJobTabPanePlaceholder.getChildren().add(personAndJobTabPane.getRoot());
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getPersonAddressBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
