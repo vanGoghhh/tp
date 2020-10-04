@@ -15,7 +15,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.information.NameContainsKeywordsPredicate;
+import seedu.address.model.information.PersonNameContainsKeywordsPredicate;
 import seedu.address.testutil.AddressBookBuilder;
 
 public class ModelManagerTest {
@@ -26,7 +26,7 @@ public class ModelManagerTest {
     public void constructor() {
         assertEquals(new UserPrefs(), modelManager.getUserPrefs());
         assertEquals(new GuiSettings(), modelManager.getGuiSettings());
-        assertEquals(new AddressBook(), new AddressBook(modelManager.getAddressBook()));
+        assertEquals(new PersonAddressBook(), new PersonAddressBook(modelManager.getPersonAddressBook()));
     }
 
     @Test
@@ -62,14 +62,14 @@ public class ModelManagerTest {
 
     @Test
     public void setAddressBookFilePath_nullPath_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> modelManager.setAddressBookFilePath(null));
+        assertThrows(NullPointerException.class, () -> modelManager.setPersonAddressBookFilePath(null));
     }
 
     @Test
     public void setAddressBookFilePath_validPath_setsAddressBookFilePath() {
         Path path = Paths.get("address/book/file/path");
-        modelManager.setAddressBookFilePath(path);
-        assertEquals(path, modelManager.getAddressBookFilePath());
+        modelManager.setPersonAddressBookFilePath(path);
+        assertEquals(path, modelManager.getPersonAddressBookFilePath());
     }
 
     @Test
@@ -95,8 +95,8 @@ public class ModelManagerTest {
 
     @Test
     public void equals() {
-        AddressBook addressBook = new AddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
-        AddressBook differentAddressBook = new AddressBook();
+        PersonAddressBook addressBook = new AddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
+        PersonAddressBook differentAddressBook = new PersonAddressBook();
         UserPrefs userPrefs = new UserPrefs();
 
         // same values -> returns true
@@ -118,7 +118,7 @@ public class ModelManagerTest {
 
         // different filteredList -> returns false
         String[] keywords = ALICE.getName().fullName.split("\\s+");
-        modelManager.updateFilteredPersonList(new NameContainsKeywordsPredicate(Arrays.asList(keywords)));
+        modelManager.updateFilteredPersonList(new PersonNameContainsKeywordsPredicate(Arrays.asList(keywords)));
         assertFalse(modelManager.equals(new ModelManager(addressBook, userPrefs)));
 
         // resets modelManager to initial state for upcoming tests
