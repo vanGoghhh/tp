@@ -61,7 +61,7 @@ public class SampleDataUtil {
                 new Email("recruitment@google.com"), new Address("1600 Google Way, Mountain View, California"),
                 getTagSet("Medium")),
             new Job(new Name("CS2103T Lecturer"), new Name("NUS"), new Phone("62624417"),
-                new Email("recruitment@nus.edu.sg"), new Address("Blk 45 Aljunied Street 85, #11-31"),
+                new Email("recruitment@nus.edu.sg"), new Address("21 Lower Kent Ridge Rd, Singapore 119077"),
                 getTagSet("Medium"))
         };
     }

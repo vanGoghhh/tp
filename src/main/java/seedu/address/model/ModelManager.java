@@ -82,6 +82,17 @@ public class ModelManager implements Model {
         userPrefs.setAddressBookFilePath(addressBookFilePath);
     }
 
+    @Override
+    public Path getJobAddressBookFilePath() {
+        return userPrefs.getJobAddressBookFilePath();
+    }
+
+    @Override
+    public void setJobAddressBookFilePath(Path jobAddressBookFilePath) {
+        requireNonNull(jobAddressBookFilePath);
+        userPrefs.setJobAddressBookFilePath(jobAddressBookFilePath);
+    }
+
     //=========== AddressBook ================================================================================
 
     @Override
@@ -92,6 +103,16 @@ public class ModelManager implements Model {
     @Override
     public ReadOnlyPersonAddressBook getPersonAddressBook() {
         return addressBook;
+    }
+
+    @Override
+    public void setJobAddressBook(ReadOnlyJobAddressBook jobAddressBook) {
+        this.jobAddressBook.resetData(jobAddressBook);
+    }
+
+    @Override
+    public ReadOnlyJobAddressBook getJobAddressBook() {
+        return jobAddressBook;
     }
 
     @Override

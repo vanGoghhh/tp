@@ -24,9 +24,11 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
+import seedu.address.model.ReadOnlyJobAddressBook;
 import seedu.address.model.ReadOnlyPersonAddressBook;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.information.Person;
+import seedu.address.storage.JsonJobAddressBookStorage;
 import seedu.address.storage.JsonPersonAddressBookStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.StorageManager;
@@ -45,8 +47,10 @@ public class LogicManagerTest {
     public void setUp() {
         JsonPersonAddressBookStorage addressBookStorage =
                 new JsonPersonAddressBookStorage(temporaryFolder.resolve("addressBook.json"));
+        JsonJobAddressBookStorage jobAddressBookStorage =
+                new JsonJobAddressBookStorage(temporaryFolder.resolve("jobAddressBook.json"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
-        StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        StorageManager storage = new StorageManager(addressBookStorage, jobAddressBookStorage, userPrefsStorage);
         logic = new LogicManager(model, storage);
     }
 
@@ -74,9 +78,12 @@ public class LogicManagerTest {
         JsonPersonAddressBookStorage addressBookStorage =
                 new JsonPersonAddressBookIoExceptionThrowingStub(temporaryFolder
                         .resolve("ioExceptionAddressBook.json"));
+        JsonJobAddressBookStorage jobAddressBookStorage =
+                new JsonJobAddressBookIoExceptionThrowingStub(temporaryFolder
+                        .resolve("ioExceptionJobAddressBook.json"));
         JsonUserPrefsStorage userPrefsStorage =
                 new JsonUserPrefsStorage(temporaryFolder.resolve("ioExceptionUserPrefs.json"));
-        StorageManager storage = new StorageManager(addressBookStorage, userPrefsStorage);
+        StorageManager storage = new StorageManager(addressBookStorage, jobAddressBookStorage, userPrefsStorage);
         logic = new LogicManager(model, storage);
 
         // Execute add command
@@ -130,7 +137,8 @@ public class LogicManagerTest {
      */
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
             String expectedMessage) {
-        Model expectedModel = new ModelManager(model.getPersonAddressBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(model.getPersonAddressBook(), model.getJobAddressBook(),
+                new UserPrefs());
         assertCommandFailure(inputCommand, expectedException, expectedMessage, expectedModel);
     }
 
@@ -148,7 +156,7 @@ public class LogicManagerTest {
     }
 
     /**
-     * A stub class to throw an {@code IOException} when the save method is called.
+     * A stub class to throw an {@code IOException} when the save method of Person Address Book is called.
      */
     private static class JsonPersonAddressBookIoExceptionThrowingStub extends JsonPersonAddressBookStorage {
         private JsonPersonAddressBookIoExceptionThrowingStub(Path filePath) {
@@ -157,6 +165,20 @@ public class LogicManagerTest {
 
         @Override
         public void savePersonAddressBook(ReadOnlyPersonAddressBook addressBook, Path filePath) throws IOException {
+            throw DUMMY_IO_EXCEPTION;
+        }
+    }
+
+    /**
+     * A stub class to throw an {@code IOException} when the save method of Job Address Book is called.
+     */
+    private static class JsonJobAddressBookIoExceptionThrowingStub extends JsonJobAddressBookStorage {
+        private JsonJobAddressBookIoExceptionThrowingStub(Path filePath) {
+            super(filePath);
+        }
+
+        @Override
+        public void saveJobAddressBook(ReadOnlyJobAddressBook jobAddressBook, Path filePath) throws IOException {
             throw DUMMY_IO_EXCEPTION;
         }
     }

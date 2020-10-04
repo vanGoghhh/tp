@@ -18,8 +18,10 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.PersonAddressBook;
+import seedu.address.model.ReadOnlyJobAddressBook;
 import seedu.address.model.ReadOnlyPersonAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.information.Job;
 import seedu.address.model.information.Person;
 import seedu.address.testutil.PersonBuilder;
 
@@ -146,6 +148,41 @@ public class AddPersonCommandTest {
 
         @Override
         public void updateFilteredPersonList(Predicate<Person> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Path getJobAddressBookFilePath() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setJobAddressBookFilePath(Path addressBookFilePath) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setJobAddressBook(ReadOnlyJobAddressBook addressBook) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ReadOnlyJobAddressBook getJobAddressBook() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasJob(Job job) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void addJob(Job job) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateFilteredJobList(Predicate<Job> predicate) {
             throw new AssertionError("This method should not be called.");
         }
     }

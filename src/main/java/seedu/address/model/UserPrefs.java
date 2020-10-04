@@ -61,12 +61,10 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         this.addressBookFilePath = addressBookFilePath;
     }
 
-    /*
     public void setJobAddressBookFilePath(Path jobAddressBookFilePath) {
         requireNonNull(jobAddressBookFilePath);
         this.jobAddressBookFilePath = jobAddressBookFilePath;
     }
-     */
 
     @Override
     public boolean equals(Object other) {

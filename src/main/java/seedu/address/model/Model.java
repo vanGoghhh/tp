@@ -91,20 +91,20 @@ public interface Model {
 
     /**
      * Returns the user prefs' job address book file path.
-     * /
+     */
     Path getJobAddressBookFilePath();
 
     /**
      * Sets the user prefs' job address book file path.
-     * /
+     */
     void setJobAddressBookFilePath(Path addressBookFilePath);
 
     /**
      * Replaces address book data with the data in {@code addressBook}.
-     * /
+     */
     void setJobAddressBook(ReadOnlyJobAddressBook addressBook);
 
-    /** Returns the JobAddressBook * /
+    /** Returns the JobAddressBook */
     ReadOnlyJobAddressBook getJobAddressBook();
 
     /**
