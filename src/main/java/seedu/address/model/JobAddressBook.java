@@ -41,7 +41,7 @@ public class JobAddressBook implements ReadOnlyJobAddressBook {
 
     /**
      * Replaces the contents of the job list with {@code jobs}.
-     * {@code persons} must not contain duplicate persons.
+     * {@code jobs} must not contain duplicate persons.
      */
     public void setJobs(List<Job> jobs) {
         this.jobs.setJobs(jobs);
