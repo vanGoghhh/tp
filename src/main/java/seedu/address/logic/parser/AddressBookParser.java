@@ -40,12 +40,21 @@ public class AddressBookParser {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
         }
 
-        final String commandWord = matcher.group("commandWord");
-        final String arguments = matcher.group("arguments");
+        String commandWord = matcher.group("commandWord");
+        String arguments = matcher.group("arguments");
+
+        if (commandWord.equals("add")) {
+            String[] argumentSplit = arguments.split(" ", 3);
+            if (argumentSplit.length > 1) {
+                commandWord = commandWord + " " + argumentSplit[1];
+                arguments = " " + argumentSplit[2];
+            }
+        }
+
         switch (commandWord) {
 
         case AddPersonCommand.COMMAND_WORD:
-            return new AddCommandParser().parse(arguments);
+            return new AddPersonCommandParser().parse(arguments);
 
         case EditCommand.COMMAND_WORD:
             return new EditCommandParser().parse(arguments);
