@@ -6,7 +6,7 @@ import seedu.address.model.Model;
 import seedu.address.model.PersonAddressBook;
 
 /**
- * Clears the address book.
+ * Clears the candidate list.
  */
 public class ClearPersonCommand extends Command {
 
