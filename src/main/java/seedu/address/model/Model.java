@@ -100,9 +100,9 @@ public interface Model {
     void setJobAddressBookFilePath(Path addressBookFilePath);
 
     /**
-     * Replaces address book data with the data in {@code addressBook}.
+     * Replaces job address book data with the data in {@code jobAddressBook}.
      */
-    void setJobAddressBook(ReadOnlyJobAddressBook addressBook);
+    void setJobAddressBook(ReadOnlyJobAddressBook jobAddressBook);
 
     /** Returns the JobAddressBook */
     ReadOnlyJobAddressBook getJobAddressBook();
@@ -133,8 +133,8 @@ public interface Model {
     void setJob(Job target, Job editedJob);
     */
 
-    ///** Returns an unmodifiable view of the filtered job list */
-    //ObservableList<Job> getFilteredJobList();
+    /** Returns an unmodifiable view of the filtered job list */
+    ObservableList<Job> getFilteredJobList();
 
     /**
      * Updates the filter of the filtered job list to filter by the given {@code predicate}.
