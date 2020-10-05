@@ -30,20 +30,11 @@ public class ModelManager implements Model {
      * Initializes a ModelManager with the given addressBook, jobAddressBook and userPrefs.
      */
     public ModelManager(ReadOnlyPersonAddressBook personAddressBook, ReadOnlyJobAddressBook jobAddressBook,
-<<<<<<< HEAD
-            ReadOnlyUserPrefs userPrefs) {
-        super();
-        requireAllNonNull(personAddressBook, jobAddressBook, userPrefs);
-
-        logger.fine("Initializing with person address book: " + personAddressBook
-                + "Initializing with job address book: " + jobAddressBook + " and user prefs " + userPrefs);
-=======
                         ReadOnlyUserPrefs userPrefs) {
         super();
         requireAllNonNull(personAddressBook, jobAddressBook, userPrefs);
 
         logger.fine("Initializing with address book: " + personAddressBook + " and user prefs " + userPrefs);
->>>>>>> upstream/master
 
         this.personAddressBook = new PersonAddressBook(personAddressBook);
         this.jobAddressBook = new JobAddressBook(jobAddressBook);
