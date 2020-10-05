@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import seedu.address.logic.commands.AddJobCommand;
 import seedu.address.logic.commands.AddPersonCommand;
+import seedu.address.logic.commands.ClearJobCommand;
 import seedu.address.logic.commands.ClearPersonCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeletePersonCommand;
@@ -56,7 +57,7 @@ public class AddressBookParser {
 
     /**
      * Parses user input into complex command for execution.
-     * This is to be used for commands with more than 1 command word.
+     * This is to be used for commands with more than 1 command word and possibly arguments.
      *
      * @param complexCommandMatcher Matcher that stores the complex command
      * @return the command based on the user input
@@ -84,6 +85,9 @@ public class AddressBookParser {
 
         case ClearPersonCommand.COMMAND_WORD:
             return new ClearPersonCommand();
+
+        case ClearJobCommand.COMMAND_WORD:
+            return new ClearJobCommand();
 
         case FindCommand.COMMAND_WORD:
             return new FindCommandParser().parse(arguments);
