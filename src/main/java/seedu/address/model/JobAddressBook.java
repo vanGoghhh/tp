@@ -9,7 +9,7 @@ import seedu.address.model.information.Job;
 import seedu.address.model.information.UniqueJobList;
 
 /**
- * Wraps all data at the address-book level
+ * Wraps all job data at the address-book level
  * Duplicates are not allowed (by .isSameJob comparison)
  */
 public class JobAddressBook implements ReadOnlyJobAddressBook {
@@ -48,7 +48,7 @@ public class JobAddressBook implements ReadOnlyJobAddressBook {
     }
 
     /**
-     * Resets the existing data of this {@code AddressBook} with {@code newData}.
+     * Resets the existing job data of this {@code JobAddressBook} with {@code newData}.
      */
     public void resetData(ReadOnlyJobAddressBook newData) {
         requireNonNull(newData);
@@ -59,7 +59,7 @@ public class JobAddressBook implements ReadOnlyJobAddressBook {
     //// job-level operations
 
     /**
-     * Returns true if a job with the same identity as {@code job} exists in the address book.
+     * Returns true if a job with the same identity as {@code job} exists in the job address book.
      */
     public boolean hasJob(Job job) {
         requireNonNull(job);

@@ -27,14 +27,15 @@ public class ModelManager implements Model {
     private final FilteredList<Job> filteredJobs;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given addressBook, jobAddressBook and userPrefs.
      */
     public ModelManager(ReadOnlyPersonAddressBook personAddressBook, ReadOnlyJobAddressBook jobAddressBook,
-                        ReadOnlyUserPrefs userPrefs) {
+            ReadOnlyUserPrefs userPrefs) {
         super();
         requireAllNonNull(personAddressBook, jobAddressBook, userPrefs);
 
-        logger.fine("Initializing with address book: " + personAddressBook + " and user prefs " + userPrefs);
+        logger.fine("Initializing with person address book: " + personAddressBook
+                + "Initializing with job address book: " + jobAddressBook + " and user prefs " + userPrefs);
 
         this.personAddressBook = new PersonAddressBook(personAddressBook);
         this.jobAddressBook = new JobAddressBook(jobAddressBook);
@@ -73,13 +74,13 @@ public class ModelManager implements Model {
 
     @Override
     public Path getPersonAddressBookFilePath() {
-        return userPrefs.getAddressBookFilePath();
+        return userPrefs.getPersonAddressBookFilePath();
     }
 
     @Override
-    public void setPersonAddressBookFilePath(Path addressBookFilePath) {
-        requireNonNull(addressBookFilePath);
-        userPrefs.setAddressBookFilePath(addressBookFilePath);
+    public void setPersonAddressBookFilePath(Path personAddressBookFilePath) {
+        requireNonNull(personAddressBookFilePath);
+        userPrefs.setPersonAddressBookFilePath(personAddressBookFilePath);
     }
 
     @Override
@@ -96,8 +97,8 @@ public class ModelManager implements Model {
     //=========== Person AddressBook ================================================================================
 
     @Override
-    public void setPersonAddressBook(ReadOnlyPersonAddressBook addressBook) {
-        this.personAddressBook.resetData(addressBook);
+    public void setPersonAddressBook(ReadOnlyPersonAddressBook personAddressBook) {
+        this.personAddressBook.resetData(personAddressBook);
     }
 
     @Override
@@ -129,7 +130,7 @@ public class ModelManager implements Model {
         personAddressBook.setPerson(target, editedPerson);
     }
 
-    //=========== Job AddressBook ================================================================================
+    //=========== JobAddressBook ================================================================================
 
     @Override
     public void setJobAddressBook(ReadOnlyJobAddressBook jobAddressBook) {
@@ -198,6 +199,8 @@ public class ModelManager implements Model {
         requireNonNull(predicate);
         filteredJobs.setPredicate(predicate);
     }
+
+    //=========== Others =============================================================
 
     @Override
     public boolean equals(Object obj) {

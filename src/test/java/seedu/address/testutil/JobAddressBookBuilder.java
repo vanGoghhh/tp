@@ -4,7 +4,7 @@ import seedu.address.model.JobAddressBook;
 import seedu.address.model.information.Job;
 
 /**
- * A utility class to help with building JobAddressbook objects.
+ * A utility class to help with building JobAddressBook objects.
  * Example usage: <br>
  *     {@code JobAddressBook jab = new JobAddressBookBuilder().withJob("IRAS", "MAYBANK").build();}
  */

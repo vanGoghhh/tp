@@ -38,6 +38,8 @@ public interface Model {
      */
     void setGuiSettings(GuiSettings guiSettings);
 
+    //=========== PersonAddressBook ================================================================================
+
     /**
      * Returns the user prefs' person address book file path.
      */
@@ -49,34 +51,35 @@ public interface Model {
     void setPersonAddressBookFilePath(Path addressBookFilePath);
 
     /**
-     * Replaces address book data with the data in {@code addressBook}.
+     * Replaces person address book data with the data in {@code personAddressBook}.
      */
-    void setPersonAddressBook(ReadOnlyPersonAddressBook addressBook);
+    void setPersonAddressBook(ReadOnlyPersonAddressBook personAddressBook);
 
     /** Returns the PersonAddressBook */
     ReadOnlyPersonAddressBook getPersonAddressBook();
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a person with the same identity as {@code person} exists in the person address book.
      */
     boolean hasPerson(Person person);
 
     /**
      * Deletes the given person.
-     * The person must exist in the address book.
+     * The person must exist in the person address book.
      */
     void deletePerson(Person target);
 
     /**
      * Adds the given person.
-     * {@code person} must not already exist in the address book.
+     * {@code person} must not already exist in the person address book.
      */
     void addPerson(Person person);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * {@code target} must exist in the person address book.
+     * The person identity of {@code editedPerson} must not be the same as another existing person in the person
+     * address book.
      */
     void setPerson(Person target, Person editedPerson);
 
@@ -88,6 +91,8 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    //=========== JobAddressBook ================================================================================
 
     /**
      * Returns the user prefs' job address book file path.
@@ -108,26 +113,26 @@ public interface Model {
     ReadOnlyJobAddressBook getJobAddressBook();
 
     /**
-     * Returns true if a job with the same identity as {@code job} exists in the address book.
+     * Returns true if a job with the same identity as {@code job} exists in the job address book.
      */
     boolean hasJob(Job job);
 
     /**
      * Deletes the given job.
-     * The job must exist in the address book.
+     * The job must exist in the job address book.
      */
     void deleteJob(Job target);
 
     /**
      * Adds the given job.
-     * {@code job} must not already exist in the address book.
+     * {@code job} must not already exist in the job address book.
      */
     void addJob(Job job);
 
 
     /**
      * Replaces the given job {@code target} with {@code editedJob}.
-     * {@code target} must exist in the address book.
+     * {@code target} must exist in the job address book.
      * The job identity of {@code editedJob} must not be the same as another existing job in the address book.
      */
     void setJob(Job target, Job editedJob);

@@ -12,7 +12,7 @@ import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
 /**
- * A utility class to help with building Person objects.
+ * A utility class to help with building Job objects.
  */
 public class JobBuilder {
 
@@ -30,7 +30,7 @@ public class JobBuilder {
     private Set<Tag> tags;
 
     /**
-     * Creates a {@code JobBuilder} with the default details.
+     * Creates a {@code Job} with the default details.
      */
     public JobBuilder() {
         jobTitle = new Name(DEFAULT_JOB_TITLE);
@@ -42,7 +42,7 @@ public class JobBuilder {
     }
 
     /**
-     * Initializes the PersonBuilder with the data of {@code personToCopy}.
+     * Initializes the JobBuilder with the data of {@code jobToCopy}.
      */
     public JobBuilder(Job jobToCopy) {
         jobTitle = jobToCopy.getJobTitle();

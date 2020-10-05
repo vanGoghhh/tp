@@ -6,7 +6,7 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.HOON;
 import static seedu.address.testutil.TypicalPersons.IDA;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalPersons.getTypicalPersonAddressBook;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -64,7 +64,7 @@ public class JsonPersonAddressBookStorageTest {
     @Test
     public void readAndSaveAddressBook_allInOrder_success() throws Exception {
         Path filePath = testFolder.resolve("TempAddressBook.json");
-        PersonAddressBook original = getTypicalAddressBook();
+        PersonAddressBook original = getTypicalPersonAddressBook();
         JsonPersonAddressBookStorage jsonAddressBookStorage = new JsonPersonAddressBookStorage(filePath);
 
         // Save in new file and read back
