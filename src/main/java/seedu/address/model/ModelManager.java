@@ -93,7 +93,7 @@ public class ModelManager implements Model {
         userPrefs.setJobAddressBookFilePath(jobAddressBookFilePath);
     }
 
-    //=========== AddressBook ================================================================================
+    //=========== Person AddressBook ================================================================================
 
     @Override
     public void setPersonAddressBook(ReadOnlyPersonAddressBook addressBook) {
@@ -103,21 +103,6 @@ public class ModelManager implements Model {
     @Override
     public ReadOnlyPersonAddressBook getPersonAddressBook() {
         return personAddressBook;
-    }
-
-    @Override
-    public void setJobAddressBook(ReadOnlyJobAddressBook jobAddressBook) {
-        this.jobAddressBook.resetData(jobAddressBook);
-    }
-
-    @Override
-    public void deleteJob(Job target) {
-        jobAddressBook.removeJob(target);
-    }
-
-    @Override
-    public ReadOnlyJobAddressBook getJobAddressBook() {
-        return jobAddressBook;
     }
 
     @Override
@@ -144,6 +129,42 @@ public class ModelManager implements Model {
         personAddressBook.setPerson(target, editedPerson);
     }
 
+    //=========== Job AddressBook ================================================================================
+
+    @Override
+    public void setJobAddressBook(ReadOnlyJobAddressBook jobAddressBook) {
+        this.jobAddressBook.resetData(jobAddressBook);
+    }
+
+    @Override
+    public void deleteJob(Job target) {
+        jobAddressBook.removeJob(target);
+    }
+
+    @Override
+    public ReadOnlyJobAddressBook getJobAddressBook() {
+        return jobAddressBook;
+    }
+
+    @Override
+    public boolean hasJob(Job job) {
+        requireNonNull(job);
+        return jobAddressBook.hasJob(job);
+    }
+
+    @Override
+    public void addJob(Job job) {
+        jobAddressBook.addJob(job);
+        updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS);
+    }
+
+    @Override
+    public void setJob(Job target, Job editedJob) {
+        requireAllNonNull(target, editedJob);
+
+        jobAddressBook.setJob(target, editedJob);
+    }
+
     //=========== Filtered Person List Accessors =============================================================
 
     /**
@@ -161,17 +182,7 @@ public class ModelManager implements Model {
         filteredPersons.setPredicate(predicate);
     }
 
-    @Override
-    public boolean hasJob(Job job) {
-        requireNonNull(job);
-        return jobAddressBook.hasJob(job);
-    }
-
-    @Override
-    public void addJob(Job job) {
-        jobAddressBook.addJob(job);
-        updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS);
-    }
+    //=========== Filtered Job List Accessors =============================================================
 
     /**
      * Returns an unmodifiable view of the list of {@code Job} backed by the internal list of
@@ -203,6 +214,7 @@ public class ModelManager implements Model {
         // state check
         ModelManager other = (ModelManager) obj;
         return personAddressBook.equals(other.personAddressBook)
+                && jobAddressBook.equals(other.jobAddressBook)
                 && userPrefs.equals(other.userPrefs)
                 && filteredPersons.equals(other.filteredPersons);
     }
