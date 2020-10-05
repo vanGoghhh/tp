@@ -4,10 +4,13 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import seedu.address.model.JobAddressBook;
 import seedu.address.model.PersonAddressBook;
+import seedu.address.model.ReadOnlyJobAddressBook;
 import seedu.address.model.ReadOnlyPersonAddressBook;
 import seedu.address.model.information.Address;
 import seedu.address.model.information.Email;
+import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.Phone;
@@ -40,10 +43,41 @@ public class SampleDataUtil {
         };
     }
 
+    public static Job[] getSampleJobs() {
+        return new Job[] {
+            new Job(new Name("Toilet Bowl Cleaner"), new Name("Facebook"), new Phone("67438807"),
+                new Email("recruitment@facebook.com"), new Address("1 Hacker Way, Menlo Park, CA 94025"),
+                getTagSet("High")),
+            new Job(new Name("Wall Painter"), new Name("Apple"), new Phone("69272758"),
+                new Email("recruitment@apple.com"), new Address("1 Apple Park Way, Cupertino, California"),
+                getTagSet("Low")),
+            new Job(new Name("Plant Waterer"), new Name("Amazon"), new Phone("63210283"),
+                new Email("recruitment@amazon.com"), new Address("16 Forest Way, Seattle, Washington"),
+                getTagSet("Low")),
+            new Job(new Name("Glass Wiper"), new Name("Netflix"), new Phone("61031282"),
+                new Email("recruitment@netflix.com"), new Address("19 Netflix Lane, Los Gatos, California"),
+                getTagSet("Low")),
+            new Job(new Name("Software Engineer"), new Name("Google"), new Phone("62492021"),
+                new Email("recruitment@google.com"), new Address("1600 Google Way, Mountain View, California"),
+                getTagSet("Medium")),
+            new Job(new Name("CS2103T Lecturer"), new Name("NUS"), new Phone("62624417"),
+                new Email("recruitment@nus.edu.sg"), new Address("21 Lower Kent Ridge Rd, Singapore 119077"),
+                getTagSet("Medium"))
+        };
+    }
+
     public static ReadOnlyPersonAddressBook getSamplePersonAddressBook() {
         PersonAddressBook sampleAb = new PersonAddressBook();
         for (Person samplePerson : getSamplePersons()) {
             sampleAb.addPerson(samplePerson);
+        }
+        return sampleAb;
+    }
+
+    public static ReadOnlyJobAddressBook getSampleJobAddressBook() {
+        JobAddressBook sampleAb = new JobAddressBook();
+        for (Job sampleJob : getSampleJobs()) {
+            sampleAb.addJob(sampleJob);
         }
         return sampleAb;
     }
