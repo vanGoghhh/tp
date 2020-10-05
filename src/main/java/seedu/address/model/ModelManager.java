@@ -168,6 +168,15 @@ public class ModelManager implements Model {
         updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS);
     }
 
+    /**
+     * Returns an unmodifiable view of the list of {@code Job} backed by the internal list of
+     * {@code versionedAddressBook}
+     */
+    @Override
+    public ObservableList<Job> getFilteredJobList() {
+        return filteredJobs;
+    }
+
     @Override
     public void updateFilteredJobList(Predicate<Job> predicate) {
         requireNonNull(predicate);
