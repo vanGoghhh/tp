@@ -119,8 +119,13 @@ public interface Model {
 
     /**
      * Deletes the given job.
+<<<<<<< HEAD
      * The job must exist in the address book.
      */
+=======
+     * The job must exist in the job address book.
+     * /
+>>>>>>> be08d98e3fe1e5c30bc1957b60698b59a23fddb4
     void deleteJob(Job target);
 
     /**
