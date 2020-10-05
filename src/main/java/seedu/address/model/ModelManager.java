@@ -94,7 +94,7 @@ public class ModelManager implements Model {
         userPrefs.setJobAddressBookFilePath(jobAddressBookFilePath);
     }
 
-    //=========== AddressBook ================================================================================
+    //=========== Person AddressBook ================================================================================
 
     @Override
     public void setPersonAddressBook(ReadOnlyPersonAddressBook personAddressBook) {
@@ -138,6 +138,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void deleteJob(Job target) {
+        jobAddressBook.removeJob(target);
+    }
+
+    @Override
     public ReadOnlyJobAddressBook getJobAddressBook() {
         return jobAddressBook;
     }
@@ -152,6 +157,13 @@ public class ModelManager implements Model {
     public void addJob(Job job) {
         jobAddressBook.addJob(job);
         updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS);
+    }
+
+    @Override
+    public void setJob(Job target, Job editedJob) {
+        requireAllNonNull(target, editedJob);
+
+        jobAddressBook.setJob(target, editedJob);
     }
 
     //=========== Filtered Person List Accessors =============================================================
