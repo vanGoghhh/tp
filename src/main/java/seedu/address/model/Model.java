@@ -115,7 +115,7 @@ public interface Model {
     /**
      * Deletes the given job.
      * The job must exist in the address book.
-     * /
+     */
     void deleteJob(Job target);
 
     /**
@@ -124,14 +124,14 @@ public interface Model {
      */
     void addJob(Job job);
 
-    /*
+
     /**
      * Replaces the given job {@code target} with {@code editedJob}.
      * {@code target} must exist in the address book.
      * The job identity of {@code editedJob} must not be the same as another existing job in the address book.
-     * /
+     */
     void setJob(Job target, Job editedJob);
-    */
+
 
     /** Returns an unmodifiable view of the filtered job list */
     ObservableList<Job> getFilteredJobList();
