@@ -44,9 +44,6 @@ public class MainWindow extends UiPart<Stage> {
     private MenuItem helpMenuItem;
 
     @FXML
-    private StackPane personListPanelPlaceholder;
-
-    @FXML
     private StackPane resultDisplayPlaceholder;
 
     @FXML
@@ -115,13 +112,11 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        personListPanel = new PersonListPanel(logic.getFilteredPersonList());
-        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
-
+        
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
-        TabBar personAndJobTabPane = new TabBar();
+        TabBar personAndJobTabPane = new TabBar(this.logic);
         personAndJobTabPanePlaceholder.getChildren().add(personAndJobTabPane.getRoot());
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getPersonAddressBookFilePath());
