@@ -32,11 +32,15 @@ public class TabBar extends UiPart<Region> {
     @FXML
     private StackPane personListPanelPlaceholder;
 
+    @FXML
+    private StackPane jobListPanelPlaceholder;
+
 
     public TabBar(Logic logic) {
         super(FXML);
         this.logic = logic;
         setPersonAndJobTabBar();
+        populateTab();
     }
 
     private void setPersonAndJobTabBar() {
@@ -44,9 +48,11 @@ public class TabBar extends UiPart<Region> {
         jobTab.setText("Jobs");
         personAndJobTabBar.setTabMinWidth(335);
         personAndJobTabBar.setTabMaxWidth(335);
+    }
+
+    private void populateTab() {
         PersonListPanel personListPanel = new PersonListPanel(logic.getFilteredPersonList());
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
-
     }
 
 }
