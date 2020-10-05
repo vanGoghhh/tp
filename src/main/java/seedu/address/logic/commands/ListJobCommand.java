@@ -6,7 +6,7 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_JOBS;
 import seedu.address.model.Model;
 
 /**
- * Lists all jobs in the address book to the user.
+ * Lists all jobs in the job address book to the user.
  */
 public class ListJobCommand extends Command {
 
