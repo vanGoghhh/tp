@@ -30,7 +30,7 @@ public class AddJobCommand extends Command {
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_JOB_TITLE + "Cashier "
             + PREFIX_COMPANY_NAME + "Walmart "
-            + PREFIX_PHONE + "98765432 "
+            + PREFIX_PHONE + "68765432 "
             + PREFIX_EMAIL + "recruitment@walmart.com "
             + PREFIX_ADDRESS + "1, Manhatten Street 2, #01-25 "
             + PREFIX_TAG + "High ";
@@ -41,7 +41,7 @@ public class AddJobCommand extends Command {
     private final Job toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Person}
+     * Creates an AddJobCommand to add the specified {@code Job}
      */
     public AddJobCommand(Job job) {
         requireNonNull(job);

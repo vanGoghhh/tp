@@ -21,6 +21,8 @@ public interface Storage extends PersonAddressBookStorage, JobAddressBookStorage
     @Override
     void saveUserPrefs(ReadOnlyUserPrefs userPrefs) throws IOException;
 
+    //=========== PersonAddressBookStorage ============================================================================
+
     @Override
     Path getPersonAddressBookFilePath();
 
@@ -28,7 +30,9 @@ public interface Storage extends PersonAddressBookStorage, JobAddressBookStorage
     Optional<ReadOnlyPersonAddressBook> readPersonAddressBook() throws DataConversionException, IOException;
 
     @Override
-    void savePersonAddressBook(ReadOnlyPersonAddressBook addressBook) throws IOException;
+    void savePersonAddressBook(ReadOnlyPersonAddressBook personAddressBook) throws IOException;
+
+    //=========== JobAddressBookStorage ===============================================================================
 
     @Override
     Path getJobAddressBookFilePath();
@@ -37,6 +41,6 @@ public interface Storage extends PersonAddressBookStorage, JobAddressBookStorage
     Optional<ReadOnlyJobAddressBook> readJobAddressBook() throws DataConversionException, IOException;
 
     @Override
-    void saveJobAddressBook(ReadOnlyJobAddressBook addressBook) throws IOException;
+    void saveJobAddressBook(ReadOnlyJobAddressBook jobAddressBook) throws IOException;
 
 }

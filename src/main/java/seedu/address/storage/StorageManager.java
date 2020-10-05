@@ -13,22 +13,22 @@ import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 
 /**
- * Manages storage of AddressBook data in local storage.
+ * Manages storage of PersonAddressBook and JobAddressBook data in local storage.
  */
 public class StorageManager implements Storage {
 
     private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
-    private PersonAddressBookStorage addressBookStorage;
+    private PersonAddressBookStorage personAddressBookStorage;
     private JobAddressBookStorage jobAddressBookStorage;
     private UserPrefsStorage userPrefsStorage;
 
     /**
      * Creates a {@code StorageManager} with the given {@code PersonAddressBookStorage} and {@code UserPrefStorage}.
      */
-    public StorageManager(PersonAddressBookStorage addressBookStorage, JobAddressBookStorage jobAddressBookStorage,
-              UserPrefsStorage userPrefsStorage) {
+    public StorageManager(PersonAddressBookStorage personAddressBookStorage,
+                          JobAddressBookStorage jobAddressBookStorage, UserPrefsStorage userPrefsStorage) {
         super();
-        this.addressBookStorage = addressBookStorage;
+        this.personAddressBookStorage = personAddressBookStorage;
         this.jobAddressBookStorage = jobAddressBookStorage;
         this.userPrefsStorage = userPrefsStorage;
     }
@@ -51,34 +51,34 @@ public class StorageManager implements Storage {
     }
 
 
-    // ================ AddressBook methods ==============================
+    // ================ PersonAddressBook methods ==============================
 
     @Override
     public Path getPersonAddressBookFilePath() {
-        return addressBookStorage.getPersonAddressBookFilePath();
+        return personAddressBookStorage.getPersonAddressBookFilePath();
     }
 
     @Override
     public Optional<ReadOnlyPersonAddressBook> readPersonAddressBook() throws DataConversionException, IOException {
-        return readPersonAddressBook(addressBookStorage.getPersonAddressBookFilePath());
+        return readPersonAddressBook(personAddressBookStorage.getPersonAddressBookFilePath());
     }
 
     @Override
     public Optional<ReadOnlyPersonAddressBook> readPersonAddressBook(Path filePath)
             throws DataConversionException, IOException {
-        logger.fine("Attempting to read data from file: " + filePath);
-        return addressBookStorage.readPersonAddressBook(filePath);
+        logger.fine("Attempting to read person data from file: " + filePath);
+        return personAddressBookStorage.readPersonAddressBook(filePath);
     }
 
     @Override
-    public void savePersonAddressBook(ReadOnlyPersonAddressBook addressBook) throws IOException {
-        savePersonAddressBook(addressBook, addressBookStorage.getPersonAddressBookFilePath());
+    public void savePersonAddressBook(ReadOnlyPersonAddressBook personAddressBook) throws IOException {
+        savePersonAddressBook(personAddressBook, personAddressBookStorage.getPersonAddressBookFilePath());
     }
 
     @Override
-    public void savePersonAddressBook(ReadOnlyPersonAddressBook addressBook, Path filePath) throws IOException {
-        logger.fine("Attempting to write to data file: " + filePath);
-        addressBookStorage.savePersonAddressBook(addressBook, filePath);
+    public void savePersonAddressBook(ReadOnlyPersonAddressBook personAddressBook, Path filePath) throws IOException {
+        logger.fine("Attempting to write to person data file: " + filePath);
+        personAddressBookStorage.savePersonAddressBook(personAddressBook, filePath);
     }
 
     // ================ JobAddressBook methods ==============================
@@ -96,7 +96,7 @@ public class StorageManager implements Storage {
     @Override
     public Optional<ReadOnlyJobAddressBook> readJobAddressBook(Path filePath)
             throws DataConversionException, IOException {
-        logger.fine("Attempting to read data from file: " + filePath);
+        logger.fine("Attempting to read job data from file: " + filePath);
         return jobAddressBookStorage.readJobAddressBook(filePath);
     }
 
@@ -107,7 +107,7 @@ public class StorageManager implements Storage {
 
     @Override
     public void saveJobAddressBook(ReadOnlyJobAddressBook jobAddressBook, Path filePath) throws IOException {
-        logger.fine("Attempting to write to data file: " + filePath);
+        logger.fine("Attempting to write to job data file: " + filePath);
         jobAddressBookStorage.saveJobAddressBook(jobAddressBook, filePath);
     }
 

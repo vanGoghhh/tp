@@ -66,8 +66,8 @@ public class CommandTestUtil {
     public static final String VALID_EMAIL_MAYBANK = "enquiries@maybank.com.sg";
     public static final String VALID_ADDRESS_IRAS = "55 Newton Rd, Revenue House, Singapore 307987";
     public static final String VALID_ADDRESS_MAYBANK = "23 Serangoon Central, # B2 - 27, Singapore 556083";
-    public static final String VALID_TAG_IRAS = "High";
-    public static final String VALID_TAG_MAYBANK = "Medium";
+    public static final String VALID_TAG_IRAS = "Tax";
+    public static final String VALID_TAG_MAYBANK = "Banking";
 
     public static final String JOB_TITLE_DESC_IRAS = " " + PREFIX_NAME + VALID_JOB_TITLE_IRAS;
     public static final String JOB_TITLE_DESC_MAYBANK = " " + PREFIX_NAME + VALID_JOB_TITLE_MAYBANK;
