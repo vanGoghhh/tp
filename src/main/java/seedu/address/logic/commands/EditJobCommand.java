@@ -30,7 +30,7 @@ import seedu.address.model.tag.Tag;
 /**
  * Edits the details of an existing job in the address book.
  */
-public class EditJobCommand extends Command{
+public class EditJobCommand extends Command {
 
     public static final String COMMAND_WORD = "edit job";
 
