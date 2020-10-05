@@ -7,14 +7,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-import seedu.address.model.information.Person;
+import seedu.address.model.information.Job;
 
 /**
- * An UI component that displays information of a {@code Person}.
+ * An UI component that displays information of a {@code Job}.
  */
-public class PersonCard extends UiPart<Region> {
+public class JobCard extends UiPart<Region> {
 
-    private static final String FXML = "PersonListCard.fxml";
+    private static final String FXML = "JobListCard.fxml";
 
     /**
      * Note: Certain keywords such as "location" and "resources" are reserved keywords in JavaFX.
@@ -24,37 +24,40 @@ public class PersonCard extends UiPart<Region> {
      * @see <a href="https://github.com/se-edu/addressbook-level4/issues/336">The issue on AddressBook level 4</a>
      */
 
-    public final Person person;
+    public final Job job;
 
     @FXML
     private HBox cardPane;
     @FXML
-    private Label personName;
+    private Label jobName;
     @FXML
-    private Label personId;
+    private Label companyName;
     @FXML
-    private Label personPhone;
+    private Label companyId;
     @FXML
-    private Label personAddress;
+    private Label companyPhone;
     @FXML
-    private Label personEmail;
+    private Label companyAddress;
     @FXML
-    private FlowPane personTags;
+    private Label companyEmail;
+    @FXML
+    private FlowPane companyTags;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
-    public PersonCard(Person person, int displayedIndex) {
+    public JobCard(Job job, int displayedIndex) {
         super(FXML);
-        this.person = person;
-        personId.setText(displayedIndex + ". ");
-        personName.setText(person.getName().fullName);
-        personPhone.setText(person.getPhone().value);
-        personAddress.setText(person.getAddress().value);
-        personEmail.setText(person.getEmail().value);
-        person.getTags().stream()
+        this.job = job;
+        companyId.setText(displayedIndex + ". ");
+        jobName.setText(job.getJobTitle().fullName);
+        companyName.setText(job.getCompanyName().fullName);
+        companyPhone.setText(job.getPhone().value);
+        companyAddress.setText(job.getAddress().value);
+        companyEmail.setText(job.getEmail().value);
+        job.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> personTags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> companyTags.getChildren().add(new Label(tag.tagName)));
     }
 
     @Override
@@ -65,13 +68,13 @@ public class PersonCard extends UiPart<Region> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof PersonCard)) {
+        if (!(other instanceof JobCard)) {
             return false;
         }
 
         // state check
-        PersonCard card = (PersonCard) other;
-        return personId.getText().equals(card.personId.getText())
-                && person.equals(card.person);
+        JobCard card = (JobCard) other;
+        return companyId.getText().equals(card.companyId.getText())
+                && job.equals(card.job);
     }
 }
