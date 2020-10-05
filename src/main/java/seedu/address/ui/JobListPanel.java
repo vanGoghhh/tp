@@ -20,9 +20,9 @@ public class JobListPanel extends UiPart<Region> {
     /**
      * Creates a {@code PersonListPanel} with the given {@code ObservableList}.
      */
-    public JobListPanel(ObservableList<Job> JobList) {
+    public JobListPanel(ObservableList<Job> jobList) {
         super(FXML);
-        jobListView.setItems(JobList);
+        jobListView.setItems(jobList);
         jobListView.setCellFactory(listView -> new JobListPanel.JobListViewCell());
     }
 
