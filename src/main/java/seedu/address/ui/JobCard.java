@@ -34,15 +34,15 @@ public class JobCard extends UiPart<Region> {
     @FXML
     private Label companyName;
     @FXML
-    private Label id;
+    private Label companyId;
     @FXML
-    private Label phone;
+    private Label companyPhone;
     @FXML
-    private Label address;
+    private Label companyAddress;
     @FXML
-    private Label email;
+    private Label companyEmail;
     @FXML
-    private FlowPane tags;
+    private FlowPane companyTags;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -50,15 +50,15 @@ public class JobCard extends UiPart<Region> {
     public JobCard(Job job, int displayedIndex) {
         super(FXML);
         this.job = job;
-        id.setText(displayedIndex + ". ");
+        companyId.setText(displayedIndex + ". ");
         jobName.setText(job.getJobTitle().fullName);
         companyName.setText(job.getCompanyName().fullName);
-        phone.setText(job.getPhone().value);
-        address.setText(job.getAddress().value);
-        email.setText(job.getEmail().value);
+        companyPhone.setText(job.getPhone().value);
+        companyAddress.setText(job.getAddress().value);
+        companyEmail.setText(job.getEmail().value);
         job.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> companyTags.getChildren().add(new Label(tag.tagName)));
     }
 
     @Override
@@ -75,7 +75,7 @@ public class JobCard extends UiPart<Region> {
 
         // state check
         JobCard card = (JobCard) other;
-        return id.getText().equals(card.id.getText())
+        return companyId.getText().equals(card.companyId.getText())
                 && job.equals(card.job);
     }
 }
