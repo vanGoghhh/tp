@@ -324,7 +324,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1a. Input format is invalid.
 
     * 1a1. CANdidates shows an error message.
- 
+
       Use case ends.
 
 * 1b. The given candidate already exists.
