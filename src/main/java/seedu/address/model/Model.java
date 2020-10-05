@@ -120,7 +120,7 @@ public interface Model {
     /**
      * Deletes the given job.
      * The job must exist in the job address book.
-     * /
+     */
     void deleteJob(Job target);
 
     /**
