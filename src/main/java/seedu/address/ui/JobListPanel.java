@@ -10,20 +10,20 @@ import javafx.scene.layout.Region;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.information.Job;
 
-public class JobListPanel extends UiPart<Region>  {
+public class JobListPanel extends UiPart<Region> {
     private static final String FXML = "JobListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
 
     @FXML
-    private ListView<Job> JobListView;
+    private ListView<Job> jobListView;
 
     /**
      * Creates a {@code PersonListPanel} with the given {@code ObservableList}.
      */
     public JobListPanel(ObservableList<Job> JobList) {
         super(FXML);
-        JobListView.setItems(JobList);
-        JobListView.setCellFactory(listView -> new JobListPanel.JobListViewCell());
+        jobListView.setItems(JobList);
+        jobListView.setCellFactory(listView -> new JobListPanel.JobListViewCell());
     }
 
     /**
