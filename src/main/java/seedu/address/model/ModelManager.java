@@ -20,7 +20,7 @@ import seedu.address.model.information.Person;
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final PersonAddressBook addressBook;
+    private final PersonAddressBook personAddressBook;
     private final JobAddressBook jobAddressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
@@ -29,17 +29,17 @@ public class ModelManager implements Model {
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyPersonAddressBook addressBook, ReadOnlyJobAddressBook jobAddressBook,
-            ReadOnlyUserPrefs userPrefs) {
+    public ModelManager(ReadOnlyPersonAddressBook personAddressBook, ReadOnlyJobAddressBook jobAddressBook,
+                        ReadOnlyUserPrefs userPrefs) {
         super();
-        requireAllNonNull(addressBook, jobAddressBook, userPrefs);
+        requireAllNonNull(personAddressBook, jobAddressBook, userPrefs);
 
-        logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
+        logger.fine("Initializing with address book: " + personAddressBook + " and user prefs " + userPrefs);
 
-        this.addressBook = new PersonAddressBook(addressBook);
+        this.personAddressBook = new PersonAddressBook(personAddressBook);
         this.jobAddressBook = new JobAddressBook(jobAddressBook);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
+        filteredPersons = new FilteredList<>(this.personAddressBook.getPersonList());
         filteredJobs = new FilteredList<>(this.jobAddressBook.getJobList());
     }
 
@@ -97,17 +97,22 @@ public class ModelManager implements Model {
 
     @Override
     public void setPersonAddressBook(ReadOnlyPersonAddressBook addressBook) {
-        this.addressBook.resetData(addressBook);
+        this.personAddressBook.resetData(addressBook);
     }
 
     @Override
     public ReadOnlyPersonAddressBook getPersonAddressBook() {
-        return addressBook;
+        return personAddressBook;
     }
 
     @Override
     public void setJobAddressBook(ReadOnlyJobAddressBook jobAddressBook) {
         this.jobAddressBook.resetData(jobAddressBook);
+    }
+
+    @Override
+    public void deleteJob(Job target) {
+        jobAddressBook.removeJob(target);
     }
 
     @Override
@@ -118,17 +123,17 @@ public class ModelManager implements Model {
     @Override
     public boolean hasPerson(Person person) {
         requireNonNull(person);
-        return addressBook.hasPerson(person);
+        return personAddressBook.hasPerson(person);
     }
 
     @Override
     public void deletePerson(Person target) {
-        addressBook.removePerson(target);
+        personAddressBook.removePerson(target);
     }
 
     @Override
     public void addPerson(Person person) {
-        addressBook.addPerson(person);
+        personAddressBook.addPerson(person);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
     }
 
@@ -136,7 +141,7 @@ public class ModelManager implements Model {
     public void setPerson(Person target, Person editedPerson) {
         requireAllNonNull(target, editedPerson);
 
-        addressBook.setPerson(target, editedPerson);
+        personAddressBook.setPerson(target, editedPerson);
     }
 
     //=========== Filtered Person List Accessors =============================================================
@@ -197,7 +202,7 @@ public class ModelManager implements Model {
 
         // state check
         ModelManager other = (ModelManager) obj;
-        return addressBook.equals(other.addressBook)
+        return personAddressBook.equals(other.personAddressBook)
                 && userPrefs.equals(other.userPrefs)
                 && filteredPersons.equals(other.filteredPersons);
     }

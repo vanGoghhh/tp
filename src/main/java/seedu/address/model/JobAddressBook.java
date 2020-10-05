@@ -87,15 +87,15 @@ public class JobAddressBook implements ReadOnlyJobAddressBook {
     }
      */
 
-    /*
+
     /**
      * Removes {@code key} from this {@code JobAddressBook}.
      * {@code key} must exist in the job address book.
-     * /
+     */
     public void removeJob(Job key) {
         jobs.remove(key);
     }
-     */
+
 
     //// util methods
 
