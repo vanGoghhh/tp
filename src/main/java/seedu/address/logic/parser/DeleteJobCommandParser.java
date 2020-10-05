@@ -25,6 +25,4 @@ public class DeleteJobCommandParser implements Parser<DeleteJobCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteJobCommand.MESSAGE_USAGE), pe);
         }
     }
-
-
 }

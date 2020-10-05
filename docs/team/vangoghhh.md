@@ -23,7 +23,7 @@ Given below are my contributions to the project.
 * **Documentation**:
 * readME:
     * Designed a UI mock up of our application and included in the readME document
-   
+
 
 * **Community**: _{To be updated}_
   * PRs reviewed (with non-trivial review comments): [\#]()
