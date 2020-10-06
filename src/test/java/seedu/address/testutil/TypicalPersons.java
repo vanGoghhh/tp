@@ -62,12 +62,12 @@ public class TypicalPersons {
     /**
      * Returns an {@code AddressBook} with all the typical persons.
      */
-    public static PersonAddressBook getTypicalAddressBook() {
-        PersonAddressBook ab = new PersonAddressBook();
+    public static PersonAddressBook getTypicalPersonAddressBook() {
+        PersonAddressBook pab = new PersonAddressBook();
         for (Person person : getTypicalPersons()) {
-            ab.addPerson(person);
+            pab.addPerson(person);
         }
-        return ab;
+        return pab;
     }
 
     public static List<Person> getTypicalPersons() {

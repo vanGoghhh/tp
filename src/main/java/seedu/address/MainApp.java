@@ -15,13 +15,17 @@ import seedu.address.commons.util.ConfigUtil;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
+import seedu.address.model.JobAddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.PersonAddressBook;
+import seedu.address.model.ReadOnlyJobAddressBook;
 import seedu.address.model.ReadOnlyPersonAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.util.SampleDataUtil;
+import seedu.address.storage.JobAddressBookStorage;
+import seedu.address.storage.JsonJobAddressBookStorage;
 import seedu.address.storage.JsonPersonAddressBookStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.PersonAddressBookStorage;
@@ -57,8 +61,10 @@ public class MainApp extends Application {
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
         PersonAddressBookStorage addressBookStorage =
-                new JsonPersonAddressBookStorage(userPrefs.getAddressBookFilePath());
-        storage = new StorageManager(addressBookStorage, userPrefsStorage);
+                new JsonPersonAddressBookStorage(userPrefs.getPersonAddressBookFilePath());
+        JobAddressBookStorage jobAddressBookStorage =
+                new JsonJobAddressBookStorage(userPrefs.getJobAddressBookFilePath());
+        storage = new StorageManager(addressBookStorage, jobAddressBookStorage, userPrefsStorage);
 
         initLogging(config);
 
@@ -70,28 +76,48 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns a {@code ModelManager} with the data from {@code storage}'s address book and {@code userPrefs}. <br>
-     * The data from the sample address book will be used instead if {@code storage}'s address book is not found,
-     * or an empty address book will be used instead if errors occur when reading {@code storage}'s address book.
+     * Returns a {@code ModelManager} with the data from {@code storage}s' address books and {@code userPrefs}. <br>
+     * The data from the sample address books will be used instead if {@code storage}s' address books are not found,
+     * or empty address books will be used instead if errors occur when reading {@code storage}s' address books.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
-        Optional<ReadOnlyPersonAddressBook> addressBookOptional;
-        ReadOnlyPersonAddressBook initialData;
+        Optional<ReadOnlyPersonAddressBook> personAddressBookOptional;
+        ReadOnlyPersonAddressBook initialPersonData;
+        Optional<ReadOnlyJobAddressBook> jobAddressBookOptional;
+        ReadOnlyJobAddressBook initialJobData;
         try {
-            addressBookOptional = storage.readPersonAddressBook();
-            if (!addressBookOptional.isPresent()) {
-                logger.info("Data file not found. Will be starting with a sample AddressBook");
+            personAddressBookOptional = storage.readPersonAddressBook();
+            if (!personAddressBookOptional.isPresent()) {
+                logger.info("Person data file not found. Will be starting with a sample PersonAddressBook");
             }
-            initialData = addressBookOptional.orElseGet(SampleDataUtil::getSamplePersonAddressBook);
+            initialPersonData = personAddressBookOptional.orElseGet(SampleDataUtil::getSamplePersonAddressBook);
         } catch (DataConversionException e) {
-            logger.warning("Data file not in the correct format. Will be starting with an empty AddressBook");
-            initialData = new PersonAddressBook();
+            logger.warning("Data file not in the correct format. "
+                    + "Will be starting with an empty PersonAddressBook");
+            initialPersonData = new PersonAddressBook();
         } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
-            initialData = new PersonAddressBook();
+            logger.warning("Problem while reading from the file. "
+                    + "Will be starting with an empty PersonAddressBook");
+            initialPersonData = new PersonAddressBook();
         }
 
-        return new ModelManager(initialData, userPrefs);
+        try {
+            jobAddressBookOptional = storage.readJobAddressBook();
+            if (!jobAddressBookOptional.isPresent()) {
+                logger.info("Job data file not found. Will be starting with a sample JobAddressBook");
+            }
+            initialJobData = jobAddressBookOptional.orElseGet(SampleDataUtil::getSampleJobAddressBook);
+        } catch (DataConversionException e) {
+            logger.warning("Data file not in the correct format. "
+                    + "Will be starting with an empty JobAddressBook");
+            initialJobData = new JobAddressBook();
+        } catch (IOException e) {
+            logger.warning("Problem while reading from the file. "
+                    + "Will be starting with an empty JobAddressBook");
+            initialJobData = new JobAddressBook();
+        }
+
+        return new ModelManager(initialPersonData, initialJobData, userPrefs);
     }
 
     private void initLogging(Config config) {

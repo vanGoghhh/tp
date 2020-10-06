@@ -3,8 +3,8 @@ layout: page
 title: User Guide
 ---
 
-CANdidates is a powerful and optimized contact management 
-app for job recruiters to manage job applicants and job listings. 
+CANdidates is a powerful and optimized contact management
+app for job recruiters to manage job applicants and job listings.
 
 ## Table of Contents
 
@@ -86,7 +86,7 @@ Shows a message explaining how to access the help page.
 Format: `help`
 
 
-### Adding a candidate [coming soon]: `add can` 
+### Adding a candidate [coming soon]: `add can`
 
 Adds a candidate to the candidate list.
 
@@ -107,7 +107,7 @@ Adds a job to the job listings.
 
 Format: `add job n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]… [pr/PRIORITY]`
 
-* Priority can be specified as low, moderate or high. 
+* Priority can be specified as low, moderate or high.
 * Priority is an optional field and default priority for jobs is moderate unless specified otherwise.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -146,9 +146,9 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…`
 
 Examples:
 
-*  `edit 1 p/91234567 e/johndoe@example.com` <br> 
+*  `edit 1 p/91234567 e/johndoe@example.com` <br>
 Edits the phone number and email address of the 1st candidate to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` <br> 
+*  `edit 2 n/Betsy Crower t/` <br>
 Edits the name of the 2nd candidate to be `Betsy Crower` and clears all existing tags.
 
 ### Editing a job [coming soon]: `edit job`
@@ -162,12 +162,12 @@ Format: `edit job INDEX [n/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_
 * Existing values will be updated to the input values.
 * When editing job type tags, the existing tags of the job will be removed i.e adding of tags is not cumulative.
 * You can remove all the job’s tags by typing `t/` without specifying any tags after it.
-* Priority of job can be specified as low, moderate or high. 
+* Priority of job can be specified as low, moderate or high.
 
 Examples:
 
 *  `edit job 2 n/Dog Cafe p/82827731 a/Dog Street pr/high` <br>
-Edits the job company name, phone number, address and priority of 
+Edits the job company name, phone number, address and priority of
 the 2nd job to be Dog Cafe, 82827731, Dog Street and high respectively.
 
 ### Deleting a candidate [coming soon]: `delete can`
