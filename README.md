@@ -1,19 +1,18 @@
 # CANdidates
 
-[![CI Status](https://github.com/se-edu/addressbook-level3/workflows/Java%20CI/badge.svg)](https://github.com/se-edu/addressbook-level3/actions)
+[![CI Status](https://github.com/AY2021S1-CS2103T-T17-3/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2021S1-CS2103T-T17-3/tp/actions)
 
 ![Ui](docs/images/Ui.png)
 
-CANdidates is a powerful contact management application optimised for job recruiters; a brownfield project based on [Address Book Level-3](https://se-education.org/addressbook-level3/). 
+CANdidates is a powerful contact management application optimised for job recruiters; a brownfield project based on [Address Book Level-3](https://se-education.org/addressbook-level3/).
 
 While it has a Graphics User Interface (GUI). most of the user interactions happen using a Command Line Interface (CLI).
 
 Job Recruiters can:
 
 * Track candidates according to which job listing they are interested in
-* Centralised and categorised relevant contacts of all candidiates 
+* Centralised and categorised relevant contacts of all candidates
 * Reduce the hassle of having to look for applicants repeatedly on different platforms for each new job posting.
-
 
 #### Quick Links
 * [User Guide](https://ay2021s1-cs2103t-t17-3.github.io/tp/UserGuide.html)
