@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Set;
@@ -18,6 +19,7 @@ import seedu.address.model.information.Email;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Priority;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -33,7 +35,7 @@ public class AddJobCommandParser implements Parser<AddJobCommand> {
     public AddJobCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_JOB_TITLE, PREFIX_COMPANY_NAME, PREFIX_PHONE,
-                        PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+                        PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG, PREFIX_PRIORITY);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_JOB_TITLE, PREFIX_COMPANY_NAME, PREFIX_ADDRESS, PREFIX_PHONE,
                 PREFIX_EMAIL) || !argMultimap.getPreamble().isEmpty()) {
@@ -46,8 +48,9 @@ public class AddJobCommandParser implements Parser<AddJobCommand> {
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        Priority priority = ParserUtil.parsePriority(argMultimap.getAllValues(PREFIX_PRIORITY));
 
-        Job job = new Job(jobTitle, companyName, phone, email, address, tagList);
+        Job job = new Job(jobTitle, companyName, phone, email, address, tagList, priority);
 
         return new AddJobCommand(job);
     }

@@ -25,6 +25,7 @@ import seedu.address.model.information.Email;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Priority;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -102,8 +103,10 @@ public class EditJobCommand extends Command {
         Email updatedEmail = editJobDescriptor.getEmail().orElse(jobToEdit.getEmail());
         Address updatedAddress = editJobDescriptor.getAddress().orElse(jobToEdit.getAddress());
         Set<Tag> updatedTags = editJobDescriptor.getTags().orElse(jobToEdit.getTags());
+        Priority updatedPriority = jobToEdit.getPriority(); // TODO: enable edit priority
 
-        return new Job(updatedJobTitle, updatedCompanyName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Job(updatedJobTitle, updatedCompanyName, updatedPhone, updatedEmail, updatedAddress,
+                updatedTags, updatedPriority);
     }
 
     @Override

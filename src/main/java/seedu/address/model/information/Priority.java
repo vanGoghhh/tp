@@ -9,7 +9,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Priority {
 
-    public static final String MESSAGE_CONSTRAINTS = "Priority can only take one of these three values: high, moderate, low";
+    public static final String MESSAGE_CONSTRAINTS =
+            "Priority can only take one of these three values: high, moderate, low";
 
     /*
      * The priority must be one of the three types
