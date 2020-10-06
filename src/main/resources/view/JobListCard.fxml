@@ -28,10 +28,11 @@
                 <Label fx:id="jobName" text="\$first" styleClass="cell_big_label" />
             </HBox>
             <Label fx:id="companyName" text="\$first" styleClass="cell_big_label" />
-            <FlowPane fx:id="companyTags" />
+            <FlowPane fx:id="jobTags" />
             <Label fx:id="companyPhone" styleClass="cell_small_label" text="\$phone" />
             <Label fx:id="companyAddress" styleClass="cell_small_label" text="\$address" />
             <Label fx:id="companyEmail" styleClass="cell_small_label" text="\$email" />
+            <Label fx:id="jobPriority" styleClass="cell_small_label" text="\$priority" />
         </VBox>
     </GridPane>
 </HBox>
