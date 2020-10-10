@@ -29,17 +29,17 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private HBox cardPane;
     @FXML
-    private Label name;
+    private Label personName;
     @FXML
-    private Label id;
+    private Label personId;
     @FXML
-    private Label phone;
+    private Label personPhone;
     @FXML
-    private Label address;
+    private Label personAddress;
     @FXML
-    private Label email;
+    private Label personEmail;
     @FXML
-    private FlowPane tags;
+    private FlowPane personTags;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -47,14 +47,14 @@ public class PersonCard extends UiPart<Region> {
     public PersonCard(Person person, int displayedIndex) {
         super(FXML);
         this.person = person;
-        id.setText(displayedIndex + ". ");
-        name.setText(person.getName().fullName);
-        phone.setText(person.getPhone().value);
-        address.setText(person.getAddress().value);
-        email.setText(person.getEmail().value);
+        personId.setText(displayedIndex + ". ");
+        personName.setText(person.getName().fullName);
+        personPhone.setText(person.getPhone().value);
+        personAddress.setText(person.getAddress().value);
+        personEmail.setText(person.getEmail().value);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> personTags.getChildren().add(new Label(tag.tagName)));
     }
 
     @Override
@@ -71,7 +71,7 @@ public class PersonCard extends UiPart<Region> {
 
         // state check
         PersonCard card = (PersonCard) other;
-        return id.getText().equals(card.id.getText())
+        return personId.getText().equals(card.personId.getText())
                 && person.equals(card.person);
     }
 }

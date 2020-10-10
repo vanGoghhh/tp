@@ -30,12 +30,20 @@ public class ModelManager implements Model {
      * Initializes a ModelManager with the given addressBook, jobAddressBook and userPrefs.
      */
     public ModelManager(ReadOnlyPersonAddressBook personAddressBook, ReadOnlyJobAddressBook jobAddressBook,
+<<<<<<< HEAD
+                        ReadOnlyUserPrefs userPrefs) {
+        super();
+        requireAllNonNull(personAddressBook, jobAddressBook, userPrefs);
+
+        logger.fine("Initializing with address book: " + personAddressBook + " and user prefs " + userPrefs);
+=======
             ReadOnlyUserPrefs userPrefs) {
         super();
         requireAllNonNull(personAddressBook, jobAddressBook, userPrefs);
 
         logger.fine("Initializing with person address book: " + personAddressBook
                 + "Initializing with job address book: " + jobAddressBook + " and user prefs " + userPrefs);
+>>>>>>> be08d98e3fe1e5c30bc1957b60698b59a23fddb4
 
         this.personAddressBook = new PersonAddressBook(personAddressBook);
         this.jobAddressBook = new JobAddressBook(jobAddressBook);
@@ -94,11 +102,16 @@ public class ModelManager implements Model {
         userPrefs.setJobAddressBookFilePath(jobAddressBookFilePath);
     }
 
-    //=========== AddressBook ================================================================================
+    //=========== Person AddressBook ================================================================================
 
     @Override
+<<<<<<< HEAD
+    public void setPersonAddressBook(ReadOnlyPersonAddressBook addressBook) {
+        this.personAddressBook.resetData(addressBook);
+=======
     public void setPersonAddressBook(ReadOnlyPersonAddressBook personAddressBook) {
         this.personAddressBook.resetData(personAddressBook);
+>>>>>>> be08d98e3fe1e5c30bc1957b60698b59a23fddb4
     }
 
     @Override
@@ -130,11 +143,20 @@ public class ModelManager implements Model {
         personAddressBook.setPerson(target, editedPerson);
     }
 
+<<<<<<< HEAD
+    //=========== Job AddressBook ================================================================================
+=======
     //=========== JobAddressBook ================================================================================
+>>>>>>> be08d98e3fe1e5c30bc1957b60698b59a23fddb4
 
     @Override
     public void setJobAddressBook(ReadOnlyJobAddressBook jobAddressBook) {
         this.jobAddressBook.resetData(jobAddressBook);
+    }
+
+    @Override
+    public void deleteJob(Job target) {
+        jobAddressBook.removeJob(target);
     }
 
     @Override
@@ -152,6 +174,13 @@ public class ModelManager implements Model {
     public void addJob(Job job) {
         jobAddressBook.addJob(job);
         updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS);
+    }
+
+    @Override
+    public void setJob(Job target, Job editedJob) {
+        requireAllNonNull(target, editedJob);
+
+        jobAddressBook.setJob(target, editedJob);
     }
 
     //=========== Filtered Person List Accessors =============================================================
