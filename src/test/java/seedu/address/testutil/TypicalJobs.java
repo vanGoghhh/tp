@@ -27,22 +27,22 @@ public class TypicalJobs {
 
     public static final Job FACEBOOK = new JobBuilder().withJobTitle("Toilet Bowl Cleaner").withCompanyName("Facebook")
             .withAddress("1 Hacker Way, Menlo Park, CA 94025").withEmail("recruitment@facebook.com")
-            .withPhone("67438807").withTags("Cleaner").build();
+            .withPhone("67438807").withTags("Cleaner").withPriority("low").build();
     public static final Job APPLE = new JobBuilder().withJobTitle("Wall Painter").withCompanyName("Apple")
             .withAddress("1 Apple Park Way, Cupertino, California").withEmail("recruitment@apple.com")
-            .withPhone("69272758").withTags("Cleaner").build();
+            .withPhone("69272758").withTags("Cleaner").withPriority("low").build();
     public static final Job AMAZON = new JobBuilder().withJobTitle("Plant Waterer").withCompanyName("Amazon")
             .withAddress("16 Forest Way, Seattle, Washington").withEmail("recruitment@amazon.com")
-            .withPhone("63210283").withTags("Cleaner").build();
+            .withPhone("63210283").withTags("Cleaner").withPriority("low").build();
     public static final Job NETFLIX = new JobBuilder().withJobTitle("Glass Wiper").withCompanyName("Netflix")
             .withAddress("19 Netflix Lane, Los Gatos, California").withEmail("recruitment@netflix.com")
-            .withPhone("61031282").withTags("Cleaner").build();
+            .withPhone("61031282").withTags("Cleaner").withPriority("moderate").build();
     public static final Job GOOGLE = new JobBuilder().withJobTitle("Software Engineer").withCompanyName("Google")
             .withAddress("1600 Google Way, Mountain View, California").withEmail("recruitment@google.com")
-            .withPhone("62492021").withTags("SE").build();
+            .withPhone("62492021").withTags("SE").withPriority("moderate").build();
     public static final Job NUS = new JobBuilder().withJobTitle("CS2103T Lecturer").withCompanyName("NUS")
             .withAddress("21 Lower Kent Ridge Rd, Singapore 119077").withEmail("recruitment@nus.edu.sg")
-            .withPhone("62624417").withTags("Teaching").build();
+            .withPhone("62624417").withTags("Teaching").withPriority("high").build();
 
     // Manually added - Job's details found in {@code CommandTestUtil}
     public static final Job IRAS = new JobBuilder().withJobTitle(VALID_JOB_TITLE_IRAS)
