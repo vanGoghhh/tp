@@ -12,7 +12,11 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.information.*;
+import seedu.address.model.information.Address;
+import seedu.address.model.information.Email;
+import seedu.address.model.information.Name;
+import seedu.address.model.information.Phone;
+import seedu.address.model.information.Priority;
 
 public class JsonAdaptedJobTest {
     private static final String INVALID_JOB_TITLE = "Software*Engineer";
@@ -41,30 +45,32 @@ public class JsonAdaptedJobTest {
 
     @Test
     public void toModelType_invalidJobTitle_throwsIllegalValueException() {
-        JsonAdaptedJob job =
-                new JsonAdaptedJob(INVALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
+        JsonAdaptedJob job = new JsonAdaptedJob(INVALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL,
+                VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
         String expectedMessage = Name.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, job::toModelType);
     }
 
     @Test
     public void toModelType_invalidCompanyName_throwsIllegalValueException() {
-        JsonAdaptedJob job =
-                new JsonAdaptedJob(VALID_JOB_TITLE, INVALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
+        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, INVALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL,
+                VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
         String expectedMessage = Name.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, job::toModelType);
     }
 
     @Test
     public void toModelType_nullJobTitle_throwsIllegalValueException() {
-        JsonAdaptedJob job = new JsonAdaptedJob(null, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
+        JsonAdaptedJob job = new JsonAdaptedJob(null, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL,
+                VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, "title");
         assertThrows(IllegalValueException.class, expectedMessage, job::toModelType);
     }
 
     @Test
     public void toModelType_nullCompanyName_throwsIllegalValueException() {
-        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, null, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
+        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, null, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS,
+                VALID_TAGS, VALID_PRIORITY);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, "company name");
         assertThrows(IllegalValueException.class, expectedMessage, job::toModelType);
     }
@@ -72,42 +78,48 @@ public class JsonAdaptedJobTest {
     @Test
     public void toModelType_invalidPhone_throwsIllegalValueException() {
         JsonAdaptedJob job =
-                new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, INVALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
+                new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, INVALID_PHONE, VALID_EMAIL, VALID_ADDRESS,
+                        VALID_TAGS, VALID_PRIORITY);
         String expectedMessage = Phone.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, job::toModelType);
     }
 
     @Test
     public void toModelType_nullPhone_throwsIllegalValueException() {
-        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, null, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
+        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, null, VALID_EMAIL,
+                VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, job::toModelType);
     }
 
     @Test
     public void toModelType_invalidEmail_throwsIllegalValueException() {
-        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, INVALID_EMAIL, VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
+        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, INVALID_EMAIL,
+                VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
         String expectedMessage = Email.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, job::toModelType);
     }
 
     @Test
     public void toModelType_nullEmail_throwsIllegalValueException() {
-        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, null, VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
+        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, null,
+                VALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, job::toModelType);
     }
 
     @Test
     public void toModelType_invalidAddress_throwsIllegalValueException() {
-        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, INVALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
+        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL,
+                INVALID_ADDRESS, VALID_TAGS, VALID_PRIORITY);
         String expectedMessage = Address.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, job::toModelType);
     }
 
     @Test
     public void toModelType_nullAddress_throwsIllegalValueException() {
-        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, null, VALID_TAGS, VALID_PRIORITY);
+        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, null,
+                VALID_TAGS, VALID_PRIORITY);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, job::toModelType);
     }
@@ -116,20 +128,23 @@ public class JsonAdaptedJobTest {
     public void toModelType_invalidTags_throwsIllegalValueException() {
         List<JsonAdaptedTag> invalidTags = new ArrayList<>(VALID_TAGS);
         invalidTags.add(new JsonAdaptedTag(INVALID_TAG));
-        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, invalidTags, VALID_PRIORITY);
+        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL,
+                VALID_ADDRESS, invalidTags, VALID_PRIORITY);
         assertThrows(IllegalValueException.class, job::toModelType);
     }
 
     @Test
     public void toModelType_invalidPriority_throwsIllegalValueException() {
-        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS, INVALID_PRIORITY);
+        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL,
+                VALID_ADDRESS, VALID_TAGS, INVALID_PRIORITY);
         String expectedMessage = Priority.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, job::toModelType);
     }
 
     @Test
     public void toModelType_nullPriority_throwsIllegalValueException() {
-        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS, null);
+        JsonAdaptedJob job = new JsonAdaptedJob(VALID_JOB_TITLE, VALID_COMPANY_NAME, VALID_PHONE, VALID_EMAIL,
+                VALID_ADDRESS, VALID_TAGS, null);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Priority.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, job::toModelType);
     }

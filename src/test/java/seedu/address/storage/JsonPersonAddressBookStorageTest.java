@@ -58,7 +58,8 @@ public class JsonPersonAddressBookStorageTest {
 
     @Test
     public void readPersonAddressBook_invalidAndValidPersonAddressBook_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readPersonAddressBook("invalidAndValidPersonAddressBook.json"));
+        assertThrows(DataConversionException.class, () ->
+                readPersonAddressBook("invalidAndValidPersonAddressBook.json"));
     }
 
     @Test
