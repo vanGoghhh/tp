@@ -49,7 +49,7 @@ public class PersonAddressBookTest {
         Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         List<Person> newPersons = Arrays.asList(ALICE, editedAlice);
-        AddressBookStub newData = new AddressBookStub(newPersons);
+        PersonAddressBookStub newData = new PersonAddressBookStub(newPersons);
 
         assertThrows(DuplicatePersonException.class, () -> personAddressBook.resetData(newData));
     }
@@ -86,10 +86,10 @@ public class PersonAddressBookTest {
     /**
      * A stub ReadOnlyPersonAddressBook whose persons list can violate interface constraints.
      */
-    private static class AddressBookStub implements ReadOnlyPersonAddressBook {
+    private static class PersonAddressBookStub implements ReadOnlyPersonAddressBook {
         private final ObservableList<Person> persons = FXCollections.observableArrayList();
 
-        AddressBookStub(Collection<Person> persons) {
+        PersonAddressBookStub(Collection<Person> persons) {
             this.persons.setAll(persons);
         }
 
