@@ -26,11 +26,11 @@ public class JsonPersonAddressBookStorageTest {
     public Path testFolder;
 
     @Test
-    public void readAddressBook_nullFilePath_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> readAddressBook(null));
+    public void readPersonAddressBook_nullFilePath_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> readPersonAddressBook(null));
     }
 
-    private java.util.Optional<ReadOnlyPersonAddressBook> readAddressBook(String filePath) throws Exception {
+    private java.util.Optional<ReadOnlyPersonAddressBook> readPersonAddressBook(String filePath) throws Exception {
         return new JsonPersonAddressBookStorage(Paths.get(filePath))
                 .readPersonAddressBook(addToTestDataPathIfNotNull(filePath));
     }
@@ -43,26 +43,26 @@ public class JsonPersonAddressBookStorageTest {
 
     @Test
     public void read_missingFile_emptyResult() throws Exception {
-        assertFalse(readAddressBook("NonExistentFile.json").isPresent());
+        assertFalse(readPersonAddressBook("NonExistentFile.json").isPresent());
     }
 
     @Test
     public void read_notJsonFormat_exceptionThrown() {
-        assertThrows(DataConversionException.class, () -> readAddressBook("notJsonFormatAddressBook.json"));
+        assertThrows(DataConversionException.class, () -> readPersonAddressBook("notJsonFormatAddressBook.json"));
     }
 
     @Test
-    public void readAddressBook_invalidPersonAddressBook_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readAddressBook("invalidPersonAddressBook.json"));
+    public void readPersonAddressBook_invalidPersonAddressBook_throwDataConversionException() {
+        assertThrows(DataConversionException.class, () -> readPersonAddressBook("invalidPersonAddressBook.json"));
     }
 
     @Test
-    public void readAddressBook_invalidAndValidPersonAddressBook_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readAddressBook("invalidAndValidPersonAddressBook.json"));
+    public void readPersonAddressBook_invalidAndValidPersonAddressBook_throwDataConversionException() {
+        assertThrows(DataConversionException.class, () -> readPersonAddressBook("invalidAndValidPersonAddressBook.json"));
     }
 
     @Test
-    public void readAndSaveAddressBook_allInOrder_success() throws Exception {
+    public void readAndSavePersonAddressBook_allInOrder_success() throws Exception {
         Path filePath = testFolder.resolve("TempAddressBook.json");
         PersonAddressBook original = getTypicalPersonAddressBook();
         JsonPersonAddressBookStorage jsonAddressBookStorage = new JsonPersonAddressBookStorage(filePath);
@@ -88,14 +88,14 @@ public class JsonPersonAddressBookStorageTest {
     }
 
     @Test
-    public void saveAddressBook_nullAddressBook_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> saveAddressBook(null, "SomeFile.json"));
+    public void savePersonAddressBook_nullAddressBook_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> savePersonAddressBook(null, "SomeFile.json"));
     }
 
     /**
      * Saves {@code addressBook} at the specified {@code filePath}.
      */
-    private void saveAddressBook(ReadOnlyPersonAddressBook addressBook, String filePath) {
+    private void savePersonAddressBook(ReadOnlyPersonAddressBook addressBook, String filePath) {
         try {
             new JsonPersonAddressBookStorage(Paths.get(filePath))
                     .savePersonAddressBook(addressBook, addToTestDataPathIfNotNull(filePath));
@@ -105,7 +105,7 @@ public class JsonPersonAddressBookStorageTest {
     }
 
     @Test
-    public void saveAddressBook_nullFilePath_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> saveAddressBook(new PersonAddressBook(), null));
+    public void savePersonAddressBook_nullFilePath_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> savePersonAddressBook(new PersonAddressBook(), null));
     }
 }
