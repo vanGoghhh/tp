@@ -324,7 +324,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1a. Input format is invalid.
 
     * 1a1. CANdidates shows an error message.
-    
+
       Use case ends.
 
 * 1b. The given candidate already exists.
@@ -380,7 +380,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. The list is empty.
 
   Use case ends.
-  
+
 
 *{More to be added}*
 
@@ -405,7 +405,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Information**: Name, phone number, address, job type etc.
 * **Criteria**: Education background, work experience, language and other skills.
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Hard-to-test features**: Features that heavily depend on remote APIs, audio-related features, 
+* **Hard-to-test features**: Features that heavily depend on remote APIs, audio-related features,
 as well as features requiring creation of user accounts etc.
 --------------------------------------------------------------------------------------------------------------------
 

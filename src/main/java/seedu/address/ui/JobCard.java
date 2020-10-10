@@ -41,7 +41,9 @@ public class JobCard extends UiPart<Region> {
     @FXML
     private Label companyEmail;
     @FXML
-    private FlowPane companyTags;
+    private Label jobPriority;
+    @FXML
+    private FlowPane jobTags;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -55,9 +57,10 @@ public class JobCard extends UiPart<Region> {
         companyPhone.setText(job.getPhone().value);
         companyAddress.setText(job.getAddress().value);
         companyEmail.setText(job.getEmail().value);
+        jobPriority.setText(job.getPriority().value);
         job.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> companyTags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> jobTags.getChildren().add(new Label(tag.tagName)));
     }
 
     @Override

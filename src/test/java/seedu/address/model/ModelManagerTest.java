@@ -18,8 +18,8 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.information.PersonNameContainsKeywordsPredicate;
-import seedu.address.testutil.AddressBookBuilder;
 import seedu.address.testutil.JobAddressBookBuilder;
+import seedu.address.testutil.PersonAddressBookBuilder;
 
 public class ModelManagerTest {
 
@@ -30,6 +30,7 @@ public class ModelManagerTest {
         assertEquals(new UserPrefs(), modelManager.getUserPrefs());
         assertEquals(new GuiSettings(), modelManager.getGuiSettings());
         assertEquals(new PersonAddressBook(), new PersonAddressBook(modelManager.getPersonAddressBook()));
+        assertEquals(new JobAddressBook(), new JobAddressBook(modelManager.getJobAddressBook()));
     }
 
     @Test
@@ -40,14 +41,14 @@ public class ModelManagerTest {
     @Test
     public void setUserPrefs_validUserPrefs_copiesUserPrefs() {
         UserPrefs userPrefs = new UserPrefs();
-        userPrefs.setAddressBookFilePath(Paths.get("address/book/file/path"));
+        userPrefs.setPersonAddressBookFilePath(Paths.get("address/book/file/path"));
         userPrefs.setGuiSettings(new GuiSettings(1, 2, 3, 4));
         modelManager.setUserPrefs(userPrefs);
         assertEquals(userPrefs, modelManager.getUserPrefs());
 
         // Modifying userPrefs should not modify modelManager's userPrefs
         UserPrefs oldUserPrefs = new UserPrefs(userPrefs);
-        userPrefs.setAddressBookFilePath(Paths.get("new/address/book/file/path"));
+        userPrefs.setPersonAddressBookFilePath(Paths.get("new/address/book/file/path"));
         assertEquals(oldUserPrefs, modelManager.getUserPrefs());
     }
 
@@ -98,7 +99,7 @@ public class ModelManagerTest {
 
     @Test
     public void equals() {
-        PersonAddressBook addressBook = new AddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
+        PersonAddressBook addressBook = new PersonAddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
         JobAddressBook jobAddressBook = new JobAddressBookBuilder().withJob(IRAS).withJob(MAYBANK).build();
         PersonAddressBook differentAddressBook = new PersonAddressBook();
         JobAddressBook differentJobAddressBook = new JobAddressBook();
@@ -131,7 +132,7 @@ public class ModelManagerTest {
 
         // different userPrefs -> returns false
         UserPrefs differentUserPrefs = new UserPrefs();
-        differentUserPrefs.setAddressBookFilePath(Paths.get("differentFilePath"));
+        differentUserPrefs.setPersonAddressBookFilePath(Paths.get("differentFilePath"));
         assertFalse(modelManager.equals(new ModelManager(addressBook, jobAddressBook, differentUserPrefs)));
     }
 }

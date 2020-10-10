@@ -48,7 +48,7 @@ public class PersonAddressBook implements ReadOnlyPersonAddressBook {
     }
 
     /**
-     * Resets the existing data of this {@code AddressBook} with {@code newData}.
+     * Resets the existing data of this {@code PersonAddressBook} with {@code newData}.
      */
     public void resetData(ReadOnlyPersonAddressBook newData) {
         requireNonNull(newData);
@@ -59,7 +59,7 @@ public class PersonAddressBook implements ReadOnlyPersonAddressBook {
     //// person-level operations
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a person with the same identity as {@code person} exists in the person address book.
      */
     public boolean hasPerson(Person person) {
         requireNonNull(person);
@@ -67,8 +67,8 @@ public class PersonAddressBook implements ReadOnlyPersonAddressBook {
     }
 
     /**
-     * Adds a person to the address book.
-     * The person must not already exist in the address book.
+     * Adds a person to the person address book.
+     * The person must not already exist in the person address book.
      */
     public void addPerson(Person p) {
         persons.add(p);
@@ -76,8 +76,9 @@ public class PersonAddressBook implements ReadOnlyPersonAddressBook {
 
     /**
      * Replaces the given person {@code target} in the list with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * {@code target} must exist in the person address book.
+     * The person identity of {@code editedPerson} must not be the same as another existing person in the person
+     * address book.
      */
     public void setPerson(Person target, Person editedPerson) {
         requireNonNull(editedPerson);
@@ -86,8 +87,8 @@ public class PersonAddressBook implements ReadOnlyPersonAddressBook {
     }
 
     /**
-     * Removes {@code key} from this {@code AddressBook}.
-     * {@code key} must exist in the address book.
+     * Removes {@code key} from this {@code PersonAddressBook}.
+     * {@code key} must exist in the person address book.
      */
     public void removePerson(Person key) {
         persons.remove(key);

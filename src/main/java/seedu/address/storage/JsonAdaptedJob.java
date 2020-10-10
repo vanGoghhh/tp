@@ -15,6 +15,7 @@ import seedu.address.model.information.Email;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Priority;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -30,15 +31,17 @@ class JsonAdaptedJob {
     private final String email;
     private final String address;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
+    private final String priority;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
     public JsonAdaptedJob(@JsonProperty("jobtitle") String jobTitle, @JsonProperty("company") String company,
-                             @JsonProperty("phone") String phone, @JsonProperty("email") String email,
-                             @JsonProperty("address") String address,
-                             @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
+                          @JsonProperty("phone") String phone, @JsonProperty("email") String email,
+                          @JsonProperty("address") String address,
+                          @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
+                          @JsonProperty("priority") String priority) {
         this.jobTitle = jobTitle;
         this.company = company;
         this.phone = phone;
@@ -47,6 +50,7 @@ class JsonAdaptedJob {
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
+        this.priority = priority;
     }
 
     /**
@@ -61,6 +65,7 @@ class JsonAdaptedJob {
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
+        priority = source.getPriority().value;
     }
 
     /**
@@ -115,7 +120,17 @@ class JsonAdaptedJob {
         final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(jobTags);
-        return new Job(modelTitle, modelCompany, modelPhone, modelEmail, modelAddress, modelTags);
+
+        if (priority == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Priority.class.getSimpleName()));
+        }
+        if (!Priority.isValidPriority(priority)) {
+            throw new IllegalValueException(Priority.MESSAGE_CONSTRAINTS);
+        }
+        final Priority modelPriority = new Priority(priority);
+
+        return new Job(modelTitle, modelCompany, modelPhone, modelEmail, modelAddress, modelTags, modelPriority);
     }
 
 }

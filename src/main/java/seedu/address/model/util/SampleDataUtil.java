@@ -14,10 +14,12 @@ import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Priority;
 import seedu.address.model.tag.Tag;
 
 /**
- * Contains utility methods for populating {@code PersonAddressBook} with sample data.
+ * Contains utility methods for populating {@code PersonAddressBook}
+ * or {@code JobAddressBook} with sample data .
  */
 public class SampleDataUtil {
     public static Person[] getSamplePersons() {
@@ -47,39 +49,39 @@ public class SampleDataUtil {
         return new Job[] {
             new Job(new Name("Toilet Bowl Cleaner"), new Name("Facebook"), new Phone("67438807"),
                 new Email("recruitment@facebook.com"), new Address("1 Hacker Way, Menlo Park, CA 94025"),
-                getTagSet("High")),
+                getTagSet("Cleaner"), new Priority("low")),
             new Job(new Name("Wall Painter"), new Name("Apple"), new Phone("69272758"),
                 new Email("recruitment@apple.com"), new Address("1 Apple Park Way, Cupertino, California"),
-                getTagSet("Low")),
+                getTagSet("Cleaner"), new Priority("moderate")),
             new Job(new Name("Plant Waterer"), new Name("Amazon"), new Phone("63210283"),
                 new Email("recruitment@amazon.com"), new Address("16 Forest Way, Seattle, Washington"),
-                getTagSet("Low")),
+                getTagSet("Cleaner"), new Priority("moderate")),
             new Job(new Name("Glass Wiper"), new Name("Netflix"), new Phone("61031282"),
                 new Email("recruitment@netflix.com"), new Address("19 Netflix Lane, Los Gatos, California"),
-                getTagSet("Low")),
+                getTagSet("Cleaner"), new Priority("moderate")),
             new Job(new Name("Software Engineer"), new Name("Google"), new Phone("62492021"),
                 new Email("recruitment@google.com"), new Address("1600 Google Way, Mountain View, California"),
-                getTagSet("Medium")),
+                getTagSet("SE"), new Priority("high")),
             new Job(new Name("CS2103T Lecturer"), new Name("NUS"), new Phone("62624417"),
                 new Email("recruitment@nus.edu.sg"), new Address("21 Lower Kent Ridge Rd, Singapore 119077"),
-                getTagSet("Medium"))
+                getTagSet("Teaching"), new Priority("high"))
         };
     }
 
     public static ReadOnlyPersonAddressBook getSamplePersonAddressBook() {
-        PersonAddressBook sampleAb = new PersonAddressBook();
+        PersonAddressBook samplePAb = new PersonAddressBook();
         for (Person samplePerson : getSamplePersons()) {
-            sampleAb.addPerson(samplePerson);
+            samplePAb.addPerson(samplePerson);
         }
-        return sampleAb;
+        return samplePAb;
     }
 
     public static ReadOnlyJobAddressBook getSampleJobAddressBook() {
-        JobAddressBook sampleAb = new JobAddressBook();
+        JobAddressBook sampleJAb = new JobAddressBook();
         for (Job sampleJob : getSampleJobs()) {
-            sampleAb.addJob(sampleJob);
+            sampleJAb.addJob(sampleJob);
         }
-        return sampleAb;
+        return sampleJAb;
     }
 
     /**
