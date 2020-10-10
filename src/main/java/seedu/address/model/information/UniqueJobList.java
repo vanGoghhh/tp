@@ -9,7 +9,6 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.information.exceptions.DuplicateJobException;
-import seedu.address.model.information.exceptions.DuplicatePersonException;
 import seedu.address.model.information.exceptions.JobNotFoundException;
 
 /**
@@ -92,7 +91,7 @@ public class UniqueJobList implements Iterable<Job> {
     public void setJobs(List<Job> jobs) {
         requireAllNonNull(jobs);
         if (!jobsAreUnique(jobs)) {
-            throw new DuplicatePersonException();
+            throw new DuplicateJobException();
         }
 
         internalList.setAll(jobs);
