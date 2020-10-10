@@ -8,6 +8,7 @@ import seedu.address.model.information.Email;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Priority;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -21,6 +22,7 @@ public class JobBuilder {
     public static final String DEFAULT_PHONE = "65355255";
     public static final String DEFAULT_EMAIL = "TA@nus.edu.sg";
     public static final String DEFAULT_ADDRESS = "21 Lower Kent Ridge Rd, Singapore 119077";
+    public static final String DEFAULT_PRIORITY = "moderate";
 
     private Name jobTitle;
     private Name companyName;
@@ -28,6 +30,7 @@ public class JobBuilder {
     private Email email;
     private Address address;
     private Set<Tag> tags;
+    private Priority priority;
 
     /**
      * Creates a {@code Job} with the default details.
@@ -39,6 +42,7 @@ public class JobBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
+        priority = new Priority(DEFAULT_PRIORITY);
     }
 
     /**
@@ -51,6 +55,7 @@ public class JobBuilder {
         email = jobToCopy.getEmail();
         address = jobToCopy.getAddress();
         tags = new HashSet<>(jobToCopy.getTags());
+        priority = jobToCopy.getPriority();
     }
 
     /**
@@ -101,8 +106,16 @@ public class JobBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Priority} of the {@code Job} that we are building.
+     */
+    public JobBuilder withPriority(String priority) {
+        this.priority = new Priority(priority);
+        return this;
+    }
+
     public Job build() {
-        return new Job(jobTitle, companyName, phone, email, address, tags);
+        return new Job(jobTitle, companyName, phone, email, address, tags, priority);
     }
 
 }
