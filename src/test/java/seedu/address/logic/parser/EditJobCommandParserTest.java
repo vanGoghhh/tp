@@ -1,8 +1,8 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_MAYBANK;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_IRAS;
+import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_MAYBANK;
 import static seedu.address.logic.commands.CommandTestUtil.COMPANY_NAME_DESC_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.COMPANY_NAME_DESC_MAYBANK;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_IRAS;
@@ -116,7 +116,8 @@ public class EditJobCommandParserTest {
         assertParseFailure(parser, "1" + TAG_EMPTY + TAG_DESC_IRAS + TAG_DESC_MAYBANK, Tag.MESSAGE_CONSTRAINTS);
 
         // multiple invalid values, but only the first invalid value is captured
-        assertParseFailure(parser, "1" + INVALID_COMPANY_NAME_DESC + INVALID_EMAIL_DESC + VALID_ADDRESS_IRAS + VALID_PHONE_IRAS,
+        assertParseFailure(parser, "1" + INVALID_COMPANY_NAME_DESC + INVALID_EMAIL_DESC
+                        + VALID_ADDRESS_IRAS + VALID_PHONE_IRAS,
                 Name.MESSAGE_CONSTRAINTS);
     }
 
@@ -210,7 +211,7 @@ public class EditJobCommandParserTest {
         String userInput = targetIndex.getOneBased() + PHONE_DESC_MAYBANK + ADDRESS_DESC_MAYBANK
                 + EMAIL_DESC_MAYBANK + TAG_DESC_MAYBANK + PHONE_DESC_MAYBANK
                 + ADDRESS_DESC_MAYBANK + EMAIL_DESC_MAYBANK + PRIORITY_DESC_MAYBANK
-                + PHONE_DESC_IRAS + ADDRESS_DESC_IRAS + EMAIL_DESC_IRAS + PRIORITY_DESC_IRAS + TAG_DESC_IRAS ;
+                + PHONE_DESC_IRAS + ADDRESS_DESC_IRAS + EMAIL_DESC_IRAS + PRIORITY_DESC_IRAS + TAG_DESC_IRAS;
 
         EditJobDescriptor descriptor = new EditJobDescriptorBuilder().withPhone(VALID_PHONE_IRAS)
                 .withEmail(VALID_EMAIL_IRAS).withAddress(VALID_ADDRESS_IRAS).withPriority(VALID_PRIORITY_IRAS)
