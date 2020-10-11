@@ -125,19 +125,27 @@ public class ParserUtil {
     }
 
     /**
-     * Parses {@code List<String> priorities} into a {@code Priority}.
+     * Parses a {@code String priority} into a {@code Priority}.
      * Leading and trailing whitespaces will be trimmed.
      *
      * @throws ParseException if the given {@code priority} is invalid.
+     */
+    public static Priority parsePriorityString(String priority) throws ParseException {
+        requireNonNull(priority);
+        String trimmedPriority = priority.trim();
+        if (!Priority.isValidPriority(trimmedPriority)) {
+            throw new ParseException(Priority.MESSAGE_CONSTRAINTS);
+        }
+        return new Priority(trimmedPriority);
+    }
+
+    /**
+     * Parses {@code List<String> priorities} into a {@code Priority}.
      */
     public static Priority parsePriority(List<String> priorities) throws ParseException {
         requireNonNull(priorities);
         // if no priority given, assign moderate
         String priorityString = priorities.isEmpty() ? "moderate" : priorities.get(priorities.size() - 1);
-        String trimmedPriority = priorityString.trim();
-        if (!Priority.isValidPriority(trimmedPriority)) {
-            throw new ParseException(Priority.MESSAGE_CONSTRAINTS);
-        }
-        return new Priority(trimmedPriority);
+        return parsePriorityString(priorityString);
     }
 }
