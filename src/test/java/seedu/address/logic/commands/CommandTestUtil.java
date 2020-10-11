@@ -23,6 +23,7 @@ import seedu.address.model.information.Job;
 import seedu.address.model.information.JobNameContainsKeywordsPredicate;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.PersonNameContainsKeywordsPredicate;
+import seedu.address.testutil.EditJobDescriptorBuilder;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
 /**
@@ -70,6 +71,8 @@ public class CommandTestUtil {
     public static final String VALID_EMAIL_MAYBANK = "enquiries@maybank.com.sg";
     public static final String VALID_ADDRESS_IRAS = "55 Newton Rd, Revenue House, Singapore 307987";
     public static final String VALID_ADDRESS_MAYBANK = "23 Serangoon Central, # B2 - 27, Singapore 556083";
+    public static final String VALID_PRIORITY_IRAS = "high";
+    public static final String VALID_PRIORITY_MAYBANK = "low";
     public static final String VALID_TAG_IRAS = "Tax";
     public static final String VALID_TAG_MAYBANK = "Banking";
 
@@ -89,6 +92,9 @@ public class CommandTestUtil {
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 
+    public static final EditJobCommand.EditJobDescriptor DESC_IRAS;
+    public static final EditJobCommand.EditJobDescriptor DESC_MAYBANK;
+
     public static final EditPersonCommand.EditPersonDescriptor DESC_AMY;
     public static final EditPersonCommand.EditPersonDescriptor DESC_BOB;
 
@@ -99,6 +105,15 @@ public class CommandTestUtil {
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+    }
+
+    static {
+        DESC_IRAS = new EditJobDescriptorBuilder().withJobTitle(VALID_JOB_TITLE_IRAS)
+                .withPhone(VALID_PHONE_IRAS).withEmail(VALID_EMAIL_IRAS).withAddress(VALID_ADDRESS_IRAS)
+                .withPriority(VALID_PRIORITY_IRAS).withTags(VALID_TAG_IRAS).build();
+        DESC_MAYBANK = new EditJobDescriptorBuilder().withJobTitle(VALID_JOB_TITLE_MAYBANK)
+                .withPhone(VALID_PHONE_MAYBANK).withEmail(VALID_EMAIL_MAYBANK).withAddress(VALID_ADDRESS_MAYBANK)
+                .withPriority(VALID_PRIORITY_MAYBANK).withTags(VALID_TAG_MAYBANK).build();
     }
 
     /**
