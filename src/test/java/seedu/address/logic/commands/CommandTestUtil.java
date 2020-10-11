@@ -8,6 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -23,6 +24,7 @@ import seedu.address.model.information.Job;
 import seedu.address.model.information.JobNameContainsKeywordsPredicate;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.PersonNameContainsKeywordsPredicate;
+import seedu.address.testutil.EditJobDescriptorBuilder;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
 /**
@@ -59,6 +61,8 @@ public class CommandTestUtil {
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
+    public static final String INVALID_JOB_PRIORITY_DESC = " " + PREFIX_PRIORITY + "nonsense";
+    //only 'low', 'moderate', 'high' allowed for priority
 
     public static final String VALID_JOB_TITLE_IRAS = "Tax Officer";
     public static final String VALID_JOB_TITLE_MAYBANK = "Bank Teller";
@@ -70,6 +74,8 @@ public class CommandTestUtil {
     public static final String VALID_EMAIL_MAYBANK = "enquiries@maybank.com.sg";
     public static final String VALID_ADDRESS_IRAS = "55 Newton Rd, Revenue House, Singapore 307987";
     public static final String VALID_ADDRESS_MAYBANK = "23 Serangoon Central, # B2 - 27, Singapore 556083";
+    public static final String VALID_PRIORITY_IRAS = "high";
+    public static final String VALID_PRIORITY_MAYBANK = "low";
     public static final String VALID_TAG_IRAS = "Tax";
     public static final String VALID_TAG_MAYBANK = "Banking";
 
@@ -83,11 +89,16 @@ public class CommandTestUtil {
     public static final String EMAIL_DESC_MAYBANK = " " + PREFIX_EMAIL + VALID_EMAIL_MAYBANK;
     public static final String ADDRESS_DESC_IRAS = " " + PREFIX_ADDRESS + VALID_ADDRESS_IRAS;
     public static final String ADDRESS_DESC_MAYBANK = " " + PREFIX_ADDRESS + VALID_ADDRESS_MAYBANK;
+    public static final String PRIORITY_DESC_IRAS = " " + PREFIX_PRIORITY + VALID_PRIORITY_IRAS;
+    public static final String PRIORITY_DESC_MAYBANK = " " + PREFIX_PRIORITY + VALID_PRIORITY_MAYBANK;
     public static final String TAG_DESC_IRAS = " " + PREFIX_TAG + VALID_TAG_IRAS;
     public static final String TAG_DESC_MAYBANK = " " + PREFIX_TAG + VALID_TAG_MAYBANK;
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
+
+    public static final EditJobCommand.EditJobDescriptor DESC_IRAS;
+    public static final EditJobCommand.EditJobDescriptor DESC_MAYBANK;
 
     public static final EditPersonCommand.EditPersonDescriptor DESC_AMY;
     public static final EditPersonCommand.EditPersonDescriptor DESC_BOB;
@@ -99,6 +110,15 @@ public class CommandTestUtil {
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+    }
+
+    static {
+        DESC_IRAS = new EditJobDescriptorBuilder().withJobTitle(VALID_JOB_TITLE_IRAS)
+                .withPhone(VALID_PHONE_IRAS).withEmail(VALID_EMAIL_IRAS).withAddress(VALID_ADDRESS_IRAS)
+                .withPriority(VALID_PRIORITY_IRAS).withTags(VALID_TAG_IRAS).build();
+        DESC_MAYBANK = new EditJobDescriptorBuilder().withJobTitle(VALID_JOB_TITLE_MAYBANK)
+                .withPhone(VALID_PHONE_MAYBANK).withEmail(VALID_EMAIL_MAYBANK).withAddress(VALID_ADDRESS_MAYBANK)
+                .withPriority(VALID_PRIORITY_MAYBANK).withTags(VALID_TAG_MAYBANK).build();
     }
 
     /**
