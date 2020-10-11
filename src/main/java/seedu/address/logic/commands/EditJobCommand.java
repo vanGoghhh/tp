@@ -179,7 +179,7 @@ public class EditJobCommand extends Command {
         }
 
         public Optional<Name> getCompanyName() {
-            return Optional.ofNullable(jobTitle);
+            return Optional.ofNullable(companyName);
         }
 
         public void setPhone(Phone phone) {
