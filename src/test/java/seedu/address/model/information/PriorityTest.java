@@ -2,30 +2,38 @@ package seedu.address.model.information;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
 public class PriorityTest {
 
     @Test
-    public void equals() {
-        Priority priority = new Priority("low");
+    public void constructor_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new Priority(null));
+    }
 
-        // same object -> returns true
-        assertTrue(priority.equals(priority));
+    @Test
+    public void constructor_invalidPriority_throwsIllegalArgumentException() {
+        String invalidPriority = "urgent";
+        assertThrows(IllegalArgumentException.class, () -> new Priority(invalidPriority));
+    }
 
-        // same values -> returns true
-        Priority priorityCopy = new Priority(priority.value);
-        assertTrue(priority.equals(priorityCopy));
+    @Test
+    public void isValidPriority() {
+        // null priority
+        assertThrows(NullPointerException.class, () -> Priority.isValidPriority(null));
 
-        // different types -> returns false
-        assertFalse(priority.equals(1));
+        // blank priority
+        assertFalse(Priority.isValidPriority("")); // empty string
+        assertFalse(Priority.isValidPriority(" ")); // spaces only
 
-        // null -> returns false
-        assertFalse(priority.equals(null));
+        // invalid priority values
+        assertFalse(Priority.isValidPriority("urgent")); // not accepted value
 
-        // different remark -> returns false
-        Priority differentPriority = new Priority("moderate");
-        assertFalse(priority.equals(differentPriority));
+        // valid priority
+        assertTrue(Priority.isValidPriority("low")); // low priority
+        assertTrue(Priority.isValidPriority("moderate")); // moderate priority
+        assertTrue(Priority.isValidPriority("high")); // high priority
     }
 }
