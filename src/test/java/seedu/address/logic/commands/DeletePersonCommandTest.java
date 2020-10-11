@@ -21,7 +21,7 @@ import seedu.address.model.information.Person;
 
 /**
  * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for
- * {@code DeleteCommand}.
+ * {@code DeletePersonCommand}.
  */
 public class DeletePersonCommandTest {
 
