@@ -8,6 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -60,6 +61,8 @@ public class CommandTestUtil {
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
+    public static final String INVALID_JOB_PRIORITY_DESC = " " + PREFIX_PRIORITY + "nonsense";
+    //only 'low', 'moderate', 'high' allowed for priority
 
     public static final String VALID_JOB_TITLE_IRAS = "Tax Officer";
     public static final String VALID_JOB_TITLE_MAYBANK = "Bank Teller";
@@ -86,6 +89,8 @@ public class CommandTestUtil {
     public static final String EMAIL_DESC_MAYBANK = " " + PREFIX_EMAIL + VALID_EMAIL_MAYBANK;
     public static final String ADDRESS_DESC_IRAS = " " + PREFIX_ADDRESS + VALID_ADDRESS_IRAS;
     public static final String ADDRESS_DESC_MAYBANK = " " + PREFIX_ADDRESS + VALID_ADDRESS_MAYBANK;
+    public static final String PRIORITY_DESC_IRAS = " " + PREFIX_PRIORITY + VALID_PRIORITY_IRAS;
+    public static final String PRIORITY_DESC_MAYBANK = " " + PREFIX_PRIORITY + VALID_PRIORITY_MAYBANK;
     public static final String TAG_DESC_IRAS = " " + PREFIX_TAG + VALID_TAG_IRAS;
     public static final String TAG_DESC_MAYBANK = " " + PREFIX_TAG + VALID_TAG_MAYBANK;
 

@@ -52,6 +52,14 @@ public class EditJobDescriptorBuilder {
     }
 
     /**
+     * Sets the {@code CompanyName} of the {@code EditJobDescriptor} that we are building.
+     */
+    public EditJobDescriptorBuilder withCompanyName(String companyName) {
+        descriptor.setCompanyName(new Name(companyName));
+        return this;
+    }
+
+    /**
      * Sets the {@code Phone} of the {@code EditJobDescriptor} that we are building.
      */
     public EditJobDescriptorBuilder withPhone(String phone) {

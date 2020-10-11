@@ -61,13 +61,13 @@ public class EditJobCommandTest {
         Job lastJob = model.getFilteredJobList().get(indexLastJob.getZeroBased());
 
         JobBuilder jobInList = new JobBuilder(lastJob);
-        Job editedJob = jobInList.withJobTitle(VALID_JOB_TITLE_MAYBANK).withPhone(VALID_PHONE_MAYBANK).
-                withAddress(VALID_ADDRESS_MAYBANK).withPriority(VALID_PRIORITY_MAYBANK).
-                withTags(VALID_TAG_MAYBANK).build();
+        Job editedJob = jobInList.withJobTitle(VALID_JOB_TITLE_MAYBANK).withPhone(VALID_PHONE_MAYBANK)
+                .withAddress(VALID_ADDRESS_MAYBANK).withPriority(VALID_PRIORITY_MAYBANK)
+                .withTags(VALID_TAG_MAYBANK).build();
 
-        EditJobDescriptor descriptor = new EditJobDescriptorBuilder().withJobTitle(VALID_JOB_TITLE_MAYBANK).
-                withPhone(VALID_PHONE_MAYBANK).withAddress(VALID_ADDRESS_MAYBANK).
-                withPriority(VALID_PRIORITY_MAYBANK).withTags(VALID_TAG_MAYBANK).build();
+        EditJobDescriptor descriptor = new EditJobDescriptorBuilder().withJobTitle(VALID_JOB_TITLE_MAYBANK)
+                .withPhone(VALID_PHONE_MAYBANK).withAddress(VALID_ADDRESS_MAYBANK)
+                .withPriority(VALID_PRIORITY_MAYBANK).withTags(VALID_TAG_MAYBANK).build();
         EditJobCommand editJobCommand = new EditJobCommand(indexLastJob, descriptor);
 
         String expectedMessage = String.format(EditJobCommand.MESSAGE_EDIT_JOB_SUCCESS, editedJob);

@@ -37,8 +37,8 @@ public class EditJobDescriptorTest {
         assertFalse(DESC_IRAS.equals(DESC_MAYBANK));
 
         // different name -> returns false
-        EditJobDescriptor editedIras = new EditJobDescriptorBuilder(DESC_IRAS).
-                withJobTitle(VALID_JOB_TITLE_MAYBANK).build();
+        EditJobDescriptor editedIras = new EditJobDescriptorBuilder(DESC_IRAS)
+                .withJobTitle(VALID_JOB_TITLE_MAYBANK).build();
         assertFalse(DESC_IRAS.equals(editedIras));
 
         // different phone -> returns false
