@@ -2,6 +2,7 @@ package seedu.address.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static seedu.address.testutil.TypicalJobs.getTypicalJobAddressBook;
 import static seedu.address.testutil.TypicalPersons.getTypicalPersonAddressBook;
 
 import java.nio.file.Path;
@@ -11,7 +12,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.JobAddressBook;
 import seedu.address.model.PersonAddressBook;
+import seedu.address.model.ReadOnlyJobAddressBook;
 import seedu.address.model.ReadOnlyPersonAddressBook;
 import seedu.address.model.UserPrefs;
 
@@ -50,7 +53,7 @@ public class StorageManagerTest {
     }
 
     @Test
-    public void addressBookReadSave() throws Exception {
+    public void personAddressBookReadSave() throws Exception {
         /*
          * Note: This is an integration test that verifies the StorageManager is properly wired to the
          * {@link JsonAddressBookStorage} class.
@@ -63,8 +66,25 @@ public class StorageManagerTest {
     }
 
     @Test
-    public void getAddressBookFilePath() {
+    public void getPersonAddressBookFilePath() {
         assertNotNull(storageManager.getPersonAddressBookFilePath());
     }
 
+    @Test
+    public void jobAddressBookReadSave() throws Exception {
+        /*
+         * Note: This is an integration test that verifies the StorageManager is properly wired to the
+         * {@link JsonAddressBookStorage} class.
+         * More extensive testing of UserPref saving/reading is done in {@link JsonAddressBookStorageTest} class.
+         */
+        JobAddressBook original = getTypicalJobAddressBook();
+        storageManager.saveJobAddressBook(original);
+        ReadOnlyJobAddressBook retrieved = storageManager.readJobAddressBook().get();
+        assertEquals(original, new JobAddressBook(retrieved));
+    }
+
+    @Test
+    public void getJobAddressBookFilePath() {
+        assertNotNull(storageManager.getJobAddressBookFilePath());
+    }
 }
