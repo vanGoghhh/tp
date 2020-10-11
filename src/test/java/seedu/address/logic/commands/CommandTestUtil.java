@@ -3,7 +3,9 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
@@ -17,6 +19,8 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.PersonAddressBook;
+import seedu.address.model.information.Job;
+import seedu.address.model.information.JobNameContainsKeywordsPredicate;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.PersonNameContainsKeywordsPredicate;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
@@ -49,8 +53,8 @@ public class CommandTestUtil {
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
-    public static final String INVALID_JOB_TITLE_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in job titles
-    public static final String INVALID_COMPANY_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
+    public static final String INVALID_JOB_TITLE_DESC = " " + PREFIX_JOB_TITLE + "James&"; // '&' not allowed
+    public static final String INVALID_COMPANY_NAME_DESC = " " + PREFIX_COMPANY_NAME + "James&"; // '&' not allowed
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
@@ -69,10 +73,10 @@ public class CommandTestUtil {
     public static final String VALID_TAG_IRAS = "Tax";
     public static final String VALID_TAG_MAYBANK = "Banking";
 
-    public static final String JOB_TITLE_DESC_IRAS = " " + PREFIX_NAME + VALID_JOB_TITLE_IRAS;
-    public static final String JOB_TITLE_DESC_MAYBANK = " " + PREFIX_NAME + VALID_JOB_TITLE_MAYBANK;
-    public static final String COMPANY_NAME_DESC_IRAS = " " + PREFIX_NAME + VALID_COMPANY_NAME_IRAS;
-    public static final String COMPANY_NAME_DESC_MAYBANK = " " + PREFIX_NAME + VALID_COMPANY_NAME_MAYBANK;
+    public static final String JOB_TITLE_DESC_IRAS = " " + PREFIX_JOB_TITLE + VALID_JOB_TITLE_IRAS;
+    public static final String JOB_TITLE_DESC_MAYBANK = " " + PREFIX_JOB_TITLE + VALID_JOB_TITLE_MAYBANK;
+    public static final String COMPANY_NAME_DESC_IRAS = " " + PREFIX_COMPANY_NAME + VALID_COMPANY_NAME_IRAS;
+    public static final String COMPANY_NAME_DESC_MAYBANK = " " + PREFIX_COMPANY_NAME + VALID_COMPANY_NAME_MAYBANK;
     public static final String PHONE_DESC_IRAS = " " + PREFIX_PHONE + VALID_PHONE_IRAS;
     public static final String PHONE_DESC_MAYBANK = " " + PREFIX_PHONE + VALID_PHONE_MAYBANK;
     public static final String EMAIL_DESC_IRAS = " " + PREFIX_EMAIL + VALID_EMAIL_IRAS;
@@ -139,9 +143,10 @@ public class CommandTestUtil {
         assertEquals(expectedAddressBook, actualModel.getPersonAddressBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredPersonList());
     }
+
     /**
      * Updates {@code model}'s filtered list to show only the person at the given {@code targetIndex} in the
-     * {@code model}'s address book.
+     * {@code model}'s person address book.
      */
     public static void showPersonAtIndex(Model model, Index targetIndex) {
         assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
@@ -153,4 +158,17 @@ public class CommandTestUtil {
         assertEquals(1, model.getFilteredPersonList().size());
     }
 
+    /**
+     * Updates {@code model}'s filtered list to show only the job at the given {@code targetIndex} in the
+     * {@code model}'s job address book.
+     */
+    public static void showJobAtIndex(Model model, Index targetIndex) {
+        assertTrue(targetIndex.getZeroBased() < model.getFilteredJobList().size());
+
+        Job job = model.getFilteredJobList().get(targetIndex.getZeroBased());
+        final String[] splitName = job.getJobTitle().fullName.split("\\s+");
+        model.updateFilteredJobList(new JobNameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+
+        assertEquals(1, model.getFilteredJobList().size());
+    }
 }
