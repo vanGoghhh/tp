@@ -26,6 +26,7 @@
                     </minWidth>
                 </Label>
                 <Label fx:id="jobName" text="\$first" styleClass="cell_big_label" />
+
             </HBox>
             <Label fx:id="companyName" text="\$first" styleClass="cell_big_label" />
             <FlowPane fx:id="jobTags" />

@@ -47,8 +47,8 @@ public class TabBar extends UiPart<Region> {
     private void setPersonAndJobTabBar() {
         personTab.setText("Applicants");
         jobTab.setText("Jobs");
-        personAndJobTabBar.setTabMinWidth(335);
-        personAndJobTabBar.setTabMaxWidth(335);
+        personAndJobTabBar.setTabMinWidth(320);
+        personAndJobTabBar.setTabMaxWidth(320);
     }
 
     /**
