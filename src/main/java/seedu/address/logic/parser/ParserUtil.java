@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
@@ -13,6 +14,7 @@ import seedu.address.model.information.Address;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Priority;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -120,5 +122,30 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses a {@code String priority} into a {@code Priority}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code priority} is invalid.
+     */
+    public static Priority parsePriorityString(String priority) throws ParseException {
+        requireNonNull(priority);
+        String trimmedPriority = priority.trim();
+        if (!Priority.isValidPriority(trimmedPriority)) {
+            throw new ParseException(Priority.MESSAGE_CONSTRAINTS);
+        }
+        return new Priority(trimmedPriority);
+    }
+
+    /**
+     * Parses {@code List<String> priorities} into a {@code Priority}.
+     */
+    public static Priority parsePriority(List<String> priorities) throws ParseException {
+        requireNonNull(priorities);
+        // if no priority given, assign moderate
+        String priorityString = priorities.isEmpty() ? "moderate" : priorities.get(priorities.size() - 1);
+        return parsePriorityString(priorityString);
     }
 }

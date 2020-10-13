@@ -3,9 +3,12 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -17,8 +20,11 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.PersonAddressBook;
+import seedu.address.model.information.Job;
+import seedu.address.model.information.JobNameContainsKeywordsPredicate;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.PersonNameContainsKeywordsPredicate;
+import seedu.address.testutil.EditJobDescriptorBuilder;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
 /**
@@ -49,12 +55,14 @@ public class CommandTestUtil {
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
-    public static final String INVALID_JOB_TITLE_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in job titles
-    public static final String INVALID_COMPANY_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
+    public static final String INVALID_JOB_TITLE_DESC = " " + PREFIX_JOB_TITLE + "James&"; // '&' not allowed
+    public static final String INVALID_COMPANY_NAME_DESC = " " + PREFIX_COMPANY_NAME + "James&"; // '&' not allowed
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
+    public static final String INVALID_JOB_PRIORITY_DESC = " " + PREFIX_PRIORITY + "nonsense";
+    //only 'low', 'moderate', 'high' allowed for priority
 
     public static final String VALID_JOB_TITLE_IRAS = "Tax Officer";
     public static final String VALID_JOB_TITLE_MAYBANK = "Bank Teller";
@@ -66,24 +74,31 @@ public class CommandTestUtil {
     public static final String VALID_EMAIL_MAYBANK = "enquiries@maybank.com.sg";
     public static final String VALID_ADDRESS_IRAS = "55 Newton Rd, Revenue House, Singapore 307987";
     public static final String VALID_ADDRESS_MAYBANK = "23 Serangoon Central, # B2 - 27, Singapore 556083";
+    public static final String VALID_PRIORITY_IRAS = "high";
+    public static final String VALID_PRIORITY_MAYBANK = "low";
     public static final String VALID_TAG_IRAS = "Tax";
     public static final String VALID_TAG_MAYBANK = "Banking";
 
-    public static final String JOB_TITLE_DESC_IRAS = " " + PREFIX_NAME + VALID_JOB_TITLE_IRAS;
-    public static final String JOB_TITLE_DESC_MAYBANK = " " + PREFIX_NAME + VALID_JOB_TITLE_MAYBANK;
-    public static final String COMPANY_NAME_DESC_IRAS = " " + PREFIX_NAME + VALID_COMPANY_NAME_IRAS;
-    public static final String COMPANY_NAME_DESC_MAYBANK = " " + PREFIX_NAME + VALID_COMPANY_NAME_MAYBANK;
+    public static final String JOB_TITLE_DESC_IRAS = " " + PREFIX_JOB_TITLE + VALID_JOB_TITLE_IRAS;
+    public static final String JOB_TITLE_DESC_MAYBANK = " " + PREFIX_JOB_TITLE + VALID_JOB_TITLE_MAYBANK;
+    public static final String COMPANY_NAME_DESC_IRAS = " " + PREFIX_COMPANY_NAME + VALID_COMPANY_NAME_IRAS;
+    public static final String COMPANY_NAME_DESC_MAYBANK = " " + PREFIX_COMPANY_NAME + VALID_COMPANY_NAME_MAYBANK;
     public static final String PHONE_DESC_IRAS = " " + PREFIX_PHONE + VALID_PHONE_IRAS;
     public static final String PHONE_DESC_MAYBANK = " " + PREFIX_PHONE + VALID_PHONE_MAYBANK;
     public static final String EMAIL_DESC_IRAS = " " + PREFIX_EMAIL + VALID_EMAIL_IRAS;
     public static final String EMAIL_DESC_MAYBANK = " " + PREFIX_EMAIL + VALID_EMAIL_MAYBANK;
     public static final String ADDRESS_DESC_IRAS = " " + PREFIX_ADDRESS + VALID_ADDRESS_IRAS;
     public static final String ADDRESS_DESC_MAYBANK = " " + PREFIX_ADDRESS + VALID_ADDRESS_MAYBANK;
+    public static final String PRIORITY_DESC_IRAS = " " + PREFIX_PRIORITY + VALID_PRIORITY_IRAS;
+    public static final String PRIORITY_DESC_MAYBANK = " " + PREFIX_PRIORITY + VALID_PRIORITY_MAYBANK;
     public static final String TAG_DESC_IRAS = " " + PREFIX_TAG + VALID_TAG_IRAS;
     public static final String TAG_DESC_MAYBANK = " " + PREFIX_TAG + VALID_TAG_MAYBANK;
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
+
+    public static final EditJobCommand.EditJobDescriptor DESC_IRAS;
+    public static final EditJobCommand.EditJobDescriptor DESC_MAYBANK;
 
     public static final EditPersonCommand.EditPersonDescriptor DESC_AMY;
     public static final EditPersonCommand.EditPersonDescriptor DESC_BOB;
@@ -95,6 +110,15 @@ public class CommandTestUtil {
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+    }
+
+    static {
+        DESC_IRAS = new EditJobDescriptorBuilder().withJobTitle(VALID_JOB_TITLE_IRAS)
+                .withPhone(VALID_PHONE_IRAS).withEmail(VALID_EMAIL_IRAS).withAddress(VALID_ADDRESS_IRAS)
+                .withPriority(VALID_PRIORITY_IRAS).withTags(VALID_TAG_IRAS).build();
+        DESC_MAYBANK = new EditJobDescriptorBuilder().withJobTitle(VALID_JOB_TITLE_MAYBANK)
+                .withPhone(VALID_PHONE_MAYBANK).withEmail(VALID_EMAIL_MAYBANK).withAddress(VALID_ADDRESS_MAYBANK)
+                .withPriority(VALID_PRIORITY_MAYBANK).withTags(VALID_TAG_MAYBANK).build();
     }
 
     /**
@@ -139,9 +163,10 @@ public class CommandTestUtil {
         assertEquals(expectedAddressBook, actualModel.getPersonAddressBook());
         assertEquals(expectedFilteredList, actualModel.getFilteredPersonList());
     }
+
     /**
      * Updates {@code model}'s filtered list to show only the person at the given {@code targetIndex} in the
-     * {@code model}'s address book.
+     * {@code model}'s person address book.
      */
     public static void showPersonAtIndex(Model model, Index targetIndex) {
         assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
@@ -153,4 +178,17 @@ public class CommandTestUtil {
         assertEquals(1, model.getFilteredPersonList().size());
     }
 
+    /**
+     * Updates {@code model}'s filtered list to show only the job at the given {@code targetIndex} in the
+     * {@code model}'s job address book.
+     */
+    public static void showJobAtIndex(Model model, Index targetIndex) {
+        assertTrue(targetIndex.getZeroBased() < model.getFilteredJobList().size());
+
+        Job job = model.getFilteredJobList().get(targetIndex.getZeroBased());
+        final String[] splitName = job.getJobTitle().fullName.split("\\s+");
+        model.updateFilteredJobList(new JobNameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+
+        assertEquals(1, model.getFilteredJobList().size());
+    }
 }

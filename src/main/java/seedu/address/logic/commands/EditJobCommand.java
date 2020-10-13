@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_JOBS;
 
@@ -25,6 +26,7 @@ import seedu.address.model.information.Email;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Priority;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -43,11 +45,13 @@ public class EditJobCommand extends Command {
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
+            + PREFIX_PRIORITY + "PRIORITY "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_JOB_TITLE + "Zookeeper"
             + PREFIX_PHONE + "91234567 "
-            + PREFIX_EMAIL + "goggle@example.com";
+            + PREFIX_EMAIL + "goggle@example.com"
+            + PREFIX_PRIORITY + "low ";
 
     public static final String MESSAGE_EDIT_JOB_SUCCESS = "Edited job: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -102,8 +106,10 @@ public class EditJobCommand extends Command {
         Email updatedEmail = editJobDescriptor.getEmail().orElse(jobToEdit.getEmail());
         Address updatedAddress = editJobDescriptor.getAddress().orElse(jobToEdit.getAddress());
         Set<Tag> updatedTags = editJobDescriptor.getTags().orElse(jobToEdit.getTags());
+        Priority updatedPriority = editJobDescriptor.getPriority().orElse(jobToEdit.getPriority());
 
-        return new Job(updatedJobTitle, updatedCompanyName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Job(updatedJobTitle, updatedCompanyName, updatedPhone, updatedEmail, updatedAddress,
+                updatedTags, updatedPriority);
     }
 
     @Override
@@ -135,6 +141,7 @@ public class EditJobCommand extends Command {
         private Email email;
         private Address address;
         private Set<Tag> tags;
+        private Priority priority;
 
         public EditJobDescriptor() {}
 
@@ -149,13 +156,14 @@ public class EditJobCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
+            setPriority(toCopy.priority);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(jobTitle, companyName, phone, email, address, tags);
+            return CollectionUtil.isAnyNonNull(jobTitle, companyName, phone, email, address, tags, priority);
         }
 
         public void setJobTitle(Name jobTitle) {
@@ -171,7 +179,7 @@ public class EditJobCommand extends Command {
         }
 
         public Optional<Name> getCompanyName() {
-            return Optional.ofNullable(jobTitle);
+            return Optional.ofNullable(companyName);
         }
 
         public void setPhone(Phone phone) {
@@ -215,6 +223,14 @@ public class EditJobCommand extends Command {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 
+        public void setPriority(Priority priority) {
+            this.priority = priority;
+        }
+
+        public Optional<Priority> getPriority() {
+            return Optional.ofNullable(priority);
+        }
+
         @Override
         public boolean equals(Object other) {
             // short circuit if same object
@@ -235,7 +251,8 @@ public class EditJobCommand extends Command {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
-                    && getTags().equals(e.getTags());
+                    && getTags().equals(e.getTags())
+                    && getPriority().equals(e.getPriority());
         }
     }
 }

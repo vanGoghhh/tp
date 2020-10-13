@@ -137,7 +137,6 @@ public interface Model {
      */
     void setJob(Job target, Job editedJob);
 
-
     /** Returns an unmodifiable view of the filtered job list */
     ObservableList<Job> getFilteredJobList();
 
