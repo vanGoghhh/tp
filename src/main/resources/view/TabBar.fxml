@@ -8,8 +8,8 @@
 
 <?import javafx.geometry.Insets?>
 <StackPane styleClass="stack-pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-    <TabPane  fx:id="personAndJobTabBar" tabClosingPolicy="UNAVAILABLE">
-        <Tab fx:id="personTab">
+    <TabPane  fx:id="personAndJobTabBar" styleClass="tab-pane" tabClosingPolicy="UNAVAILABLE">
+        <Tab fx:id="personTab" styleClass="@DarkTheme.css">
             <content>
                 <VBox fx:id="personList" styleClass="pane-with-border" minWidth="340" prefWidth="340" VBox.vgrow="ALWAYS">
                     <padding>
