@@ -6,7 +6,7 @@ import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-public class ExerienceTest {
+public class ExperienceTest {
     @Test
     public void constructor_null_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> new Experience(null));
@@ -24,17 +24,17 @@ public class ExerienceTest {
 
     @Test
     public void isValidExperience() {
-        // null phone number
+        // null experience
         assertThrows(NullPointerException.class, () -> Experience.isValidExperience(null));
 
-        // invalid phone numbers
+        // invalid experience
         assertFalse(Experience.isValidExperience("")); // empty string
         assertFalse(Experience.isValidExperience("  ")); // spaces only
         assertFalse(Experience.isValidExperience("phone")); // non-numeric
         assertFalse(Experience.isValidExperience("9011p041")); // alphabets within digits
         assertFalse(Experience.isValidExperience("-100")); // negative number
 
-        // valid phone numbers
+        // valid experience
         assertTrue(Experience.isValidExperience("0")); // zero
         assertTrue(Experience.isValidExperience("9")); // positive
         assertTrue(Experience.isValidExperience("  8  ")); // positive with whitespace
