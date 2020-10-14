@@ -13,7 +13,6 @@ import java.util.Set;
 import seedu.address.logic.commands.AddPersonCommand;
 import seedu.address.logic.commands.EditPersonCommand.EditPersonDescriptor;
 import seedu.address.model.information.Person;
-import seedu.address.model.information.UrlLink;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -56,7 +55,12 @@ public class PersonUtil {
         descriptor.getAddress().ifPresent(address -> sb.append(PREFIX_ADDRESS).append(address.value).append(" "));
         descriptor.getExperience().ifPresent(experience -> sb.append(PREFIX_EXPERIENCE)
                 .append(experience.toString()).append(" "));
-        descriptor.getUrlLink().ifPresent(link -> sb.append(PREFIX_URL_LINK).append(link.value).append(" "));
+        descriptor.getUrlLinkOptional().ifPresent(linkOptional -> {
+            sb.append(PREFIX_URL_LINK);
+            linkOptional.ifPresent(link -> sb.append(link.value));
+            sb.append(" ");
+            }
+        );
         if (descriptor.getTags().isPresent()) {
             Set<Tag> tags = descriptor.getTags().get();
             if (tags.isEmpty()) {

@@ -122,6 +122,9 @@ public class ParserUtil {
      */
     public static UrlLink parseUrlLink(String link) throws ParseException {
         requireNonNull(link);
+        if (link.equals("")) {
+            return null;
+        }
         String trimmedLink = link.trim();
         if (!UrlLink.isValidLink(trimmedLink)) {
             throw new ParseException(UrlLink.MESSAGE_CONSTRAINTS);

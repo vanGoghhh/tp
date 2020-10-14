@@ -64,8 +64,8 @@ public class EditPersonCommandParser implements Parser<EditPersonCommand> {
                     .parseExperience(argMultimap.getValue(PREFIX_EXPERIENCE).get()));
         }
         if (argMultimap.getValue(PREFIX_URL_LINK).isPresent()) {
-            editPersonDescriptor.setUrlLink(ParserUtil
-                    .parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get()));
+            editPersonDescriptor.setUrlLinkOptional(Optional.ofNullable(ParserUtil
+                    .parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get())));
         }
 
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);

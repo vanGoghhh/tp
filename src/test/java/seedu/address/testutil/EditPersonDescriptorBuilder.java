@@ -1,5 +1,6 @@
 package seedu.address.testutil;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -86,7 +87,7 @@ public class EditPersonDescriptorBuilder {
      * Sets the {@code urlLink} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withUrllink(String link) {
-        descriptor.setUrlLink(new UrlLink(link));
+        descriptor.setUrlLinkOptional(Optional.of(new UrlLink(link)));
         return this;
     }
 
