@@ -51,7 +51,7 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Experience experience = ParserUtil.parseExperience(argMultimap.getValue(PREFIX_EXPERIENCE).get());
         Optional<UrlLink> urlLinkOptional = arePrefixesPresent(argMultimap, PREFIX_URL_LINK)
-                ? Optional.of(ParserUtil.parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get()))
+                ? Optional.ofNullable(ParserUtil.parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get()))
                 : Optional.empty();
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
