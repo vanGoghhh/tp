@@ -7,8 +7,8 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -60,12 +60,12 @@ public class EditPersonCommandParser implements Parser<EditPersonCommand> {
             editPersonDescriptor.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
         }
         if (argMultimap.getValue(PREFIX_EXPERIENCE).isPresent()) {
-            editPersonDescriptor.setExperience(ParserUtil.
-                    parseExperience(argMultimap.getValue(PREFIX_EXPERIENCE).get()));
+            editPersonDescriptor.setExperience(ParserUtil
+                    .parseExperience(argMultimap.getValue(PREFIX_EXPERIENCE).get()));
         }
         if (argMultimap.getValue(PREFIX_URL_LINK).isPresent()) {
-            editPersonDescriptor.setUrlLink(ParserUtil.
-                    parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get()));
+            editPersonDescriptor.setUrlLink(ParserUtil
+                    .parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get()));
         }
 
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);
