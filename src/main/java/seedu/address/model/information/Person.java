@@ -5,6 +5,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.model.tag.Tag;
@@ -23,18 +24,21 @@ public class Person {
     // Data fields
     private final Address address;
     private final Experience experience;
+    private final Optional<UrlLink> urlLinkOptional;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Experience experience, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Address address,
+                  Experience experience, Optional<UrlLink> urlLinkOptional, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, experience, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.experience = experience;
+        this.urlLinkOptional = urlLinkOptional;
         this.tags.addAll(tags);
     }
 
@@ -56,6 +60,10 @@ public class Person {
 
     public Experience getExperience() {
         return experience;
+    }
+
+    public Optional<UrlLink> getUrlLinkOptional() {
+        return urlLinkOptional;
     }
 
     /**
@@ -100,13 +108,14 @@ public class Person {
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getExperience().equals(getExperience())
+                && otherPerson.getUrlLinkOptional().equals(getUrlLinkOptional())
                 && otherPerson.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, experience, tags);
+        return Objects.hash(name, phone, email, address, experience, urlLinkOptional, tags);
     }
 
     @Override
@@ -121,7 +130,9 @@ public class Person {
                 .append(getAddress())
                 .append(" Experience: ")
                 .append(getExperience().toString() + " years")
-                .append(" Tags: ");
+                .append(" Link: ");
+        getUrlLinkOptional().ifPresent(link -> builder.append(link.value));
+        builder.append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
     }

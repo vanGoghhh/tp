@@ -1,6 +1,7 @@
 package seedu.address.testutil;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.model.information.Address;
@@ -9,6 +10,7 @@ import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.UrlLink;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -22,12 +24,14 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_EXPERIENCE = "5.0";
+    public static final String DEFAULT_URL_LINK = "linkedin.com";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
     private Experience experience;
+    private Optional<UrlLink> urlLinkOptional;
     private Set<Tag> tags;
 
     /**
@@ -39,6 +43,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         experience = new Experience(DEFAULT_EXPERIENCE);
+        urlLinkOptional = Optional.of(new UrlLink(DEFAULT_URL_LINK));
         tags = new HashSet<>();
     }
 
@@ -51,6 +56,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
         experience = personToCopy.getExperience();
+        urlLinkOptional = personToCopy.getUrlLinkOptional();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -102,8 +108,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Optional<UrlLink>} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withUrlLink(String link) {
+        this.urlLinkOptional = Optional.of(new UrlLink(link));
+        return this;
+    }
+
         public Person build() {
-        return new Person(name, phone, email, address, experience, tags);
+        return new Person(name, phone, email, address, experience, urlLinkOptional, tags);
     }
 
 }

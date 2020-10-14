@@ -11,6 +11,7 @@ import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.UrlLink;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -78,6 +79,14 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withExperience(String experience) {
         descriptor.setExperience(new Experience(experience));
+        return this;
+    }
+
+    /**
+     * Sets the {@code urlLink} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withUrllink(String link) {
+        descriptor.setUrlLink(new UrlLink(link));
         return this;
     }
 

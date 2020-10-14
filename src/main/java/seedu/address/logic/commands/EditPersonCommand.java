@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
@@ -26,6 +27,7 @@ import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.UrlLink;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -44,11 +46,13 @@ public class EditPersonCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_EXPERIENCE + "EXPERIENCE] "
+            + "[" + PREFIX_URL_LINK + "PROFILE LINK] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com"
-            + PREFIX_EXPERIENCE + "2.5";
+            + PREFIX_EXPERIENCE + "2.5"
+            + PREFIX_URL_LINK + "linkedin.com/in/johndoe";
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited candidate: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -102,9 +106,12 @@ public class EditPersonCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Experience updatedExperience = editPersonDescriptor.getExperience().orElse(personToEdit.getExperience());
+        Optional<UrlLink> updatedUrlLinkOptional = editPersonDescriptor.getUrlLink()
+                .or(personToEdit :: getUrlLinkOptional);
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedExperience, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress,
+                updatedExperience, updatedUrlLinkOptional, updatedTags);
     }
 
     @Override
@@ -135,6 +142,7 @@ public class EditPersonCommand extends Command {
         private Email email;
         private Address address;
         private Experience experience;
+        private UrlLink urlLink;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -149,6 +157,7 @@ public class EditPersonCommand extends Command {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setExperience(toCopy.experience);
+            setUrlLink(toCopy.urlLink);
             setTags(toCopy.tags);
         }
 
@@ -156,7 +165,7 @@ public class EditPersonCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, experience, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, experience,urlLink, tags);
         }
 
         public void setName(Name name) {
@@ -198,6 +207,16 @@ public class EditPersonCommand extends Command {
         public Optional<Experience> getExperience() {
             return Optional.ofNullable(experience);
         }
+
+        public void setUrlLink(UrlLink urlLink) {
+            this.urlLink = urlLink;
+        }
+
+        public Optional<UrlLink> getUrlLink() {
+            return Optional.ofNullable(urlLink);
+        }
+
+
 
         /**
          * Sets {@code tags} to this object's {@code tags}.

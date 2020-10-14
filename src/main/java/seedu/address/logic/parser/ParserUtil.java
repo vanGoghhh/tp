@@ -16,6 +16,7 @@ import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
 import seedu.address.model.information.Priority;
+import seedu.address.model.information.UrlLink;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -111,6 +112,21 @@ public class ParserUtil {
             throw new ParseException(Experience.MESSAGE_CONSTRAINTS);
         }
         return new Experience(trimmedExperience);
+    }
+
+    /**
+     * Parses a {@code String link} into a {@code UrlLink}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code link} is invalid.
+     */
+    public static UrlLink parseUrlLink(String link) throws ParseException {
+        requireNonNull(link);
+        String trimmedLink = link.trim();
+        if (!UrlLink.isValidLink(trimmedLink)) {
+            throw new ParseException(UrlLink.MESSAGE_CONSTRAINTS);
+        }
+        return new UrlLink(trimmedLink);
     }
 
     /**
