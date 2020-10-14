@@ -6,7 +6,7 @@
     "email" : "alice@example.com",
     "address" : "123, Jurong West Ave 6, #08-111",
     "experience" : "3.5",
-    "urlLink" : "google.com",
+    "urlLink" : null,
     "tagged" : [ "friends" ]
   }, {
     "name" : "Benson Meier",

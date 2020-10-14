@@ -31,6 +31,7 @@ public class ParserUtilTest {
     private static final String INVALID_TAG = "#friend";
     private static final String INVALID_PRIORITY = "urgent";
     private static final String INVALID_EXPERIENCE = "-3";
+    private static final String INVALID_URL = "linkedin";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
@@ -280,7 +281,7 @@ public class ParserUtilTest {
 
     @Test
     public void parseUrlLink_invalidValue_throwsParseException() throws Exception {
-         // TODO: 14/10/20
+        assertThrows(ParseException.class, () -> ParserUtil.parseUrlLink(INVALID_URL));
     }
 
     @Test

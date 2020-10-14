@@ -71,7 +71,7 @@ public class CommandTestUtil {
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_EXPERIENCE_DESC = " " + PREFIX_EXPERIENCE + "-8.0"; // negative numbers not allowed
-    public static final String INVALID_URL_LINK_DESC = " " + PREFIX_URL_LINK + " "; // url link cannot be empty
+    public static final String INVALID_URL_LINK_DESC = " " + PREFIX_URL_LINK + "rubbish"; // not a url link
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final String INVALID_JOB_PRIORITY_DESC = " " + PREFIX_PRIORITY + "nonsense";
     //only 'low', 'moderate', 'high' allowed for priority
@@ -118,8 +118,7 @@ public class CommandTestUtil {
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
-                .withExperience(VALID_EXPERIENCE_AMY).withUrllink(VALID_URL_LINK_AMY)
-                .withTags(VALID_TAG_FRIEND).build();
+                .withExperience(VALID_EXPERIENCE_AMY).withTags(VALID_TAG_FRIEND).build();
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withExperience(VALID_EXPERIENCE_BOB).withUrllink(VALID_URL_LINK_BOB)

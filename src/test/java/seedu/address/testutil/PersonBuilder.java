@@ -24,7 +24,6 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_EXPERIENCE = "5.0";
-    public static final String DEFAULT_URL_LINK = "linkedin.com";
 
     private Name name;
     private Phone phone;
@@ -43,7 +42,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
         experience = new Experience(DEFAULT_EXPERIENCE);
-        urlLinkOptional = Optional.of(new UrlLink(DEFAULT_URL_LINK));
+        urlLinkOptional = Optional.empty();
         tags = new HashSet<>();
     }
 

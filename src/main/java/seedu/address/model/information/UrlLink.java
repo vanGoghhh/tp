@@ -48,6 +48,7 @@ public class UrlLink {
      * since this app does not make use of internet.
      */
     public static boolean isValidLink(String test) {
+        requireNonNull(test);
         return validator.isValid(test);
     }
 
