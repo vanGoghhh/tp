@@ -61,16 +61,31 @@ public class EditPersonCommandParser implements Parser<EditPersonCommand> {
             editPersonDescriptor.setExperience(ParserUtil
                     .parseExperience(argMultimap.getValue(PREFIX_EXPERIENCE).get()));
         }
-        if (argMultimap.getValue(PREFIX_ADDRESS).isPresent()) {
-            editPersonDescriptor.setAddressOptional(Optional.ofNullable(ParserUtil
+
+        final boolean isAddressPrefixPresent = argMultimap.getValue(PREFIX_ADDRESS).isPresent();
+        if (isAddressPrefixPresent && argMultimap.getValue(PREFIX_ADDRESS).get().equals("")) {
+            // reset address to nothing
+            editPersonDescriptor.setAddressOptional(Optional.empty());
+        } else if (isAddressPrefixPresent && !argMultimap.getValue(PREFIX_ADDRESS).get().equals("")) {
+            editPersonDescriptor.setAddressOptional(Optional.of(ParserUtil
                     .parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get())));
         }
-        if (argMultimap.getValue(PREFIX_URL_LINK).isPresent()) {
-            editPersonDescriptor.setUrlLinkOptional(Optional.ofNullable(ParserUtil
-                    .parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get())));
+
+        final boolean isUrlLinkPrefixPresent = argMultimap.getValue(PREFIX_URL_LINK).isPresent();
+        if (isUrlLinkPrefixPresent && argMultimap.getValue(PREFIX_URL_LINK).get().equals("")) {
+            // reset url link to nothing
+            editPersonDescriptor.setUrlLinkOptional(Optional.empty());
+        } else if (isUrlLinkPrefixPresent && !argMultimap.getValue(PREFIX_URL_LINK).get().equals("")) {
+            editPersonDescriptor.setUrlLinkOptional(Optional.of(ParserUtil
+                        .parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get())));
         }
-        if (argMultimap.getValue(PREFIX_SALARY).isPresent()) {
-            editPersonDescriptor.setSalaryOptional(Optional.ofNullable(ParserUtil
+
+        final boolean isSalaryPrefixPresent = argMultimap.getValue(PREFIX_SALARY).isPresent();
+        if (isSalaryPrefixPresent && argMultimap.getValue(PREFIX_SALARY).get().equals("")) {
+            // reset salary to nothing
+            editPersonDescriptor.setSalaryOptional(Optional.empty());
+        } else if (isSalaryPrefixPresent && !argMultimap.getValue(PREFIX_SALARY).get().equals("")) {
+            editPersonDescriptor.setSalaryOptional(Optional.of(ParserUtil
                     .parseSalary(argMultimap.getValue(PREFIX_SALARY).get())));
         }
 

@@ -38,7 +38,7 @@ public class AddPersonCommand extends Command {
             + PREFIX_EXPERIENCE + "3.0 "
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
             + PREFIX_URL_LINK + "linkedin.com/in/johndoe "
-            + PREFIX_SALARY + "5500"
+            + PREFIX_SALARY + "5500 "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 

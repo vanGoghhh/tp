@@ -52,13 +52,13 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Experience experience = ParserUtil.parseExperience(argMultimap.getValue(PREFIX_EXPERIENCE).get());
         Optional<Address> addressOptional = arePrefixesPresent(argMultimap, PREFIX_ADDRESS)
-                ? Optional.ofNullable(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()))
+                ? Optional.of(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()))
                 : Optional.empty();
         Optional<UrlLink> urlLinkOptional = arePrefixesPresent(argMultimap, PREFIX_URL_LINK)
-                ? Optional.ofNullable(ParserUtil.parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get()))
+                ? Optional.of(ParserUtil.parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get()))
                 : Optional.empty();
         Optional<Salary> salaryOptional = arePrefixesPresent(argMultimap, PREFIX_SALARY)
-                ? Optional.ofNullable(ParserUtil.parseSalary(argMultimap.getValue(PREFIX_SALARY).get()))
+                ? Optional.of(ParserUtil.parseSalary(argMultimap.getValue(PREFIX_SALARY).get()))
                 : Optional.empty();
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 

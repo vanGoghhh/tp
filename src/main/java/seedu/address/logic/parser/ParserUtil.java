@@ -108,9 +108,6 @@ public class ParserUtil {
      */
     public static Address parseAddress(String address) throws ParseException {
         requireNonNull(address);
-        if (address.equals("")) {
-            return null;
-        }
         String trimmedAddress = address.trim();
         if (!Address.isValidAddress(trimmedAddress)) {
             throw new ParseException(Address.MESSAGE_CONSTRAINTS);
@@ -126,9 +123,6 @@ public class ParserUtil {
      */
     public static UrlLink parseUrlLink(String link) throws ParseException {
         requireNonNull(link);
-        if (link.equals("")) {
-            return null;
-        }
         String trimmedLink = link.trim();
         if (!UrlLink.isValidLink(trimmedLink)) {
             throw new ParseException(UrlLink.MESSAGE_CONSTRAINTS);
@@ -144,9 +138,6 @@ public class ParserUtil {
      */
     public static Salary parseSalary(String salary) throws ParseException {
         requireNonNull(salary);
-        if (salary.equals("")) {
-            return null;
-        }
         String trimmedSalary = salary.trim();
         if (!Salary.isValidSalary(trimmedSalary)) {
             throw new ParseException(Salary.MESSAGE_CONSTRAINTS);

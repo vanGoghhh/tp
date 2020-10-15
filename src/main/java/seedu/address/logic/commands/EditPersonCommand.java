@@ -53,10 +53,10 @@ public class EditPersonCommand extends Command {
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
-            + PREFIX_EMAIL + "johndoe@example.com"
-            + PREFIX_EXPERIENCE + "2.5"
-            + PREFIX_SALARY + "6500"
-            + PREFIX_URL_LINK + "linkedin.com/in/johndoe";
+            + PREFIX_EMAIL + "johndoe@example.com "
+            + PREFIX_EXPERIENCE + "2.5 "
+            + PREFIX_SALARY + "6500 "
+            + PREFIX_URL_LINK + "linkedin.com/in/johndoe ";
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited candidate: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
