@@ -105,7 +105,7 @@ Examples:
 
 Adds a job to the job listings.
 
-Format: `add job n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [pr/PRIORITY] [t/JOB_TYPE]… `
+Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [pr/PRIORITY] [t/JOB_DESCRIPTION]… `
 
 * Priority can be specified as low, moderate or high.
 * Priority is an optional field and default priority for jobs is moderate unless specified otherwise.
@@ -116,8 +116,8 @@ A job can have any number of job type tags (including 0)
 <br>
 Examples:
 
-* `add job n/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 t/chef pr/low t/waiter`
-* `add job n/FedEx e/fedex@example.com a/Joo Koon p/93333222 pr/high t/Delivery Man `
+* `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations`
+* `add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222 pr/high`
 
 ### Listing all candidates: `list can`
 
@@ -135,7 +135,7 @@ Format: `list job`
 
 Edits an existing candidate in the candidate list.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…`
+Format: `edit can INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…`
 
 * Edits the candidate at the specified `INDEX`. The index refers to the index number shown in the displayed candidate list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -155,7 +155,7 @@ Edits the name of the 2nd candidate to be `Betsy Crower` and clears all existing
 
 Edits an existing job in the job list.
 
-Format: `edit job INDEX [n/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [t/JOB_TYPE]…`
+Format: `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
 
 * Edits the job at the specified `INDEX`. The index refers to the index number shown in the displayed job list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -166,7 +166,7 @@ Format: `edit job INDEX [n/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRI
 
 Examples:
 
-*  `edit job 2 n/Dog Cafe p/82827731 a/Dog Street pr/high` <br>
+*  `edit job 2 c/Dog Cafe p/82827731 a/Dog Street pr/high` <br>
 Edits the job company name, phone number, address and priority of
 the 2nd job to be Dog Cafe, 82827731, Dog Street and high respectively.
 
@@ -232,10 +232,10 @@ All data is saved in the hard disk automatically after any command that changes 
 
 Action | Candidate Format | Job Format
 --------|------------------|------------------
-**Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]…​` | `add job n/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [pr/PRIORITY] [t/JOB_TYPE]…​`
+**Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]…​` | `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [pr/PRIORITY] [t/JOB_DESCRIPTION]…​`
 **Clear** | `clear can` | `clear job`
 **Delete** | `delete can INDEX` | `delete job INDEX`
-**Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…​` | `edit job INDEX [n/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [t/JOB_TYPE]…​`
+**Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…​` | `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [t/JOB_DESCRIPTION]…​`
 **List** | `list can` | `list job`
 **Help** | `help` | `help`
 **Exit** | `exit` | `exit`
