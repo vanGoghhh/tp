@@ -131,7 +131,7 @@ class JsonAdaptedPerson {
             modelUrlLinkOptional = Optional.empty();
         } else if (UrlLink.isValidLink(urlLink)) {
             modelUrlLinkOptional = Optional.of(new UrlLink(urlLink));
-        } else { //urlLink not valid
+        } else { // urlLink not valid
             throw new IllegalValueException(UrlLink.MESSAGE_CONSTRAINTS);
         }
 
@@ -140,7 +140,7 @@ class JsonAdaptedPerson {
             modelSalaryOptional = Optional.empty();
         } else if (Salary.isValidSalary(salary)) {
             modelSalaryOptional = Optional.of(new Salary(salary));
-        } else { //salary not valid
+        } else { // salary not valid
             throw new IllegalValueException(Salary.MESSAGE_CONSTRAINTS);
         }
 

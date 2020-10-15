@@ -7,6 +7,7 @@ import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPERIENCE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_SALARY_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_URL_LINK_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
@@ -61,10 +62,12 @@ public class EditPersonCommandTest {
 
         PersonBuilder personInList = new PersonBuilder(lastPerson);
         Person editedPerson = personInList.withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
-                .withExperience(VALID_EXPERIENCE_BOB).withTags(VALID_TAG_HUSBAND).build();
+                .withExperience(VALID_EXPERIENCE_BOB).withTags(VALID_TAG_HUSBAND)
+                .withSalary(VALID_SALARY_BOB).build();
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
-                .withExperience(VALID_EXPERIENCE_BOB).withPhone(VALID_PHONE_BOB).withTags(VALID_TAG_HUSBAND).build();
+                .withExperience(VALID_EXPERIENCE_BOB).withPhone(VALID_PHONE_BOB)
+                .withSalary(VALID_SALARY_BOB).withTags(VALID_TAG_HUSBAND).build();
         EditPersonCommand editPersonCommand = new EditPersonCommand(indexLastPerson, descriptor);
 
         String expectedMessage = String.format(EditPersonCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedPerson);
@@ -94,10 +97,11 @@ public class EditPersonCommandTest {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
 
         Person personInFilteredList = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
-        Person editedPerson = new PersonBuilder(personInFilteredList)
-                .withName(VALID_NAME_BOB).withUrlLink(VALID_URL_LINK_BOB).build();
+        Person editedPerson = new PersonBuilder(personInFilteredList).withName(VALID_NAME_BOB)
+                .withUrlLink(VALID_URL_LINK_BOB).withSalary(VALID_SALARY_BOB).build();
         EditPersonCommand editPersonCommand = new EditPersonCommand(INDEX_FIRST_PERSON,
-                new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB).withUrllink(VALID_URL_LINK_BOB).build());
+                new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB).withUrllink(VALID_URL_LINK_BOB)
+                        .withSalary(VALID_SALARY_BOB).build());
 
         String expectedMessage = String.format(EditPersonCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedPerson);
 

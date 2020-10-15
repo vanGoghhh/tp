@@ -12,6 +12,7 @@ import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Salary;
 import seedu.address.model.information.UrlLink;
 import seedu.address.model.tag.Tag;
 
@@ -40,6 +41,8 @@ public class EditPersonDescriptorBuilder {
         descriptor.setEmail(person.getEmail());
         descriptor.setAddress(person.getAddress());
         descriptor.setExperience(person.getExperience());
+        descriptor.setUrlLinkOptional(person.getUrlLinkOptional());
+        descriptor.setSalaryOptional(person.getSalaryOptional());
         descriptor.setTags(person.getTags());
     }
 
@@ -88,6 +91,14 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withUrllink(String link) {
         descriptor.setUrlLinkOptional(Optional.of(new UrlLink(link)));
+        return this;
+    }
+
+    /**
+     * Sets the {@code salary} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withSalary(String salary) {
+        descriptor.setSalaryOptional(Optional.of(new Salary(salary)));
         return this;
     }
 

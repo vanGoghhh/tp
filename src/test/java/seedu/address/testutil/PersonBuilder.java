@@ -10,6 +10,7 @@ import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Salary;
 import seedu.address.model.information.UrlLink;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
@@ -31,6 +32,7 @@ public class PersonBuilder {
     private Address address;
     private Experience experience;
     private Optional<UrlLink> urlLinkOptional;
+    private Optional<Salary> salaryOptional;
     private Set<Tag> tags;
 
     /**
@@ -43,6 +45,7 @@ public class PersonBuilder {
         address = new Address(DEFAULT_ADDRESS);
         experience = new Experience(DEFAULT_EXPERIENCE);
         urlLinkOptional = Optional.empty();
+        salaryOptional = Optional.empty();
         tags = new HashSet<>();
     }
 
@@ -56,6 +59,7 @@ public class PersonBuilder {
         address = personToCopy.getAddress();
         experience = personToCopy.getExperience();
         urlLinkOptional = personToCopy.getUrlLinkOptional();
+        salaryOptional = personToCopy.getSalaryOptional();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -115,8 +119,17 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Optional<Salary>} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withSalary(String salary) {
+        this.salaryOptional = Optional.of(new Salary(salary));
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, address, experience, urlLinkOptional, tags);
+        return new Person(name, phone, email, address, experience,
+                urlLinkOptional, salaryOptional, tags);
     }
 
 }

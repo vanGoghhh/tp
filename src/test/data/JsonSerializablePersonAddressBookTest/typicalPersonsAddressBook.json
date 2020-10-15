@@ -7,7 +7,7 @@
     "address" : "123, Jurong West Ave 6, #08-111",
     "experience" : "3.5",
     "urlLink" : null,
-    "salary" : "",
+    "salary" : null,
     "tagged" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
@@ -16,6 +16,7 @@
     "address" : "311, Clementi Ave 2, #02-25",
     "experience" : "2.0",
     "urlLink" : "linkedin.com",
+    "salary" : "13000",
     "tagged" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
@@ -24,6 +25,7 @@
     "address" : "wall street",
     "experience" : "0.5",
     "urlLink" : null,
+    "salary" : "4500",
     "tagged" : [ ]
   }, {
     "name" : "Daniel Meier",
@@ -32,6 +34,7 @@
     "address" : "10th street",
     "experience" : "0",
     "urlLink" : "tinder.com",
+    "salary" : "3000",
     "tagged" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
@@ -40,6 +43,7 @@
     "address" : "michegan ave",
     "experience" : "1.5",
     "urlLink" : null,
+    "salary" : null,
     "tagged" : [ ]
   }, {
     "name" : "Fiona Kunz",
@@ -48,6 +52,7 @@
     "address" : "little tokyo",
     "experience" : "10",
     "urlLink" : null,
+    "salary" : "2900",
     "tagged" : [ ]
   }, {
     "name" : "George Best",
@@ -56,6 +61,7 @@
     "address" : "4th street",
     "experience" : "1",
     "urlLink" : "github.com",
+    "salary" : "8888",
     "tagged" : [ ]
   } ]
 }

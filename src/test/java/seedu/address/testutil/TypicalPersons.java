@@ -10,6 +10,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_SALARY_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_URL_LINK_BOB;
@@ -32,19 +33,21 @@ public class TypicalPersons {
             .withTags("friends").build();
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25").withExperience("2.0")
-            .withEmail("johnd@example.com").withPhone("98765432")
+            .withEmail("johnd@example.com").withPhone("98765432").withSalary("13000")
             .withUrlLink("linkedin.com").withTags("owesMoney", "friends").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
-            .withEmail("heinz@example.com").withAddress("wall street").withExperience("0.5").build();
+            .withSalary("4500").withEmail("heinz@example.com").withAddress("wall street")
+            .withExperience("0.5").build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
-            .withEmail("cornelia@example.com").withAddress("10th street")
+            .withEmail("cornelia@example.com").withAddress("10th street").withSalary("3000")
             .withExperience("0").withUrlLink("tinder.com").withTags("friends").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
             .withEmail("werner@example.com").withAddress("michegan ave").withExperience("1.5").build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
-            .withEmail("lydia@example.com").withAddress("little tokyo").withExperience("10").build();
+            .withSalary("2900").withEmail("lydia@example.com").withAddress("little tokyo")
+            .withExperience("10").build();
     public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("9482442")
-            .withEmail("anna@example.com").withAddress("4th street")
+            .withEmail("anna@example.com").withAddress("4th street").withSalary("8888")
             .withExperience("1").withUrlLink("github.com").build();
 
     // Manually added
@@ -59,7 +62,8 @@ public class TypicalPersons {
             .withTags(VALID_TAG_FRIEND).build();
     public static final Person BOB = new PersonBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withUrlLink(VALID_URL_LINK_BOB)
-            .withExperience(VALID_EXPERIENCE_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+            .withSalary(VALID_SALARY_BOB).withExperience(VALID_EXPERIENCE_BOB)
+            .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 

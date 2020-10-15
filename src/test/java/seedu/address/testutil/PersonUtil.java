@@ -5,6 +5,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SALARY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 
@@ -38,6 +39,7 @@ public class PersonUtil {
         sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
         sb.append(PREFIX_EXPERIENCE + person.getExperience().toString() + " ");
         person.getUrlLinkOptional().ifPresent(link -> sb.append(PREFIX_URL_LINK + link.value + " "));
+        person.getSalaryOptional().ifPresent(salary -> sb.append(PREFIX_SALARY + salary.toString() + " "));
         person.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );
@@ -60,6 +62,12 @@ public class PersonUtil {
             linkOptional.ifPresent(link -> sb.append(link.value));
             sb.append(" ");
             }
+        );
+        descriptor.getSalaryOptional().ifPresent(salaryOptional -> {
+                    sb.append(PREFIX_SALARY);
+                    salaryOptional.ifPresent(salary -> sb.append(salary.toString()));
+                    sb.append(" ");
+                }
         );
         if (descriptor.getTags().isPresent()) {
             Set<Tag> tags = descriptor.getTags().get();
