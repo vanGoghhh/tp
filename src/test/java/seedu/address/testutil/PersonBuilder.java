@@ -126,6 +126,9 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Builds a Person using the attributes.
+     */
     public Person build() {
         return new Person(name, phone, email, experience, addressOptional,
                 urlLinkOptional, salaryOptional, tags);

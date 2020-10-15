@@ -57,10 +57,10 @@ public class PersonUtil {
         descriptor.getExperience().ifPresent(experience -> sb.append(PREFIX_EXPERIENCE)
                 .append(experience.toString()).append(" "));
         descriptor.getAddressOptional().ifPresent(addressOptional -> {
-                    sb.append(PREFIX_ADDRESS);
-                    addressOptional.ifPresent(address -> sb.append(address.value));
-                    sb.append(" ");
-                }
+            sb.append(PREFIX_ADDRESS);
+            addressOptional.ifPresent(address -> sb.append(address.value));
+            sb.append(" ");
+            }
         );
         descriptor.getUrlLinkOptional().ifPresent(linkOptional -> {
             sb.append(PREFIX_URL_LINK);
@@ -69,10 +69,10 @@ public class PersonUtil {
             }
         );
         descriptor.getSalaryOptional().ifPresent(salaryOptional -> {
-                    sb.append(PREFIX_SALARY);
-                    salaryOptional.ifPresent(salary -> sb.append(salary.toString()));
-                    sb.append(" ");
-                }
+            sb.append(PREFIX_SALARY);
+            salaryOptional.ifPresent(salary -> sb.append(salary.toString()));
+            sb.append(" ");
+            }
         );
         if (descriptor.getTags().isPresent()) {
             Set<Tag> tags = descriptor.getTags().get();
