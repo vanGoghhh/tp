@@ -23,14 +23,13 @@ public class PersonBuilder {
     public static final String DEFAULT_NAME = "Alice Pauline";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
-    public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_EXPERIENCE = "5.0";
 
     private Name name;
     private Phone phone;
     private Email email;
-    private Address address;
     private Experience experience;
+    private Optional<Address> addressOptional;
     private Optional<UrlLink> urlLinkOptional;
     private Optional<Salary> salaryOptional;
     private Set<Tag> tags;
@@ -42,8 +41,8 @@ public class PersonBuilder {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
-        address = new Address(DEFAULT_ADDRESS);
         experience = new Experience(DEFAULT_EXPERIENCE);
+        addressOptional = Optional.empty();
         urlLinkOptional = Optional.empty();
         salaryOptional = Optional.empty();
         tags = new HashSet<>();
@@ -56,7 +55,7 @@ public class PersonBuilder {
         name = personToCopy.getName();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
-        address = personToCopy.getAddress();
+        addressOptional = personToCopy.getAddressOptional();
         experience = personToCopy.getExperience();
         urlLinkOptional = personToCopy.getUrlLinkOptional();
         salaryOptional = personToCopy.getSalaryOptional();
@@ -76,14 +75,6 @@ public class PersonBuilder {
      */
     public PersonBuilder withTags(String ... tags) {
         this.tags = SampleDataUtil.getTagSet(tags);
-        return this;
-    }
-
-    /**
-     * Sets the {@code Address} of the {@code Person} that we are building.
-     */
-    public PersonBuilder withAddress(String address) {
-        this.address = new Address(address);
         return this;
     }
 
@@ -112,6 +103,14 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code Optional<Address>} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withAddress(String address) {
+        this.addressOptional = Optional.of(new Address(address));
+        return this;
+    }
+
+    /**
      * Sets the {@code Optional<UrlLink>} of the {@code Person} that we are building.
      */
     public PersonBuilder withUrlLink(String link) {
@@ -128,7 +127,7 @@ public class PersonBuilder {
     }
 
     public Person build() {
-        return new Person(name, phone, email, address, experience,
+        return new Person(name, phone, email, experience, addressOptional,
                 urlLinkOptional, salaryOptional, tags);
     }
 

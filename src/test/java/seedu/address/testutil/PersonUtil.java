@@ -36,8 +36,8 @@ public class PersonUtil {
         sb.append(PREFIX_NAME + person.getName().fullName + " ");
         sb.append(PREFIX_PHONE + person.getPhone().value + " ");
         sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
-        sb.append(PREFIX_ADDRESS + person.getAddress().value + " ");
         sb.append(PREFIX_EXPERIENCE + person.getExperience().toString() + " ");
+        person.getAddressOptional().ifPresent(address -> sb.append(PREFIX_SALARY + address.value + " "));
         person.getUrlLinkOptional().ifPresent(link -> sb.append(PREFIX_URL_LINK + link.value + " "));
         person.getSalaryOptional().ifPresent(salary -> sb.append(PREFIX_SALARY + salary.toString() + " "));
         person.getTags().stream().forEach(
@@ -54,9 +54,14 @@ public class PersonUtil {
         descriptor.getName().ifPresent(name -> sb.append(PREFIX_NAME).append(name.fullName).append(" "));
         descriptor.getPhone().ifPresent(phone -> sb.append(PREFIX_PHONE).append(phone.value).append(" "));
         descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
-        descriptor.getAddress().ifPresent(address -> sb.append(PREFIX_ADDRESS).append(address.value).append(" "));
         descriptor.getExperience().ifPresent(experience -> sb.append(PREFIX_EXPERIENCE)
                 .append(experience.toString()).append(" "));
+        descriptor.getAddressOptional().ifPresent(addressOptional -> {
+                    sb.append(PREFIX_ADDRESS);
+                    addressOptional.ifPresent(address -> sb.append(address.value));
+                    sb.append(" ");
+                }
+        );
         descriptor.getUrlLinkOptional().ifPresent(linkOptional -> {
             sb.append(PREFIX_URL_LINK);
             linkOptional.ifPresent(link -> sb.append(link.value));

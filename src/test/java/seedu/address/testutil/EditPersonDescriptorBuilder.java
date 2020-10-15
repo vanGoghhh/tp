@@ -39,8 +39,8 @@ public class EditPersonDescriptorBuilder {
         descriptor.setName(person.getName());
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
-        descriptor.setAddress(person.getAddress());
         descriptor.setExperience(person.getExperience());
+        descriptor.setAddressOptional(person.getAddressOptional());
         descriptor.setUrlLinkOptional(person.getUrlLinkOptional());
         descriptor.setSalaryOptional(person.getSalaryOptional());
         descriptor.setTags(person.getTags());
@@ -71,18 +71,18 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Address} of the {@code EditPersonDescriptor} that we are building.
-     */
-    public EditPersonDescriptorBuilder withAddress(String address) {
-        descriptor.setAddress(new Address(address));
-        return this;
-    }
-
-    /**
      * Sets the {@code Experience} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withExperience(String experience) {
         descriptor.setExperience(new Experience(experience));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Address} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withAddress(String address) {
+        descriptor.setAddressOptional(Optional.of(new Address(address)));
         return this;
     }
 

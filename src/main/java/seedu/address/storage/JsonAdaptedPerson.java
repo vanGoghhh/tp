@@ -65,8 +65,8 @@ class JsonAdaptedPerson {
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
-        address = source.getAddress().value;
         experience = source.getExperience().toString();
+        address = source.getAddressOptional().map(address -> address.value).orElse(null);
         urlLink = source.getUrlLinkOptional().map(link -> link.value).orElse(null);
         salary = source.getSalaryOptional().map(sal -> sal.toString()).orElse(null);
         tagged.addAll(source.getTags().stream()
@@ -109,14 +109,6 @@ class JsonAdaptedPerson {
         }
         final Email modelEmail = new Email(email);
 
-        if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
-        }
-        if (!Address.isValidAddress(address)) {
-            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
-        }
-        final Address modelAddress = new Address(address);
-
         if (experience == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     Experience.class.getSimpleName()));
@@ -125,6 +117,15 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(Experience.MESSAGE_CONSTRAINTS);
         }
         final Experience modelExperience = new Experience(experience);
+
+        final Optional<Address> modelAddressOptional;
+        if (address == null) {
+            modelAddressOptional = Optional.empty();
+        } else if (Address.isValidAddress(address)) {
+            modelAddressOptional = Optional.of(new Address(address));
+        } else { // address not valid
+            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
+        }
 
         final Optional<UrlLink> modelUrlLinkOptional;
         if (urlLink == null) {
@@ -145,8 +146,8 @@ class JsonAdaptedPerson {
         }
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress,
-                modelExperience, modelUrlLinkOptional, modelSalaryOptional, modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelExperience,
+                modelAddressOptional, modelUrlLinkOptional, modelSalaryOptional, modelTags);
     }
 
 }

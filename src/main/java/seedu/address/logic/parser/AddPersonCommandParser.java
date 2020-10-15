@@ -41,7 +41,7 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
                         PREFIX_ADDRESS, PREFIX_EXPERIENCE, PREFIX_URL_LINK, PREFIX_SALARY, PREFIX_TAG);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE,
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_PHONE,
                 PREFIX_EMAIL, PREFIX_EXPERIENCE)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddPersonCommand.MESSAGE_USAGE));
@@ -50,8 +50,10 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
-        Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Experience experience = ParserUtil.parseExperience(argMultimap.getValue(PREFIX_EXPERIENCE).get());
+        Optional<Address> addressOptional = arePrefixesPresent(argMultimap, PREFIX_ADDRESS)
+                ? Optional.ofNullable(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()))
+                : Optional.empty();
         Optional<UrlLink> urlLinkOptional = arePrefixesPresent(argMultimap, PREFIX_URL_LINK)
                 ? Optional.ofNullable(ParserUtil.parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get()))
                 : Optional.empty();
@@ -60,7 +62,7 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
                 : Optional.empty();
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Person person = new Person(name, phone, email, address, experience,
+        Person person = new Person(name, phone, email, experience, addressOptional,
                 urlLinkOptional, salaryOptional, tagList);
 
         return new AddPersonCommand(person);

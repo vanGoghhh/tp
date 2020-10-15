@@ -36,7 +36,7 @@ public class EditPersonCommandParser implements Parser<EditPersonCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                        PREFIX_ADDRESS, PREFIX_EXPERIENCE, PREFIX_URL_LINK, PREFIX_SALARY, PREFIX_TAG);
+                       PREFIX_EXPERIENCE,  PREFIX_ADDRESS, PREFIX_URL_LINK, PREFIX_SALARY, PREFIX_TAG);
 
         Index index;
 
@@ -57,12 +57,13 @@ public class EditPersonCommandParser implements Parser<EditPersonCommand> {
         if (argMultimap.getValue(PREFIX_EMAIL).isPresent()) {
             editPersonDescriptor.setEmail(ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get()));
         }
-        if (argMultimap.getValue(PREFIX_ADDRESS).isPresent()) {
-            editPersonDescriptor.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
-        }
         if (argMultimap.getValue(PREFIX_EXPERIENCE).isPresent()) {
             editPersonDescriptor.setExperience(ParserUtil
                     .parseExperience(argMultimap.getValue(PREFIX_EXPERIENCE).get()));
+        }
+        if (argMultimap.getValue(PREFIX_ADDRESS).isPresent()) {
+            editPersonDescriptor.setAddressOptional(Optional.ofNullable(ParserUtil
+                    .parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get())));
         }
         if (argMultimap.getValue(PREFIX_URL_LINK).isPresent()) {
             editPersonDescriptor.setUrlLinkOptional(Optional.ofNullable(ParserUtil

@@ -27,7 +27,7 @@ public class AddJobCommand extends Command {
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
-            + PREFIX_PRIORITY + "PRIORITY "
+            + "[" + PREFIX_PRIORITY + "PRIORITY]  "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_JOB_TITLE + "Cashier "

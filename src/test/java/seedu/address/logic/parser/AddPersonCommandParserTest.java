@@ -116,7 +116,7 @@ public class AddPersonCommandParserTest {
         // zero tags
         Person expectedPerson = new PersonBuilder(AMY).withTags().build();
         assertParseSuccess(parser, NAME_DESC_AMY + PHONE_DESC_AMY
-                        + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + EXPERIENCE_DESC_AMY,
+                        + EMAIL_DESC_AMY + EXPERIENCE_DESC_AMY,
                 new AddPersonCommand(expectedPerson));
     }
 
@@ -137,11 +137,6 @@ public class AddPersonCommandParserTest {
         // missing email prefix
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + VALID_EMAIL_BOB
                         + ADDRESS_DESC_BOB + EXPERIENCE_DESC_BOB,
-                expectedMessage);
-
-        // missing address prefix
-        assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                        + VALID_ADDRESS_BOB + EXPERIENCE_DESC_BOB,
                 expectedMessage);
 
         // missing experience prefix
@@ -174,7 +169,7 @@ public class AddPersonCommandParserTest {
 
         // invalid address
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + INVALID_ADDRESS_DESC + EXPERIENCE_DESC_BOB + VALID_URL_LINK_BOB
+                + INVALID_ADDRESS_DESC + EXPERIENCE_DESC_BOB + URL_LINK_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Address.MESSAGE_CONSTRAINTS);
 
         // invalid experience

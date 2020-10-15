@@ -46,8 +46,8 @@ public class EditPersonCommand extends Command {
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
-            + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_EXPERIENCE + "EXPERIENCE] "
+            + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_URL_LINK + "PROFILE LINK] "
             + "[" + PREFIX_SALARY + "EXPECTED SALARY]"
             + "[" + PREFIX_TAG + "TAG]...\n"
@@ -108,16 +108,17 @@ public class EditPersonCommand extends Command {
         Name updatedName = editPersonDescriptor.getName().orElse(personToEdit.getName());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
-        Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Experience updatedExperience = editPersonDescriptor.getExperience().orElse(personToEdit.getExperience());
+        Optional<Address> updatedAddressOptional = editPersonDescriptor.getAddressOptional()
+                .orElse(personToEdit.getAddressOptional());
         Optional<UrlLink> updatedUrlLinkOptional = editPersonDescriptor.getUrlLinkOptional()
                 .orElse(personToEdit.getUrlLinkOptional());
         Optional<Salary> updatedSalaryOptional = editPersonDescriptor.getSalaryOptional()
                 .orElse(personToEdit.getSalaryOptional());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress,
-                updatedExperience, updatedUrlLinkOptional, updatedSalaryOptional, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedExperience,
+                updatedAddressOptional,updatedUrlLinkOptional, updatedSalaryOptional, updatedTags);
     }
 
     @Override
@@ -146,8 +147,8 @@ public class EditPersonCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
-        private Address address;
         private Experience experience;
+        private Optional<Address> addressOptional;
         private Optional<UrlLink> urlLinkOptional;
         private Optional<Salary> salaryOptional;
         private Set<Tag> tags;
@@ -162,8 +163,8 @@ public class EditPersonCommand extends Command {
             setName(toCopy.name);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
-            setAddress(toCopy.address);
             setExperience(toCopy.experience);
+            setAddressOptional(toCopy.addressOptional);
             setUrlLinkOptional(toCopy.urlLinkOptional);
             setSalaryOptional(toCopy.salaryOptional);
             setTags(toCopy.tags);
@@ -173,7 +174,7 @@ public class EditPersonCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, experience,
+            return CollectionUtil.isAnyNonNull(name, phone, email, experience, addressOptional,
                     urlLinkOptional, salaryOptional, tags);
         }
 
@@ -201,20 +202,20 @@ public class EditPersonCommand extends Command {
             return Optional.ofNullable(email);
         }
 
-        public void setAddress(Address address) {
-            this.address = address;
-        }
-
-        public Optional<Address> getAddress() {
-            return Optional.ofNullable(address);
-        }
-
         public void setExperience(Experience experience) {
             this.experience = experience;
         }
 
         public Optional<Experience> getExperience() {
             return Optional.ofNullable(experience);
+        }
+
+        public void setAddressOptional(Optional<Address> addressOptional) {
+            this.addressOptional = addressOptional;
+        }
+
+        public Optional<Optional<Address>> getAddressOptional() {
+            return Optional.ofNullable(addressOptional);
         }
 
         public void setUrlLinkOptional(Optional<UrlLink> urlLinkOptional) {
@@ -270,8 +271,8 @@ public class EditPersonCommand extends Command {
             return getName().equals(e.getName())
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
-                    && getAddress().equals(e.getAddress())
                     && getExperience().equals(e.getExperience())
+                    && getAddressOptional().equals(e.getAddressOptional())
                     && getUrlLinkOptional().equals(e.getUrlLinkOptional())
                     && getSalaryOptional().equals(e.getSalaryOptional())
                     && getTags().equals(e.getTags());

@@ -22,8 +22,8 @@ public class Person {
     private final Email email;
 
     // Data fields
-    private final Address address;
     private final Experience experience;
+    private final Optional<Address> addressOptional;
     private final Optional<UrlLink> urlLinkOptional;
     private final Optional<Salary> salaryOptional;
     private final Set<Tag> tags = new HashSet<>();
@@ -31,15 +31,15 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address,
-                  Experience experience, Optional<UrlLink> urlLinkOptional,
+    public Person(Name name, Phone phone, Email email, Experience experience,
+                  Optional<Address> addressOptional, Optional<UrlLink> urlLinkOptional,
                   Optional<Salary> salaryOptional, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, experience, tags);
+        requireAllNonNull(name, phone, email, addressOptional, experience, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
         this.experience = experience;
+        this.addressOptional = addressOptional;
         this.urlLinkOptional = urlLinkOptional;
         this.salaryOptional = salaryOptional;
         this.tags.addAll(tags);
@@ -57,12 +57,12 @@ public class Person {
         return email;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
     public Experience getExperience() {
         return experience;
+    }
+
+    public Optional<Address> getAddressOptional() {
+        return addressOptional;
     }
 
     public Optional<UrlLink> getUrlLinkOptional() {
@@ -113,8 +113,8 @@ public class Person {
         return otherPerson.getName().equals(getName())
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
-                && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getExperience().equals(getExperience())
+                && otherPerson.getAddressOptional().equals(getAddressOptional())
                 && otherPerson.getUrlLinkOptional().equals(getUrlLinkOptional())
                 && otherPerson.getSalaryOptional().equals(getSalaryOptional())
                 && otherPerson.getTags().equals(getTags());
@@ -123,7 +123,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, experience,
+        return Objects.hash(name, phone, email, experience, addressOptional,
                 urlLinkOptional, salaryOptional, tags);
     }
 
@@ -135,11 +135,11 @@ public class Person {
                 .append(getPhone())
                 .append(" Email: ")
                 .append(getEmail())
-                .append(" Address: ")
-                .append(getAddress())
                 .append(" Experience: ")
-                .append(getExperience().toString() + " years")
-                .append(" Link: ");
+                .append(getExperience().toString() + " years");
+        builder.append(" Address: ");
+        getAddressOptional().ifPresent(address -> builder.append(address.value));
+        builder.append(" Link: ");
         getUrlLinkOptional().ifPresent(link -> builder.append(link.value));
         builder.append(" Expected Salary: ");
         getSalaryOptional().ifPresent(salary -> builder.append("$" + salary.toString()));
