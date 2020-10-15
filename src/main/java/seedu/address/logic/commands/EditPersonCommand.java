@@ -49,7 +49,7 @@ public class EditPersonCommand extends Command {
             + "[" + PREFIX_EXPERIENCE + "EXPERIENCE] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_URL_LINK + "PROFILE LINK] "
-            + "[" + PREFIX_SALARY + "EXPECTED SALARY]"
+            + "[" + PREFIX_SALARY + "EXPECTED SALARY] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
