@@ -25,13 +25,15 @@ public class Person {
     private final Address address;
     private final Experience experience;
     private final Optional<UrlLink> urlLinkOptional;
+    private final Optional<Salary> salaryOptional;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address,
-                  Experience experience, Optional<UrlLink> urlLinkOptional, Set<Tag> tags) {
+                  Experience experience, Optional<UrlLink> urlLinkOptional,
+                  Optional<Salary> salaryOptional, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, address, experience, tags);
         this.name = name;
         this.phone = phone;
@@ -39,6 +41,7 @@ public class Person {
         this.address = address;
         this.experience = experience;
         this.urlLinkOptional = urlLinkOptional;
+        this.salaryOptional = salaryOptional;
         this.tags.addAll(tags);
     }
 
@@ -64,6 +67,10 @@ public class Person {
 
     public Optional<UrlLink> getUrlLinkOptional() {
         return urlLinkOptional;
+    }
+
+    public Optional<Salary> getSalaryOptional() {
+        return salaryOptional;
     }
 
     /**
@@ -109,13 +116,15 @@ public class Person {
                 && otherPerson.getAddress().equals(getAddress())
                 && otherPerson.getExperience().equals(getExperience())
                 && otherPerson.getUrlLinkOptional().equals(getUrlLinkOptional())
+                && otherPerson.getSalaryOptional().equals(getSalaryOptional())
                 && otherPerson.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, experience, urlLinkOptional, tags);
+        return Objects.hash(name, phone, email, address, experience,
+                urlLinkOptional, salaryOptional, tags);
     }
 
     @Override
@@ -132,6 +141,8 @@ public class Person {
                 .append(getExperience().toString() + " years")
                 .append(" Link: ");
         getUrlLinkOptional().ifPresent(link -> builder.append(link.value));
+        builder.append(" Expected Salary: ");
+        getSalaryOptional().ifPresent(salary -> builder.append("$" + salary.toString()));
         builder.append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

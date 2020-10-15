@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SALARY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 
@@ -28,6 +29,7 @@ public class AddPersonCommand extends Command {
             + PREFIX_ADDRESS + "ADDRESS "
             + PREFIX_EXPERIENCE + "EXPERIENCE "
             + "[" + PREFIX_URL_LINK + "URL LINK] "
+            + "[" + PREFIX_SALARY + "EXPECTED SALARY]"
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
@@ -36,6 +38,7 @@ public class AddPersonCommand extends Command {
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
             + PREFIX_EXPERIENCE + "3.0 "
             + PREFIX_URL_LINK + "linkedin.com/in/johndoe "
+            + PREFIX_SALARY + "5500"
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 

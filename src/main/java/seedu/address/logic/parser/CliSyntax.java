@@ -16,5 +16,6 @@ public class CliSyntax {
     public static final Prefix PREFIX_PRIORITY = new Prefix("pr/");
     public static final Prefix PREFIX_EXPERIENCE = new Prefix("exp/");
     public static final Prefix PREFIX_URL_LINK = new Prefix("link/");
+    public static final Prefix PREFIX_SALARY = new Prefix("sal/");
 
 }

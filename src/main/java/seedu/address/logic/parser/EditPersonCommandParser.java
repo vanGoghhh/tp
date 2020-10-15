@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SALARY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 
@@ -35,7 +36,7 @@ public class EditPersonCommandParser implements Parser<EditPersonCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                        PREFIX_ADDRESS, PREFIX_EXPERIENCE, PREFIX_URL_LINK, PREFIX_TAG);
+                        PREFIX_ADDRESS, PREFIX_EXPERIENCE, PREFIX_URL_LINK, PREFIX_SALARY, PREFIX_TAG);
 
         Index index;
 
@@ -66,6 +67,10 @@ public class EditPersonCommandParser implements Parser<EditPersonCommand> {
         if (argMultimap.getValue(PREFIX_URL_LINK).isPresent()) {
             editPersonDescriptor.setUrlLinkOptional(Optional.ofNullable(ParserUtil
                     .parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get())));
+        }
+        if (argMultimap.getValue(PREFIX_SALARY).isPresent()) {
+            editPersonDescriptor.setSalaryOptional(Optional.ofNullable(ParserUtil
+                    .parseSalary(argMultimap.getValue(PREFIX_SALARY).get())));
         }
 
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);

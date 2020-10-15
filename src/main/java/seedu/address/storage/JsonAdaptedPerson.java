@@ -17,6 +17,7 @@ import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Salary;
 import seedu.address.model.information.UrlLink;
 import seedu.address.model.tag.Tag;
 
@@ -33,6 +34,7 @@ class JsonAdaptedPerson {
     private final String address;
     private final String experience;
     private final String urlLink;
+    private final String salary;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -42,6 +44,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
            @JsonProperty("experience") String experience, @JsonProperty("urlLink") String urlLink,
+                             @JsonProperty("salary") String salary,
                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
@@ -49,6 +52,7 @@ class JsonAdaptedPerson {
         this.address = address;
         this.experience = experience;
         this.urlLink = urlLink;
+        this.salary = salary;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -64,6 +68,7 @@ class JsonAdaptedPerson {
         address = source.getAddress().value;
         experience = source.getExperience().toString();
         urlLink = source.getUrlLinkOptional().map(link -> link.value).orElse(null);
+        salary = source.getSalaryOptional().map(sal -> sal.toString()).orElse(null);
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -130,9 +135,18 @@ class JsonAdaptedPerson {
             throw new IllegalValueException(UrlLink.MESSAGE_CONSTRAINTS);
         }
 
+        final Optional<Salary> modelSalaryOptional;
+        if (salary == null) {
+            modelSalaryOptional = Optional.empty();
+        } else if (Salary.isValidSalary(salary)) {
+            modelSalaryOptional = Optional.of(new Salary(salary));
+        } else { //salary not valid
+            throw new IllegalValueException(Salary.MESSAGE_CONSTRAINTS);
+        }
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Person(modelName, modelPhone, modelEmail, modelAddress,
-                modelExperience, modelUrlLinkOptional, modelTags);
+                modelExperience, modelUrlLinkOptional, modelSalaryOptional, modelTags);
     }
 
 }

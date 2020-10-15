@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SALARY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 
@@ -21,6 +22,7 @@ import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Salary;
 import seedu.address.model.information.UrlLink;
 import seedu.address.model.tag.Tag;
 
@@ -37,7 +39,7 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
     public AddPersonCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                        PREFIX_ADDRESS, PREFIX_EXPERIENCE, PREFIX_URL_LINK, PREFIX_TAG);
+                        PREFIX_ADDRESS, PREFIX_EXPERIENCE, PREFIX_URL_LINK, PREFIX_SALARY, PREFIX_TAG);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE,
                 PREFIX_EMAIL, PREFIX_EXPERIENCE)
@@ -53,9 +55,13 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
         Optional<UrlLink> urlLinkOptional = arePrefixesPresent(argMultimap, PREFIX_URL_LINK)
                 ? Optional.ofNullable(ParserUtil.parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get()))
                 : Optional.empty();
+        Optional<Salary> salaryOptional = arePrefixesPresent(argMultimap, PREFIX_SALARY)
+                ? Optional.ofNullable(ParserUtil.parseSalary(argMultimap.getValue(PREFIX_SALARY).get()))
+                : Optional.empty();
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Person person = new Person(name, phone, email, address, experience, urlLinkOptional, tagList);
+        Person person = new Person(name, phone, email, address, experience,
+                urlLinkOptional, salaryOptional, tagList);
 
         return new AddPersonCommand(person);
     }

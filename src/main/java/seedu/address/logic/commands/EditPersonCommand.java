@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SALARY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
@@ -27,6 +28,7 @@ import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Salary;
 import seedu.address.model.information.UrlLink;
 import seedu.address.model.tag.Tag;
 
@@ -47,11 +49,13 @@ public class EditPersonCommand extends Command {
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_EXPERIENCE + "EXPERIENCE] "
             + "[" + PREFIX_URL_LINK + "PROFILE LINK] "
+            + "[" + PREFIX_SALARY + "EXPECTED SALARY]"
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com"
             + PREFIX_EXPERIENCE + "2.5"
+            + PREFIX_SALARY + "6500"
             + PREFIX_URL_LINK + "linkedin.com/in/johndoe";
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited candidate: %1$s";
@@ -108,10 +112,12 @@ public class EditPersonCommand extends Command {
         Experience updatedExperience = editPersonDescriptor.getExperience().orElse(personToEdit.getExperience());
         Optional<UrlLink> updatedUrlLinkOptional = editPersonDescriptor.getUrlLinkOptional()
                 .orElse(personToEdit.getUrlLinkOptional());
+        Optional<Salary> updatedSalaryOptional = editPersonDescriptor.getSalaryOptional()
+                .orElse(personToEdit.getSalaryOptional());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress,
-                updatedExperience, updatedUrlLinkOptional, updatedTags);
+                updatedExperience, updatedUrlLinkOptional, updatedSalaryOptional, updatedTags);
     }
 
     @Override
@@ -143,6 +149,7 @@ public class EditPersonCommand extends Command {
         private Address address;
         private Experience experience;
         private Optional<UrlLink> urlLinkOptional;
+        private Optional<Salary> salaryOptional;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -158,6 +165,7 @@ public class EditPersonCommand extends Command {
             setAddress(toCopy.address);
             setExperience(toCopy.experience);
             setUrlLinkOptional(toCopy.urlLinkOptional);
+            setSalaryOptional(toCopy.salaryOptional);
             setTags(toCopy.tags);
         }
 
@@ -165,7 +173,8 @@ public class EditPersonCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, experience, urlLinkOptional, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, address, experience,
+                    urlLinkOptional, salaryOptional, tags);
         }
 
         public void setName(Name name) {
@@ -216,6 +225,14 @@ public class EditPersonCommand extends Command {
             return Optional.ofNullable(urlLinkOptional);
         }
 
+        public void setSalaryOptional(Optional<Salary> salaryOptional) {
+            this.salaryOptional = salaryOptional;
+        }
+
+        public Optional<Optional<Salary>> getSalaryOptional() {
+            return Optional.ofNullable(salaryOptional);
+        }
+
 
 
         /**
@@ -256,6 +273,7 @@ public class EditPersonCommand extends Command {
                     && getAddress().equals(e.getAddress())
                     && getExperience().equals(e.getExperience())
                     && getUrlLinkOptional().equals(e.getUrlLinkOptional())
+                    && getSalaryOptional().equals(e.getSalaryOptional())
                     && getTags().equals(e.getTags());
         }
     }
