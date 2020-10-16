@@ -8,6 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_VACANCY;
 
 import java.util.Set;
 import java.util.stream.Stream;
@@ -20,6 +21,7 @@ import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
 import seedu.address.model.information.Priority;
+import seedu.address.model.information.Vacancy;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -35,10 +37,10 @@ public class AddJobCommandParser implements Parser<AddJobCommand> {
     public AddJobCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_JOB_TITLE, PREFIX_COMPANY_NAME, PREFIX_PHONE,
-                        PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG, PREFIX_PRIORITY);
+                        PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG, PREFIX_PRIORITY, PREFIX_VACANCY);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_JOB_TITLE, PREFIX_COMPANY_NAME, PREFIX_ADDRESS, PREFIX_PHONE,
-                PREFIX_EMAIL) || !argMultimap.getPreamble().isEmpty()) {
+                PREFIX_EMAIL, PREFIX_VACANCY) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddJobCommand.MESSAGE_USAGE));
         }
 
@@ -49,8 +51,9 @@ public class AddJobCommandParser implements Parser<AddJobCommand> {
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         Priority priority = ParserUtil.parsePriority(argMultimap.getAllValues(PREFIX_PRIORITY));
+        Vacancy vacancy = ParserUtil.parseVacancy(argMultimap.getValue(PREFIX_VACANCY).get());
 
-        Job job = new Job(jobTitle, companyName, phone, email, address, tagList, priority);
+        Job job = new Job(jobTitle, companyName, phone, email, address, tagList, priority, vacancy);
 
         return new AddJobCommand(job);
     }

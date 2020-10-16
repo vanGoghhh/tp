@@ -25,13 +25,14 @@ public class Job {
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
     private final Priority priority;
+    private final Vacancy vacancy;
 
     /**
      * Every field must be present and not null.
      */
     public Job(Name jobTitle, Name companyName, Phone phone, Email email, Address address,
-               Set<Tag> tags, Priority priority) {
-        requireAllNonNull(jobTitle, companyName, phone, email, address, tags, priority);
+               Set<Tag> tags, Priority priority, Vacancy vacancy) {
+        requireAllNonNull(jobTitle, companyName, phone, email, address, tags, priority, vacancy);
         this.jobTitle = jobTitle;
         this.companyName = companyName;
         this.phone = phone;
@@ -39,6 +40,7 @@ public class Job {
         this.address = address;
         this.tags.addAll(tags);
         this.priority = priority;
+        this.vacancy = vacancy;
     }
 
     public Name getJobTitle() {
@@ -71,6 +73,10 @@ public class Job {
 
     public Priority getPriority() {
         return priority;
+    }
+
+    public Vacancy getVacancy() {
+        return vacancy;
     }
 
     /**
@@ -108,13 +114,14 @@ public class Job {
                 && otherJob.getEmail().equals(getEmail())
                 && otherJob.getAddress().equals(getAddress())
                 && otherJob.getTags().equals(getTags())
-                && otherJob.getPriority().equals(getPriority());
+                && otherJob.getPriority().equals(getPriority())
+                && otherJob.getVacancy().equals(getVacancy());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(jobTitle, companyName, phone, email, address, tags, priority);
+        return Objects.hash(jobTitle, companyName, phone, email, address, tags, priority, vacancy);
     }
 
     @Override
@@ -131,6 +138,8 @@ public class Job {
                 .append(getAddress())
                 .append(" Priority: ")
                 .append(getPriority())
+                .append(" Vacancy: ")
+                .append(getVacancy())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

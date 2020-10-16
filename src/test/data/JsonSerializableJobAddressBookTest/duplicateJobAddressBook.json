@@ -6,13 +6,15 @@
     "email": "alice@example.com",
     "address": "123, Jurong West Ave 6, #08-111",
     "tagged": [ "coding" ],
-    "priority": "low"
+    "priority": "low",
+    "vacancy": "1"
   }, {
     "jobtitle": "Software Engineer",
     "company": "Facebook",
     "phone": "94351253",
     "email": "pauline@example.com",
     "address": "4th street",
-    "priority": "low"
+    "priority": "low",
+    "vacancy": "1"
   } ]
 }

@@ -13,6 +13,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SALARY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_VACANCY;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -82,6 +83,7 @@ public class CommandTestUtil {
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
     public static final String INVALID_JOB_PRIORITY_DESC = " " + PREFIX_PRIORITY + "nonsense";
     //only 'low', 'moderate', 'high' allowed for priority
+    public static final String INVALID_VACANCY_DESC = " " + PREFIX_VACANCY + "two"; // characters not allowed
 
     public static final String VALID_JOB_TITLE_IRAS = "Tax Officer";
     public static final String VALID_JOB_TITLE_MAYBANK = "Bank Teller";
@@ -95,6 +97,8 @@ public class CommandTestUtil {
     public static final String VALID_ADDRESS_MAYBANK = "23 Serangoon Central, # B2 - 27, Singapore 556083";
     public static final String VALID_PRIORITY_IRAS = "high";
     public static final String VALID_PRIORITY_MAYBANK = "low";
+    public static final String VALID_VACANCY_IRAS = "1";
+    public static final String VALID_VACANCY_MAYBANK = "2";
     public static final String VALID_TAG_IRAS = "Tax";
     public static final String VALID_TAG_MAYBANK = "Banking";
 
@@ -110,6 +114,8 @@ public class CommandTestUtil {
     public static final String ADDRESS_DESC_MAYBANK = " " + PREFIX_ADDRESS + VALID_ADDRESS_MAYBANK;
     public static final String PRIORITY_DESC_IRAS = " " + PREFIX_PRIORITY + VALID_PRIORITY_IRAS;
     public static final String PRIORITY_DESC_MAYBANK = " " + PREFIX_PRIORITY + VALID_PRIORITY_MAYBANK;
+    public static final String VACANCY_DESC_IRAS = " " + PREFIX_VACANCY + VALID_VACANCY_IRAS;
+    public static final String VACANCY_DESC_MAYBANK = " " + PREFIX_VACANCY + VALID_VACANCY_MAYBANK;
     public static final String TAG_DESC_IRAS = " " + PREFIX_TAG + VALID_TAG_IRAS;
     public static final String TAG_DESC_MAYBANK = " " + PREFIX_TAG + VALID_TAG_MAYBANK;
 
