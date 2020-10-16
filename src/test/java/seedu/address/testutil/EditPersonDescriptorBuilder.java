@@ -1,5 +1,6 @@
 package seedu.address.testutil;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -7,9 +8,12 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.EditPersonCommand.EditPersonDescriptor;
 import seedu.address.model.information.Address;
 import seedu.address.model.information.Email;
+import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.Phone;
+import seedu.address.model.information.Salary;
+import seedu.address.model.information.UrlLink;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -35,7 +39,10 @@ public class EditPersonDescriptorBuilder {
         descriptor.setName(person.getName());
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
-        descriptor.setAddress(person.getAddress());
+        descriptor.setExperience(person.getExperience());
+        descriptor.setAddressOptional(person.getAddressOptional());
+        descriptor.setUrlLinkOptional(person.getUrlLinkOptional());
+        descriptor.setSalaryOptional(person.getSalaryOptional());
         descriptor.setTags(person.getTags());
     }
 
@@ -64,10 +71,34 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
+     * Sets the {@code Experience} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withExperience(String experience) {
+        descriptor.setExperience(new Experience(experience));
+        return this;
+    }
+
+    /**
      * Sets the {@code Address} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withAddress(String address) {
-        descriptor.setAddress(new Address(address));
+        descriptor.setAddressOptional(Optional.of(new Address(address)));
+        return this;
+    }
+
+    /**
+     * Sets the {@code urlLink} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withUrllink(String link) {
+        descriptor.setUrlLinkOptional(Optional.of(new UrlLink(link)));
+        return this;
+    }
+
+    /**
+     * Sets the {@code salary} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withSalary(String salary) {
+        descriptor.setSalaryOptional(Optional.of(new Salary(salary)));
         return this;
     }
 

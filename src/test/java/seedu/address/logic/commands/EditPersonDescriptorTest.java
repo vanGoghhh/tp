@@ -6,9 +6,12 @@ import static seedu.address.logic.commands.CommandTestUtil.DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPERIENCE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_SALARY_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_URL_LINK_BOB;
 
 import org.junit.jupiter.api.Test;
 
@@ -50,6 +53,19 @@ public class EditPersonDescriptorTest {
         // different address -> returns false
         editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withAddress(VALID_ADDRESS_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
+
+        // different experience -> returns false
+        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withAddress(VALID_EXPERIENCE_BOB).build();
+        assertFalse(DESC_AMY.equals(editedAmy));
+
+        // different url link -> returns false
+        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withAddress(VALID_URL_LINK_BOB).build();
+        assertFalse(DESC_AMY.equals(editedAmy));
+
+        // different salary -> returns false
+        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withSalary(VALID_SALARY_BOB).build();
+        assertFalse(DESC_AMY.equals(editedAmy));
+
 
         // different tags -> returns false
         editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withTags(VALID_TAG_HUSBAND).build();
