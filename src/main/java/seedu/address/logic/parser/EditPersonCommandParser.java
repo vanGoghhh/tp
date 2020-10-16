@@ -4,9 +4,12 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SALARY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -32,7 +35,8 @@ public class EditPersonCommandParser implements Parser<EditPersonCommand> {
     public EditPersonCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
+                       PREFIX_EXPERIENCE, PREFIX_ADDRESS, PREFIX_URL_LINK, PREFIX_SALARY, PREFIX_TAG);
 
         Index index;
 
@@ -53,9 +57,38 @@ public class EditPersonCommandParser implements Parser<EditPersonCommand> {
         if (argMultimap.getValue(PREFIX_EMAIL).isPresent()) {
             editPersonDescriptor.setEmail(ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get()));
         }
-        if (argMultimap.getValue(PREFIX_ADDRESS).isPresent()) {
-            editPersonDescriptor.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
+        if (argMultimap.getValue(PREFIX_EXPERIENCE).isPresent()) {
+            editPersonDescriptor.setExperience(ParserUtil
+                    .parseExperience(argMultimap.getValue(PREFIX_EXPERIENCE).get()));
         }
+
+        final boolean isAddressPrefixPresent = argMultimap.getValue(PREFIX_ADDRESS).isPresent();
+        if (isAddressPrefixPresent && argMultimap.getValue(PREFIX_ADDRESS).get().equals("")) {
+            // reset address to nothing
+            editPersonDescriptor.setAddressOptional(Optional.empty());
+        } else if (isAddressPrefixPresent && !argMultimap.getValue(PREFIX_ADDRESS).get().equals("")) {
+            editPersonDescriptor.setAddressOptional(Optional.of(ParserUtil
+                    .parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get())));
+        }
+
+        final boolean isUrlLinkPrefixPresent = argMultimap.getValue(PREFIX_URL_LINK).isPresent();
+        if (isUrlLinkPrefixPresent && argMultimap.getValue(PREFIX_URL_LINK).get().equals("")) {
+            // reset url link to nothing
+            editPersonDescriptor.setUrlLinkOptional(Optional.empty());
+        } else if (isUrlLinkPrefixPresent && !argMultimap.getValue(PREFIX_URL_LINK).get().equals("")) {
+            editPersonDescriptor.setUrlLinkOptional(Optional.of(ParserUtil
+                        .parseUrlLink(argMultimap.getValue(PREFIX_URL_LINK).get())));
+        }
+
+        final boolean isSalaryPrefixPresent = argMultimap.getValue(PREFIX_SALARY).isPresent();
+        if (isSalaryPrefixPresent && argMultimap.getValue(PREFIX_SALARY).get().equals("")) {
+            // reset salary to nothing
+            editPersonDescriptor.setSalaryOptional(Optional.empty());
+        } else if (isSalaryPrefixPresent && !argMultimap.getValue(PREFIX_SALARY).get().equals("")) {
+            editPersonDescriptor.setSalaryOptional(Optional.of(ParserUtil
+                    .parseSalary(argMultimap.getValue(PREFIX_SALARY).get())));
+        }
+
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);
 
         if (!editPersonDescriptor.isAnyFieldEdited()) {

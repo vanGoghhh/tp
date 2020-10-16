@@ -16,9 +16,12 @@ import org.junit.jupiter.api.Test;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.information.Address;
 import seedu.address.model.information.Email;
+import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
 import seedu.address.model.information.Priority;
+import seedu.address.model.information.Salary;
+import seedu.address.model.information.UrlLink;
 import seedu.address.model.tag.Tag;
 
 public class ParserUtilTest {
@@ -28,6 +31,9 @@ public class ParserUtilTest {
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_TAG = "#friend";
     private static final String INVALID_PRIORITY = "urgent";
+    private static final String INVALID_EXPERIENCE = "-3";
+    private static final String INVALID_URL = "linkedin";
+    private static final String INVALID_SALARY = "-2000";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
@@ -37,6 +43,9 @@ public class ParserUtilTest {
     private static final String VALID_TAG_2 = "neighbour";
     private static final String VALID_PRIORITY = "high";
     private static final String VALID_MODERATE_PRIORITY = "moderate";
+    private static final String VALID_EXPERIENCE = "3";
+    private static final String VALID_URL_LINK = "linkedin.com";
+    private static final String VALID_SALARY = "13000";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -104,11 +113,6 @@ public class ParserUtilTest {
         String phoneWithWhitespace = WHITESPACE + VALID_PHONE + WHITESPACE;
         Phone expectedPhone = new Phone(VALID_PHONE);
         assertEquals(expectedPhone, ParserUtil.parsePhone(phoneWithWhitespace));
-    }
-
-    @Test
-    public void parseAddress_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> ParserUtil.parseAddress((String) null));
     }
 
     @Test
@@ -243,5 +247,74 @@ public class ParserUtilTest {
         Priority expectedPriority = new Priority(VALID_PRIORITY);
 
         assertEquals(expectedPriority, actualPriority);
+    }
+
+    @Test
+    public void parseExperience_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseExperience((String) null));
+    }
+
+    @Test
+    public void parseExperience_invalidValue_throwsParseException() throws Exception {
+        assertThrows(ParseException.class, () -> ParserUtil.parseExperience(INVALID_EXPERIENCE));
+    }
+
+    @Test
+    public void parseExperience_validValueWithoutWhitespace_returnsExperience() throws Exception {
+        Experience expectedExperience = new Experience(VALID_EXPERIENCE);
+        assertEquals(expectedExperience, ParserUtil.parseExperience(VALID_EXPERIENCE));
+    }
+
+    @Test
+    public void parseExperience_validValueWithWhitespace_returnsTrimmedExperience() throws Exception {
+        String experienceWithWhitespace = WHITESPACE + VALID_EXPERIENCE + WHITESPACE;
+        Experience expectedExperience = new Experience(VALID_EXPERIENCE);
+        assertEquals(expectedExperience, ParserUtil.parseExperience(experienceWithWhitespace));
+    }
+
+    @Test
+    public void parseUrlLink_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseUrlLink((String) null));
+    }
+
+    @Test
+    public void parseUrlLink_invalidValue_throwsParseException() throws Exception {
+        assertThrows(ParseException.class, () -> ParserUtil.parseUrlLink(INVALID_URL));
+    }
+
+    @Test
+    public void parseUrlLink_validValueWithoutWhitespace_returnsExperience() throws Exception {
+        UrlLink expectedUrlLink = new UrlLink(VALID_URL_LINK);
+        assertEquals(expectedUrlLink, ParserUtil.parseUrlLink(VALID_URL_LINK));
+    }
+
+    @Test
+    public void parseUrlLink_validValueWithWhitespace_returnsTrimmedExperience() throws Exception {
+        String urlWithWhitespace = WHITESPACE + VALID_URL_LINK + WHITESPACE;
+        UrlLink expectedUrlLink = new UrlLink(VALID_URL_LINK);
+        assertEquals(expectedUrlLink, ParserUtil.parseUrlLink(urlWithWhitespace));
+    }
+
+    @Test
+    public void parseSalary_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseSalary(((String) null)));
+    }
+
+    @Test
+    public void parseSalary_invalidValue_throwsParseException() throws Exception {
+        assertThrows(ParseException.class, () -> ParserUtil.parseSalary(INVALID_SALARY));
+    }
+
+    @Test
+    public void parseSalary_validValueWithoutWhitespace_returnsExperience() throws Exception {
+        Salary expectedSalary = new Salary(VALID_SALARY);
+        assertEquals(expectedSalary, ParserUtil.parseSalary(VALID_SALARY));
+    }
+
+    @Test
+    public void parseSalary_validValueWithWhitespace_returnsTrimmedExperience() throws Exception {
+        String salaryWithWhitespace = WHITESPACE + VALID_SALARY + WHITESPACE;
+        Salary expectedSalary = new Salary(VALID_SALARY);
+        assertEquals(expectedSalary, ParserUtil.parseSalary(salaryWithWhitespace));
     }
 }
