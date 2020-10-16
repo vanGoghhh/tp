@@ -8,6 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_VACANCY;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_JOBS;
 
 import java.util.Collections;
@@ -27,6 +28,7 @@ import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
 import seedu.address.model.information.Priority;
+import seedu.address.model.information.Vacancy;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -46,6 +48,7 @@ public class EditJobCommand extends Command {
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_PRIORITY + "PRIORITY] "
+            + "[" + PREFIX_VACANCY + "VACANCY] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_JOB_TITLE + "Zookeeper"
@@ -107,9 +110,10 @@ public class EditJobCommand extends Command {
         Address updatedAddress = editJobDescriptor.getAddress().orElse(jobToEdit.getAddress());
         Set<Tag> updatedTags = editJobDescriptor.getTags().orElse(jobToEdit.getTags());
         Priority updatedPriority = editJobDescriptor.getPriority().orElse(jobToEdit.getPriority());
+        Vacancy updatedVacancy = editJobDescriptor.getVacancy().orElse(jobToEdit.getVacancy());
 
         return new Job(updatedJobTitle, updatedCompanyName, updatedPhone, updatedEmail, updatedAddress,
-                updatedTags, updatedPriority);
+                updatedTags, updatedPriority, updatedVacancy);
     }
 
     @Override
@@ -142,6 +146,7 @@ public class EditJobCommand extends Command {
         private Address address;
         private Set<Tag> tags;
         private Priority priority;
+        private Vacancy vacancy;
 
         public EditJobDescriptor() {}
 
@@ -157,13 +162,14 @@ public class EditJobCommand extends Command {
             setAddress(toCopy.address);
             setTags(toCopy.tags);
             setPriority(toCopy.priority);
+            setVacancy(toCopy.vacancy);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(jobTitle, companyName, phone, email, address, tags, priority);
+            return CollectionUtil.isAnyNonNull(jobTitle, companyName, phone, email, address, tags, priority, vacancy);
         }
 
         public void setJobTitle(Name jobTitle) {
@@ -231,6 +237,14 @@ public class EditJobCommand extends Command {
             return Optional.ofNullable(priority);
         }
 
+        public void setVacancy(Vacancy vacancy) {
+            this.vacancy = vacancy;
+        }
+
+        public Optional<Vacancy> getVacancy() {
+            return Optional.ofNullable(vacancy);
+        }
+
         @Override
         public boolean equals(Object other) {
             // short circuit if same object
@@ -252,7 +266,8 @@ public class EditJobCommand extends Command {
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
                     && getTags().equals(e.getTags())
-                    && getPriority().equals(e.getPriority());
+                    && getPriority().equals(e.getPriority())
+                    && getVacancy().equals(e.getVacancy());
         }
     }
 }

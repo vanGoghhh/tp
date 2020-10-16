@@ -9,6 +9,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_VACANCY;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -35,7 +36,7 @@ public class EditJobCommandParser implements Parser<EditJobCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_JOB_TITLE, PREFIX_COMPANY_NAME,
-                        PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG, PREFIX_PRIORITY);
+                        PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG, PREFIX_PRIORITY, PREFIX_VACANCY);
 
         Index index;
 
@@ -64,6 +65,9 @@ public class EditJobCommandParser implements Parser<EditJobCommand> {
         }
         if (argMultimap.getValue(PREFIX_PRIORITY).isPresent()) {
             editJobDescriptor.setPriority(ParserUtil.parsePriorityString(argMultimap.getValue(PREFIX_PRIORITY).get()));
+        }
+        if (argMultimap.getValue(PREFIX_VACANCY).isPresent()) {
+            editJobDescriptor.setVacancy(ParserUtil.parseVacancy(argMultimap.getValue(PREFIX_VACANCY).get()));
         }
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editJobDescriptor::setTags);
 

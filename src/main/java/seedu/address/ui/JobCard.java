@@ -43,6 +43,8 @@ public class JobCard extends UiPart<Region> {
     @FXML
     private Label jobPriority;
     @FXML
+    private Label jobVacancy;
+    @FXML
     private FlowPane jobTags;
 
     /**
@@ -58,6 +60,7 @@ public class JobCard extends UiPart<Region> {
         companyAddress.setText(job.getAddress().value);
         companyEmail.setText(job.getEmail().value);
         jobPriority.setText(job.getPriority().value);
+        jobVacancy.setText(job.getVacancy().value + " needed");
         job.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> jobTags.getChildren().add(new Label(tag.tagName)));

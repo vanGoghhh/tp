@@ -18,6 +18,7 @@ import seedu.address.model.information.Phone;
 import seedu.address.model.information.Priority;
 import seedu.address.model.information.Salary;
 import seedu.address.model.information.UrlLink;
+import seedu.address.model.information.Vacancy;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -143,6 +144,21 @@ public class ParserUtil {
             throw new ParseException(Salary.MESSAGE_CONSTRAINTS);
         }
         return new Salary(trimmedSalary);
+    }
+
+    /**
+     * Parses a {@code String vacancy} into a {@code Vacancy}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code vacancy} is invalid.
+     */
+    public static Vacancy parseVacancy(String vacancy) throws ParseException {
+        requireNonNull(vacancy);
+        String trimmedVacancy = vacancy.trim();
+        if (!Vacancy.isValidVacancy(trimmedVacancy)) {
+            throw new ParseException(Vacancy.MESSAGE_CONSTRAINTS);
+        }
+        return new Vacancy(trimmedVacancy);
     }
 
     /**
