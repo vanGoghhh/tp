@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE_OF_APPLICATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
@@ -45,6 +46,8 @@ public class CommandTestUtil {
     public static final String VALID_ADDRESS_BOB = "Block 123, Bobby Street 3";
     public static final String VALID_EXPERIENCE_AMY = "2.5";
     public static final String VALID_EXPERIENCE_BOB = "0.5";
+    public static final String VALID_DATE_AMY = "29-05-18";
+    public static final String VALID_DATE_BOB = "18-12-21";
     public static final String VALID_URL_LINK_AMY = "linkedin.com";
     public static final String VALID_URL_LINK_BOB = "facebok.com";
     public static final String VALID_SALARY_AMY = "16000";
@@ -62,6 +65,8 @@ public class CommandTestUtil {
     public static final String ADDRESS_DESC_BOB = " " + PREFIX_ADDRESS + VALID_ADDRESS_BOB;
     public static final String EXPERIENCE_DESC_AMY = " " + PREFIX_EXPERIENCE + VALID_EXPERIENCE_AMY;
     public static final String EXPERIENCE_DESC_BOB = " " + PREFIX_EXPERIENCE + VALID_EXPERIENCE_BOB;
+    public static final String DATE_DESC_AMY = " " + PREFIX_DATE_OF_APPLICATION + VALID_DATE_AMY;
+    public static final String DATE_DESC_BOB = " " + PREFIX_DATE_OF_APPLICATION + VALID_DATE_BOB;
     public static final String URL_LINK_DESC_AMY = " " + PREFIX_URL_LINK + VALID_URL_LINK_AMY;
     public static final String URL_LINK_DESC_BOB = " " + PREFIX_URL_LINK + VALID_URL_LINK_BOB;
     public static final String SALARY_DESC_AMY = " " + PREFIX_SALARY + VALID_SALARY_AMY;
@@ -77,6 +82,7 @@ public class CommandTestUtil {
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS + "12"; // too short
     public static final String INVALID_EXPERIENCE_DESC = " " + PREFIX_EXPERIENCE + "-8.0";
     // negative numbers not allowed
+    public static final String INVALID_DATE_DESC = " " + PREFIX_EXPERIENCE + "11 Jun 2020"; // wrong format
     public static final String INVALID_URL_LINK_DESC = " " + PREFIX_URL_LINK + "rubbish"; // not a url link
     public static final String INVALID_SALARY_DESC = " " + PREFIX_SALARY + "-8000"; // negative numbers not allowed
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
@@ -123,10 +129,10 @@ public class CommandTestUtil {
     public static final EditPersonCommand.EditPersonDescriptor DESC_BOB;
 
     static {
-        DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
+        DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY).withDateOfApplication(VALID_DATE_AMY)
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
                 .withExperience(VALID_EXPERIENCE_AMY).withTags(VALID_TAG_FRIEND).build();
-        DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
+        DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB).withDateOfApplication(VALID_DATE_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withExperience(VALID_EXPERIENCE_BOB).withUrllink(VALID_URL_LINK_BOB).withSalary(VALID_SALARY_BOB)
                 .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();

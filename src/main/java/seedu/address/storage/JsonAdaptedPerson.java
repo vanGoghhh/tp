@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.Date;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
@@ -33,6 +34,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final String experience;
+    private final String dateOfApplication;
     private final String urlLink;
     private final String salary;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
@@ -42,8 +44,9 @@ class JsonAdaptedPerson {
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("address") String address,
-           @JsonProperty("experience") String experience, @JsonProperty("urlLink") String urlLink,
+            @JsonProperty("email") String email, @JsonProperty("experience") String experience,
+                             @JsonProperty("dateOfApplication") String dateOfApplication,
+                             @JsonProperty("address") String address, @JsonProperty("urlLink") String urlLink,
                              @JsonProperty("salary") String salary,
                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
@@ -51,6 +54,7 @@ class JsonAdaptedPerson {
         this.email = email;
         this.address = address;
         this.experience = experience;
+        this.dateOfApplication = dateOfApplication;
         this.urlLink = urlLink;
         this.salary = salary;
         if (tagged != null) {
@@ -66,6 +70,7 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         experience = source.getExperience().toString();
+        dateOfApplication = source.getDateOfApplication().dateString;
         address = source.getAddressOptional().map(address -> address.value).orElse(null);
         urlLink = source.getUrlLinkOptional().map(link -> link.value).orElse(null);
         salary = source.getSalaryOptional().map(sal -> sal.toString()).orElse(null);
@@ -118,6 +123,15 @@ class JsonAdaptedPerson {
         }
         final Experience modelExperience = new Experience(experience);
 
+        if (dateOfApplication == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    "Date of Application"));
+        }
+        if (!Date.isValidDate(dateOfApplication)) {
+            throw new IllegalValueException(Date.MESSAGE_CONSTRAINTS);
+        }
+        final Date modelDateOfApplication = new Date(dateOfApplication);
+
         final Optional<Address> modelAddressOptional;
         if (address == null) {
             modelAddressOptional = Optional.empty();
@@ -146,7 +160,7 @@ class JsonAdaptedPerson {
         }
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelExperience,
+        return new Person(modelName, modelPhone, modelEmail, modelExperience, modelDateOfApplication,
                 modelAddressOptional, modelUrlLinkOptional, modelSalaryOptional, modelTags);
     }
 
