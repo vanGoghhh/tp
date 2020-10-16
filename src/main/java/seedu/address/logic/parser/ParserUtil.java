@@ -11,7 +11,6 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.information.Address;
-import seedu.address.model.information.Date;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
@@ -19,6 +18,7 @@ import seedu.address.model.information.Phone;
 import seedu.address.model.information.Priority;
 import seedu.address.model.information.Salary;
 import seedu.address.model.information.UrlLink;
+import seedu.address.model.information.Vacancy;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -147,18 +147,18 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String date} into a {@code Date}.
+     * Parses a {@code String vacancy} into a {@code Vacancy}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code date} is invalid.
+     * @throws ParseException if the given {@code vacancy} is invalid.
      */
-    public static Date parseDate(String date) throws ParseException {
-        requireNonNull(date);
-        String trimmedDate = date.trim();
-        if (!Date.isValidDate(trimmedDate)) {
-            throw new ParseException(Date.MESSAGE_CONSTRAINTS);
+    public static Vacancy parseVacancy(String vacancy) throws ParseException {
+        requireNonNull(vacancy);
+        String trimmedVacancy = vacancy.trim();
+        if (!Vacancy.isValidVacancy(trimmedVacancy)) {
+            throw new ParseException(Vacancy.MESSAGE_CONSTRAINTS);
         }
-        return new Date(trimmedDate);
+        return new Vacancy(trimmedVacancy);
     }
 
     /**

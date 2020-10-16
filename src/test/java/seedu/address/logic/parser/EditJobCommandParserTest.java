@@ -14,6 +14,7 @@ import static seedu.address.logic.commands.CommandTestUtil.INVALID_JOB_PRIORITY_
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_JOB_TITLE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_VACANCY_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.JOB_TITLE_DESC_MAYBANK;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_MAYBANK;
@@ -21,6 +22,8 @@ import static seedu.address.logic.commands.CommandTestUtil.PRIORITY_DESC_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.PRIORITY_DESC_MAYBANK;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_MAYBANK;
+import static seedu.address.logic.commands.CommandTestUtil.VACANCY_DESC_IRAS;
+import static seedu.address.logic.commands.CommandTestUtil.VACANCY_DESC_MAYBANK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_MAYBANK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COMPANY_NAME_IRAS;
@@ -35,6 +38,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_PRIORITY_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PRIORITY_MAYBANK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_MAYBANK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_VACANCY_IRAS;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_VACANCY_MAYBANK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
@@ -52,6 +57,7 @@ import seedu.address.model.information.Email;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
 import seedu.address.model.information.Priority;
+import seedu.address.model.information.Vacancy;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.EditJobDescriptorBuilder;
 
@@ -101,6 +107,7 @@ public class EditJobCommandParserTest {
         assertParseFailure(parser, "1" + INVALID_JOB_PRIORITY_DESC, Priority.MESSAGE_CONSTRAINTS);
         // invalid priority
         assertParseFailure(parser, "1" + INVALID_TAG_DESC, Tag.MESSAGE_CONSTRAINTS); // invalid tag
+        assertParseFailure(parser, "1" + INVALID_VACANCY_DESC, Vacancy.MESSAGE_CONSTRAINTS); // invalid vacancy
 
         // invalid phone followed by valid email
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC + EMAIL_DESC_IRAS, Phone.MESSAGE_CONSTRAINTS);
@@ -126,12 +133,13 @@ public class EditJobCommandParserTest {
         Index targetIndex = INDEX_SECOND_JOB;
         String userInput = targetIndex.getOneBased() + PHONE_DESC_MAYBANK + TAG_DESC_MAYBANK
                 + COMPANY_NAME_DESC_MAYBANK + PRIORITY_DESC_MAYBANK + EMAIL_DESC_MAYBANK
-                + ADDRESS_DESC_MAYBANK + JOB_TITLE_DESC_MAYBANK + TAG_DESC_IRAS;
+                + ADDRESS_DESC_MAYBANK + JOB_TITLE_DESC_MAYBANK + TAG_DESC_IRAS + VACANCY_DESC_MAYBANK;
 
         EditJobDescriptor descriptor = new EditJobDescriptorBuilder().withJobTitle(VALID_JOB_TITLE_MAYBANK)
                 .withCompanyName(VALID_COMPANY_NAME_MAYBANK).withPhone(VALID_PHONE_MAYBANK)
                 .withEmail(VALID_EMAIL_MAYBANK).withAddress(VALID_ADDRESS_MAYBANK)
-                .withTags(VALID_TAG_IRAS, VALID_TAG_MAYBANK).withPriority(VALID_PRIORITY_MAYBANK).build();
+                .withTags(VALID_TAG_IRAS, VALID_TAG_MAYBANK).withPriority(VALID_PRIORITY_MAYBANK)
+                .withVacancy(VALID_VACANCY_MAYBANK).build();
         EditJobCommand expectedCommand = new EditJobCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
@@ -197,6 +205,13 @@ public class EditJobCommandParserTest {
         expectedCommand = new EditJobCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
+        // vacancy
+        targetIndex = INDEX_THIRD_JOB;
+        userInput = targetIndex.getOneBased() + VACANCY_DESC_IRAS;
+        descriptor = new EditJobDescriptorBuilder().withVacancy(VALID_VACANCY_IRAS).build();
+        expectedCommand = new EditJobCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
         // tags
         targetIndex = INDEX_SECOND_JOB;
         userInput = targetIndex.getOneBased() + TAG_DESC_IRAS;
@@ -209,13 +224,14 @@ public class EditJobCommandParserTest {
     public void parse_multipleRepeatedFields_acceptsLast() {
         Index targetIndex = INDEX_FIRST_JOB;
         String userInput = targetIndex.getOneBased() + PHONE_DESC_MAYBANK + ADDRESS_DESC_MAYBANK
-                + EMAIL_DESC_MAYBANK + TAG_DESC_MAYBANK + PHONE_DESC_MAYBANK
+                + EMAIL_DESC_MAYBANK + TAG_DESC_MAYBANK + PHONE_DESC_MAYBANK + VACANCY_DESC_MAYBANK
                 + ADDRESS_DESC_MAYBANK + EMAIL_DESC_MAYBANK + PRIORITY_DESC_MAYBANK
-                + PHONE_DESC_IRAS + ADDRESS_DESC_IRAS + EMAIL_DESC_IRAS + PRIORITY_DESC_IRAS + TAG_DESC_IRAS;
+                + PHONE_DESC_IRAS + ADDRESS_DESC_IRAS + EMAIL_DESC_IRAS + PRIORITY_DESC_IRAS
+                + VACANCY_DESC_IRAS + TAG_DESC_IRAS;
 
         EditJobDescriptor descriptor = new EditJobDescriptorBuilder().withPhone(VALID_PHONE_IRAS)
                 .withEmail(VALID_EMAIL_IRAS).withAddress(VALID_ADDRESS_IRAS).withPriority(VALID_PRIORITY_IRAS)
-                .withTags(VALID_TAG_IRAS, VALID_TAG_MAYBANK).build();
+                .withTags(VALID_TAG_IRAS, VALID_TAG_MAYBANK).withVacancy(VALID_VACANCY_IRAS).build();
         EditJobCommand expectedCommand = new EditJobCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
@@ -232,9 +248,10 @@ public class EditJobCommandParserTest {
 
         // other valid values specified
         userInput = targetIndex.getOneBased() + EMAIL_DESC_MAYBANK + INVALID_PHONE_DESC + ADDRESS_DESC_MAYBANK
-                + PHONE_DESC_MAYBANK + PRIORITY_DESC_MAYBANK;
+                + VACANCY_DESC_MAYBANK + PHONE_DESC_MAYBANK + PRIORITY_DESC_MAYBANK;
         descriptor = new EditJobDescriptorBuilder().withPhone(VALID_PHONE_MAYBANK).withEmail(VALID_EMAIL_MAYBANK)
-                .withAddress(VALID_ADDRESS_MAYBANK).withPriority(VALID_PRIORITY_MAYBANK).build();
+                .withAddress(VALID_ADDRESS_MAYBANK).withPriority(VALID_PRIORITY_MAYBANK)
+                .withVacancy(VALID_VACANCY_MAYBANK).build();
         expectedCommand = new EditJobCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
     }
