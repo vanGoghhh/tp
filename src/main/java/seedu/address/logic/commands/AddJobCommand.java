@@ -37,7 +37,7 @@ public class AddJobCommand extends Command {
             + PREFIX_PHONE + "68765432 "
             + PREFIX_EMAIL + "recruitment@walmart.com "
             + PREFIX_ADDRESS + "1, Manhatten Street 2, #01-25 "
-            + PREFIX_VACANCY + "2"
+            + PREFIX_VACANCY + "2 "
             + PREFIX_PRIORITY + "low "
             + PREFIX_TAG + "part-time ";
 
