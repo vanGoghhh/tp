@@ -6,9 +6,6 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.ResolverStyle;
-
-
 
 /**
  * Represents a Person's date of application for a job.
@@ -16,14 +13,15 @@ import java.time.format.ResolverStyle;
  */
 public class Date {
 
-    public static final String dateFormat = "dd-MM-yy"; // eg. 31-12-20
-    public static final String MESSAGE_CONSTRAINTS =
-            "Dates must be in the format " + dateFormat;
+    public static final String dateFormat = "d-M-yy"; // eg. 31-12-2020
+    public static final String MESSAGE_CONSTRAINTS = String.format("Dates must be of the format %s ," +
+                    " eg. 12-31-20", dateFormat);
     public static final DateTimeFormatter dateFormatter =
             DateTimeFormatter.ofPattern(dateFormat);
 
     public final LocalDate date;
     public final String dateString;
+
 
     /**
      * Constructs a {@code Date}.
@@ -41,8 +39,9 @@ public class Date {
      * Returns true if a given string is a valid date.
      */
     public static boolean isValidDate(String test) {
+        String trimmedDate = test.trim();
         try {
-            dateFormatter.parse(test);
+            dateFormatter.parse(trimmedDate);
         } catch (DateTimeException err) {
             return false;
         }

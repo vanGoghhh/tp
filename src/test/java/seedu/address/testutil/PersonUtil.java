@@ -1,6 +1,7 @@
 package seedu.address.testutil;
 
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE_OF_APPLICATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
@@ -37,6 +38,7 @@ public class PersonUtil {
         sb.append(PREFIX_PHONE + person.getPhone().value + " ");
         sb.append(PREFIX_EMAIL + person.getEmail().value + " ");
         sb.append(PREFIX_EXPERIENCE + person.getExperience().toString() + " ");
+        sb.append(PREFIX_DATE_OF_APPLICATION + person.getDateOfApplication().dateString + " ");
         person.getAddressOptional().ifPresent(address -> sb.append(PREFIX_SALARY + address.value + " "));
         person.getUrlLinkOptional().ifPresent(link -> sb.append(PREFIX_URL_LINK + link.value + " "));
         person.getSalaryOptional().ifPresent(salary -> sb.append(PREFIX_SALARY + salary.toString() + " "));
@@ -56,6 +58,8 @@ public class PersonUtil {
         descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
         descriptor.getExperience().ifPresent(experience -> sb.append(PREFIX_EXPERIENCE)
                 .append(experience.toString()).append(" "));
+        descriptor.getDateOfApplication().ifPresent(date -> sb.append(PREFIX_DATE_OF_APPLICATION)
+                .append(date.dateString).append(" "));
         descriptor.getAddressOptional().ifPresent(addressOptional -> {
             sb.append(PREFIX_ADDRESS);
             addressOptional.ifPresent(address -> sb.append(address.value));

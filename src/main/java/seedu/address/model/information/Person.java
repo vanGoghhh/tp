@@ -144,7 +144,7 @@ public class Person {
                 .append(getEmail())
                 .append(" Experience: ")
                 .append(getExperience().toString() + " years")
-                .append( "Date of Application: ")
+                .append( " Date of Application: ")
                 .append(getDateOfApplication());
         builder.append(" Address: ");
         getAddressOptional().ifPresent(address -> builder.append(address.value));

@@ -3,11 +3,14 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.DATE_DESC_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.DATE_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.EXPERIENCE_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EXPERIENCE_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_DATE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EXPERIENCE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
@@ -26,6 +29,8 @@ import static seedu.address.logic.commands.CommandTestUtil.URL_LINK_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.URL_LINK_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPERIENCE_AMY;
@@ -52,6 +57,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditPersonCommand;
 import seedu.address.logic.commands.EditPersonCommand.EditPersonDescriptor;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.Date;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
@@ -104,6 +110,7 @@ public class EditPersonCommandParserTest {
         assertParseFailure(parser, "1" + INVALID_EMAIL_DESC, Email.MESSAGE_CONSTRAINTS); // invalid email
         assertParseFailure(parser, "1" + INVALID_ADDRESS_DESC, Address.MESSAGE_CONSTRAINTS); // invalid address
         assertParseFailure(parser, "1" + INVALID_EXPERIENCE_DESC, Experience.MESSAGE_CONSTRAINTS); // invalid exp
+        assertParseFailure(parser, "1" + INVALID_DATE_DESC, Date.MESSAGE_CONSTRAINTS); // invalid date
         assertParseFailure(parser, "1" + INVALID_URL_LINK_DESC, UrlLink.MESSAGE_CONSTRAINTS); // invalid url
         assertParseFailure(parser, "1" + INVALID_SALARY_DESC, Salary.MESSAGE_CONSTRAINTS); // invalid salary
         assertParseFailure(parser, "1" + INVALID_TAG_DESC, Tag.MESSAGE_CONSTRAINTS); // invalid tag
@@ -131,13 +138,14 @@ public class EditPersonCommandParserTest {
     public void parse_allFieldsSpecified_success() {
         Index targetIndex = INDEX_SECOND_PERSON;
         String userInput = targetIndex.getOneBased() + PHONE_DESC_BOB + TAG_DESC_HUSBAND
-                + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + NAME_DESC_AMY
+                + EMAIL_DESC_AMY + ADDRESS_DESC_AMY + NAME_DESC_AMY + DATE_DESC_AMY
                 + EXPERIENCE_DESC_AMY + URL_LINK_DESC_AMY + SALARY_DESC_AMY + TAG_DESC_FRIEND;
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
                 .withExperience(VALID_EXPERIENCE_AMY).withUrllink(VALID_URL_LINK_AMY)
-                .withSalary(VALID_SALARY_AMY).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+                .withDateOfApplication(VALID_DATE_AMY).withSalary(VALID_SALARY_AMY)
+                .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
         EditPersonCommand expectedCommand = new EditPersonCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);
@@ -188,6 +196,12 @@ public class EditPersonCommandParserTest {
         expectedCommand = new EditPersonCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
+        // date
+        userInput = targetIndex.getOneBased() + DATE_DESC_AMY;
+        descriptor = new EditPersonDescriptorBuilder().withDateOfApplication(VALID_DATE_AMY).build();
+        expectedCommand = new EditPersonCommand(targetIndex, descriptor);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
         // url link
         userInput = targetIndex.getOneBased() + URL_LINK_DESC_AMY;
         descriptor = new EditPersonDescriptorBuilder().withUrllink(VALID_URL_LINK_AMY).build();
@@ -214,12 +228,12 @@ public class EditPersonCommandParserTest {
                 + TAG_DESC_FRIEND + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY + TAG_DESC_FRIEND
                 + PHONE_DESC_BOB + EXPERIENCE_DESC_AMY + EXPERIENCE_DESC_BOB + ADDRESS_DESC_BOB
                 + EMAIL_DESC_BOB + TAG_DESC_HUSBAND + URL_LINK_DESC_AMY + SALARY_DESC_AMY
-                + SALARY_DESC_BOB + URL_LINK_DESC_BOB;
+                + SALARY_DESC_BOB + URL_LINK_DESC_BOB + DATE_DESC_AMY + DATE_DESC_BOB;
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withPhone(VALID_PHONE_BOB)
                 .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withExperience(VALID_EXPERIENCE_BOB)
                 .withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND).withUrllink(VALID_URL_LINK_BOB)
-                .withSalary(VALID_SALARY_BOB).build();
+                .withSalary(VALID_SALARY_BOB).withDateOfApplication(VALID_DATE_BOB).build();
         EditPersonCommand expectedCommand = new EditPersonCommand(targetIndex, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);

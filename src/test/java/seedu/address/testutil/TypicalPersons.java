@@ -1,6 +1,8 @@
 package seedu.address.testutil;
 
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPERIENCE_AMY;
@@ -36,7 +38,7 @@ public class TypicalPersons {
             .withUrlLink("linkedin.com").withTags("owesMoney", "friends").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
             .withSalary("4500").withEmail("heinz@example.com").withAddress("wall street")
-            .withExperience("0.5").withDateOfApplication("2-1-19").build();
+            .withExperience("0.5").withDateOfApplication("02-01-19").build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
             .withEmail("cornelia@example.com").withAddress("10th street").withSalary("3000")
             .withExperience("0").withUrlLink("tinder.com").withTags("friends")
@@ -61,11 +63,11 @@ public class TypicalPersons {
 
     // Manually added - Person's details found in {@code CommandTestUtil}
     public static final Person AMY = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
-            .withEmail(VALID_EMAIL_AMY).withExperience(VALID_EXPERIENCE_AMY)
+            .withEmail(VALID_EMAIL_AMY).withExperience(VALID_EXPERIENCE_AMY).withDateOfApplication(VALID_DATE_AMY)
             .withTags(VALID_TAG_FRIEND).build();
     public static final Person BOB = new PersonBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withUrlLink(VALID_URL_LINK_BOB)
-            .withSalary(VALID_SALARY_BOB).withExperience(VALID_EXPERIENCE_BOB)
+            .withSalary(VALID_SALARY_BOB).withExperience(VALID_EXPERIENCE_BOB).withDateOfApplication(VALID_DATE_BOB)
             .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER

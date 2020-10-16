@@ -82,7 +82,7 @@ public class CommandTestUtil {
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS + "12"; // too short
     public static final String INVALID_EXPERIENCE_DESC = " " + PREFIX_EXPERIENCE + "-8.0";
     // negative numbers not allowed
-    public static final String INVALID_DATE_DESC = " " + PREFIX_EXPERIENCE + "11 Jun 2020"; // wrong format
+    public static final String INVALID_DATE_DESC = " " + PREFIX_DATE_OF_APPLICATION + "11 Jun 2020"; // wrong format
     public static final String INVALID_URL_LINK_DESC = " " + PREFIX_URL_LINK + "rubbish"; // not a url link
     public static final String INVALID_SALARY_DESC = " " + PREFIX_SALARY + "-8000"; // negative numbers not allowed
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
