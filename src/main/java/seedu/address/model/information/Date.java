@@ -13,11 +13,11 @@ import java.time.format.DateTimeFormatter;
  */
 public class Date {
 
-    public static final String dateFormat = "d-M-yy"; // eg. 31-12-2020
-    public static final String MESSAGE_CONSTRAINTS = String.format("Dates must be of the format %s ," +
-                    " eg. 12-31-20", dateFormat);
-    public static final DateTimeFormatter dateFormatter =
-            DateTimeFormatter.ofPattern(dateFormat);
+    public static final String DATE_FORMAT = "d-M-yy"; // eg. 31-12-2020
+    public static final String MESSAGE_CONSTRAINTS = String.format("Dates must be of the format %s ,"
+                    + " eg. 12-31-20", DATE_FORMAT);
+    public static final DateTimeFormatter DATE_FORMATTER =
+            DateTimeFormatter.ofPattern(DATE_FORMAT);
 
     public final LocalDate date;
     public final String dateString;
@@ -31,7 +31,7 @@ public class Date {
     public Date(String dateString) {
         requireNonNull(dateString);
         checkArgument(isValidDate(dateString), MESSAGE_CONSTRAINTS);
-        date = LocalDate.parse(dateString, dateFormatter);
+        date = LocalDate.parse(dateString, DATE_FORMATTER);
         this.dateString = dateString;
     }
 
@@ -41,7 +41,7 @@ public class Date {
     public static boolean isValidDate(String test) {
         String trimmedDate = test.trim();
         try {
-            dateFormatter.parse(trimmedDate);
+            DATE_FORMATTER.parse(trimmedDate);
         } catch (DateTimeException err) {
             return false;
         }
