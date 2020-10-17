@@ -24,8 +24,10 @@ public class SortPersonCommandParser implements Parser<SortPersonCommand> {
                             SortPersonCommand.MESSAGE_USAGE));
         }
 
-        String[] sortCriteria = trimmedArgs.split("\\s");
+        String sortCriteria = trimmedArgs.split("\\s")[0];
 
         return new SortPersonCommand(new PersonExperienceComparator(sortCriteria));
     }
+
+    
 }

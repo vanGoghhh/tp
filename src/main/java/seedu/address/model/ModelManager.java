@@ -214,6 +214,7 @@ public class ModelManager implements Model {
     public ObservableList<Person> getSortedPersonList() {
         return sortedPersons;
     }
+
     @Override
     public void updateSortedPersonList(Comparator<Person> comparator) {
         requireAllNonNull(comparator);

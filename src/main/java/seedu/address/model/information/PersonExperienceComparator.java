@@ -5,12 +5,10 @@ import java.util.Comparator;
 /**
  * Compares any two {@code Person}'s {@code Experience} using the the supplied sorting criteria.
  */
-public class PersonExperienceComparator implements Comparator<Person> {
+public class PersonExperienceComparator extends PersonComparator implements Comparator<Person> {
 
-    private final String[] sortCriteria;
-
-    public PersonExperienceComparator(String[] sortCriteria) {
-        this.sortCriteria = sortCriteria;
+    public PersonExperienceComparator(String sortCriteria) {
+        super(sortCriteria);
     }
 
     @Override
@@ -32,7 +30,8 @@ public class PersonExperienceComparator implements Comparator<Person> {
     public boolean equals(Object other) {
         return other == this
                 || (other instanceof PersonExperienceComparator
-                && sortCriteria.equals(((PersonExperienceComparator) other).sortCriteria));
+                && super.getComparingCriteria().equals(
+                        ((PersonExperienceComparator) other).getComparingCriteria()));
     }
 
 
