@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_VACANCY;
 
 import java.util.Set;
 
@@ -39,6 +40,7 @@ public class JobUtil {
         sb.append(PREFIX_ADDRESS + job.getAddress().value + " ");
         job.getTags().stream().forEach(s -> sb.append(PREFIX_TAG + s.tagName + " "));
         sb.append(PREFIX_PRIORITY + job.getPriority().value + " ");
+        sb.append(PREFIX_VACANCY + job.getVacancy().value + " ");
         return sb.toString();
     }
 
@@ -63,6 +65,7 @@ public class JobUtil {
             }
         }
         descriptor.getPriority().ifPresent(priority -> sb.append(PREFIX_PRIORITY).append(priority.value).append(" "));
+        descriptor.getVacancy().ifPresent(vacancy -> sb.append(PREFIX_VACANCY).append(vacancy.value).append(" "));
         return sb.toString();
     }
 }

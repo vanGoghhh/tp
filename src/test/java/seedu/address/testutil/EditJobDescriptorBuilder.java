@@ -12,6 +12,7 @@ import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
 import seedu.address.model.information.Priority;
+import seedu.address.model.information.Vacancy;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -40,6 +41,7 @@ public class EditJobDescriptorBuilder {
         descriptor.setEmail(job.getEmail());
         descriptor.setAddress(job.getAddress());
         descriptor.setPriority(job.getPriority());
+        descriptor.setVacancy(job.getVacancy());
         descriptor.setTags(job.getTags());
     }
 
@@ -88,6 +90,14 @@ public class EditJobDescriptorBuilder {
      */
     public EditJobDescriptorBuilder withPriority(String priority) {
         descriptor.setPriority(new Priority(priority));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Vacancy} of the {@code EditJobDescriptor} that we are building.
+     */
+    public EditJobDescriptorBuilder withVacancy(String vacancy) {
+        descriptor.setVacancy(new Vacancy(vacancy));
         return this;
     }
 
