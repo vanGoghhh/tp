@@ -45,7 +45,7 @@ app for job recruiters to manage job applicants and job listings.
 
    * **`list can`** : Lists all candidates.
 
-   * **`add can`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/151020` : Adds a candidate named 'John Doe' with phone number '98765432', email 'johnd@example.com', address 'John street, block 123, #01-01', years of experience '5' and date of application '151020' to the candidate list. 
+   * **`add can`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/151020` : Adds a candidate named 'John Doe' with phone number '98765432', email 'johnd@example.com', address 'John street, block 123, #01-01', years of experience '5' and date of application '151020' to the candidate list.
 
    * **`delete can`**`3` : Deletes the 3rd candidate shown in the current candidate list.
 
@@ -252,9 +252,9 @@ Action | Candidate Format | Job Format
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Glossary 
+## Glossary
 
-Terms | Explanation 
+Terms | Explanation
 --------|------------------------------------
 **Java** | Java is a widely-used programming language that developers use to create applications on computers.
 **GUI** | A GUI (Graphical User Interface) is a system of interactive visual components for computer software. It is the visible component of the software.

@@ -21,7 +21,7 @@ Given below are my contributions to the project.
   * What it does: Searches the candidate list for all candidates with fields containing all the specified keywords.
   * Justification: This feature improves the product significantly because a typical job recruiter has many candidates to handle, this feature will provide a convenient way for them to look for suitable candidates and streamline their search.
   * Highlights: This enhancement was challenging as it requires chaining of various predicates to achieve the desired outcome. An in-depth understanding of the code base is required it involves numerous other classes.
-  
+
 * **New Feature**: find job
   * What it does: Searches the job list for all jobs with fields containing all the specified keywords.
   * Justification: This feature improves the product significantly because a typical job recruiter has many job listings to handle, this feature will provide a convenient way for them to look for suitable jobs and streamline their search.
