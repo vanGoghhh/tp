@@ -7,9 +7,9 @@ import java.util.Comparator;
  */
 public class PersonExperienceComparator implements Comparator<Person> {
 
-    private final String sortCriteria;
+    private final String[] sortCriteria;
 
-    public PersonExperienceComparator(String sortCriteria) {
+    public PersonExperienceComparator(String[] sortCriteria) {
         this.sortCriteria = sortCriteria;
     }
 
