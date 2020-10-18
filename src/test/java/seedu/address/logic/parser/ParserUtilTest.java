@@ -15,6 +15,8 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.BlacklistStatus;
+import seedu.address.model.information.Date;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
@@ -34,6 +36,8 @@ public class ParserUtilTest {
     private static final String INVALID_EXPERIENCE = "-3";
     private static final String INVALID_URL = "linkedin";
     private static final String INVALID_SALARY = "-2000";
+    private static final String INVALID_DATE = "2 Dec 2121";
+    private static final String INVALID_BLACKLIST_STATUS = "no";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
@@ -46,6 +50,8 @@ public class ParserUtilTest {
     private static final String VALID_EXPERIENCE = "3";
     private static final String VALID_URL_LINK = "linkedin.com";
     private static final String VALID_SALARY = "13000";
+    private static final String VALID_DATE = "08-08-19";
+    private static final String VALID_BLACKLIST_STATUS = "true";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -316,5 +322,51 @@ public class ParserUtilTest {
         String salaryWithWhitespace = WHITESPACE + VALID_SALARY + WHITESPACE;
         Salary expectedSalary = new Salary(VALID_SALARY);
         assertEquals(expectedSalary, ParserUtil.parseSalary(salaryWithWhitespace));
+    }
+
+    @Test
+    public void parseDate_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseDate(((String) null)));
+    }
+
+    @Test
+    public void parseDate_invalidValue_throwsParseException() throws Exception {
+        assertThrows(ParseException.class, () -> ParserUtil.parseDate(INVALID_DATE));
+    }
+
+    @Test
+    public void parseDate_validValueWithoutWhitespace_returnsExperience() throws Exception {
+        Date expectedDate = new Date(VALID_DATE);
+        assertEquals(expectedDate, ParserUtil.parseDate(VALID_DATE));
+    }
+
+    @Test
+    public void parseDate_validValueWithWhitespace_returnsTrimmedExperience() throws Exception {
+        String dateWithWhitespace = WHITESPACE + VALID_DATE + WHITESPACE;
+        Date expectedDate = new Date(VALID_DATE);
+        assertEquals(expectedDate, ParserUtil.parseDate(dateWithWhitespace));
+    }
+
+    @Test
+    public void parseBlacklistStatus_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseBlacklistStatus(((String) null)));
+    }
+
+    @Test
+    public void parseBlacklistStatus_invalidValue_throwsParseException() throws Exception {
+        assertThrows(ParseException.class, () -> ParserUtil.parseBlacklistStatus(INVALID_BLACKLIST_STATUS));
+    }
+
+    @Test
+    public void parseBlacklistStatus_validValueWithoutWhitespace_returnsExperience() throws Exception {
+        BlacklistStatus expectedBlacklistStatus = new BlacklistStatus(VALID_BLACKLIST_STATUS);
+        assertEquals(expectedBlacklistStatus, ParserUtil.parseBlacklistStatus(VALID_BLACKLIST_STATUS));
+    }
+
+    @Test
+    public void parseBlacklistStatus_validValueWithWhitespace_returnsTrimmedExperience() throws Exception {
+        String blacklistStatusWithWhitespace = WHITESPACE + VALID_BLACKLIST_STATUS + WHITESPACE;
+        BlacklistStatus expectedBlacklistStatus = new BlacklistStatus(VALID_BLACKLIST_STATUS);
+        assertEquals(expectedBlacklistStatus, ParserUtil.parseBlacklistStatus(blacklistStatusWithWhitespace));
     }
 }

@@ -91,7 +91,7 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code BlacklisttTatus} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code BlacklistStatus} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withBlacklistStatus(String isBlacklisted) {
         descriptor.setBlackListStatus(new BlacklistStatus(isBlacklisted));
@@ -110,7 +110,7 @@ public class EditPersonDescriptorBuilder {
     /**
      * Sets the {@code urlLink} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withUrllink(String link) {
+    public EditPersonDescriptorBuilder withUrlLink(String link) {
         descriptor.setUrlLinkOptional(Optional.of(new UrlLink(link)));
         return this;
     }

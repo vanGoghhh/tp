@@ -58,8 +58,8 @@ public class AddPersonCommandParser implements Parser<AddPersonCommand> {
         Experience experience = ParserUtil.parseExperience(argMultimap.getValue(PREFIX_EXPERIENCE).get());
         Date dateOfApplication = ParserUtil.parseDate(argMultimap.getValue(PREFIX_DATE_OF_APPLICATION).get());
         BlacklistStatus blacklistStatus = arePrefixesPresent(argMultimap, PREFIX_BLACKLIST)
-                ? new BlacklistStatus("false")
-                : ParserUtil.parseBlacklistStatus(argMultimap.getValue(PREFIX_BLACKLIST).get());
+                ? ParserUtil.parseBlacklistStatus(argMultimap.getValue(PREFIX_BLACKLIST).get())
+                : new BlacklistStatus("false");
         Optional<Address> addressOptional = arePrefixesPresent(argMultimap, PREFIX_ADDRESS)
                 ? Optional.of(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()))
                 : Optional.empty();

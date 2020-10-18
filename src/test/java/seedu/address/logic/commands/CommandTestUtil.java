@@ -71,8 +71,8 @@ public class CommandTestUtil {
     public static final String EXPERIENCE_DESC_BOB = " " + PREFIX_EXPERIENCE + VALID_EXPERIENCE_BOB;
     public static final String DATE_DESC_AMY = " " + PREFIX_DATE_OF_APPLICATION + VALID_DATE_AMY;
     public static final String DATE_DESC_BOB = " " + PREFIX_DATE_OF_APPLICATION + VALID_DATE_BOB;
-    public static final String BLACKLIST_STATUS_DESC_AMY = " " + PREFIX_BLACKLIST + VALID_DATE_AMY;
-    public static final String BLACKLIST_STATUS_DESC_BOB = " " + PREFIX_BLACKLIST + VALID_DATE_BOB;
+    public static final String BLACKLIST_STATUS_DESC_AMY = " " + PREFIX_BLACKLIST + VALID_BLACKLIST_STATUS_AMY;
+    public static final String BLACKLIST_STATUS_DESC_BOB = " " + PREFIX_BLACKLIST + VALID_BLACKLIST_STATUS_BOB;
     public static final String URL_LINK_DESC_AMY = " " + PREFIX_URL_LINK + VALID_URL_LINK_AMY;
     public static final String URL_LINK_DESC_BOB = " " + PREFIX_URL_LINK + VALID_URL_LINK_BOB;
     public static final String SALARY_DESC_AMY = " " + PREFIX_SALARY + VALID_SALARY_AMY;
@@ -144,11 +144,11 @@ public class CommandTestUtil {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY).withDateOfApplication(VALID_DATE_AMY)
                 .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
                 .withExperience(VALID_EXPERIENCE_AMY).withTags(VALID_TAG_FRIEND)
-                .withBlacklistStatus(VALID_ADDRESS_AMY).build();
+                .withBlacklistStatus(VALID_BLACKLIST_STATUS_AMY).build();
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB).withDateOfApplication(VALID_DATE_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
-                .withExperience(VALID_EXPERIENCE_BOB).withUrllink(VALID_URL_LINK_BOB).withSalary(VALID_SALARY_BOB)
-                .withBlacklistStatus(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
+                .withExperience(VALID_EXPERIENCE_BOB).withUrlLink(VALID_URL_LINK_BOB).withSalary(VALID_SALARY_BOB)
+                .withBlacklistStatus(VALID_BLACKLIST_STATUS_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND).build();
     }
 
     static {
