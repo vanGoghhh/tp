@@ -3,6 +3,7 @@ package seedu.address.logic.parser;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_BLACKLIST;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE_OF_APPLICATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
@@ -36,8 +37,9 @@ public class EditPersonCommandParser implements Parser<EditPersonCommand> {
     public EditPersonCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_DATE_OF_APPLICATION,
-                       PREFIX_EXPERIENCE, PREFIX_ADDRESS, PREFIX_URL_LINK, PREFIX_SALARY, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
+                        PREFIX_DATE_OF_APPLICATION, PREFIX_BLACKLIST, PREFIX_EXPERIENCE,
+                        PREFIX_ADDRESS, PREFIX_URL_LINK, PREFIX_SALARY, PREFIX_TAG);
 
         Index index;
 
@@ -66,6 +68,10 @@ public class EditPersonCommandParser implements Parser<EditPersonCommand> {
         if (argMultimap.getValue(PREFIX_DATE_OF_APPLICATION).isPresent()) {
             editPersonDescriptor.setDateOfApplication(ParserUtil
                     .parseDate(argMultimap.getValue(PREFIX_DATE_OF_APPLICATION).get()));
+        }
+        if (argMultimap.getValue(PREFIX_BLACKLIST).isPresent()) {
+            editPersonDescriptor.setBlackListStatus(ParserUtil
+                    .parseBlacklistStatus(argMultimap.getValue(PREFIX_BLACKLIST).get()));
         }
 
         final boolean isAddressPrefixPresent = argMultimap.getValue(PREFIX_ADDRESS).isPresent();

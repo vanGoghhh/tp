@@ -41,6 +41,8 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label personDateOfApplication;
     @FXML
+    private Label personBlacklistStatus;
+    @FXML
     private Label personAddress;
     @FXML
     private Label personUrlLink;
@@ -61,6 +63,7 @@ public class PersonCard extends UiPart<Region> {
         personEmail.setText(person.getEmail().value);
         personExperience.setText(person.getExperience().toString() + " years");
         personDateOfApplication.setText(person.getDateOfApplication().dateString);
+        personBlacklistStatus.setText(person.getBlacklistStatus().isBlacklisted ? "Blacklisted" : "Not Blacklisted");
         person.getAddressOptional().ifPresent(address -> personAddress.setText(address.value));
         person.getUrlLinkOptional().ifPresent(link -> personUrlLink.setText(link.value));
         person.getSalaryOptional().ifPresent(sal -> personSalary.setText(String.format("$%.0f", sal.salary)));
