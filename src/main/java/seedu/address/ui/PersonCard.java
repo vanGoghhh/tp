@@ -59,11 +59,11 @@ public class PersonCard extends UiPart<Region> {
         personName.setText(person.getName().fullName);
         personPhone.setText(person.getPhone().value);
         personEmail.setText(person.getEmail().value);
-        personExperience.setText(person.getExperience().toString());
+        personExperience.setText(person.getExperience().toString() + " years");
         personDateOfApplication.setText(person.getDateOfApplication().dateString);
         person.getAddressOptional().ifPresent(address -> personAddress.setText(address.value));
         person.getUrlLinkOptional().ifPresent(link -> personUrlLink.setText(link.value));
-        person.getSalaryOptional().ifPresent(salary -> personSalary.setText(salary.toString()));
+        person.getSalaryOptional().ifPresent(sal -> personSalary.setText(String.format("$%.0f", sal.salary)));
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> personTags.getChildren().add(new Label(tag.tagName)));
