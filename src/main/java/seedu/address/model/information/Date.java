@@ -32,7 +32,7 @@ public class Date {
         requireNonNull(dateString);
         checkArgument(isValidDate(dateString), MESSAGE_CONSTRAINTS);
         date = LocalDate.parse(dateString, DATE_FORMATTER);
-        this.dateString = dateString;
+        this.dateString = date.format(DateTimeFormatter.ofPattern("dd-MM-yy"));
     }
 
     /**
