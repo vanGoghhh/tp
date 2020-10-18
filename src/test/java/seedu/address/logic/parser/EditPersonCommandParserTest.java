@@ -253,8 +253,8 @@ public class EditPersonCommandParserTest {
                 + TAG_DESC_FRIEND + PHONE_DESC_AMY + ADDRESS_DESC_AMY + EMAIL_DESC_AMY + TAG_DESC_FRIEND
                 + PHONE_DESC_BOB + EXPERIENCE_DESC_AMY + EXPERIENCE_DESC_BOB + ADDRESS_DESC_BOB
                 + EMAIL_DESC_BOB + TAG_DESC_HUSBAND + URL_LINK_DESC_AMY + SALARY_DESC_AMY
-                + SALARY_DESC_BOB + URL_LINK_DESC_BOB + DATE_DESC_AMY + DATE_DESC_BOB +
-                BLACKLIST_STATUS_DESC_AMY + BLACKLIST_STATUS_DESC_BOB;
+                + SALARY_DESC_BOB + URL_LINK_DESC_BOB + DATE_DESC_AMY + DATE_DESC_BOB
+                + BLACKLIST_STATUS_DESC_AMY + BLACKLIST_STATUS_DESC_BOB;
 
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withPhone(VALID_PHONE_BOB)
                 .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withExperience(VALID_EXPERIENCE_BOB)

@@ -5,12 +5,12 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a Person's blacklist status (whether they have been blacklisted).
- * Guarantees: immutable; is valid as declared in {@link #isValidBlacklistStatus(String)
+ * Guarantees: immutable; is valid as declared in {@link #isValidBlacklistStatus(String)}
  */
 public class BlacklistStatus {
 
-    public static final String MESSAGE_CONSTRAINTS = "Blacklisted status must be either \'true\' or \'false\'." +
-            " It is not case-sensitive.";
+    public static final String MESSAGE_CONSTRAINTS = "Blacklisted status must be either \'true\' or \'false\'."
+            + " It is not case-sensitive.";
 
 
     public final boolean isBlacklisted;

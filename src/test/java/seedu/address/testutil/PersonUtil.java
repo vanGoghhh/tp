@@ -62,8 +62,8 @@ public class PersonUtil {
                 .append(experience.toString()).append(" "));
         descriptor.getDateOfApplication().ifPresent(date -> sb.append(PREFIX_DATE_OF_APPLICATION)
                 .append(date.dateString).append(" "));
-        descriptor.getBlackListStatus().ifPresent(
-                status -> sb.append(PREFIX_BLACKLIST).append(status.toString()).append(" "));
+        descriptor.getBlackListStatus().ifPresent(status -> sb
+                .append(PREFIX_BLACKLIST).append(status.toString()).append(" "));
         descriptor.getAddressOptional().ifPresent(addressOptional -> {
             sb.append(PREFIX_ADDRESS);
             addressOptional.ifPresent(address -> sb.append(address.value));
