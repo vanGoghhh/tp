@@ -45,7 +45,7 @@ app for job recruiters to manage job applicants and job listings.
 
    * **`list can`** : Lists all candidates.
 
-   * **`add can`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a candidate named `John Doe` to the candidate list.
+   * **`add can`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/151020` : Adds a candidate named 'John Doe' with phone number '98765432', email 'johnd@example.com', address 'John street, block 123, #01-01', years of experience '5' and date of application '151020' to the candidate list.
 
    * **`delete can`**`3` : Deletes the 3rd candidate shown in the current candidate list.
 
@@ -90,34 +90,38 @@ Format: `help`
 
 Adds a candidate to the candidate list.
 
-Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]…​`
+Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]…​ [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A candidates can have any number of job type tags (including 0)
+A candidate can have any number of job type tags (including 0)
 </div>
 <br>
 Examples:
 
-* `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/Dog Groomer`
-* `add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 t/HR t/Office Lady`
+* `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/Dog Groomer exp/1 doa/161020`
+* `add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 t/HR t/Office Lady exp/5 doa/101020 link/BetsyCrowe.com bl/false sal/3000`
 
 ### Adding a job listing: `add job`
 
 Adds a job to the job listings.
 
-Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [pr/PRIORITY] [t/JOB_DESCRIPTION]… `
+Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
 
 * Priority can be specified as low, moderate or high.
 * Priority is an optional field and default priority for jobs is moderate unless specified otherwise.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A job can have any number of job type tags (including 0)
+A priority is an optional field that is moderate by default, it can be specified as low, moderate or high
+</div>
+<br>
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+A job can have any number of job description tags (including 0)
 </div>
 <br>
 Examples:
 
-* `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations`
-* `add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222 pr/high`
+* `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations v/1`
+* `add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222 pr/high t/delivery t/west v/10`
 
 ### Listing all candidates: `list can`
 
@@ -226,16 +230,36 @@ All data is saved in the hard disk automatically after any command that changes 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CANdidates home folder.
 
+**Q**: How do I report a bug I encountered?<br>
+**A**: Send an email to developers@CANdidates.com with a description and screenshot (if relevant) of the bug. We will get back to you promptly.
+
+**Q**: How can I contribute to this project?<br>
+**A**: You may create a pull request to this [repository](https://github.com/AY2021S1-CS2103T-T17-3/tp). Our [developer's guide](https://ay2021s1-cs2103t-t17-3.github.io/tp/DeveloperGuide.html) for your reference.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
 
 Action | Candidate Format | Job Format
 --------|------------------|------------------
-**Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/JOB_TYPE]…​` | `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [pr/PRIORITY] [t/JOB_DESCRIPTION]…​`
+**Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]…​ [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]` | `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
 **Clear** | `clear can` | `clear job`
 **Delete** | `delete can INDEX` | `delete job INDEX`
 **Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…​` | `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [t/JOB_DESCRIPTION]…​`
 **List** | `list can` | `list job`
 **Help** | `help` | `help`
 **Exit** | `exit` | `exit`
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Glossary
+
+Terms | Explanation
+--------|------------------------------------
+**Java** | Java is a widely-used programming language that developers use to create applications on computers.
+**GUI** | A GUI (Graphical User Interface) is a system of interactive visual components for computer software. It is the visible component of the software.
+**Parameter** | Input to the command that the user specifies.
+**Cumulative** | Increasing in quantity.
+**Hard disk** | Storage of information in a computer.
+**Repository** | Online container where your code can be stored, contributed to and managed over time.
+**Pull Request** | Formal request to merge one’s code into a larger codebase.
