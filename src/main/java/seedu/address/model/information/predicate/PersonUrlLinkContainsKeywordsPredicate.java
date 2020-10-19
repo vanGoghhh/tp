@@ -23,7 +23,8 @@ public class PersonUrlLinkContainsKeywordsPredicate implements Predicate<Person>
         }
 
         return keywords.stream()
-                .allMatch(keyword -> StringUtil.containsPhraseIgnoreCase(person.getUrlLinkOptional().get().value, keyword));
+                .allMatch(keyword ->
+                        StringUtil.containsPhraseIgnoreCase(person.getUrlLinkOptional().get().value, keyword));
     }
 
     @Override
