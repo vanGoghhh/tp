@@ -57,8 +57,8 @@ public class JobVacancyContainsKeywordsPredicateTest {
     public void test_vacancyDoesNotContainKeyword_returnsFalse() {
         // Non-matching keyword
         JobVacancyContainsKeywordsPredicate predicate =
-                new JobVacancyContainsKeywordsPredicate(Collections.singletonList("99"));
-        assertFalse(predicate.test(new JobBuilder().withVacancy("9").build()));
+                new JobVacancyContainsKeywordsPredicate(Collections.singletonList("9"));
+        assertFalse(predicate.test(new JobBuilder().withVacancy("99").build()));
         assertFalse(predicate.test(new JobBuilder().withVacancy("19").build()));
     }
 }
