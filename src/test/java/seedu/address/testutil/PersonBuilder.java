@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.model.information.Address;
+import seedu.address.model.information.BlacklistStatus;
 import seedu.address.model.information.Date;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Experience;
@@ -26,12 +27,14 @@ public class PersonBuilder {
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_EXPERIENCE = "5.0";
     public static final String DEFAULT_DATE_OF_APPLICATION = "02-10-19";
+    public static final String DEFAULT_BLACKLIST_STATUS = "false";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Experience experience;
     private Date dateOfApplication;
+    private BlacklistStatus blacklistStatus;
     private Optional<Address> addressOptional;
     private Optional<UrlLink> urlLinkOptional;
     private Optional<Salary> salaryOptional;
@@ -46,6 +49,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         experience = new Experience(DEFAULT_EXPERIENCE);
         dateOfApplication = new Date(DEFAULT_DATE_OF_APPLICATION);
+        blacklistStatus = new BlacklistStatus(DEFAULT_BLACKLIST_STATUS);
         addressOptional = Optional.empty();
         urlLinkOptional = Optional.empty();
         salaryOptional = Optional.empty();
@@ -61,6 +65,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         experience = personToCopy.getExperience();
         dateOfApplication = personToCopy.getDateOfApplication();
+        blacklistStatus = personToCopy.getBlacklistStatus();
         addressOptional = personToCopy.getAddressOptional();
         urlLinkOptional = personToCopy.getUrlLinkOptional();
         salaryOptional = personToCopy.getSalaryOptional();
@@ -116,6 +121,14 @@ public class PersonBuilder {
     }
 
     /**
+     * Sets the {@code BlacklistStatus} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withBlacklistStatus(String isBlacklisted) {
+        this.blacklistStatus = new BlacklistStatus(isBlacklisted);
+        return this;
+    }
+
+    /**
      * Sets the {@code Optional<Address>} of the {@code Person} that we are building.
      */
     public PersonBuilder withAddress(String address) {
@@ -144,7 +157,7 @@ public class PersonBuilder {
      */
     public Person build() {
         return new Person(name, phone, email, experience, dateOfApplication,
-                addressOptional, urlLinkOptional, salaryOptional, tags);
+                blacklistStatus, addressOptional, urlLinkOptional, salaryOptional, tags);
     }
 
 }

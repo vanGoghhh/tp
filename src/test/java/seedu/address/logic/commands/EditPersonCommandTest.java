@@ -100,7 +100,7 @@ public class EditPersonCommandTest {
         Person editedPerson = new PersonBuilder(personInFilteredList).withName(VALID_NAME_BOB)
                 .withUrlLink(VALID_URL_LINK_BOB).withSalary(VALID_SALARY_BOB).build();
         EditPersonCommand editPersonCommand = new EditPersonCommand(INDEX_FIRST_PERSON,
-                new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB).withUrllink(VALID_URL_LINK_BOB)
+                new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB).withUrlLink(VALID_URL_LINK_BOB)
                         .withSalary(VALID_SALARY_BOB).build());
 
         String expectedMessage = String.format(EditPersonCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedPerson);

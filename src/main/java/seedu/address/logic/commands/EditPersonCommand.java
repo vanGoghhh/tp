@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_BLACKLIST;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE_OF_APPLICATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
@@ -24,6 +25,7 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.BlacklistStatus;
 import seedu.address.model.information.Date;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Experience;
@@ -53,13 +55,15 @@ public class EditPersonCommand extends Command {
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_URL_LINK + "PROFILE LINK] "
             + "[" + PREFIX_SALARY + "EXPECTED SALARY] "
+            + "[" + PREFIX_BLACKLIST + "IS BLACKLISTED] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com "
             + PREFIX_EXPERIENCE + "2.5 "
             + PREFIX_SALARY + "6500 "
-            + PREFIX_URL_LINK + "linkedin.com/in/johndoe ";
+            + PREFIX_URL_LINK + "linkedin.com/in/johndoe "
+            + PREFIX_BLACKLIST + "true ";
 
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited candidate: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -115,6 +119,8 @@ public class EditPersonCommand extends Command {
                 .orElse(personToEdit.getExperience());
         Date updatedDateOfApplication = editPersonDescriptor.getDateOfApplication()
                 .orElse(personToEdit.getDateOfApplication());
+        BlacklistStatus updatedBlacklistStatus = editPersonDescriptor.getBlackListStatus()
+                .orElse(personToEdit.getBlacklistStatus());
         Optional<Address> updatedAddressOptional = editPersonDescriptor.getAddressOptional()
                 .orElse(personToEdit.getAddressOptional());
         Optional<UrlLink> updatedUrlLinkOptional = editPersonDescriptor.getUrlLinkOptional()
@@ -123,8 +129,9 @@ public class EditPersonCommand extends Command {
                 .orElse(personToEdit.getSalaryOptional());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedExperience, updatedDateOfApplication,
-                updatedAddressOptional, updatedUrlLinkOptional, updatedSalaryOptional, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedExperience,
+                updatedDateOfApplication, updatedBlacklistStatus, updatedAddressOptional,
+                updatedUrlLinkOptional, updatedSalaryOptional, updatedTags);
     }
 
     @Override
@@ -155,6 +162,7 @@ public class EditPersonCommand extends Command {
         private Email email;
         private Experience experience;
         private Date dateOfApplication;
+        private BlacklistStatus blacklistStatus;
         private Optional<Address> addressOptional;
         private Optional<UrlLink> urlLinkOptional;
         private Optional<Salary> salaryOptional;
@@ -172,6 +180,7 @@ public class EditPersonCommand extends Command {
             setEmail(toCopy.email);
             setExperience(toCopy.experience);
             setDateOfApplication(toCopy.dateOfApplication);
+            setBlackListStatus(toCopy.blacklistStatus);
             setAddressOptional(toCopy.addressOptional);
             setUrlLinkOptional(toCopy.urlLinkOptional);
             setSalaryOptional(toCopy.salaryOptional);
@@ -183,7 +192,7 @@ public class EditPersonCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, experience, dateOfApplication,
-                    addressOptional, urlLinkOptional, salaryOptional, tags);
+                    blacklistStatus, addressOptional, urlLinkOptional, salaryOptional, tags);
         }
 
         public void setName(Name name) {
@@ -224,6 +233,14 @@ public class EditPersonCommand extends Command {
 
         public Optional<Date> getDateOfApplication() {
             return Optional.ofNullable(dateOfApplication);
+        }
+
+        public void setBlackListStatus(BlacklistStatus blackListStatus) {
+            this.blacklistStatus = blackListStatus;
+        }
+
+        public Optional<BlacklistStatus> getBlackListStatus() {
+            return Optional.ofNullable(blacklistStatus);
         }
 
         public void setAddressOptional(Optional<Address> addressOptional) {
@@ -289,6 +306,7 @@ public class EditPersonCommand extends Command {
                     && getEmail().equals(e.getEmail())
                     && getExperience().equals(e.getExperience())
                     && getDateOfApplication().equals(e.getDateOfApplication())
+                    && getBlackListStatus().equals(e.getBlackListStatus())
                     && getAddressOptional().equals(e.getAddressOptional())
                     && getUrlLinkOptional().equals(e.getUrlLinkOptional())
                     && getSalaryOptional().equals(e.getSalaryOptional())
