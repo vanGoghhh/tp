@@ -15,8 +15,8 @@ public class PersonEmailContainsKeywordsPredicateTest {
 
     @Test
     public void equals() {
-        List<String> firstPredicateKeywordList = Collections.singletonList("@recruitment.com");
-        List<String> secondPredicateKeywordList = Arrays.asList("facebook@recruitment.com");
+        List<String> firstPredicateKeywordList = Collections.singletonList("@gmail.com");
+        List<String> secondPredicateKeywordList = Arrays.asList("joan@gmail.com");
 
         PersonEmailContainsKeywordsPredicate firstPredicate =
                 new PersonEmailContainsKeywordsPredicate(firstPredicateKeywordList);
@@ -45,28 +45,27 @@ public class PersonEmailContainsKeywordsPredicateTest {
     public void test_emailContainsKeyword_returnsTrue() {
         // Exactly matching keyword
         PersonEmailContainsKeywordsPredicate predicate =
-                new PersonEmailContainsKeywordsPredicate(Collections.singletonList("google@recruitment.com"));
-        assertTrue(predicate.test(new PersonBuilder().withEmail("google@recruitment.com").build()));
+                new PersonEmailContainsKeywordsPredicate(Collections.singletonList("joan@gmail.com"));
+        assertTrue(predicate.test(new PersonBuilder().withEmail("joan@gmail.com").build()));
 
         // Contains matching keyword
-        predicate = new PersonEmailContainsKeywordsPredicate(Collections.singletonList("@recruitment.com"));
-        assertTrue(predicate.test(new PersonBuilder().withEmail("google@recruitment.com").build()));
+        predicate = new PersonEmailContainsKeywordsPredicate(Collections.singletonList("@gmail.com"));
+        assertTrue(predicate.test(new PersonBuilder().withEmail("joan@gmail.com").build()));
 
         // Mixed-case keyword
-        predicate = new PersonEmailContainsKeywordsPredicate(Collections.singletonList("FaCeBOOk@reCrUItMenT.Com"));
-        assertTrue(predicate.test(new PersonBuilder().withEmail("facebook@recruitment.com").build()));
+        predicate = new PersonEmailContainsKeywordsPredicate(Collections.singletonList("JoAN@GmaiL.CoM"));
+        assertTrue(predicate.test(new PersonBuilder().withEmail("joan@gmail.com").build()));
 
         // Zero keywords
         predicate = new PersonEmailContainsKeywordsPredicate(Collections.emptyList());
-        assertTrue(predicate.test(new PersonBuilder().withEmail("facebook@recruitment.com").build()));
+        assertTrue(predicate.test(new PersonBuilder().withEmail("joan@gmail.com").build()));
     }
 
     @Test
     public void test_emailDoesNotContainKeyword_returnsFalse() {
-
         // Non-matching keyword
         PersonEmailContainsKeywordsPredicate predicate =
-                new PersonEmailContainsKeywordsPredicate(Collections.singletonList("@recruitment.sg"));
-        assertFalse(predicate.test(new PersonBuilder().withEmail("facebook@recruitment.com").build()));
+                new PersonEmailContainsKeywordsPredicate(Collections.singletonList("@gmail.sg"));
+        assertFalse(predicate.test(new PersonBuilder().withEmail("joan@gmail.com").build()));
     }
 }
