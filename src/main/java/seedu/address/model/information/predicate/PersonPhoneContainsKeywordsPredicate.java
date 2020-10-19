@@ -18,6 +18,7 @@ public class PersonPhoneContainsKeywordsPredicate implements Predicate<Person> {
 
     @Override
     public boolean test(Person person) {
+        assert keywords.stream().allMatch(x -> Double.parseDouble(x) >= 0) : "invalid phone number";
         return keywords.stream()
                 .allMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getPhone().value, keyword));
     }

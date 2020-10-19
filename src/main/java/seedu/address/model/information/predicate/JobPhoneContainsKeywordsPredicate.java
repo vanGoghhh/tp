@@ -13,6 +13,7 @@ public class JobPhoneContainsKeywordsPredicate implements Predicate<Job> {
     private final List<String> keywords;
 
     public JobPhoneContainsKeywordsPredicate(List<String> keywords) {
+        assert keywords.stream().allMatch(x -> Double.parseDouble(x) >= 0) : "invalid phone number";
         this.keywords = keywords;
     }
 
