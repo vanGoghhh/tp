@@ -58,7 +58,8 @@ public class StringUtil {
         checkArgument(preppedWord.split("\\s+").length == 1, "Word parameter should be a single word");
 
         String lowerCasePhrase = phrase.toLowerCase();
-        return sentence.contains(lowerCasePhrase);
+        String lowerCaseSentence = sentence.toLowerCase();
+        return lowerCaseSentence.contains(lowerCasePhrase);
     }
 
     /**

@@ -9,25 +9,24 @@ import seedu.address.model.information.Job;
 /**
  * Tests that a {@code Job}'s {@code Name} matches any of the keywords given.
  */
-public class JobNameContainsKeywordsPredicate implements Predicate<Job> {
+public class JobCompanyNameContainsKeywordsPredicate implements Predicate<Job> {
     private final List<String> keywords;
 
-    public JobNameContainsKeywordsPredicate(List<String> keywords) {
+    public JobCompanyNameContainsKeywordsPredicate(List<String> keywords) {
         this.keywords = keywords;
     }
 
     @Override
     public boolean test(Job job) {
         return keywords.stream()
-                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(job.getJobTitle().fullName, keyword)
-                        || StringUtil.containsWordIgnoreCase(job.getCompanyName().fullName, keyword));
+                .allMatch(keyword -> StringUtil.containsPhraseIgnoreCase(job.getCompanyName().fullName, keyword));
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof JobNameContainsKeywordsPredicate // instanceof handles nulls
-                && keywords.equals(((JobNameContainsKeywordsPredicate) other).keywords)); // state check
+                || (other instanceof JobCompanyNameContainsKeywordsPredicate // instanceof handles nulls
+                && keywords.equals(((JobCompanyNameContainsKeywordsPredicate) other).keywords)); // state check
     }
 
 }
