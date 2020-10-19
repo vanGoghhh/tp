@@ -13,7 +13,6 @@ public class PersonExperienceContainsKeywordsPredicate implements Predicate<Pers
     private final List<String> keywords;
 
     public PersonExperienceContainsKeywordsPredicate(List<String> keywords) {
-        assert keywords.stream().allMatch(x -> Double.parseDouble(x) >= 0) : "invalid years of experience";
         this.keywords = keywords;
     }
 
