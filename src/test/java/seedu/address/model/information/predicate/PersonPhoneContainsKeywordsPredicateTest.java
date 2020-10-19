@@ -47,6 +47,10 @@ public class PersonPhoneContainsKeywordsPredicateTest {
         PersonPhoneContainsKeywordsPredicate predicate =
                 new PersonPhoneContainsKeywordsPredicate(Collections.singletonList("91910202"));
         assertTrue(predicate.test(new PersonBuilder().withPhone("91910202").build()));
+
+        // Zero keywords
+        predicate = new PersonPhoneContainsKeywordsPredicate(Collections.emptyList());
+        assertTrue(predicate.test(new PersonBuilder().withPhone("91910202").build()));
     }
 
     @Test
@@ -56,9 +60,5 @@ public class PersonPhoneContainsKeywordsPredicateTest {
                 new PersonPhoneContainsKeywordsPredicate(Collections.singletonList("9191"));
         assertFalse(predicate.test(new PersonBuilder().withPhone("91910000").build()));
         assertFalse(predicate.test(new PersonBuilder().withPhone("91000091").build()));
-
-        // Zero keywords
-        predicate = new PersonPhoneContainsKeywordsPredicate(Collections.emptyList());
-        assertFalse(predicate.test(new PersonBuilder().withPhone("91910202").build()));
     }
 }
