@@ -27,9 +27,9 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.PersonAddressBook;
 import seedu.address.model.information.Job;
-import seedu.address.model.information.JobNameContainsKeywordsPredicate;
+import seedu.address.model.information.predicate.JobNameContainsKeywordsPredicate;
 import seedu.address.model.information.Person;
-import seedu.address.model.information.PersonNameContainsKeywordsPredicate;
+import seedu.address.model.information.predicate.PersonNameContainsKeywordsPredicate;
 import seedu.address.testutil.EditJobDescriptorBuilder;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
