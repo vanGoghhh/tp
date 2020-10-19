@@ -19,7 +19,7 @@ public class JobPhoneContainsKeywordsPredicate implements Predicate<Job> {
     @Override
     public boolean test(Job job) {
         return keywords.stream()
-                .allMatch(keyword -> StringUtil.containsPhraseIgnoreCase(job.getPhone().value, keyword));
+                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(job.getPhone().value, keyword));
     }
 
     @Override
