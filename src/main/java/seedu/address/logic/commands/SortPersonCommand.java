@@ -22,8 +22,10 @@ public class SortPersonCommand extends Command {
     public static final String MESSAGE_SUCCESS = "Successfully sorted people";
 
     private final Comparator<Person> comparator;
+    private final Boolean isReverse;
 
     public SortPersonCommand(PersonComparator comparator, Boolean isReverse) {
+        this.isReverse = isReverse;
         if (isReverse) {
             this.comparator = comparator.reversed();
         } else {
