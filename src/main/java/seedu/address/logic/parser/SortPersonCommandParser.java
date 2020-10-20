@@ -5,8 +5,8 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 import seedu.address.logic.commands.SortPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.information.PersonComparator;
-import seedu.address.model.information.PersonExperienceComparator;
+import seedu.address.model.information.comparator.PersonComparator;
+import seedu.address.model.information.comparator.PersonExperienceComparator;
 
 /**
  * Parses input arguments and creates a sort command object.

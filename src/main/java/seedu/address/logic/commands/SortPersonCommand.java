@@ -6,8 +6,9 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.information.Person;
-import seedu.address.model.information.PersonComparator;
-import seedu.address.model.information.PersonExperienceComparator;
+import seedu.address.model.information.comparator.PersonComparator;
+import seedu.address.model.information.comparator.PersonExperienceComparator;
+import seedu.address.model.information.comparator.PersonComparator;
 
 import java.util.Comparator;
 
