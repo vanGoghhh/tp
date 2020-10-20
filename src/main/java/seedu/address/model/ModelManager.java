@@ -199,7 +199,6 @@ public class ModelManager implements Model {
     public void updateFilteredPersonList(Predicate<Person> predicate) {
         requireNonNull(predicate);
         filteredPersons.setPredicate(predicate);
-        displayedPersons.setAll(filteredPersons);
     }
 
     //=========== Filtered Job List Accessors =============================================================
@@ -233,6 +232,8 @@ public class ModelManager implements Model {
     @Override
     public void updateSortedPersonList(Comparator<Person> comparator) {
         requireAllNonNull(comparator);
+        sortedPersons.setComparator(comparator);
+        personAddressBook.setPersons(sortedPersons);
     }
 
     //=========== Others =============================================================

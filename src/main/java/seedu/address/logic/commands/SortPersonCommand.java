@@ -5,7 +5,11 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.information.Person;
 import seedu.address.model.information.PersonComparator;
+import seedu.address.model.information.PersonExperienceComparator;
+
+import java.util.Comparator;
 
 /**
  * Sorts the persons using the specified comparator.
@@ -18,12 +22,15 @@ public class SortPersonCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Successfully sorted people";
 
-    private final PersonComparator comparator;
+    private final Comparator<Person> comparator;
 
-    public SortPersonCommand(PersonComparator comparator) {
-        this.comparator = comparator;
+    public SortPersonCommand(PersonComparator comparator, Boolean isReverse) {
+        if (isReverse) {
+            this.comparator = comparator.reversed();
+        } else {
+            this.comparator = comparator;
+        }
     }
-
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
@@ -31,4 +38,5 @@ public class SortPersonCommand extends Command {
         model.updateSortedPersonList(comparator);
         return new CommandResult(MESSAGE_SUCCESS);
     }
+
 }

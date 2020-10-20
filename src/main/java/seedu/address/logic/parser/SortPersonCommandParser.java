@@ -26,12 +26,26 @@ public class SortPersonCommandParser implements Parser<SortPersonCommand> {
                             SortPersonCommand.MESSAGE_USAGE));
         }
 
-        String sortCriteria = trimmedArgs.split("\\s")[0];
+        String[] sortingKeywords = trimmedArgs.split("/");
+        String sortCriteria = sortingKeywords[0];
+        String sortOrder = sortingKeywords[1];
+        Boolean isReverse = false;
 
+        if (sortOrder.equals("asc")) {
+            isReverse = false;
+        }
+        if (sortOrder.equals("dsc")) {
+            isReverse = true;
+        }
         PersonComparator comparatorToBeUsed = selectComparator(sortCriteria);
-        return new SortPersonCommand(comparatorToBeUsed);
+        return new SortPersonCommand(comparatorToBeUsed, isReverse);
     }
 
+    /**
+     * Selects a comparator based on the supplied prefix
+     * and returns it.
+     * @throws ParseException
+     */
     private PersonComparator selectComparator(String sortCriteria) throws ParseException {
 
         switch (sortCriteria) {
