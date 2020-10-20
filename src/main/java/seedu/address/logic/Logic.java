@@ -31,11 +31,18 @@ public interface Logic {
      */
     ReadOnlyPersonAddressBook getPersonAddressBook();
 
+    /** Returns an unmodifiable view of the displayed list of persons */
+    ObservableList<Person> getDisplayedPersonList();
+
     /** Returns an unmodifiable view of the filtered list of persons */
     ObservableList<Person> getFilteredPersonList();
 
     /** Returns an unmodifiable view of the filtered list of persons */
     ObservableList<Job> getFilteredJobList();
+
+    /** Returns an unmodifiable view of the sorted list of persons */
+    ObservableList<Person> getSortedPersonList();
+
 
     /**
      * Returns the user prefs' address book file path.

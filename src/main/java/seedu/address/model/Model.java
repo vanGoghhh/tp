@@ -84,8 +84,14 @@ public interface Model {
      */
     void setPerson(Person target, Person editedPerson);
 
+    /** Returns an unmodifiable view of the displayed person list */
+    ObservableList<Person> getDisplayedPersonList();
+
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
+
+    /** Returns an unmodifiable view of the sorted person list */
+    ObservableList<Person> getSortedPersonList();
 
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
@@ -146,9 +152,6 @@ public interface Model {
 
     /** Returns an unmodifiable view of the filtered job list */
     ObservableList<Job> getFilteredJobList();
-
-    /** Returns an unmodifiable view of the sorted person list */
-    ObservableList<Person> getSortedPersonList();
 
     /**
      * Updates the filter of the filtered job list to filter by the given {@code predicate}.

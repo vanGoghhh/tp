@@ -7,9 +7,7 @@ import java.util.Comparator;
  */
 public class PersonExperienceComparator extends PersonComparator implements Comparator<Person> {
 
-    public PersonExperienceComparator(String sortCriteria) {
-        super(sortCriteria);
-    }
+    public static final String SORT_CRITERIA = "exp";
 
     @Override
     public int compare(Person person1, Person person2) {
@@ -28,11 +26,8 @@ public class PersonExperienceComparator extends PersonComparator implements Comp
 
     @Override
     public boolean equals(Object other) {
-        return other == this
-                || (other instanceof PersonExperienceComparator
-                && super.getComparingCriteria().equals(
-                        ((PersonExperienceComparator) other).getComparingCriteria()));
-    }
+        return other == this;
+   }
 
 
 }

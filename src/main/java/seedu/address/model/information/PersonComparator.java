@@ -1,14 +1,7 @@
 package seedu.address.model.information;
 
-public class PersonComparator {
+import java.util.Comparator;
 
-    private final String comparingCriteria;
+public abstract class PersonComparator implements Comparator<Person> {
 
-    public PersonComparator(String comparingCriteria) {
-        this.comparingCriteria = comparingCriteria;
-    }
-
-    public String getComparingCriteria() {
-        return comparingCriteria;
-    }
 }
