@@ -3,6 +3,8 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.BLACKLIST_STATUS_DESC_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.BLACKLIST_STATUS_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.DATE_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.DATE_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
@@ -10,6 +12,7 @@ import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.EXPERIENCE_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EXPERIENCE_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_BLACKLIST_STATUS_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_DATE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EXPERIENCE_DESC;
@@ -47,6 +50,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddPersonCommand;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.BlacklistStatus;
 import seedu.address.model.information.Date;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Experience;
@@ -68,55 +72,61 @@ public class AddPersonCommandParserTest {
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + EXPERIENCE_DESC_BOB + URL_LINK_DESC_BOB + SALARY_DESC_BOB + TAG_DESC_FRIEND
-                + DATE_DESC_BOB + DATE_DESC_BOB,
+                + DATE_DESC_BOB + BLACKLIST_STATUS_DESC_BOB,
                 new AddPersonCommand(expectedPerson));
 
         // multiple names - last name accepted
         assertParseSuccess(parser, NAME_DESC_AMY + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + EXPERIENCE_DESC_BOB + URL_LINK_DESC_BOB + SALARY_DESC_BOB + TAG_DESC_FRIEND
-                + DATE_DESC_BOB,
+                + DATE_DESC_BOB + BLACKLIST_STATUS_DESC_BOB,
                 new AddPersonCommand(expectedPerson));
 
         // multiple phones - last phone accepted
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_AMY + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + EXPERIENCE_DESC_BOB + URL_LINK_DESC_BOB + SALARY_DESC_BOB + TAG_DESC_FRIEND
-                + DATE_DESC_BOB,
+                + DATE_DESC_BOB + BLACKLIST_STATUS_DESC_BOB,
                 new AddPersonCommand(expectedPerson));
 
         // multiple emails - last email accepted
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + EXPERIENCE_DESC_BOB + URL_LINK_DESC_BOB + SALARY_DESC_BOB + TAG_DESC_FRIEND
-                + DATE_DESC_BOB,
+                + DATE_DESC_BOB + BLACKLIST_STATUS_DESC_BOB,
                 new AddPersonCommand(expectedPerson));
 
         // multiple addresses - last address accepted
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_AMY
                 + ADDRESS_DESC_BOB + EXPERIENCE_DESC_BOB + URL_LINK_DESC_BOB + SALARY_DESC_BOB
-                        + TAG_DESC_FRIEND + DATE_DESC_BOB,
+                        + TAG_DESC_FRIEND + DATE_DESC_BOB + BLACKLIST_STATUS_DESC_BOB,
                 new AddPersonCommand(expectedPerson));
 
         // multiple experiences - last experience accepted
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
                 + EXPERIENCE_DESC_AMY + EXPERIENCE_DESC_BOB + URL_LINK_DESC_BOB + SALARY_DESC_BOB + TAG_DESC_FRIEND
-                        + DATE_DESC_BOB,
+                        + DATE_DESC_BOB + BLACKLIST_STATUS_DESC_BOB,
                 new AddPersonCommand(expectedPerson));
 
         // multiple dates - last date accepted
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
                         + EXPERIENCE_DESC_AMY + DATE_DESC_AMY + DATE_DESC_BOB + URL_LINK_DESC_BOB + EXPERIENCE_DESC_BOB
-                        + SALARY_DESC_BOB + TAG_DESC_FRIEND,
+                        + SALARY_DESC_BOB + TAG_DESC_FRIEND + BLACKLIST_STATUS_DESC_BOB,
+                new AddPersonCommand(expectedPerson));
+
+        // multiple blacklist statuses - last blacklist status accepted
+        assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
+                        + EXPERIENCE_DESC_AMY + DATE_DESC_BOB + URL_LINK_DESC_BOB + EXPERIENCE_DESC_BOB
+                        + SALARY_DESC_BOB + BLACKLIST_STATUS_DESC_AMY + BLACKLIST_STATUS_DESC_BOB + TAG_DESC_FRIEND,
                 new AddPersonCommand(expectedPerson));
 
         // multiple url links - last link accepted
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
                         + EXPERIENCE_DESC_BOB + URL_LINK_DESC_AMY + URL_LINK_DESC_BOB + SALARY_DESC_BOB
-                        + TAG_DESC_FRIEND + DATE_DESC_BOB,
+                        + TAG_DESC_FRIEND + DATE_DESC_BOB + BLACKLIST_STATUS_DESC_BOB,
                 new AddPersonCommand(expectedPerson));
 
         // multiple salaries - last salary accepted
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
                         + EXPERIENCE_DESC_BOB + URL_LINK_DESC_BOB + SALARY_DESC_AMY + SALARY_DESC_BOB
-                        + TAG_DESC_FRIEND + DATE_DESC_BOB,
+                        + TAG_DESC_FRIEND + DATE_DESC_BOB + BLACKLIST_STATUS_DESC_BOB,
                 new AddPersonCommand(expectedPerson));
 
         // multiple tags - all accepted
@@ -124,13 +134,13 @@ public class AddPersonCommandParserTest {
                 .build();
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
                 + EXPERIENCE_DESC_BOB + URL_LINK_DESC_BOB + SALARY_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND
-                        + DATE_DESC_BOB,
+                        + DATE_DESC_BOB + BLACKLIST_STATUS_DESC_BOB,
                 new AddPersonCommand(expectedPersonMultipleTags));
     }
 
     @Test
     public void parse_optionalFieldsMissing_success() {
-        // zero tags
+        // no tags, salary, urlLink, blacklistStatus
         Person expectedPerson = new PersonBuilder(AMY).withTags().build();
         assertParseSuccess(parser, NAME_DESC_AMY + PHONE_DESC_AMY
                         + EMAIL_DESC_AMY + EXPERIENCE_DESC_AMY + DATE_DESC_AMY,
@@ -203,6 +213,11 @@ public class AddPersonCommandParserTest {
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + EXPERIENCE_DESC_BOB + INVALID_DATE_DESC + URL_LINK_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Date.MESSAGE_CONSTRAINTS);
+
+        // invalid Blacklist Status
+        assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + ADDRESS_DESC_BOB + EXPERIENCE_DESC_BOB + DATE_DESC_BOB + INVALID_BLACKLIST_STATUS_DESC
+                + URL_LINK_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, BlacklistStatus.MESSAGE_CONSTRAINTS);
 
         // invalid url link
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB

@@ -11,6 +11,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.BlacklistStatus;
 import seedu.address.model.information.Date;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Experience;
@@ -115,6 +116,21 @@ public class ParserUtil {
             throw new ParseException(Date.MESSAGE_CONSTRAINTS);
         }
         return new Date(trimmedDate);
+    }
+    /**
+     * Parses a {@code String isBlacklisted} into a {@code BlacklistStatus}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code isBlacklisted} is invalid.
+     */
+
+    public static BlacklistStatus parseBlacklistStatus(String isBlacklisted) throws ParseException {
+        requireNonNull(isBlacklisted);
+        String trimmedIsBlacklisted = isBlacklisted.trim();
+        if (!BlacklistStatus.isValidBlacklistStatus(isBlacklisted)) {
+            throw new ParseException(BlacklistStatus.MESSAGE_CONSTRAINTS);
+        }
+        return new BlacklistStatus(trimmedIsBlacklisted);
     }
 
     /**

@@ -10,6 +10,7 @@ import seedu.address.model.PersonAddressBook;
 import seedu.address.model.ReadOnlyJobAddressBook;
 import seedu.address.model.ReadOnlyPersonAddressBook;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.BlacklistStatus;
 import seedu.address.model.information.Date;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Experience;
@@ -31,31 +32,31 @@ public class SampleDataUtil {
     public static Person[] getSamplePersons() {
         return new Person[] {
             new Person(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
-                    new Experience("0"), new Date("01-01-01"),
+                    new Experience("0"), new Date("01-01-01"), new BlacklistStatus("false"),
                     Optional.of(new Address("Blk 30 Geylang Street 29, #06-40")),
                     Optional.empty(), Optional.empty(), getTagSet("friends")),
             new Person(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
-                    new Experience("0.5"), new Date("02-02-02"),
+                    new Experience("0.5"), new Date("02-02-02"), new BlacklistStatus("false"),
                     Optional.of(new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18")),
                 Optional.of(new UrlLink("Google.com")), Optional.of(new Salary("8800")),
                     getTagSet("colleagues", "friends")),
             new Person(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
-                    new Experience("1.0"), new Date("03-03-03"),
+                    new Experience("1.0"), new Date("03-03-03"), new BlacklistStatus("true"),
                     Optional.of(new Address("Blk 11 Ang Mo Kio Street 74, #11-04")),
                     Optional.of(new UrlLink("Github.com")), Optional.of(new Salary("1800")),
                     getTagSet("neighbours")),
             new Person(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
-                    new Experience("1.5"), new Date("04-04-04"),
+                    new Experience("1.5"), new Date("04-04-04"), new BlacklistStatus("false"),
                     Optional.of(new Address("Blk 436 Serangoon Gardens Street 26, #16-43")),
                     Optional.of(new UrlLink("linkedin.com")), Optional.empty(),
                     getTagSet("family")),
             new Person(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
-                    new Experience("2.0"), new Date("05-05-05"),
+                    new Experience("2.0"), new Date("05-05-05"), new BlacklistStatus("true"),
                     Optional.of(new Address("Blk 47 Tampines Street 20, #17-35")),
                     Optional.of(new UrlLink("Tinder.com")), Optional.of(new Salary("2800")),
                     getTagSet("classmates")),
             new Person(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
-                    new Experience("10"), new Date("06-06-06"),
+                    new Experience("10"), new Date("06-06-06"), new BlacklistStatus("false"),
                     Optional.of(new Address("Blk 45 Aljunied Street 85, #11-31")),
                     Optional.of(new UrlLink("myprofile.com")), Optional.of(new Salary("25000")),
                     getTagSet("colleagues"))

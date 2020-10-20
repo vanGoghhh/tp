@@ -14,7 +14,7 @@ public class DateTest {
     }
 
     @Test
-    public void constructor_invalidExperience_throwsIllegalArgumentException() {
+    public void constructor_invalidDate_throwsIllegalArgumentException() {
         String emptyDate = "";
         String negativeDate = "-1";
         String wordDate = "3 July 2020";
@@ -41,7 +41,8 @@ public class DateTest {
         assertTrue(Date.isValidDate("   11-11-11   ")); // date with whitespace
     }
 
-    @Test public void isEquals() {
+    @Test
+    public void isEquals() {
         // same date
         assertEquals(new Date("01-01-20"), new Date("01-01-20"));
 

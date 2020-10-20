@@ -12,6 +12,7 @@ public class Experience {
     public static final String MESSAGE_CONSTRAINTS = "Experience in years has to be an unsigned (non-negative) number.";
 
     public final double experienceInYears;
+    public final String value;
 
     /**
      * Constructs an {@code Experience}.
@@ -21,6 +22,7 @@ public class Experience {
     public Experience(String experience) {
         requireNonNull(experience);
         checkArgument(isValidExperience(experience), MESSAGE_CONSTRAINTS);
+        value = experience;
         experienceInYears = Double.parseDouble(experience);
     }
 

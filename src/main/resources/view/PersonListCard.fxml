@@ -35,6 +35,7 @@
       <Label fx:id="personAddress" styleClass="cell_small_label" text="no address" />
       <Label fx:id="personUrlLink" styleClass="cell_small_label" text="no profile link" />
       <Label fx:id="personSalary" styleClass="cell_small_label"  text="no expected salary"/>
+      <Label fx:id="personBlacklistStatus" styleClass="cell_small_label"  />
     </VBox>
   </GridPane>
 </HBox>
