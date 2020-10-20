@@ -6,9 +6,6 @@ import java.util.Comparator;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.information.Person;
-import seedu.address.model.information.comparator.PersonComparator;
-
-
 
 /**
  * Sorts the persons using the specified comparator.
@@ -24,6 +21,10 @@ public class SortPersonCommand extends Command {
     private final Comparator<Person> comparator;
     private final Boolean isReverse;
 
+    /**
+     * Constructor for SortPersonCommand. Checks the order of sort required
+     * and producers the appropriate comparator.
+     */
     public SortPersonCommand(Comparator<Person> comparator, Boolean isReverse) {
         this.isReverse = isReverse;
         if (isReverse) {
