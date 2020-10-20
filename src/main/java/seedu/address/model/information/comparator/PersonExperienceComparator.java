@@ -1,8 +1,8 @@
 package seedu.address.model.information.comparator;
 
-import seedu.address.model.information.Person;
-
 import java.util.Comparator;
+
+import seedu.address.model.information.Person;
 
 /**
  * Compares any two {@code Person}'s {@code Experience} using the the supplied sorting criteria.
@@ -30,6 +30,4 @@ public class PersonExperienceComparator extends PersonComparator implements Comp
     public boolean equals(Object other) {
         return other == this;
    }
-
-
 }

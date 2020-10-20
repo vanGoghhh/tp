@@ -1,16 +1,14 @@
 package seedu.address.logic.commands;
 
-
 import static java.util.Objects.requireNonNull;
 
+import java.util.Comparator;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.comparator.PersonComparator;
-import seedu.address.model.information.comparator.PersonExperienceComparator;
-import seedu.address.model.information.comparator.PersonComparator;
 
-import java.util.Comparator;
+
 
 /**
  * Sorts the persons using the specified comparator.

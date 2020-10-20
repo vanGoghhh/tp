@@ -6,8 +6,6 @@ import javafx.scene.control.TabPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import seedu.address.logic.Logic;
-import seedu.address.model.ModelManager;
-
 
 public class TabBar extends UiPart<Region> {
 

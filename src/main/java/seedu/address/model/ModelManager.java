@@ -8,16 +8,14 @@ import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
-import javafx.collections.transformation.TransformationList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Person;
-import seedu.address.ui.PersonListPanel;
+
 
 /**
  * Represents the in-memory model of the address book data.
@@ -31,7 +29,6 @@ public class ModelManager implements Model {
     private final FilteredList<Person> filteredPersons;
     private final FilteredList<Job> filteredJobs;
     private final SortedList<Person> sortedPersons;
-    public static ObservableList<Person> displayedPersons;
 
     /**
      * Initializes a ModelManager with the given addressBook, jobAddressBook and userPrefs.
@@ -50,7 +47,6 @@ public class ModelManager implements Model {
         filteredPersons = new FilteredList<>(this.personAddressBook.getPersonList());
         filteredJobs = new FilteredList<>(this.jobAddressBook.getJobList());
         sortedPersons = new SortedList<>(this.personAddressBook.getPersonList());
-        displayedPersons = this.personAddressBook.getPersonList();
         }
 
     public ModelManager() {
@@ -174,15 +170,6 @@ public class ModelManager implements Model {
 
         jobAddressBook.setJob(target, editedJob);
     }
-
-    //=========== Displayed Person List Accessors ============================================================
-
-    /**
-     * Returns an unmodifiable view of the list of {@code Job} backed by the internal list of
-     * {@code versionedAddressBook}
-     */
-    @Override
-    public ObservableList<Person> getDisplayedPersonList() { return displayedPersons; }
 
     //=========== Filtered Person List Accessors =============================================================
 
