@@ -7,7 +7,6 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import seedu.address.logic.Logic;
 
-
 public class TabBar extends UiPart<Region> {
 
     private static final String FXML = "TabBar.fxml";
