@@ -2,6 +2,8 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_BLACKLIST;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE_OF_APPLICATION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPERIENCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
@@ -27,18 +29,22 @@ public class AddPersonCommand extends Command {
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_EXPERIENCE + "EXPERIENCE "
+            + PREFIX_DATE_OF_APPLICATION + "DATE OF APPLICATION "
             + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_URL_LINK + "URL LINK] "
             + "[" + PREFIX_SALARY + "EXPECTED SALARY] "
+            + "[" + PREFIX_BLACKLIST + "IS BLACKLISTED] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_EXPERIENCE + "3.0 "
+            + PREFIX_DATE_OF_APPLICATION + "31-12-20"
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
             + PREFIX_URL_LINK + "linkedin.com/in/johndoe "
             + PREFIX_SALARY + "5500 "
+            + PREFIX_BLACKLIST + "false"
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 

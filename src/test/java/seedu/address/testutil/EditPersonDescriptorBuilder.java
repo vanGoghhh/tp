@@ -7,6 +7,8 @@ import java.util.stream.Stream;
 
 import seedu.address.logic.commands.EditPersonCommand.EditPersonDescriptor;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.BlacklistStatus;
+import seedu.address.model.information.Date;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Experience;
 import seedu.address.model.information.Name;
@@ -40,6 +42,8 @@ public class EditPersonDescriptorBuilder {
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setExperience(person.getExperience());
+        descriptor.setDateOfApplication(person.getDateOfApplication());
+        descriptor.setBlackListStatus(person.getBlacklistStatus());
         descriptor.setAddressOptional(person.getAddressOptional());
         descriptor.setUrlLinkOptional(person.getUrlLinkOptional());
         descriptor.setSalaryOptional(person.getSalaryOptional());
@@ -79,6 +83,23 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
+     * Sets the {@code Date} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withDateOfApplication(String dateOfApplication) {
+        descriptor.setDateOfApplication(new Date(dateOfApplication));
+        return this;
+    }
+
+    /**
+     * Sets the {@code BlacklistStatus} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withBlacklistStatus(String isBlacklisted) {
+        descriptor.setBlackListStatus(new BlacklistStatus(isBlacklisted));
+        return this;
+    }
+
+
+    /**
      * Sets the {@code Address} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withAddress(String address) {
@@ -89,7 +110,7 @@ public class EditPersonDescriptorBuilder {
     /**
      * Sets the {@code urlLink} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withUrllink(String link) {
+    public EditPersonDescriptorBuilder withUrlLink(String link) {
         descriptor.setUrlLinkOptional(Optional.of(new UrlLink(link)));
         return this;
     }

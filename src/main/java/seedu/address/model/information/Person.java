@@ -23,6 +23,8 @@ public class Person {
 
     // Data fields
     private final Experience experience;
+    private final Date dateOfApplication;
+    private final BlacklistStatus blacklistStatus;
     private final Optional<Address> addressOptional;
     private final Optional<UrlLink> urlLinkOptional;
     private final Optional<Salary> salaryOptional;
@@ -31,14 +33,16 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Experience experience,
-                  Optional<Address> addressOptional, Optional<UrlLink> urlLinkOptional,
-                  Optional<Salary> salaryOptional, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Experience experience, Date dateOfApplication,
+                  BlacklistStatus blacklistStatus, Optional<Address> addressOptional,
+                  Optional<UrlLink> urlLinkOptional, Optional<Salary> salaryOptional, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, addressOptional, experience, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.experience = experience;
+        this.dateOfApplication = dateOfApplication;
+        this.blacklistStatus = blacklistStatus;
         this.addressOptional = addressOptional;
         this.urlLinkOptional = urlLinkOptional;
         this.salaryOptional = salaryOptional;
@@ -59,6 +63,14 @@ public class Person {
 
     public Experience getExperience() {
         return experience;
+    }
+
+    public Date getDateOfApplication() {
+        return dateOfApplication;
+    }
+
+    public BlacklistStatus getBlacklistStatus() {
+        return blacklistStatus;
     }
 
     public Optional<Address> getAddressOptional() {
@@ -114,6 +126,8 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getExperience().equals(getExperience())
+                && otherPerson.getDateOfApplication().equals(getDateOfApplication())
+                && otherPerson.getBlacklistStatus().equals(getBlacklistStatus())
                 && otherPerson.getAddressOptional().equals(getAddressOptional())
                 && otherPerson.getUrlLinkOptional().equals(getUrlLinkOptional())
                 && otherPerson.getSalaryOptional().equals(getSalaryOptional())
@@ -123,8 +137,8 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, experience, addressOptional,
-                urlLinkOptional, salaryOptional, tags);
+        return Objects.hash(name, phone, email, experience, dateOfApplication, blacklistStatus,
+                addressOptional, urlLinkOptional, salaryOptional, tags);
     }
 
     @Override
@@ -136,13 +150,16 @@ public class Person {
                 .append(" Email: ")
                 .append(getEmail())
                 .append(" Experience: ")
-                .append(getExperience().toString() + " years");
+                .append(getExperience().toString() + " years")
+                .append(" Date of Application: ")
+                .append(getDateOfApplication());
         builder.append(" Address: ");
         getAddressOptional().ifPresent(address -> builder.append(address.value));
         builder.append(" Link: ");
         getUrlLinkOptional().ifPresent(link -> builder.append(link.value));
         builder.append(" Expected Salary: ");
         getSalaryOptional().ifPresent(salary -> builder.append("$" + salary.toString()));
+        builder.append(" Blacklisted: ").append(getBlacklistStatus());
         builder.append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_BLACKLIST_STATUS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPERIENCE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
@@ -56,6 +58,14 @@ public class EditPersonDescriptorTest {
 
         // different experience -> returns false
         editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withAddress(VALID_EXPERIENCE_BOB).build();
+        assertFalse(DESC_AMY.equals(editedAmy));
+
+        // different date -> returns false
+        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withDateOfApplication(VALID_DATE_BOB).build();
+        assertFalse(DESC_AMY.equals(editedAmy));
+
+        // different date -> returns false
+        editedAmy = new EditPersonDescriptorBuilder(DESC_AMY).withBlacklistStatus(VALID_BLACKLIST_STATUS_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
 
         // different url link -> returns false

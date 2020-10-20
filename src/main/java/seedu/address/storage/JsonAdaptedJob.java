@@ -16,6 +16,7 @@ import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
 import seedu.address.model.information.Priority;
+import seedu.address.model.information.Vacancy;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -32,6 +33,7 @@ class JsonAdaptedJob {
     private final String address;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
     private final String priority;
+    private final String vacancy;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -41,7 +43,7 @@ class JsonAdaptedJob {
                           @JsonProperty("phone") String phone, @JsonProperty("email") String email,
                           @JsonProperty("address") String address,
                           @JsonProperty("tagged") List<JsonAdaptedTag> tagged,
-                          @JsonProperty("priority") String priority) {
+                          @JsonProperty("priority") String priority, @JsonProperty("vacancy") String vacancy) {
         this.jobTitle = jobTitle;
         this.company = company;
         this.phone = phone;
@@ -51,6 +53,7 @@ class JsonAdaptedJob {
             this.tagged.addAll(tagged);
         }
         this.priority = priority;
+        this.vacancy = vacancy;
     }
 
     /**
@@ -66,6 +69,7 @@ class JsonAdaptedJob {
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
         priority = source.getPriority().value;
+        vacancy = source.getVacancy().value;
     }
 
     /**
@@ -130,7 +134,16 @@ class JsonAdaptedJob {
         }
         final Priority modelPriority = new Priority(priority);
 
-        return new Job(modelTitle, modelCompany, modelPhone, modelEmail, modelAddress, modelTags, modelPriority);
+        if (vacancy == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Vacancy.class.getSimpleName()));
+        }
+        if (!Vacancy.isValidVacancy(vacancy)) {
+            throw new IllegalValueException(Vacancy.MESSAGE_CONSTRAINTS);
+        }
+        final Vacancy modelVacancy = new Vacancy(vacancy);
+
+        return new Job(modelTitle, modelCompany, modelPhone, modelEmail, modelAddress,
+            modelTags, modelPriority, modelVacancy);
     }
 
 }
