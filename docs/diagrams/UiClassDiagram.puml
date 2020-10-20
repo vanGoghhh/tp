@@ -4,7 +4,6 @@ skinparam arrowThickness 1.1
 skinparam arrowColor UI_COLOR_T4
 skinparam classBackgroundColor UI_COLOR
 skinparam classFontColor #000000
-skinparam classBorderThickness 1.3
 skinparam interfaceFontColor #000000
 
 package UI <<Rectangle>>{
