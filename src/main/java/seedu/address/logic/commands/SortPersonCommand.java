@@ -24,7 +24,7 @@ public class SortPersonCommand extends Command {
     private final Comparator<Person> comparator;
     private final Boolean isReverse;
 
-    public SortPersonCommand(PersonComparator comparator, Boolean isReverse) {
+    public SortPersonCommand(Comparator<Person> comparator, Boolean isReverse) {
         this.isReverse = isReverse;
         if (isReverse) {
             this.comparator = comparator.reversed();
