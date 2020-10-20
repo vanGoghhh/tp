@@ -1,0 +1,55 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":SortPersonCommandParser" as SortPersonCommandParser LOGIC_COLOR
+participant ":SortPersonCommand" as SortPersonCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant ":PersonExperienceComparator" as PersonExperienceComparator LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("sort can exp/desc")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("sort can exp/desc")
+activate AddressBookParser
+
+create SortPersonCommandParser
+AddressBookParser -> SortPersonCommandParser
+activate SortPersonCommandParser
+
+SortPersonCommandParser --> AddressBookParser
+deactivate SortPersonCommandParser
+
+AddressBookParser -> SortPersonCommandParser : parse("sort can exp/desc")
+activate SortPersonCommandParser
+
+create SortPersonCommand
+SortPersonCommandParser -> SortPersonCommand
+activate SortPersonCommand
+
+SortPersonCommand --> SortPersonCommandParser : d
+deactivate SortPersonCommand
+
+SortPersonCommandParser --> AddressBookParser : d
+deactivate SortPersonCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+SortPersonCommandParser -[hidden]-> AddressBookParser
+destroy SortPersonCommandParser
+
+AddressBookParser --> LogicManager : d
+deactivate AddressBookParser
+
+LogicManager -> SortPersonCommand : execute()
+activate SortPersonCommand
+
+SortPersonCommand -> Model :
+activate Model
+
+@enduml
