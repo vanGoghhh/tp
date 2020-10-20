@@ -5,9 +5,10 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":SortPersonCommandParser" as SortPersonCommandParser LOGIC_COLOR
+participant "expComparator: PersonExperienceComparator" as PersonExperienceComparator LOGIC_COLOR
 participant ":SortPersonCommand" as SortPersonCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
-participant ":PersonExperienceComparator" as PersonExperienceComparator LOGIC_COLOR
+
 end box
 
 box Model MODEL_COLOR_T1
@@ -30,8 +31,16 @@ deactivate SortPersonCommandParser
 AddressBookParser -> SortPersonCommandParser : parse("sort can exp/desc")
 activate SortPersonCommandParser
 
+SortPersonCommandParser -> SortPersonCommandParser : selectComparator("exp")
+activate SortPersonCommandParser
+
+create PersonExperienceComparator
+SortPersonCommandParser -> PersonExperienceComparator
+activate PersonExperienceComparator
+deactivate SortPersonCommandParser
+
 create SortPersonCommand
-SortPersonCommandParser -> SortPersonCommand
+SortPersonCommandParser -> SortPersonCommand : SortPersonCommand(expComparator)
 activate SortPersonCommand
 
 SortPersonCommand --> SortPersonCommandParser : d
@@ -49,7 +58,24 @@ deactivate AddressBookParser
 LogicManager -> SortPersonCommand : execute()
 activate SortPersonCommand
 
-SortPersonCommand -> Model :
+SortPersonCommand -> Model : updateSortedPersonList(expComparator)
 activate Model
 
+Model --> SortPersonCommand
+deactivate Model
+
+destroy PersonExperienceComparator
+
+create CommandResult
+SortPersonCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> SortPersonCommand
+deactivate CommandResult
+
+SortPersonCommand --> LogicManager : result
+deactivate SortPersonCommand
+
+[<--LogicManager
+deactivate LogicManager
 @enduml
