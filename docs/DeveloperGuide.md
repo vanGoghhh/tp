@@ -180,7 +180,7 @@ Step 2. The user executes `sort can exp/asc` to sort the candidates by their `Ex
 
 Step 3. The user executes `sort can exp/asc` to sort the candidates by their `Experience` in ascending order. A `PersonExperienceComparator` is created from parsing the command and a `SortPersonCommand` object is created. In the `SortPersonCommand#execute` the method `ModelManager#updateSortedPersonList(PersonExperienceComparator)` is invoked and the `SortedList` is sorted using the `PersonExperienceComparator`. The `UniquePersonList` in `personAddressBook` is then set to be the `SortedList`.
 
-![SortPersonSequenceDiagram](images/SortSequenceDiagram.png)
+![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png)
 
 ### \[Implemented] Find feature
 
@@ -202,6 +202,57 @@ The following sequence diagram shows how the find operation works in the scenari
 ![FindSequenceDiagram](images/FindSequenceDiagram.png)
 
 The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
+
+### \[Implemented] List Job feature
+
+The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
+Additionally, it implements the following operations:
+
+*`ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
+
+Given below is an example usage scenario and how the list mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniqueJobList` from `jobAddressBook` which contains a list of jobs.
+
+Step 2. The user executes `list job` to list all jobs.
+
+Step 3. A `ListJobCommand` object is created from parsing the command. In the `ListJobCommand#execute` the method `ModelManager#updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS)` is invoked 
+and the `FilteredList` shows all jobs in the list as indicated by the given predicate.
+
+The following sequence diagram shows how the find operation works in the scenario described above:
+
+![ListSequenceDiagram](images/ListSequenceDiagram.png)
+
+### \[Implemented] Edit feature
+
+The Edit feature has two variants, one for editing candidates (`edit can`) and one for editing jobs (`edit job`) . We will illustrate this feature using only the candidates variant here
+as the job variant works analogously. 
+The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
+Additionally, it implements the following operations:
+
+*`ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
+*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+
+Given below is an example usage scenario and how the edit mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
+
+Step 2. The user executes `edit can 2 n/Rob Mi e/rob@kmail.com` to change the `Name` and `Email` of the candidate at index 2 to Rob Mi and rob<span>@</span>kmail.com respectively. 
+
+Step 3. The method `AddressBookParser#parseCommand` is invoked to distinguish which type of command it is. After discerning it is an `edit can` command,
+the `EditPersonCommandParser#parse` is then invoked to parse the arguments.
+If the command format is invalid, `EditPersonCommandParser` throws an error.
+
+Step 4. A `EditPersonDescriptor`, which is an inner class of `EditPersonCommand`, is created from parsing the command and a `EditPersonCommand` object is created. In the `EditPersonCommand#execute` method, if the candidate index provided by the user is invalid, an error is thrown. 
+Otherwise, the method `ModelManager#setPerson()` is invoked to replace the old candidate with the newly edited candidate. 
+ Then, `ModelManager#updateFilteredPersonList()` is invoked and the `FilteredList` is updated.
+The `personAddressBook` is also updated with the new changes and saved. 
+
+The following sequence diagram shows how the edit operation works in the scenario described above:
+
+![EditSequenceDiagram](images/EditSequenceDiagram.png)
+
+A `edit job` command works similarly for Jobs but with the analogous EditJobDescriptor, EditJobCommand, JobAddressBook etc. classes.
 
 
 ### \[Proposed\] Undo/redo feature
