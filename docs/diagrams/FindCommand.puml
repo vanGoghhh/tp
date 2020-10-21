@@ -1,0 +1,77 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":FindCommandParser" as FindCommandParser LOGIC_COLOR
+participant "p: PersonNameContainsKeywordsPredicate" as PersonNameContainsKeywordsPredicate LOGIC_COLOR
+participant "f : FindCommand" as FindCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("find can n/John")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("find can n/John")
+activate AddressBookParser
+
+create FindCommandParser
+AddressBookParser -> FindCommandParser
+activate FindCommandParser
+
+FindCommandParser --> AddressBookParser
+deactivate FindCommandParser
+
+AddressBookParser -> FindCommandParser : parse("find can n/John")
+activate FindCommandParser
+
+create PersonNameContainsKeywordsPredicate
+FindCommandParser -> PersonNameContainsKeywordsPredicate : PersonNameContainsKeywordsPredicate()
+activate PersonNameContainsKeywordsPredicate
+
+create FindCommand
+FindCommandParser -> FindCommand : FindCommand(p)
+activate FindCommand
+
+FindCommand --> FindCommandParser : f
+deactivate FindCommand
+
+FindCommandParser --> AddressBookParser : f
+deactivate FindCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+FindCommandParser -[hidden]-> AddressBookParser
+destroy FindCommandParser
+
+AddressBookParser --> LogicManager : f
+deactivate AddressBookParser
+
+LogicManager -> FindCommand : execute()
+activate FindCommand
+
+FindCommand -> Model : updateFilteredPersonList(p)
+activate Model
+
+Model --> FindCommand
+deactivate Model
+
+destroy PersonNameContainsKeywordsPredicate
+
+create CommandResult
+FindCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> FindCommand
+deactivate CommandResult
+
+FindCommand --> LogicManager : "10 persons listed!"
+deactivate FindCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml
