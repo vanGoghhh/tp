@@ -86,11 +86,11 @@ The `UI` component,
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete can 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeletePersonCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 ### Model component
@@ -151,10 +151,6 @@ Step 3. The user executes `sort can exp/asc` to sort the candidates by their `Ex
 
 ![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifelines for `SortPersonCommandParser` and 
-`PersonExperienceComparator` should end at the destroy markers (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</div>
-
 ### \[Implemented] Find feature
 
 The implemented find mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
@@ -173,10 +169,6 @@ Step 3. A `PersonNameContainsKeywordsPredicate`, which is a subclass of `Predica
 The following sequence diagram shows how the find operation works in the scenario described above:
 
 ![FindSequenceDiagram](images/FindSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifelines for `FindCommandParser` and 
-`PersonNameContainsKeywordsPredicate` should end at the destroy markers (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</div>
 
 The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
 
@@ -199,6 +191,38 @@ and the `FilteredList` shows all jobs in the list as indicated by the given pred
 The following sequence diagram shows how the find operation works in the scenario described above:
 
 ![ListSequenceDiagram](images/ListSequenceDiagram.png)
+
+### \[Implemented] Edit feature
+
+The Edit feature has two variants, one for editing candidates (`edit can`) and one for editing jobs (`edit job`) . We will illustrate this feature using only the candidates variant here
+as the job variant works analogously. 
+The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
+Additionally, it implements the following operations:
+
+*`ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
+*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+
+Given below is an example usage scenario and how the edit mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
+
+Step 2. The user executes `edit can 2 n/Rob Mi e/rob@kmail.com` to change the `Name` and `Email` of the candidate at index 2 to Rob Mi and rob<span>@</span>kmail.com respectively. 
+
+Step 3. The method `AddressBookParser#parseCommand` is invoked to distinguish which type of command it is. After discerning it is an `edit can` command,
+the `EditPersonCommandParser#parse` is then invoked to parse the arguments.
+If the command format is invalid, `EditPersonCommandParser` throws an error.
+
+Step 4. A `EditPersonDescriptor`, which is an inner class of `EditPersonCommand`, is created from parsing the command and a `EditPersonCommand` object is created. In the `EditPersonCommand#execute` method, if the candidate index provided by the user is invalid, an error is thrown. 
+Otherwise, the method `ModelManager#setPerson()` is invoked to replace the old candidate with the newly edited candidate. 
+ Then, `ModelManager#updateFilteredPersonList()` is invoked and the `FilteredList` is updated.
+The `personAddressBook` is also updated with the new changes and saved. 
+
+The following sequence diagram shows how the edit operation works in the scenario described above:
+
+![EditSequenceDiagram](images/EditSequenceDiagram.png)
+
+A `edit job` command works similarly for Jobs but with the analogous EditJobDescriptor, EditJobCommand, JobAddressBook etc. classes.
+
 
 ### \[Proposed\] Undo/redo feature
 
