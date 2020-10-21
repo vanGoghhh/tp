@@ -149,7 +149,29 @@ Step 2. The user executes `sort can exp/asc` to sort the candidates by their `Ex
 
 Step 3. The user executes `sort can exp/asc` to sort the candidates by their `Experience` in ascending order. A `PersonExperienceComparator` is created from parsing the command and a `SortPersonCommand` object is created. In the `SortPersonCommand#execute` the method `ModelManager#updateSortedPersonList(PersonExperienceComparator)` is invoked and the `SortedList` is sorted using the `PersonExperienceComparator`. The `UniquePersonList` in `personAddressBook` is then set to be the `SortedList`.
 
-![SortPersonSequenceDiagram](images/SortPersonCommand.png)
+![SortPersonSequenceDiagram](images/SortSequenceDiagram.png)
+
+### \[Implemented] Find feature
+
+The implemented find mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
+Additionally, it implements the following operations:
+
+*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+
+Given below is an example usage scenario and how the find mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
+
+Step 2. The user executes `find can n/John` to find candidates with the `Name` John.
+
+Step 3. A `PersonNameContainsKeywordsPredicate`, which is a subclass of `Predicate` is created from parsing the command and a `FindCommand` object is created. In the `FindCommand#execute` the method `ModelManager#updateFilteredPersonList(PersonNameContainsKeywordsPredicate)` is invoked and the `FilteredList` is filtered using the `PersonNameContainsKeywordsPredicate`.
+
+The following sequence diagram shows how the find operation works in the scenario described above:
+
+![FindSequenceDiagram](images/FindCommandSequenceDiagram.png)
+
+The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
+
 
 ### \[Proposed\] Undo/redo feature
 
