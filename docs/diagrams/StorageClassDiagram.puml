@@ -6,7 +6,8 @@ skinparam classBackgroundColor STORAGE_COLOR
 
 Interface Storage <<Interface>>
 Interface UserPrefsStorage <<Interface>>
-Interface AddressBookStorage <<Interface>>
+Interface PersonAddressBookStorage <<Interface>>
+Interface JobAddressBookStorage <<Interface>>
 
 Class StorageManager
 Class JsonUserPrefsStorage
