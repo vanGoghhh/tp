@@ -86,11 +86,11 @@ The `UI` component,
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete can 1")` API call.
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeletePersonCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 ### Model component
@@ -149,7 +149,11 @@ Step 2. The user executes `sort can exp/asc` to sort the candidates by their `Ex
 
 Step 3. The user executes `sort can exp/asc` to sort the candidates by their `Experience` in ascending order. A `PersonExperienceComparator` is created from parsing the command and a `SortPersonCommand` object is created. In the `SortPersonCommand#execute` the method `ModelManager#updateSortedPersonList(PersonExperienceComparator)` is invoked and the `SortedList` is sorted using the `PersonExperienceComparator`. The `UniquePersonList` in `personAddressBook` is then set to be the `SortedList`.
 
-![SortPersonSequenceDiagram](images/SortSequenceDiagram.png)
+![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifelines for `SortPersonCommandParser` and 
+`PersonExperienceComparator` should end at the destroy markers (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</div>
 
 ### \[Implemented] Find feature
 
@@ -170,8 +174,31 @@ The following sequence diagram shows how the find operation works in the scenari
 
 ![FindSequenceDiagram](images/FindSequenceDiagram.png)
 
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifelines for `FindCommandParser` and 
+`PersonNameContainsKeywordsPredicate` should end at the destroy markers (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</div>
+
 The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
 
+### \[Implemented] List Job feature
+
+The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
+Additionally, it implements the following operations:
+
+*`ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
+
+Given below is an example usage scenario and how the list mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniqueJobList` from `jobAddressBook` which contains a list of jobs.
+
+Step 2. The user executes `list job` to list all jobs.
+
+Step 3. A `ListJobCommand` object is created from parsing the command. In the `ListJobCommand#execute` the method `ModelManager#updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS)` is invoked 
+and the `FilteredList` shows all jobs in the list as indicated by the given predicate.
+
+The following sequence diagram shows how the find operation works in the scenario described above:
+
+![ListSequenceDiagram](images/ListSequenceDiagram.png)
 
 ### \[Proposed\] Undo/redo feature
 
