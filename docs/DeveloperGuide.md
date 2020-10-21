@@ -172,6 +172,26 @@ The following sequence diagram shows how the find operation works in the scenari
 
 The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
 
+### \[Implemented] List Job feature
+
+The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
+Additionally, it implements the following operations:
+
+*`ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
+
+Given below is an example usage scenario and how the list mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniqueJobList` from `jobAddressBook` which contains a list of jobs.
+
+Step 2. The user executes `list job` to list all jobs.
+
+Step 3. A `ListJobCommand` object is created from parsing the command. In the `ListJobCommand#execute` the method `ModelManager#updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS)` is invoked 
+and the `FilteredList` shows all jobs in the list as indicated by the given predicate.
+
+The following sequence diagram shows how the find operation works in the scenario described above:
+
+![ListSequenceDiagram](images/ListSequenceDiagram.png)
+
 ### \[Implemented] Edit feature
 
 The Edit feature has two variants, one for editing candidates (`edit can`) and one for editing jobs (`edit job`) . We will illustrate this feature using only the candidates variant here
@@ -201,7 +221,7 @@ The following sequence diagram shows how the edit operation works in the scenari
 
 ![EditSequenceDiagram](images/EditSequenceDiagram.png)
 
-A `edit job` command works similarly for Jobs but with the analogue EditJobDescriptor, EditJobCommand, JobAddressBook etc. classes.
+A `edit job` command works similarly for Jobs but with the analogous EditJobDescriptor, EditJobCommand, JobAddressBook etc. classes.
 
 
 ### \[Proposed\] Undo/redo feature
