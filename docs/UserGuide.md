@@ -45,7 +45,7 @@ app for job recruiters to manage job applicants and job listings.
 
    * **`list can`** : Lists all candidates.
 
-   * **`add can`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/151020` : Adds a candidate named 'John Doe' with phone number '98765432', email 'johnd@example.com', address 'John street, block 123, #01-01', years of experience '5' and date of application '151020' to the candidate list.
+   * **`add can`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/15-10-20` : Adds a candidate named 'John Doe' with phone number '98765432', email 'johnd@example.com', address 'John street, block 123, #01-01', years of experience '5' and date of application '15-10-20' to the candidate list.
 
    * **`delete can`**`3` : Deletes the 3rd candidate shown in the current candidate list.
 
@@ -98,8 +98,8 @@ A candidate can have any number of job type tags (including 0)
 <br>
 Examples:
 
-* `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/Dog Groomer exp/1 doa/161020`
-* `add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 t/HR t/Office Lady exp/5 doa/101020 link/BetsyCrowe.com bl/false sal/3000`
+* `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/Dog Groomer exp/1 doa/16-10-20`
+* `add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 t/HR t/Office Lady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000`
 
 ### Adding a job listing: `add job`
 

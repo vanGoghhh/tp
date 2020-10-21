@@ -121,8 +121,11 @@ The `Model`,
 **API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
 The `Storage` component,
+* Implements both `PersonAddressBookStorage` and `JobAddressBookStorage`
 * can save `UserPref` objects in json format and read it back.
-* can save both the person address book data and job address book data in json format and read it back.
+* can save `PersonAddressBook` data and `JobAddressBook` data in json format and read it back.
+* `JsonPersonAddressBookStorage` and `JsonJobAddressBookStorage` is reponsible for saving the datas in json format.
+
 
 ### Common classes
 
@@ -150,11 +153,9 @@ Given below is an example usage scenario and how the add mechanism behaves at ea
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `add can n/John` to add a candidate with `Name` John.
+Step 2. The user executes `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/15-10-20` to add a candidate with `Name` John, `Phone` 98765432, `Email` johnd@example.com, `Address` John street, block 123, #01-01, `Experience` 5 and `Date` 15-10-20.
 
-Step 3. The method `AddressBookParser#parseCommand` is invoked to determine the command type. Since this is an `add can` command,
-the `AddPersonCommandParser#parse` is then invoked to parse the arguments.
-If the input command has an invalid format, `AddPersonCommandParser` throws a `ParseException`, if not, a `AddJobCommand` object is created.
+Step 3. The method `AddressBookParser#parseCommand` is invoked to determine the command type. Since this is an `add can` command, the `AddPersonCommandParser#parse` is then invoked to parse the arguments. If the input command has an invalid format, `AddPersonCommandParser` throws a `ParseException`, if not, a `AddPersonCommand` object is created.
 
 Step 4. `ModelManager#hasJob(Person person)` is invoked to check whether the same person exist in the FilteredList of persons using the `equals` method of `Persons`. If a duplicate person exists, a `CommandException` is thrown. Otherwise, the method `ModelManager#addPerson(Person person)` is invoked to adds the person into the FilteredList of persons.
 
