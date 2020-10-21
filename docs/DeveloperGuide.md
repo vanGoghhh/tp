@@ -149,7 +149,7 @@ Step 2. The user executes `sort can exp/asc` to sort the candidates by their `Ex
 
 Step 3. The user executes `sort can exp/asc` to sort the candidates by their `Experience` in ascending order. A `PersonExperienceComparator` is created from parsing the command and a `SortPersonCommand` object is created. In the `SortPersonCommand#execute` the method `ModelManager#updateSortedPersonList(PersonExperienceComparator)` is invoked and the `SortedList` is sorted using the `PersonExperienceComparator`. The `UniquePersonList` in `personAddressBook` is then set to be the `SortedList`.
 
-![SortPersonSequenceDiagram](images/SortSequenceDiagram.png)
+![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png)
 
 ### \[Implemented] Find feature
 
@@ -206,7 +206,7 @@ Given below is an example usage scenario and how the edit mechanism behaves at e
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `edit can 2 n/Rob Mi e/rob@kmail.com` to change the `Name` and `Email` of the candidate at index 2 to Rob Mi and rob@kmail.com respectively. 
+Step 2. The user executes `edit can 2 n/Rob Mi e/rob@kmail.com` to change the `Name` and `Email` of the candidate at index 2 to Rob Mi and rob<span>@</span>kmail.com respectively. 
 
 Step 3. The method `AddressBookParser#parseCommand` is invoked to distinguish which type of command it is. After discerning it is an `edit can` command,
 the `EditPersonCommandParser#parse` is then invoked to parse the arguments.
