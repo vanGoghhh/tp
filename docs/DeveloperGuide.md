@@ -172,6 +172,29 @@ The following sequence diagram shows how the find operation works in the scenari
 
 The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
 
+### \[Implemented] Edit feature
+
+The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
+Additionally, it implements the following operations:
+
+*`ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
+*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+
+Given below is an example usage scenario and how the edit mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
+
+Step 2. The user executes `edit can 2 n/Rob Mi e/rob@kmail.com` to change the `Name` and `Email` of the candidate at index 2 to Rob Mi and rob@kmail.com respectively. If the command format is invalid, `EditCommandParser` throws an error.
+
+Step 3. A `EditPersonDescriptor`, which is an inner class of `EditPersonCommand`, is created from parsing the command and a `EditPersonCommand` object is created. In the `EditPersonCommand#execute` method, if the candidate index provided by the user is invalid, an error is thrown. 
+Otherwise, the method `ModelManager#updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS)` is invoked and the `FilteredList` is updated.
+The `personAddressBook` is also updated with the new changes and saved. 
+
+The following sequence diagram shows how the edit operation works in the scenario described above:
+
+The above example illustrates the execution of a `edit can` command for Person. 
+A `edit job` command works in a similar manner for Jobs but with the analogue EditJobDescriptor, EditJobCommand and JobAddressBook classes.
+
 
 ### \[Proposed\] Undo/redo feature
 
