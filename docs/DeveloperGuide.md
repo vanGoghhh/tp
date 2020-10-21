@@ -107,9 +107,9 @@ The `Model`,
 * does not depend on any of the other three components.
 
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique `Tag`, instead of each `Person` needing their own `Tag` object.<br>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in `PersonAddressBook` and `JobAddressBook`, which `Person` and `Job` references respectively. This allows `PersonAddressBook` and `JobAddressBook` to each only require one `Tag` object per unique `Tag`, instead of each `Person` and each `Job` needing their own `Tag` object.<br>
 
-![BetterModelClassDiagram](images/BetterModelClassDiagram.png)
+![BetterModelClassDiagram](images/BetterModelClassDiagramV1.png)
 
 </div>
 
