@@ -174,6 +174,8 @@ The find operation is subjected to improvements to be implemented in v1.3 where 
 
 ### \[Implemented] Edit feature
 
+The Edit feature has two variants, one for editing candidates (`edit can`) and one for editing jobs (`edit job`) . We will illustrate this feature using only the candidates variant here
+as the job variant works analogously. 
 The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
 Additionally, it implements the following operations:
 
@@ -184,16 +186,22 @@ Given below is an example usage scenario and how the edit mechanism behaves at e
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `edit can 2 n/Rob Mi e/rob@kmail.com` to change the `Name` and `Email` of the candidate at index 2 to Rob Mi and rob@kmail.com respectively. If the command format is invalid, `EditCommandParser` throws an error.
+Step 2. The user executes `edit can 2 n/Rob Mi e/rob@kmail.com` to change the `Name` and `Email` of the candidate at index 2 to Rob Mi and rob@kmail.com respectively. 
 
-Step 3. A `EditPersonDescriptor`, which is an inner class of `EditPersonCommand`, is created from parsing the command and a `EditPersonCommand` object is created. In the `EditPersonCommand#execute` method, if the candidate index provided by the user is invalid, an error is thrown. 
-Otherwise, the method `ModelManager#updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS)` is invoked and the `FilteredList` is updated.
+Step 3. The method `AddressBookParser#parseCommand` is invoked to distinguish which type of command it is. After discerning it is an `edit can` command,
+the `EditPersonCommandParser#parse` is then invoked to parse the arguments.
+If the command format is invalid, `EditPersonCommandParser` throws an error.
+
+Step 4. A `EditPersonDescriptor`, which is an inner class of `EditPersonCommand`, is created from parsing the command and a `EditPersonCommand` object is created. In the `EditPersonCommand#execute` method, if the candidate index provided by the user is invalid, an error is thrown. 
+Otherwise, the method `ModelManager#setPerson()` is invoked to replace the old candidate with the newly edited candidate. 
+ Then, `ModelManager#updateFilteredPersonList()` is invoked and the `FilteredList` is updated.
 The `personAddressBook` is also updated with the new changes and saved. 
 
 The following sequence diagram shows how the edit operation works in the scenario described above:
 
-The above example illustrates the execution of a `edit can` command for Person. 
-A `edit job` command works in a similar manner for Jobs but with the analogue EditJobDescriptor, EditJobCommand and JobAddressBook classes.
+![EditSequenceDiagram](images/EditSequenceDiagram.png)
+
+A `edit job` command works similarly for Jobs but with the analogue EditJobDescriptor, EditJobCommand, JobAddressBook etc. classes.
 
 
 ### \[Proposed\] Undo/redo feature
