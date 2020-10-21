@@ -168,7 +168,7 @@ Step 3. A `PersonNameContainsKeywordsPredicate`, which is a subclass of `Predica
 
 The following sequence diagram shows how the find operation works in the scenario described above:
 
-![FindSequenceDiagram](images/FindCommandSequenceDiagram.png)
+![FindSequenceDiagram](images/FindSequenceDiagram.png)
 
 The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
 
