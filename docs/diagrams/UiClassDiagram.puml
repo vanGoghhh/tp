@@ -7,21 +7,21 @@ skinparam classFontColor #000000
 skinparam interfaceFontColor #000000
 
 package UI <<Rectangle>>{
-Interface Ui <<Interface>> #957DAD
-Class "{abstract}\nUiPart" as UiPart #E0BBE4
-Class UiManager #E0BBE4
-Class MainWindow #FEC8D8
-Class HelpWindow #FCE2C2
-Class ResultDisplay #FCE2C2
-Class PersonListPanel #B3C8C8
-Class JobListPanel #B3C8C8
-Class PersonAndJobTabPane #FCE2C2
-Class PersonCard #4F9EC4
-Class JobCard #4F9EC4
-Class StatusBarFooter #FCE2C2
-Class CommandBox #FCE2C2
-Class PersonTab #6CB2D1
-Class JobTab #6CB2D1
+Interface Ui <<Interface>>
+Class "{abstract}\nUiPart" as UiPart
+Class UiManager
+Class MainWindow
+Class HelpWindow
+Class ResultDisplay
+Class PersonListPanel
+Class JobListPanel
+Class PersonAndJobTabPane
+Class PersonCard
+Class JobCard
+Class StatusBarFooter
+Class CommandBox
+Class PersonTab
+Class JobTab
 
 }
 
