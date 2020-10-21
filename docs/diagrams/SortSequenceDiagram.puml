@@ -72,7 +72,7 @@ activate CommandResult
 CommandResult --> SortPersonCommand
 deactivate CommandResult
 
-SortPersonCommand --> LogicManager : result
+SortPersonCommand --> LogicManager : "Successfully sorted people"
 deactivate SortPersonCommand
 
 [<--LogicManager
