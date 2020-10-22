@@ -2,16 +2,16 @@ package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
-import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+//import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
-import java.util.Arrays;
-import java.util.function.Predicate;
+//import java.util.Arrays;
+//import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.FindPersonCommand;
-import seedu.address.model.information.Person;
-import seedu.address.model.information.predicate.PersonNameContainsKeywordsPredicate;
+//import seedu.address.model.information.Person;
+//import seedu.address.model.information.predicate.PersonNameContainsKeywordsPredicate;
 
 public class FindPersonCommandParserTest {
 
