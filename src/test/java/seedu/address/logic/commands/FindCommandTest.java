@@ -76,7 +76,8 @@ public class FindCommandTest {
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Arrays.asList(CARL, ELLE, FIONA), model.getFilteredPersonList());
     }
-    */
+
+     */
 
     /**
      * Parses {@code userInput} into a {@code PersonNameContainsKeywordsPredicate}.
