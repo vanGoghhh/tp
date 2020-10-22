@@ -121,8 +121,11 @@ The `Model`,
 **API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
 The `Storage` component,
+* Implements both `PersonAddressBookStorage` and `JobAddressBookStorage`
 * can save `UserPref` objects in json format and read it back.
-* can save the address book data in json format and read it back.
+* can save `PersonAddressBook` data and `JobAddressBook` data in json format and read it back.
+* `JsonPersonAddressBookStorage` and `JsonJobAddressBookStorage` is reponsible for saving the datas in json format.
+
 
 ### Common classes
 
@@ -133,6 +136,35 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 ## **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
+
+### \[Implemented] Add feature
+
+The Add feature exists for editing candidates, using `add can`, and jobs by using `add job`.
+
+Both implemented add mechanisms are facilitated by `ModelManager`. They both implement `Model` and contain `FilteredList`s of filtered `Person`s and filtered `Job`s. `FilteredList` is a subclass of `ObservableList`.
+Additionally, it implements the following operations:
+
+*`ModelManager#hasPerson(Person person)` —  Check whether the same person exist in the FilteredList of persons using the `equals` method of `Persons`.
+*`ModelManager#addPerson(Person person)` —  Adds the person into the FilteredList of persons.
+*`ModelManager#hasJob(Job job)` —  Check whether the same job exist in the FilteredList of jobs using the `equals` method of `Jobs`.
+*`ModelManager#addJob(Job job)` —  Adds the job into the FilteredList of jobs.
+
+Given below is an example usage scenario and how the add mechanism behaves at each step. We will show the example for person, but the scenario for jobs are mostly similar
+
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
+
+Step 2. The user executes `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/15-10-20` to add a candidate with `Name` John, `Phone` 98765432, `Email` johnd@example.com, `Address` John street, block 123, #01-01, `Experience` 5 and `Date` 15-10-20.
+
+Step 3. The method `AddressBookParser#parseCommand` is invoked to determine the command type. Since this is an `add can` command, the `AddPersonCommandParser#parse` is then invoked to parse the arguments. If the input command has an invalid format, `AddPersonCommandParser` throws a `ParseException`, if not, a `AddPersonCommand` object is created.
+
+Step 4. `ModelManager#hasJob(Person person)` is invoked to check whether the same person exist in the FilteredList of persons using the `equals` method of `Persons`. If a duplicate person exists, a `CommandException` is thrown. Otherwise, the method `ModelManager#addPerson(Person person)` is invoked to adds the person into the FilteredList of persons.
+
+Step 5. The `savePersonAddressBook` method of `StorageManager`, which is a subclass of `Storage` is invoked to update the new person addition in the `personAddressBook` and saved. 
+
+The following sequence diagram shows how the add operation works in the scenario described above:
+
+![AddSequenceDiagram](images/AddSequenceDiagram.png)
+
 
 ### \[Implemented] Sort Candidates feature
 
