@@ -1,12 +1,12 @@
 package seedu.address.logic.commands;
 
-import seedu.address.commons.core.Messages;
-import seedu.address.model.Model;
-import seedu.address.model.information.Job;
+import static java.util.Objects.requireNonNull;
 
 import java.util.function.Predicate;
 
-import static java.util.Objects.requireNonNull;
+import seedu.address.commons.core.Messages;
+import seedu.address.model.Model;
+import seedu.address.model.information.Job;
 
 /**
  * Finds and lists all jobs in job address book whose name contains any of the argument keywords.

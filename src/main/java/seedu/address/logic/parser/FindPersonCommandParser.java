@@ -12,16 +12,13 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_SALARY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddJobCommand;
 import seedu.address.logic.commands.FindPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.information.Job;
 import seedu.address.model.information.Person;
 import seedu.address.model.information.predicate.PersonAddressContainsKeywordsPredicate;
 import seedu.address.model.information.predicate.PersonApplicationContainsKeywordsPredicate;

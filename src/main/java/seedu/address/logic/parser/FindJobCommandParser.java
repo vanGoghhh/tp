@@ -1,5 +1,19 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_VACANCY;
+
+import java.util.Collections;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+
 import seedu.address.logic.commands.AddJobCommand;
 import seedu.address.logic.commands.FindJobCommand;
 import seedu.address.logic.commands.FindPersonCommand;
@@ -13,24 +27,6 @@ import seedu.address.model.information.predicate.JobPhoneContainsKeywordsPredica
 import seedu.address.model.information.predicate.JobPriorityContainsKeywordsPredicate;
 import seedu.address.model.information.predicate.JobTagsContainKeywordsPredicate;
 import seedu.address.model.information.predicate.JobVacancyContainsKeywordsPredicate;
-import seedu.address.model.information.predicate.PersonPhoneContainsKeywordsPredicate;
-
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
-
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_VACANCY;
 
 /**
  * Parses input arguments and creates a new FindJobCommand object
