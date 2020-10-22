@@ -44,8 +44,8 @@ public class PersonApplicationContainsKeywordsPredicateTest {
     @Test
     public void test_applicationContainsKeywords_returnsTrue() {
         // One keyword
-        PersonApplicationContainsKeywordsPredicate predicate = new PersonApplicationContainsKeywordsPredicate
-                (Collections.singletonList("19"));
+        PersonApplicationContainsKeywordsPredicate predicate = new PersonApplicationContainsKeywordsPredicate(
+                Collections.singletonList("19"));
         assertTrue(predicate.test(new PersonBuilder().withDateOfApplication("19-10-12").build()));
 
         // Multiple keywords
