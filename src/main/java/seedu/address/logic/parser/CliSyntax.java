@@ -21,4 +21,7 @@ public class CliSyntax {
     public static final Prefix PREFIX_DATE_OF_APPLICATION = new Prefix("doa/");
     public static final Prefix PREFIX_BLACKLIST = new Prefix("bl/");
 
+    /* Sort Keywords */
+    public static final Prefix PREFIX_SORT_ORDER = new Prefix("order/");
+    public static final Prefix PREFIX_SORT_TYPE = new Prefix("type/");
 }
