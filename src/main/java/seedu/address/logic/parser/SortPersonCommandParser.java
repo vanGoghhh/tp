@@ -7,8 +7,8 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_TYPE;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.SortPersonCommand;
-import seedu.address.model.information.comparator.PersonExperienceComparator;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.information.comparator.PersonExperienceComparator;
 
 /**
  * Parses input arguments and creates a sort command object.
