@@ -1,0 +1,116 @@
+@startuml
+!include style.puml
+
+
+'Step 1. The user launches the application for the first time.
+'The `FilteredList` will be initialised with the `UniquePersonList` from
+'`personAddressBook` which contains a list of candidates.
+'
+'Step 2. The user executes `add can n/John` to add a candidate with `Name` John.
+'
+'Step 3. The method `AddressBookParser#parseCommand` is invoked to determine the
+'command type. Since this is an `add can` command,
+'the `AddPersonCommandParser#parse` is then invoked to parse the arguments.
+'If the input command has an invalid format, `AddPersonCommandParser` throws
+'a `ParseException`, if not, a `AddPersonCommand` object is created.
+'
+'Step 4. `ModelManager#hasJob(Person person)` is invoked to check whether the same
+'person exist in the FilteredList of persons using the `equals` method of `Persons`.
+'If a duplicate person exists, a `CommandException` is thrown. Otherwise, the method
+'`ModelManager#addPerson(Person person)` is invoked to adds the person into the
+'FilteredList of persons.
+'
+'Step 5. The `savePersonAddressBook` method of `StorageManager`, which is a
+'subclass of `Storage` is invoked to update the new person addition in the
+'`personAddressBook` and saved.
+
+'`add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/15-10-20`
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":AddPersonCommandParser" as AddPersonCommandParser LOGIC_COLOR
+participant "a: AddPersonCommand" as AddPersonCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+box Storage STORAGE_COLOR
+participant ":Storage" as Storage STORAGE_COLOR
+end box
+
+[-> LogicManager : execute("add can \nn/John Doe p/98765432")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("add can \nn/John Doe p/98765432")
+activate AddressBookParser
+
+create AddPersonCommandParser
+AddressBookParser -> AddPersonCommandParser
+activate AddPersonCommandParser
+
+AddPersonCommandParser --> AddressBookParser
+deactivate AddPersonCommandParser
+
+AddressBookParser -> AddPersonCommandParser : parse("n/John Doe \np/98765432")
+activate AddPersonCommandParser
+
+create AddPersonCommand
+AddPersonCommandParser -> AddPersonCommand
+activate AddPersonCommand
+
+AddPersonCommand --> AddPersonCommandParser : "a"
+deactivate AddPersonCommand
+
+AddPersonCommandParser --> AddressBookParser : "a"
+
+
+destroy AddPersonCommandParser
+
+AddressBookParser --> LogicManager : a
+deactivate AddressBookParser
+
+LogicManager -> AddPersonCommand : "execute()"
+activate AddPersonCommand
+
+AddPersonCommand -> Model : "hasPerson(Person)"
+activate Model
+Model --> AddPersonCommand
+deactivate Model
+
+
+
+AddPersonCommand -> Model : "addPerson(Person)"
+activate Model
+Model --> AddPersonCommand
+deactivate Model
+
+
+create CommandResult
+AddPersonCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> AddPersonCommand
+deactivate CommandResult
+
+AddPersonCommand --> LogicManager : "Added candidate: John Doe Phone: 98765432"
+deactivate AddPersonCommand
+
+LogicManager -> Storage : "savePersonAddressBook(PersonAddressBook)"
+activate Storage
+Storage -> Storage: "Save \nto file"
+activate Storage
+Storage --> Storage
+deactivate Storage
+
+Storage --> LogicManager
+deactivate Storage
+
+[<--LogicManager
+deactivate LogicManager
+
+@enduml
