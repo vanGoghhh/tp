@@ -1,7 +1,7 @@
 package seedu.address.model.information.predicate;
 
 import org.junit.jupiter.api.Test;
-import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.JobBuilder;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,20 +14,20 @@ public class JobTagsContainKeywordsPredicateTest {
 
     @Test
     public void equals() {
-        List<String> firstPredicateKeywordList = Collections.singletonList("first");
-        List<String> secondPredicateKeywordList = Arrays.asList("first", "second");
+        List<String> firstPredicateKeywordList = Collections.singletonList("cleaner");
+        List<String> secondPredicateKeywordList = Arrays.asList("cleaner", "whiteCollar");
 
-        PersonNameContainsKeywordsPredicate firstPredicate =
-                new PersonNameContainsKeywordsPredicate(firstPredicateKeywordList);
-        PersonNameContainsKeywordsPredicate secondPredicate =
-                new PersonNameContainsKeywordsPredicate(secondPredicateKeywordList);
+        JobTagsContainKeywordsPredicate firstPredicate =
+                new JobTagsContainKeywordsPredicate(firstPredicateKeywordList);
+        JobTagsContainKeywordsPredicate secondPredicate =
+                new JobTagsContainKeywordsPredicate(secondPredicateKeywordList);
 
         // same object -> returns true
         assertTrue(firstPredicate.equals(firstPredicate));
 
         // same values -> returns true
-        PersonNameContainsKeywordsPredicate firstPredicateCopy =
-                new PersonNameContainsKeywordsPredicate(firstPredicateKeywordList);
+        JobTagsContainKeywordsPredicate firstPredicateCopy =
+                new JobTagsContainKeywordsPredicate(firstPredicateKeywordList);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
 
         // different types -> returns false
@@ -41,40 +41,45 @@ public class JobTagsContainKeywordsPredicateTest {
     }
 
     @Test
-    public void test_nameContainsKeywords_returnsTrue() {
+    public void test_tagsContainKeywords_returnsTrue() {
         // One keyword
-        PersonNameContainsKeywordsPredicate predicate =
-                new PersonNameContainsKeywordsPredicate(Collections.singletonList("Alice"));
-        assertTrue(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
+        JobTagsContainKeywordsPredicate predicate = new JobTagsContainKeywordsPredicate(
+                Collections.singletonList("cleaner"));
+        assertTrue(predicate.test(new JobBuilder().withTags("whiteCollar", "cleaner").build()));
 
-        // Multiple keywords
-        predicate = new PersonNameContainsKeywordsPredicate(Arrays.asList("Alice", "Bob"));
-        assertTrue(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
+        // Multiple keyword
+        predicate = new JobTagsContainKeywordsPredicate(Arrays.asList("cleaner", "whiteCollar"));
+        assertTrue(predicate.test(new JobBuilder().withTags("whiteCollar", "cleaner", "CEO").build()));
 
-        // Only one matching keyword
-        predicate = new PersonNameContainsKeywordsPredicate(Arrays.asList("Bob", "Carol"));
-        assertTrue(predicate.test(new PersonBuilder().withName("Alice Carol").build()));
+        // Exact matching
+        predicate = new JobTagsContainKeywordsPredicate(Arrays.asList("whiteCollar", "cleaner"));
+        assertTrue(predicate.test(new JobBuilder().withTags("whiteCollar", "cleaner").build()));
+
+        // Zero keywords
+        predicate = new JobTagsContainKeywordsPredicate(Collections.emptyList());
+        assertTrue(predicate.test(new JobBuilder().withTags("whiteCollar", "cleaner").build()));
 
         // Mixed-case keywords
-        predicate = new PersonNameContainsKeywordsPredicate(Arrays.asList("aLIce", "bOB"));
-        assertTrue(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
+        predicate = new JobTagsContainKeywordsPredicate(Arrays.asList("whItEcoLlaR", "cLeAnEr"));
+        assertTrue(predicate.test(new JobBuilder().withTags("whiteCollar", "cleaner").build()));
     }
 
     @Test
-    public void test_nameDoesNotContainKeywords_returnsFalse() {
-        // Zero keywords
-        PersonNameContainsKeywordsPredicate predicate =
-                new PersonNameContainsKeywordsPredicate(Collections.emptyList());
-        assertFalse(predicate.test(new PersonBuilder().withName("Alice").build()));
+    public void test_tagsDoNotContainKeywords_returnsFalse() {
+
+        // Only one matching keyword, the rest do not match
+        JobTagsContainKeywordsPredicate predicate = new JobTagsContainKeywordsPredicate(
+                Arrays.asList("cleaner", "lowWage"));
+        assertFalse(predicate.test(new JobBuilder().withTags("whiteCollar", "cleaner").build()));
 
         // Non-matching keyword
-        predicate = new PersonNameContainsKeywordsPredicate(Arrays.asList("Carol"));
-        assertFalse(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
+        predicate = new JobTagsContainKeywordsPredicate(Arrays.asList("CEO"));
+        assertFalse(predicate.test(new JobBuilder().withTags("whiteCollar", "cleaner").build()));
 
-        // Keywords match phone, email and address, but does not match name
-        predicate =
-                new PersonNameContainsKeywordsPredicate(Arrays.asList("12345", "alice@email.com", "Main", "Street"));
-        assertFalse(predicate.test(new PersonBuilder().withName("Alice").withPhone("12345")
-                .withEmail("alice@email.com").withAddress("Main Street").build()));
+        // Keywords match phone and email, but does not match tags
+        predicate = new JobTagsContainKeywordsPredicate(
+                Arrays.asList("12345", "alice@email.com", "Main", "Street", "CEO"));
+        assertFalse(predicate.test(new JobBuilder().withJobTitle("Alice").withPhone("12345")
+                .withEmail("alice@email.com").withTags("whiteCollar", "cleaner").build()));
     }
 }

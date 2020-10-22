@@ -14,8 +14,8 @@ public class JobAddressContainsKeywordsPredicateTest {
 
     @Test
     public void equals() {
-        List<String> firstPredicateKeywordList = Collections.singletonList("first");
-        List<String> secondPredicateKeywordList = Arrays.asList("first", "second");
+        List<String> firstPredicateKeywordList = Collections.singletonList("Yishun");
+        List<String> secondPredicateKeywordList = Arrays.asList("Yishun", "Street");
 
         JobAddressContainsKeywordsPredicate firstPredicate =
                 new JobAddressContainsKeywordsPredicate(firstPredicateKeywordList);
@@ -41,10 +41,10 @@ public class JobAddressContainsKeywordsPredicateTest {
     }
 
     @Test
-    public void test_nameContainsKeywords_returnsTrue() {
+    public void test_addressContainsKeywords_returnsTrue() {
         // One keyword
-        JobAddressContainsKeywordsPredicate predicate =
-                new JobAddressContainsKeywordsPredicate(Collections.singletonList("Yishun"));
+        JobAddressContainsKeywordsPredicate predicate = new JobAddressContainsKeywordsPredicate(
+                Collections.singletonList("Yishun"));
         assertTrue(predicate.test(new JobBuilder().withAddress("Yishun Street 11").build()));
 
         // Multiple keywords
@@ -56,8 +56,7 @@ public class JobAddressContainsKeywordsPredicateTest {
         assertTrue(predicate.test(new JobBuilder().withAddress("Yishun Street 11").build()));
 
         // Zero keywords
-        predicate =
-                new JobAddressContainsKeywordsPredicate(Collections.emptyList());
+        predicate = new JobAddressContainsKeywordsPredicate(Collections.emptyList());
         assertTrue(predicate.test(new JobBuilder().withAddress("Yishun Street 11").build()));
 
         // Mixed-case keywords
@@ -66,20 +65,21 @@ public class JobAddressContainsKeywordsPredicateTest {
     }
 
     @Test
-    public void test_nameDoesNotContainKeywords_returnsFalse() {
+    public void test_addressDoesNotContainKeywords_returnsFalse() {
 
         // Only one matching keyword, the other does not match
-        JobAddressContainsKeywordsPredicate predicate = new JobAddressContainsKeywordsPredicate(Arrays.asList("Tampines", "Street"));
+        JobAddressContainsKeywordsPredicate predicate = new JobAddressContainsKeywordsPredicate(
+                Arrays.asList("Tampines", "Street"));
         assertFalse(predicate.test(new JobBuilder().withAddress("Yishun Street 11").build()));
 
         // Non-matching keyword
         predicate = new JobAddressContainsKeywordsPredicate(Arrays.asList("Tampines"));
         assertFalse(predicate.test(new JobBuilder().withAddress("Yishun Street 11").build()));
 
-        // Keywords match phone, email and address, but does not match job title
-        predicate =
-                new JobAddressContainsKeywordsPredicate(Arrays.asList("12345", "alice@email.com", "Main", "Street"));
+        // Keywords match job title, phone and email, but does not match address
+        predicate = new JobAddressContainsKeywordsPredicate(
+                Arrays.asList("12345", "alice@email.com", "Cleaner", "Tampines"));
         assertFalse(predicate.test(new JobBuilder().withJobTitle("Cleaner").withPhone("12345")
-                .withEmail("alice@email.com").withAddress("Main Street").build()));
+                .withEmail("alice@email.com").withAddress("Yishun Street 11").build()));
     }
 }

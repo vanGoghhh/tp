@@ -14,20 +14,20 @@ public class PersonBlacklistContainsKeywordsPredicateTest {
 
     @Test
     public void equals() {
-        List<String> firstPredicateKeywordList = Collections.singletonList("first");
-        List<String> secondPredicateKeywordList = Arrays.asList("first", "second");
+        List<String> firstPredicateKeywordList = Collections.singletonList("true");
+        List<String> secondPredicateKeywordList = Arrays.asList("true", "false");
 
-        PersonNameContainsKeywordsPredicate firstPredicate =
-                new PersonNameContainsKeywordsPredicate(firstPredicateKeywordList);
-        PersonNameContainsKeywordsPredicate secondPredicate =
-                new PersonNameContainsKeywordsPredicate(secondPredicateKeywordList);
+        PersonBlacklistContainsKeywordsPredicate firstPredicate =
+                new PersonBlacklistContainsKeywordsPredicate(firstPredicateKeywordList);
+        PersonBlacklistContainsKeywordsPredicate secondPredicate =
+                new PersonBlacklistContainsKeywordsPredicate(secondPredicateKeywordList);
 
         // same object -> returns true
         assertTrue(firstPredicate.equals(firstPredicate));
 
         // same values -> returns true
-        PersonNameContainsKeywordsPredicate firstPredicateCopy =
-                new PersonNameContainsKeywordsPredicate(firstPredicateKeywordList);
+        PersonBlacklistContainsKeywordsPredicate firstPredicateCopy =
+                new PersonBlacklistContainsKeywordsPredicate(firstPredicateKeywordList);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
 
         // different types -> returns false
@@ -41,40 +41,40 @@ public class PersonBlacklistContainsKeywordsPredicateTest {
     }
 
     @Test
-    public void test_nameContainsKeywords_returnsTrue() {
-        // One keyword
-        PersonNameContainsKeywordsPredicate predicate =
-                new PersonNameContainsKeywordsPredicate(Collections.singletonList("Alice"));
-        assertTrue(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
+    public void test_blacklistContainsKeywords_returnsTrue() {
+        // keyword containing
+        PersonBlacklistContainsKeywordsPredicate predicate = new PersonBlacklistContainsKeywordsPredicate(
+                Collections.singletonList("tru"));
+        assertTrue(predicate.test(new PersonBuilder().withBlacklistStatus("true").build()));
 
-        // Multiple keywords
-        predicate = new PersonNameContainsKeywordsPredicate(Arrays.asList("Alice", "Bob"));
-        assertTrue(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
+        // Exact Matching
+        predicate = new PersonBlacklistContainsKeywordsPredicate(Arrays.asList("true"));
+        assertTrue(predicate.test(new PersonBuilder().withBlacklistStatus("true").build()));
 
-        // Only one matching keyword
-        predicate = new PersonNameContainsKeywordsPredicate(Arrays.asList("Bob", "Carol"));
-        assertTrue(predicate.test(new PersonBuilder().withName("Alice Carol").build()));
+        // Zero keywords
+        predicate = new PersonBlacklistContainsKeywordsPredicate(Collections.emptyList());
+        assertTrue(predicate.test(new PersonBuilder().withBlacklistStatus("true").build()));
 
         // Mixed-case keywords
-        predicate = new PersonNameContainsKeywordsPredicate(Arrays.asList("aLIce", "bOB"));
-        assertTrue(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
+        predicate = new PersonBlacklistContainsKeywordsPredicate(Arrays.asList("tRuE"));
+        assertTrue(predicate.test(new PersonBuilder().withBlacklistStatus("true").build()));
     }
 
     @Test
-    public void test_nameDoesNotContainKeywords_returnsFalse() {
-        // Zero keywords
-        PersonNameContainsKeywordsPredicate predicate =
-                new PersonNameContainsKeywordsPredicate(Collections.emptyList());
-        assertFalse(predicate.test(new PersonBuilder().withName("Alice").build()));
+    public void test_blacklistDoesNotContainKeywords_returnsFalse() {
+        // Extra input
+        PersonBlacklistContainsKeywordsPredicate predicate = new PersonBlacklistContainsKeywordsPredicate(
+                Arrays.asList("true", "false"));
+        assertFalse(predicate.test(new PersonBuilder().withBlacklistStatus("true").build()));
 
         // Non-matching keyword
-        predicate = new PersonNameContainsKeywordsPredicate(Arrays.asList("Carol"));
-        assertFalse(predicate.test(new PersonBuilder().withName("Alice Bob").build()));
+        predicate = new PersonBlacklistContainsKeywordsPredicate(Arrays.asList("false"));
+        assertFalse(predicate.test(new PersonBuilder().withBlacklistStatus("true").build()));
 
-        // Keywords match phone, email and address, but does not match name
-        predicate =
-                new PersonNameContainsKeywordsPredicate(Arrays.asList("12345", "alice@email.com", "Main", "Street"));
+        // Keywords match name, phone, and email, but does not match blacklist status.
+        predicate = new PersonBlacklistContainsKeywordsPredicate(
+                Arrays.asList("Alice", "12345", "alice@email.com", "false"));
         assertFalse(predicate.test(new PersonBuilder().withName("Alice").withPhone("12345")
-                .withEmail("alice@email.com").withAddress("Main Street").build()));
+                .withEmail("alice@email.com").withBlacklistStatus("true").build()));
     }
 }
