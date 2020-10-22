@@ -55,7 +55,7 @@ public class FindPersonCommandParser implements Parser<FindPersonCommand> {
                         PREFIX_EXPERIENCE, PREFIX_DATE_OF_APPLICATION, PREFIX_SALARY, PREFIX_BLACKLIST,
                         PREFIX_URL_LINK, PREFIX_TAG);
 
-        if (argMultimap.getPreamble().isEmpty()) {
+        if (!argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddJobCommand.MESSAGE_USAGE));
         }
 
