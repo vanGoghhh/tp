@@ -103,6 +103,11 @@ public class LogicManagerTest {
     }
 
     @Test
+    public void getFilteredJobList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredJobList().remove(0));
+    }
+
+    @Test
     private void assertCommandSuccess(String inputCommand, String expectedMessage,
             Model expectedModel) throws CommandException, ParseException {
         CommandResult result = logic.execute(inputCommand);
