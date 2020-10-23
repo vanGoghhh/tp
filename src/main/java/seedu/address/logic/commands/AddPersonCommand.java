@@ -40,11 +40,11 @@ public class AddPersonCommand extends Command {
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_EXPERIENCE + "3.0 "
-            + PREFIX_DATE_OF_APPLICATION + "31-12-20"
+            + PREFIX_DATE_OF_APPLICATION + "31-12-20 "
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
             + PREFIX_URL_LINK + "linkedin.com/in/johndoe "
             + PREFIX_SALARY + "5500 "
-            + PREFIX_BLACKLIST + "false"
+            + PREFIX_BLACKLIST + "false "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 

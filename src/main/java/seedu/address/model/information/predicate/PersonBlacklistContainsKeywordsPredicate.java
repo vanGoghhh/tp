@@ -18,7 +18,6 @@ public class PersonBlacklistContainsKeywordsPredicate implements Predicate<Perso
 
     @Override
     public boolean test(Person person) {
-        assert keywords.stream().allMatch(Boolean::parseBoolean) : "invalid phone number";
         return keywords.stream()
                 // Blacklist Status matches keyword
                 .allMatch(keyword -> StringUtil.containsPhraseIgnoreCase(
