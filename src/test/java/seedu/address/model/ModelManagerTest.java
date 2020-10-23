@@ -110,6 +110,27 @@ public class ModelManagerTest {
     }
 
     @Test
+    public void hasJob_nullJob_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> modelManager.hasJob(null));
+    }
+
+    @Test
+    public void hasJob_jobNotInAddressBook_returnsFalse() {
+        assertFalse(modelManager.hasJob(IRAS));
+    }
+
+    @Test
+    public void hasJob_jobInAddressBook_returnsTrue() {
+        modelManager.addJob(IRAS);
+        assertTrue(modelManager.hasJob(IRAS));
+    }
+
+    @Test
+    public void getFilteredJobList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> modelManager.getFilteredJobList().remove(0));
+    }
+
+    @Test
     public void equals() {
         PersonAddressBook addressBook = new PersonAddressBookBuilder().withPerson(ALICE).withPerson(BENSON).build();
         JobAddressBook jobAddressBook = new JobAddressBookBuilder().withJob(IRAS).withJob(MAYBANK).build();
