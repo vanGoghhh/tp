@@ -141,13 +141,17 @@ This section describes some noteworthy details on how certain features are imple
 
 The Add feature exists for editing candidates, using `add can`, and jobs by using `add job`.
 
-Both implemented add mechanisms are facilitated by `ModelManager`. They both implement `Model` and contain `FilteredList`s of filtered `Person`s and filtered `Job`s. `FilteredList` is a subclass of `ObservableList`.
+Both implemented add mechanisms are facilitated by `ModelManager`. They both implement `Model` and contain `FilteredList` of filtered `Person` and filtered `Job`. `FilteredList` is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
-*`ModelManager#hasPerson(Person person)` —  Check whether the same person exist in the FilteredList of persons using the `equals` method of `Persons`.
-*`ModelManager#addPerson(Person person)` —  Adds the person into the FilteredList of persons.
-*`ModelManager#hasJob(Job job)` —  Check whether the same job exist in the FilteredList of jobs using the `equals` method of `Jobs`.
-*`ModelManager#addJob(Job job)` —  Adds the job into the FilteredList of jobs.
+* `ModelManager#hasPerson(Person person)` —  Check whether the same person exist in the FilteredList of persons using the `equals` method of `Persons`.
+
+
+* `ModelManager#addPerson(Person person)` —  Adds the person into the FilteredList of persons.
+
+* `ModelManager#hasJob(Job job)` —  Check whether the same job exist in the FilteredList of jobs using the `equals` method of `Jobs`.
+
+* `ModelManager#addJob(Job job)` —  Adds the job into the FilteredList of jobs.
 
 Given below is an example usage scenario and how the add mechanism behaves at each step. We will show the example for person, but the scenario for jobs are mostly similar
 
@@ -161,9 +165,11 @@ Step 4. `ModelManager#hasJob(Person person)` is invoked to check whether the sam
 
 Step 5. The `savePersonAddressBook` method of `StorageManager`, which is a subclass of `Storage` is invoked to update the new person addition in the `personAddressBook` and saved. 
 
-The following sequence diagram shows how the add operation works in the scenario described above:
+The following sequence diagram shows how the `add can` operation works in the scenario described above:
 
 ![AddSequenceDiagram](images/AddSequenceDiagram.png)
+
+The sequence diagram for a `add job` operation is mostly similar, with `AddJobCommandParser`, `AddJobCommand`, `hasJob`, `addJob`, `saveJobAddressBook` and `JobAddressBook`.
 
 
 ### \[Implemented] Sort Candidates feature
