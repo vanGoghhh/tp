@@ -18,32 +18,43 @@ Class ModelManager
 Class UserPrefs
 Class ReadOnlyUserPrefs
 
-Package Person {
+Package Information {
+Class UniquePersonList
+Class UniqueJobList
+Class Person
+Class Job
 }
 
-Package "  Job  " as Job {
+Package Tag {
+Class Tag
 }
 
 }
 
 Class HiddenOutside #FFFFFF
-HiddenOutside ..> Model
+HiddenOutside ...> Model
 
 PersonAddressBook .up.|> ReadOnlyPersonAddressBook
 JobAddressBook .up.|> ReadOnlyJobAddressBook
 
-PersonAddressBook *--> Person
-JobAddressBook *--> Job
+PersonAddressBook *--> "1" UniquePersonList
+JobAddressBook *--> "1" UniqueJobList
 
 ModelManager .up.|> Model
 Model .right.> ObservableList
-ModelManager o--> "1" PersonAddressBook
-ModelManager o--> "1" JobAddressBook
-ModelManager --> Person
-ModelManager --> Job
-ModelManager o-right-> "1" UserPrefs
+ModelManager o-right-> "1" PersonAddressBook
+ModelManager o-left-> "1" JobAddressBook
+UniquePersonList o--> "*" Person
+UniqueJobList o--> "*" Job
+ModelManager --> Job : filtered list
+ModelManager --> Job : sorted list
+ModelManager --> Person : filtered list
+ModelManager --> Person : sorted list
+ModelManager o-up-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
+Person *--> "*" Tag
+Job *--> "*" Tag
 
 
 @enduml
