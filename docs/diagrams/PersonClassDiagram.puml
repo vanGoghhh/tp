@@ -1,0 +1,46 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR_T4
+skinparam classBackgroundColor MODEL_COLOR
+
+
+Class PersonAddressBook
+Class ModelManager
+
+
+Package Person {
+Class Person
+Class Name
+Class Phone
+Class Email
+Class Experience
+Class BlacklistStatus
+Class Date
+Class Address
+Class Salary
+Class UrlLink
+Class UniquePersonList
+}
+
+Package Tag {
+Class Tag
+}
+
+ModelManager --> "1" Person : filtered list
+PersonAddressBook *--> "1" UniquePersonList
+PersonAddressBook -right[hidden]-ModelManager
+UniquePersonList o--> "*" Person
+Person *--> "1" Name
+Person *--> "1" Phone
+Person *--> "1" Email
+Person *--> "0..1" Address
+Person *--> "1" Experience
+Person *--> "0..1" Salary
+Person *--> "1" Date
+Person *--> "0..1" UrlLink
+Person *--> "1" BlacklistStatus
+Person *--> "*" Tag
+
+@enduml
+
