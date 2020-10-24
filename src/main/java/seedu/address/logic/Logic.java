@@ -40,6 +40,8 @@ public interface Logic {
     /** Returns an unmodifiable view of the sorted list of persons */
     ObservableList<Person> getSortedPersonList();
 
+    /** Returns an unmodifiable view of the sorted list of jobs */
+    ObservableList<Job> getSortedJobList();
 
     /**
      * Returns the user prefs' address book file path.

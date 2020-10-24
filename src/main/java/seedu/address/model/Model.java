@@ -97,7 +97,7 @@ public interface Model {
     void updateFilteredPersonList(Predicate<Person> predicate);
 
     /**
-     * Updates the comparator of the sorted person list to filter by the given {@code compatator}.
+     * Updates the comparator of the sorted person list to filter by the given {@code comparator}.
      * @throws NullPointerException if {@code comparator} is null.
      */
     void updateSortedPersonList(Comparator<Person> comparator);
@@ -155,4 +155,13 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredJobList(Predicate<Job> predicate);
+
+    /** Returns an unmodifiable view of the sorted job list */
+    ObservableList<Job> getSortedJobList();
+
+    /**
+     * Updates the order of the sorted job list to sort by the given {@code comparator}.
+     * @throws NullPointerException if {@code comparator} is null.
+     */
+    void updateSortedJobList(Comparator<Job> comparator);
 }
