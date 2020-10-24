@@ -20,7 +20,7 @@ public class PersonSalaryContainsKeywordsPredicate implements Predicate<Person> 
     public boolean test(Person person) {
         assert keywords.stream().allMatch(keyword -> Double.parseDouble(keyword) >= 0) : "invalid salary";
         return keywords.stream()
-                // Salary matches keyword
+                // Salary value matches keyword
                 .allMatch(keyword -> person.getSalaryOptional()
                         .filter(salary -> salary.salary == Float.parseFloat(keyword))
                         .isPresent());
