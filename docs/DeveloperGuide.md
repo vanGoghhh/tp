@@ -97,7 +97,8 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The Model class diagram shown above omits certain details due to space constraints, namely the classes in the Information Package that Person and Job hold reference to. These details have been extracted and shown on the next diagram instead./div>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The Model class diagram shown above omits certain details due to space constraints, namely the classes in the Information Package that Person and Job hold reference to. These details have been extracted and shown on the next diagram instead. <br>
+</div>
 
 ![InformationClassDiagram](images/InformationClassDiagram.png)
 
