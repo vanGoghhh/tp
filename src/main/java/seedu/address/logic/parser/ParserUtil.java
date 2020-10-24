@@ -253,12 +253,12 @@ public class ParserUtil {
      * @throws ParseException if the given {@code order} is invalid.
      */
     public static Boolean parseOrder(String order) throws ParseException {
-        if (order == null || order.trim().equalsIgnoreCase("dsc")) {
+        if (order == null || order.trim().equalsIgnoreCase("desc")) {
             return false;
         } else if (order.trim().equalsIgnoreCase("asc")) {
             return true;
         } else {
-            throw new ParseException("Order can only be 'asc' or 'dsc'");
+            throw new ParseException("Order can only be 'asc' or 'desc'");
         }
     }
 }
