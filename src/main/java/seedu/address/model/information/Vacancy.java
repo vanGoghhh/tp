@@ -13,6 +13,7 @@ public class Vacancy {
         "Vacancy should only contain numbers, and it should be 1 to 2 digits long (max vacancy: 99)";
     public static final String VALIDATION_REGEX = "\\d{1,2}";
     public final String value;
+    public final int vacancyNumber;
 
     /**
      * Constructs an {@code Vacancy}.
@@ -23,6 +24,7 @@ public class Vacancy {
         requireNonNull(vacancy);
         checkArgument(isValidVacancy(vacancy), MESSAGE_CONSTRAINTS);
         value = vacancy;
+        vacancyNumber = Integer.parseInt(vacancy);
     }
 
     /**
