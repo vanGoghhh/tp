@@ -6,38 +6,41 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_TYPE;
 
 import java.util.stream.Stream;
 
-import seedu.address.logic.commands.SortPersonCommand;
+import seedu.address.logic.commands.SortJobCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.information.comparator.PersonExperienceComparator;
+import seedu.address.model.information.comparator.JobComparator;
+import seedu.address.model.information.comparator.JobPriorityComparator;
+import seedu.address.model.information.comparator.JobVacancyComparator;
 
-/**
- * Parses input arguments and creates a new SortPersonCommand object.
- */
-public class SortPersonCommandParser implements Parser<SortPersonCommand> {
+public class SortJobCommandParser {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the SortPersonCommand
-     * and returns a SortPersonCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the SortJobCommand
+     * and returns a SortJobCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format.
      */
-    public SortPersonCommand parse(String args) throws ParseException {
+    public SortJobCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_SORT_ORDER, PREFIX_SORT_TYPE);
         if (!arePrefixesPresent(argMultimap, PREFIX_SORT_ORDER, PREFIX_SORT_TYPE)
-                || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortPersonCommand.MESSAGE_USAGE));
+            || !argMultimap.getPreamble().isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortJobCommand.MESSAGE_USAGE));
         }
 
+        JobComparator comparator;
         Boolean isAscending = ParserUtil.parseOrder(argMultimap.getValue(PREFIX_SORT_ORDER).orElse(null));
         String sortType = argMultimap.getValue(PREFIX_SORT_TYPE).orElse(null);
 
         switch (sortType) {
-        case PersonExperienceComparator.SORT_CRITERIA:
-            PersonExperienceComparator comparator = new PersonExperienceComparator();
-            return new SortPersonCommand(comparator, isAscending);
+        case JobVacancyComparator.SORT_CRITERIA:
+            comparator = new JobVacancyComparator();
+            return new SortJobCommand(comparator, isAscending);
+
+        case JobPriorityComparator.SORT_CRITERIA:
+            comparator = new JobPriorityComparator();
+            return new SortJobCommand(comparator, isAscending);
 
         default:
-            throw new ParseException(SortPersonCommand.MESSAGE_SORT_TYPE_INVALID);
-
+            throw new ParseException(SortJobCommand.MESSAGE_SORT_JOB_TYPE_INVALID);
         }
     }
 

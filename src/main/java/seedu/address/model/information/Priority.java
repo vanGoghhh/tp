@@ -39,6 +39,33 @@ public class Priority {
         return test.equals(PR_HIGH) || test.equals(PR_MOD) || test.equals(PR_LOW);
     }
 
+    /**
+     * Parses the priority value into an integer.
+     *
+     * @return Integer value according to the priority.
+     * High will return 3, Moderate will return 2 and Low will return 1.
+     */
+    public int parsePriorityToInt() {
+        final int highPriority = 3;
+        final int modPriority = 2;
+        final int lowPriority = 1;
+
+        switch (this.value) {
+        case PR_HIGH:
+            return highPriority;
+
+        case PR_MOD:
+            return modPriority;
+
+        case PR_LOW:
+            return lowPriority;
+
+        default:
+            assert false;
+            return 0;
+        }
+    }
+
     @Override
     public String toString() {
         assert value != null;
@@ -56,5 +83,4 @@ public class Priority {
     public int hashCode() {
         return value.hashCode();
     }
-
 }
