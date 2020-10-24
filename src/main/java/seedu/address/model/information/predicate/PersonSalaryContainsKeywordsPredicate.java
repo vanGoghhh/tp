@@ -22,7 +22,7 @@ public class PersonSalaryContainsKeywordsPredicate implements Predicate<Person> 
         return keywords.stream()
                 // Salary matches keyword
                 .allMatch(keyword -> person.getSalaryOptional()
-                        .filter(salary -> StringUtil.containsWordIgnoreCase(salary.toString(), keyword))
+                        .filter(salary -> salary.salary == Float.parseFloat(keyword))
                         .isPresent());
     }
 
