@@ -30,4 +30,10 @@ public class JobVacancyComparator extends JobComparator implements Comparator<Jo
     public String toString() {
         return "by vacancy ";
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+            || (other instanceof JobVacancyComparator); // instanceof handles nulls
+    }
 }
