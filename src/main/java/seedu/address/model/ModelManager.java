@@ -29,6 +29,7 @@ public class ModelManager implements Model {
     private final FilteredList<Person> filteredPersons;
     private final FilteredList<Job> filteredJobs;
     private final SortedList<Person> sortedPersons;
+    private final SortedList<Job> sortedJobs;
 
     /**
      * Initializes a ModelManager with the given addressBook, jobAddressBook and userPrefs.
@@ -47,6 +48,7 @@ public class ModelManager implements Model {
         filteredPersons = new FilteredList<>(this.personAddressBook.getPersonList());
         filteredJobs = new FilteredList<>(this.jobAddressBook.getJobList());
         sortedPersons = new SortedList<>(this.personAddressBook.getPersonList());
+        sortedJobs = new SortedList<>(this.jobAddressBook.getJobList());
     }
 
     public ModelManager() {
@@ -205,7 +207,7 @@ public class ModelManager implements Model {
         filteredJobs.setPredicate(predicate);
     }
 
-    //=========== Sorted Job List Accessors ===============================================================
+    //=========== Sorted Person List Accessors ===============================================================
 
     /**
      * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
@@ -221,6 +223,24 @@ public class ModelManager implements Model {
         requireAllNonNull(comparator);
         sortedPersons.setComparator(comparator);
         personAddressBook.setPersons(sortedPersons);
+    }
+
+    //=========== Sorted Job List Accessors ===============================================================
+
+    /**
+     * Returns an unmodifiable view of the list of {@code Job} backed by the internal list of
+     * {@code versionedAddressBook}
+     */
+    @Override
+    public ObservableList<Job> getSortedJobList() {
+        return sortedJobs;
+    }
+
+    @Override
+    public void updateSortedJobList(Comparator<Job> comparator) {
+        requireNonNull(comparator);
+        sortedJobs.setComparator(comparator);
+        jobAddressBook.setJobs(sortedJobs);
     }
 
     //=========== Others =============================================================
