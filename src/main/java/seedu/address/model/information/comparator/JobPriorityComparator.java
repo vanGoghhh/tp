@@ -30,5 +30,11 @@ public class JobPriorityComparator extends JobComparator implements Comparator<J
     public String toString() {
         return "by priority ";
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+            || (other instanceof JobPriorityComparator); // instanceof handles nulls
+    }
 }
 
