@@ -23,7 +23,7 @@ import seedu.address.model.information.predicate.PersonNameContainsKeywordsPredi
 import seedu.address.model.information.predicate.PersonPhoneContainsKeywordsPredicate;
 
 /**
- * Contains integration tests (interaction with the Model) for {@code FindCommand}.
+ * Contains integration tests (interaction with the Model) for {@code FindPersonCommand}.
  */
 public class FindPersonCommandTest {
     private Model model = new ModelManager(getTypicalPersonAddressBook(), getTypicalJobAddressBook(), new UserPrefs());
