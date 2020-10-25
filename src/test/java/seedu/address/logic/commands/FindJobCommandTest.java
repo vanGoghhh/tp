@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_JOBS_LISTED_OVERVIEW;
+import static seedu.address.commons.core.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalJobs.getTypicalJobAddressBook;
@@ -18,8 +19,10 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.information.Job;
+import seedu.address.model.information.Person;
 import seedu.address.model.information.predicate.JobEmailContainsKeywordsPredicate;
 import seedu.address.model.information.predicate.JobNameContainsKeywordsPredicate;
+import seedu.address.model.information.predicate.JobPhoneContainsKeywordsPredicate;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code FindCommand}.
@@ -66,12 +69,22 @@ public class FindJobCommandTest {
 
     @Test
     public void execute_predicateAcceptedByModel_findSuccessful() {
+        // matching keyword found
         String expectedMessage = String.format(MESSAGE_JOBS_LISTED_OVERVIEW, 6);
-        Predicate<Job> predicate = unused -> true;
-        predicate.and(new JobEmailContainsKeywordsPredicate(Collections.singletonList("@")));
-        FindJobCommand command = new FindJobCommand(predicate);
-        expectedModel.updateFilteredJobList(predicate);
+        Predicate<Job> firstPredicate = unused -> true;
+        firstPredicate = firstPredicate.and(new JobEmailContainsKeywordsPredicate(Collections.singletonList("@")));
+        FindJobCommand command = new FindJobCommand(firstPredicate);
+        expectedModel.updateFilteredJobList(firstPredicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(expectedModel.getFilteredJobList(), model.getFilteredJobList());
+
+        // no matching keyword found
+        expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 0);
+        Predicate<Job> secondPredicate = unused -> true;
+        secondPredicate = secondPredicate.and(new JobPhoneContainsKeywordsPredicate(Collections.singletonList("00000000")));
+        command = new FindJobCommand(secondPredicate);
+        expectedModel.updateFilteredJobList(secondPredicate);
+        assertCommandSuccess(command, model, expectedMessage, expectedModel);
+        assertEquals(expectedModel.getFilteredPersonList(), model.getFilteredPersonList());
     }
 }
