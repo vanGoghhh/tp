@@ -15,4 +15,9 @@ public class PersonDateOfApplicationComparator extends PersonComparator implemen
     public int compare(Person person1, Person person2) {
         return person1.getDateOfApplication().date.compareTo(person2.getDateOfApplication().date);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return this == other || other instanceof PersonDateOfApplicationComparator;
+    }
 }

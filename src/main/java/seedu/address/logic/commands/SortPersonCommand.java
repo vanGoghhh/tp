@@ -9,6 +9,7 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.information.Person;
+import seedu.address.model.information.comparator.PersonComparator;
 
 /**
  * Sorts the persons using the specified comparator.
@@ -46,5 +47,22 @@ public class SortPersonCommand extends Command {
         model.updateSortedPersonList(comparator);
         logger.info("Sorting People");
         return new CommandResult(MESSAGE_SUCCESS);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof SortPersonCommand)) {
+            return false;
+        }
+
+        // state check
+        SortPersonCommand s = (SortPersonCommand) other;
+        return comparator.equals(s.comparator);
     }
 }

@@ -25,4 +25,9 @@ public class PersonExperienceComparator extends PersonComparator implements Comp
             return 0;
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return this == other || other instanceof PersonExperienceComparator;
+    }
 }
