@@ -37,9 +37,9 @@ public class SortPersonCommandParser implements Parser<SortPersonCommand> {
         case PersonExperienceComparator.SORT_CRITERIA:
             comparator = new PersonExperienceComparator();
             return new SortPersonCommand(comparator, isAscending);
-        case PersonDateOfApplicationComparator.SORT_CRITERIA:
-            comparator = new PersonDateOfApplicationComparator();
-            return new SortPersonCommand(comparator, isAscending);
+//        case PersonDateOfApplicationComparator.SORT_CRITERIA:
+//            comparator = new PersonDateOfApplicationComparator();
+//            return new SortPersonCommand(comparator, isAscending);
 
         default:
             throw new ParseException(SortPersonCommand.MESSAGE_SORT_TYPE_INVALID);
