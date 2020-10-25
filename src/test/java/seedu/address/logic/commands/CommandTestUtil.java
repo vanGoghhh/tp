@@ -13,6 +13,8 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SALARY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_ORDER;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_TYPE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_VACANCY;
@@ -38,6 +40,7 @@ import seedu.address.testutil.EditPersonDescriptorBuilder;
  */
 public class CommandTestUtil {
 
+    // Valid Person information
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
     public static final String VALID_PHONE_AMY = "11111111";
@@ -80,6 +83,7 @@ public class CommandTestUtil {
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 
+    // Invalid information inputs
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_JOB_TITLE_DESC = " " + PREFIX_JOB_TITLE + "James&"; // '&' not allowed
     public static final String INVALID_COMPANY_NAME_DESC = " " + PREFIX_COMPANY_NAME + "James&"; // '&' not allowed
@@ -97,6 +101,7 @@ public class CommandTestUtil {
     //only 'low', 'moderate', 'high' allowed for priority
     public static final String INVALID_VACANCY_DESC = " " + PREFIX_VACANCY + "two"; // characters not allowed
 
+    // Valid Job information
     public static final String VALID_JOB_TITLE_IRAS = "Tax Officer";
     public static final String VALID_JOB_TITLE_MAYBANK = "Bank Teller";
     public static final String VALID_COMPANY_NAME_IRAS = "IRAS";
@@ -131,6 +136,24 @@ public class CommandTestUtil {
     public static final String TAG_DESC_IRAS = " " + PREFIX_TAG + VALID_TAG_IRAS;
     public static final String TAG_DESC_MAYBANK = " " + PREFIX_TAG + VALID_TAG_MAYBANK;
 
+    // Valid sorting values
+    public static final String VALID_TYPE_PERSON_EXP = "exp";
+    public static final String VALID_TYPE_PERSON_BLACKLIST = "bl";
+    public static final String VALID_TYPE_JOB_VACANCY = "v";
+    public static final String VALID_TYPE_JOB_PRIORITY = "pr";
+    public static final String VALID_SORT_ORDER_ASCENDING = "asc";
+    public static final String VALID_SORT_ORDER_DESCENDING = "desc";
+
+    public static final String SORT_TYPE_PERSON_EXP = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_EXP;
+    public static final String SORT_TYPE_PERSON_BLACKLIST = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_BLACKLIST;
+    public static final String SORT_TYPE_JOB_VACANCY = " " + PREFIX_SORT_TYPE + VALID_TYPE_JOB_VACANCY;
+    public static final String SORT_TYPE_JOB_PRIORITY = " " + PREFIX_SORT_TYPE + VALID_TYPE_JOB_PRIORITY;
+    public static final String SORT_ORDER_ASCENDING = " " + PREFIX_SORT_ORDER + VALID_SORT_ORDER_ASCENDING;
+    public static final String SORT_ORDER_DESCENDING = " " + PREFIX_SORT_ORDER + VALID_SORT_ORDER_DESCENDING;
+
+    // Invalid sorting inputs
+    public static final String INVALID_SORT_ORDER_DESC = " " + PREFIX_SORT_ORDER + "high to low"; // only asc or desc
+
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 
@@ -154,10 +177,11 @@ public class CommandTestUtil {
     static {
         DESC_IRAS = new EditJobDescriptorBuilder().withJobTitle(VALID_JOB_TITLE_IRAS)
                 .withPhone(VALID_PHONE_IRAS).withEmail(VALID_EMAIL_IRAS).withAddress(VALID_ADDRESS_IRAS)
-                .withPriority(VALID_PRIORITY_IRAS).withTags(VALID_TAG_IRAS).build();
+                .withPriority(VALID_PRIORITY_IRAS).withTags(VALID_TAG_IRAS).withVacancy(VALID_VACANCY_IRAS).build();
         DESC_MAYBANK = new EditJobDescriptorBuilder().withJobTitle(VALID_JOB_TITLE_MAYBANK)
                 .withPhone(VALID_PHONE_MAYBANK).withEmail(VALID_EMAIL_MAYBANK).withAddress(VALID_ADDRESS_MAYBANK)
-                .withPriority(VALID_PRIORITY_MAYBANK).withTags(VALID_TAG_MAYBANK).build();
+                .withPriority(VALID_PRIORITY_MAYBANK).withTags(VALID_TAG_MAYBANK)
+                .withVacancy(VALID_VACANCY_MAYBANK).build();
     }
 
     /**

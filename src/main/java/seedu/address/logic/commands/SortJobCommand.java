@@ -54,4 +54,21 @@ public class SortJobCommand extends Command {
         model.updateSortedJobList(comparator);
         return new CommandResult(MESSAGE_SUCCESS + this.sortMessage);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof SortJobCommand)) {
+            return false;
+        }
+
+        // state check
+        SortJobCommand s = (SortJobCommand) other;
+        return comparator.equals(s.comparator);
+    }
 }

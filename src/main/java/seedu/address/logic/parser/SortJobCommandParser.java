@@ -12,7 +12,7 @@ import seedu.address.model.information.comparator.JobComparator;
 import seedu.address.model.information.comparator.JobPriorityComparator;
 import seedu.address.model.information.comparator.JobVacancyComparator;
 
-public class SortJobCommandParser {
+public class SortJobCommandParser implements Parser<SortJobCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the SortJobCommand
