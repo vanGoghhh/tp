@@ -31,10 +31,10 @@ public class FindPersonCommandTest {
 
     @Test
     public void equals() {
-        PersonNameContainsKeywordsPredicate firstPredicate =
-                new PersonNameContainsKeywordsPredicate(Collections.singletonList("Alice"));
-        PersonNameContainsKeywordsPredicate secondPredicate =
-                new PersonNameContainsKeywordsPredicate(Collections.singletonList("Bob"));
+        Predicate<Person> firstPredicate = unused -> true;
+        firstPredicate.and(new PersonNameContainsKeywordsPredicate(Collections.singletonList("Alice")));
+        Predicate<Person> secondPredicate = unused -> true;
+        secondPredicate.and(new PersonNameContainsKeywordsPredicate(Collections.singletonList("Bob")));
 
         FindPersonCommand findFirstCommand = new FindPersonCommand(firstPredicate);
         FindPersonCommand findSecondCommand = new FindPersonCommand(secondPredicate);
