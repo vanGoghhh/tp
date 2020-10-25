@@ -19,7 +19,6 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.information.Job;
-import seedu.address.model.information.Person;
 import seedu.address.model.information.predicate.JobEmailContainsKeywordsPredicate;
 import seedu.address.model.information.predicate.JobNameContainsKeywordsPredicate;
 import seedu.address.model.information.predicate.JobPhoneContainsKeywordsPredicate;
