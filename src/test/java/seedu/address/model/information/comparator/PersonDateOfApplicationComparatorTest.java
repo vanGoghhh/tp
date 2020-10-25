@@ -9,14 +9,15 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.information.Person;
 import seedu.address.testutil.PersonBuilder;
 
-public class PersonBlackListComparatorTest {
+public class PersonDateOfApplicationComparatorTest {
 
-    private final PersonBlackListComparator blackListComparator = new PersonBlackListComparator();
+    private final PersonDateOfApplicationComparator dateOfApplicationComparator
+            = new PersonDateOfApplicationComparator();
 
     @Test
     public void equals() {
-        PersonBlackListComparator firstComparator = new PersonBlackListComparator();
-        PersonBlackListComparator secondComparator = new PersonBlackListComparator();
+        PersonDateOfApplicationComparator firstComparator = new PersonDateOfApplicationComparator();
+        PersonDateOfApplicationComparator secondComparator = new PersonDateOfApplicationComparator();
 
         // same comparator -> returns true
         assertTrue(firstComparator.equals(firstComparator));
@@ -35,25 +36,24 @@ public class PersonBlackListComparatorTest {
     public void testEqual() {
         Person firstPerson = new PersonBuilder().build();
         Person secondPerson = new PersonBuilder().build();
-        int result = blackListComparator.compare(firstPerson, secondPerson);
+        int result = dateOfApplicationComparator.compare(firstPerson, secondPerson);
         assertEquals(result, 0);
     }
 
     @Test
     public void testGreaterThan() {
-        Person firstPerson = new PersonBuilder().withBlacklistStatus("true").build();
-        Person secondPerson = new PersonBuilder().withBlacklistStatus("false").build();
-        int result = blackListComparator.compare(firstPerson, secondPerson);
+        Person firstPerson = new PersonBuilder().withDateOfApplication("25-11-20").build();
+        Person secondPerson = new PersonBuilder().withBlacklistStatus("24-11-20").build();
+        int result = dateOfApplicationComparator.compare(firstPerson, secondPerson);
         assertEquals(result, 1);
     }
 
     @Test
     public void testLessThan() {
-        Person firstPerson = new PersonBuilder().withBlacklistStatus("false").build();
-        Person secondPerson = new PersonBuilder().withBlacklistStatus("true").build();
-        int result = blackListComparator.compare(firstPerson, secondPerson);
+        Person firstPerson = new PersonBuilder().withBlacklistStatus("24-11-20").build();
+        Person secondPerson = new PersonBuilder().withBlacklistStatus("25-11-20").build();
+        int result = dateOfApplicationComparator.compare(firstPerson, secondPerson);
         assertEquals(result, -1);
     }
-
 
 }
