@@ -124,8 +124,7 @@ public class EditJobCommandParserTest {
 
         // multiple invalid values, but only the first invalid value is captured
         assertParseFailure(parser, "1" + INVALID_COMPANY_NAME_DESC + INVALID_EMAIL_DESC
-                        + VALID_ADDRESS_IRAS + VALID_PHONE_IRAS,
-                Name.MESSAGE_CONSTRAINTS);
+                        + VALID_ADDRESS_IRAS + VALID_PHONE_IRAS, Name.MESSAGE_CONSTRAINTS);
     }
 
     @Test

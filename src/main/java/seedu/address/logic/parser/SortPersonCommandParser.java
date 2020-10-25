@@ -8,6 +8,10 @@ import java.util.stream.Stream;
 
 import seedu.address.logic.commands.SortPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.information.comparator.PersonBlackListComparator;
+import seedu.address.model.information.comparator.PersonComparator;
+import seedu.address.model.information.comparator.PersonDateOfApplicationComparator;
+import seedu.address.model.information.comparator.PersonExpectedSalaryComparator;
 import seedu.address.model.information.comparator.PersonExperienceComparator;
 
 /**
@@ -29,12 +33,21 @@ public class SortPersonCommandParser implements Parser<SortPersonCommand> {
 
         Boolean isAscending = ParserUtil.parseOrder(argMultimap.getValue(PREFIX_SORT_ORDER).orElse(null));
         String sortType = argMultimap.getValue(PREFIX_SORT_TYPE).orElse(null);
+        PersonComparator comparator;
 
         switch (sortType) {
         case PersonExperienceComparator.SORT_CRITERIA:
-            PersonExperienceComparator comparator = new PersonExperienceComparator();
+            comparator = new PersonExperienceComparator();
             return new SortPersonCommand(comparator, isAscending);
-
+        case PersonExpectedSalaryComparator.SORT_CRITERIA:
+            comparator = new PersonExpectedSalaryComparator();
+            return new SortPersonCommand(comparator, isAscending);
+        case PersonDateOfApplicationComparator.SORT_CRITERIA:
+            comparator = new PersonDateOfApplicationComparator();
+            return new SortPersonCommand(comparator, isAscending);
+        case PersonBlackListComparator.SORT_CRITERIA:
+            comparator = new PersonBlackListComparator();
+            return new SortPersonCommand(comparator, isAscending);
         default:
             throw new ParseException(SortPersonCommand.MESSAGE_SORT_TYPE_INVALID);
 
