@@ -4,6 +4,9 @@ import java.util.Comparator;
 
 import seedu.address.model.information.Person;
 
+/**
+ * Compares any two {@code Person's} {@code BlackListStatus} using the supplied sorting criteria.
+ */
 public class PersonBlackListComparator extends PersonComparator implements Comparator<Person> {
 
     public static final String SORT_CRITERIA = "bl";
