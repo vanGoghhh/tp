@@ -9,7 +9,6 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.SortPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.information.comparator.PersonComparator;
-import seedu.address.model.information.comparator.PersonDateOfApplicationComparator;
 import seedu.address.model.information.comparator.PersonExperienceComparator;
 
 /**
@@ -37,9 +36,6 @@ public class SortPersonCommandParser implements Parser<SortPersonCommand> {
         case PersonExperienceComparator.SORT_CRITERIA:
             comparator = new PersonExperienceComparator();
             return new SortPersonCommand(comparator, isAscending);
-//        case PersonDateOfApplicationComparator.SORT_CRITERIA:
-//            comparator = new PersonDateOfApplicationComparator();
-//            return new SortPersonCommand(comparator, isAscending);
 
         default:
             throw new ParseException(SortPersonCommand.MESSAGE_SORT_TYPE_INVALID);
