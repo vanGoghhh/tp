@@ -50,8 +50,8 @@ public class PersonDateOfApplicationComparatorTest {
 
     @Test
     public void testLessThan() {
-        Person firstPerson = new PersonBuilder().withBlacklistStatus("24-11-20").build();
-        Person secondPerson = new PersonBuilder().withBlacklistStatus("25-11-20").build();
+        Person firstPerson = new PersonBuilder().withDateOfApplication("24-11-20").build();
+        Person secondPerson = new PersonBuilder().withDateOfApplication("25-11-20").build();
         int result = dateOfApplicationComparator.compare(firstPerson, secondPerson);
         assertEquals(result, -1);
     }

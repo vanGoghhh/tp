@@ -41,16 +41,16 @@ public class PersonExperienceComparatorTest {
 
     @Test
     public void testGreaterThan() {
-        Person firstPerson = new PersonBuilder().withDateOfApplication("10.0").build();
-        Person secondPerson = new PersonBuilder().withDateOfApplication("5.0").build();
+        Person firstPerson = new PersonBuilder().withExperience("10.0").build();
+        Person secondPerson = new PersonBuilder().withExperience("5.0").build();
         int result = experienceComparator.compare(firstPerson, secondPerson);
         assertEquals(result, 1);
     }
 
     @Test
     public void testLessThan() {
-        Person firstPerson = new PersonBuilder().withDateOfApplication("5.0").build();
-        Person secondPerson = new PersonBuilder().withDateOfApplication("10.0").build();
+        Person firstPerson = new PersonBuilder().withExperience("5.0").build();
+        Person secondPerson = new PersonBuilder().withExperience("10.0").build();
         int result = experienceComparator.compare(firstPerson, secondPerson);
         assertEquals(result, -1);
     }
