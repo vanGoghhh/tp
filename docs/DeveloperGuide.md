@@ -95,7 +95,13 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ### Model component
 
-![Structure of the Model Component](images/ModelClassDiagramV1.png)
+![Structure of the Model Component](images/ModelClassDiagram.png)
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The Model class diagram shown above omits certain details due to space constraints, namely the classes in the Information Package that Person and Job hold reference to. Instead, the omitted details have been extracted and are shown here: <br>
+</div>
+
+![InformationClassDiagram](images/InformationClassDiagram.png)
+
 
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
 
