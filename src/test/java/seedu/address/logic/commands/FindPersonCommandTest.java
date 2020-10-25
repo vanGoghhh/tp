@@ -5,17 +5,20 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalJobs.getTypicalJobAddressBook;
 import static seedu.address.testutil.TypicalPersons.getTypicalPersonAddressBook;
 
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.information.Person;
+import seedu.address.model.information.predicate.PersonEmailContainsKeywordsPredicate;
 import seedu.address.model.information.predicate.PersonNameContainsKeywordsPredicate;
 
 /**
@@ -29,9 +32,9 @@ public class FindPersonCommandTest {
     @Test
     public void equals() {
         PersonNameContainsKeywordsPredicate firstPredicate =
-                new PersonNameContainsKeywordsPredicate(Collections.singletonList("first"));
+                new PersonNameContainsKeywordsPredicate(Collections.singletonList("Alice"));
         PersonNameContainsKeywordsPredicate secondPredicate =
-                new PersonNameContainsKeywordsPredicate(Collections.singletonList("second"));
+                new PersonNameContainsKeywordsPredicate(Collections.singletonList("Bob"));
 
         FindPersonCommand findFirstCommand = new FindPersonCommand(firstPredicate);
         FindPersonCommand findSecondCommand = new FindPersonCommand(secondPredicate);
@@ -54,29 +57,21 @@ public class FindPersonCommandTest {
     }
 
     @Test
-    public void execute_zeroKeywords_allPersonsFound() {
+    public void execute_nullModel_throwsNullPointerException() {
+        Predicate<Person> predicate = unused -> true;
+        predicate.and(new PersonNameContainsKeywordsPredicate(Collections.singletonList("Alice")));
+        FindPersonCommand command = new FindPersonCommand(predicate);
+        assertThrows(NullPointerException.class, () -> command.execute(null));
+    }
+
+    @Test
+    public void execute_predicateAcceptedByModel_findSuccessful() {
         String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 7);
-        PersonNameContainsKeywordsPredicate predicate = preparePredicate(" ");
+        Predicate<Person> predicate = unused -> true;
+        predicate.and(new PersonEmailContainsKeywordsPredicate(Collections.singletonList("@")));
         FindPersonCommand command = new FindPersonCommand(predicate);
         expectedModel.updateFilteredPersonList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(expectedModel.getFilteredPersonList(), model.getFilteredPersonList());
-    }
-
-    @Test
-    public void execute_multipleKeywords_noPersonsFound() {
-        String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 0);
-        PersonNameContainsKeywordsPredicate predicate = preparePredicate("Kurz Elle Kunz");
-        FindPersonCommand command = new FindPersonCommand(predicate);
-        expectedModel.updateFilteredPersonList(predicate);
-        assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Collections.emptyList(), model.getFilteredPersonList());
-    }
-
-    /**
-     * Parses {@code userInput} into a {@code PersonNameContainsKeywordsPredicate}.
-     */
-    private PersonNameContainsKeywordsPredicate preparePredicate(String userInput) {
-        return new PersonNameContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+")));
     }
 }
