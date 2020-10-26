@@ -22,10 +22,10 @@ import org.junit.jupiter.api.Test;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.FindJobCommand;
 import seedu.address.model.information.Job;
-import seedu.address.model.information.predicate.JobCompanyNameContainsKeywordsPredicate;
-import seedu.address.model.information.predicate.JobPhoneContainsKeywordsPredicate;
-import seedu.address.model.information.predicate.JobJobTitleContainsKeywordsPredicate;
 import seedu.address.model.information.predicate.JobAddressContainsKeywordsPredicate;
+import seedu.address.model.information.predicate.JobCompanyNameContainsKeywordsPredicate;
+import seedu.address.model.information.predicate.JobJobTitleContainsKeywordsPredicate;
+import seedu.address.model.information.predicate.JobPhoneContainsKeywordsPredicate;
 
 public class FindJobCommandParserTest {
 

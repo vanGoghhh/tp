@@ -25,12 +25,18 @@ public class FindPersonCommand extends Command {
 
     private final List<Predicate<Person>> predicates;
 
+    /**
+     * Constructs a {@code FindPersonCommand} from the given {@code predicate}.
+     */
     public FindPersonCommand(Predicate<Person> predicate) {
         List<Predicate<Person>> predicateList = new ArrayList<>();
         predicateList.add(predicate);
         this.predicates = predicateList;
     }
 
+    /**
+     * Constructs a {@code FindPersonCommand} from the given list of predicate {@code predicates}.
+     */
     public FindPersonCommand(List<Predicate<Person>> predicates) {
         this.predicates = predicates;
     }

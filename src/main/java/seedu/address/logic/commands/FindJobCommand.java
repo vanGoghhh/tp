@@ -24,12 +24,18 @@ public class FindJobCommand extends Command {
 
     private final List<Predicate<Job>> predicates;
 
+    /**
+     * Constructs a {@code FindJobCommand} from the given {@code predicate}.
+     */
     public FindJobCommand(Predicate<Job> predicate) {
         List<Predicate<Job>> predicateList = new ArrayList<>();
         predicateList.add(predicate);
         this.predicates = predicateList;
     }
 
+    /**
+     * Constructs a {@code FindJobCommand} from the given list of predicates {@code predicates}.
+     */
     public FindJobCommand(List<Predicate<Job>> predicates) {
         this.predicates = predicates;
     }

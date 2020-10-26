@@ -16,9 +16,7 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import seedu.address.logic.commands.AddJobCommand;
 import seedu.address.logic.commands.FindJobCommand;
-import seedu.address.logic.commands.FindPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.predicate.JobAddressContainsKeywordsPredicate;
