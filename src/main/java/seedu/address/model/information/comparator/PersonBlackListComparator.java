@@ -17,4 +17,9 @@ public class PersonBlackListComparator extends PersonComparator implements Compa
         Boolean person2BlackListStatus = person2.getBlacklistStatus().isBlacklisted;
         return Boolean.compare(person1BlackListStatus, person2BlackListStatus);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return this == other || other instanceof PersonBlackListComparator;
+    }
 }

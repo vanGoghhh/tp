@@ -47,4 +47,21 @@ public class SortPersonCommand extends Command {
         logger.info("Sorting People");
         return new CommandResult(MESSAGE_SUCCESS);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof SortPersonCommand)) {
+            return false;
+        }
+
+        // state check
+        SortPersonCommand s = (SortPersonCommand) other;
+        return comparator.equals(s.comparator);
+    }
 }
