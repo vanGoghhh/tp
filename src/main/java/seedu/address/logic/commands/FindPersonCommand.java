@@ -2,6 +2,8 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 import seedu.address.commons.core.Messages;
@@ -21,16 +23,40 @@ public class FindPersonCommand extends Command {
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + " n/alice p/90909090";
 
-    private final Predicate<Person> predicate;
+    private final List<Predicate<Person>> predicates;
 
     public FindPersonCommand(Predicate<Person> predicate) {
-        this.predicate = predicate;
+        List<Predicate<Person>> predicateList = new ArrayList<>();
+        predicateList.add(predicate);
+        this.predicates = predicateList;
+    }
+
+    public FindPersonCommand(List<Predicate<Person>> predicates) {
+        this.predicates = predicates;
+    }
+
+    /**
+     * Returns a composed predicate that represents a short-circuiting logical AND of all predicates in the list
+     * {@code predicates}.
+     */
+    public static Predicate<Person> composePredicatesList(List<Predicate<Person>> predicates) {
+
+        if (predicates.size() == 1) {
+            return predicates.get(0);
+        }
+
+        Predicate<Person> composedPredicate = unused -> true;
+        for (Predicate<Person> p : predicates) {
+            composedPredicate = composedPredicate.and(p);
+        }
+
+        return composedPredicate;
     }
 
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        model.updateFilteredPersonList(predicate);
+        model.updateFilteredPersonList(composePredicatesList(predicates));
         return new CommandResult(
                 String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredPersonList().size()));
     }
@@ -39,6 +65,6 @@ public class FindPersonCommand extends Command {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof FindPersonCommand // instanceof handles nulls
-                && predicate.equals(((FindPersonCommand) other).predicate)); // state check
+                && predicates.equals(((FindPersonCommand) other).predicates)); // state check
     }
 }
