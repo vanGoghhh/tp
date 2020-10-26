@@ -139,6 +139,8 @@ public class CommandTestUtil {
     // Valid sorting values
     public static final String VALID_TYPE_PERSON_EXP = "exp";
     public static final String VALID_TYPE_PERSON_BLACKLIST = "bl";
+    public static final String VALID_TYPE_PERSON_SAL = "sal";
+    public static final String VALID_TYPE_PERSON_DOA = "doa";
     public static final String VALID_TYPE_JOB_VACANCY = "v";
     public static final String VALID_TYPE_JOB_PRIORITY = "pr";
     public static final String VALID_SORT_ORDER_ASCENDING = "asc";
@@ -146,6 +148,8 @@ public class CommandTestUtil {
 
     public static final String SORT_TYPE_PERSON_EXP = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_EXP;
     public static final String SORT_TYPE_PERSON_BLACKLIST = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_BLACKLIST;
+    public static final String SORT_TYPE_PERSON_SAL = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_SAL;
+    public static final String SORT_TYPE_PERSON_DOA = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_DOA;
     public static final String SORT_TYPE_JOB_VACANCY = " " + PREFIX_SORT_TYPE + VALID_TYPE_JOB_VACANCY;
     public static final String SORT_TYPE_JOB_PRIORITY = " " + PREFIX_SORT_TYPE + VALID_TYPE_JOB_PRIORITY;
     public static final String SORT_ORDER_ASCENDING = " " + PREFIX_SORT_ORDER + VALID_SORT_ORDER_ASCENDING;
