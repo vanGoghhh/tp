@@ -12,11 +12,12 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_SALARY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import seedu.address.logic.commands.AddJobCommand;
 import seedu.address.logic.commands.FindPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.information.Person;
@@ -42,7 +43,7 @@ public class FindPersonCommandParser implements Parser<FindPersonCommand> {
      */
     public FindPersonCommand parse(String args) throws ParseException {
 
-        Predicate<Person> predicate = unused -> true;
+        List<Predicate<Person>> predicates = new ArrayList<>();
 
         String trimmedArgs = args.trim();
         if (trimmedArgs.isEmpty()) {
@@ -56,51 +57,51 @@ public class FindPersonCommandParser implements Parser<FindPersonCommand> {
                         PREFIX_URL_LINK, PREFIX_TAG);
 
         if (!argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddJobCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
         }
 
         if (arePrefixesPresent(argMultimap, PREFIX_NAME)) {
-            predicate = predicate.and(new PersonNameContainsKeywordsPredicate(
+            predicates.add(new PersonNameContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_NAME).get())));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_PHONE)) {
-            predicate = predicate.and(new PersonPhoneContainsKeywordsPredicate(
+            predicates.add(new PersonPhoneContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_PHONE).get())));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_EMAIL)) {
-            predicate = predicate.and(new PersonEmailContainsKeywordsPredicate(
+            predicates.add(new PersonEmailContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_EMAIL).get())));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_ADDRESS)) {
-            predicate = predicate.and(new PersonAddressContainsKeywordsPredicate(
+            predicates.add(new PersonAddressContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_ADDRESS).get())));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_EXPERIENCE)) {
-            predicate = predicate.and(new PersonExperienceContainsKeywordsPredicate(
+            predicates.add(new PersonExperienceContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_EXPERIENCE).get())));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_DATE_OF_APPLICATION)) {
-            predicate = predicate.and(new PersonApplicationContainsKeywordsPredicate(
+            predicates.add(new PersonApplicationContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_DATE_OF_APPLICATION).get())));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_SALARY)) {
-            predicate = predicate.and(new PersonSalaryContainsKeywordsPredicate(
+            predicates.add(new PersonSalaryContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_SALARY).get())));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_BLACKLIST)) {
-            predicate = predicate.and(new PersonBlacklistContainsKeywordsPredicate(
+            predicates.add(new PersonBlacklistContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_BLACKLIST).get())));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_URL_LINK)) {
-            predicate = predicate.and(new PersonUrlLinkContainsKeywordsPredicate(
+            predicates.add(new PersonUrlLinkContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_URL_LINK).get())));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_TAG)) {
-            predicate = predicate.and(new PersonTagsContainKeywordsPredicate(
+            predicates.add(new PersonTagsContainKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_TAG).get())));
         }
 
-        return new FindPersonCommand(predicate);
+        return new FindPersonCommand(predicates);
     }
 
     /**
