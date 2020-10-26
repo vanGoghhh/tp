@@ -61,7 +61,6 @@ public class FindPersonCommandParser implements Parser<FindPersonCommand> {
         }
 
         if (arePrefixesPresent(argMultimap, PREFIX_NAME)) {
-            System.out.println("name:'" + argMultimap.getValue(PREFIX_NAME).get() + "'");
             predicates.add(new PersonNameContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_NAME).get())));
         }
