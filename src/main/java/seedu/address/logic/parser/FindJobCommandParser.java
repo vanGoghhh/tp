@@ -10,7 +10,9 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_VACANCY;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -39,7 +41,7 @@ public class FindJobCommandParser implements Parser<FindJobCommand> {
      */
     public FindJobCommand parse(String args) throws ParseException {
 
-        Predicate<Job> predicate = unused -> true;
+        List<Predicate<Job>> predicates = new ArrayList<>();
 
         String trimmedArgs = args.trim();
         if (trimmedArgs.isEmpty()) {
@@ -56,39 +58,39 @@ public class FindJobCommandParser implements Parser<FindJobCommand> {
         }
 
         if (arePrefixesPresent(argMultimap, PREFIX_JOB_TITLE)) {
-            predicate = predicate.and(new JobJobTitleContainsKeywordsPredicate(
+            predicates.add(new JobJobTitleContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_JOB_TITLE).orElse(""))));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_COMPANY_NAME)) {
-            predicate = predicate.and(new JobCompanyNameContainsKeywordsPredicate(
+            predicates.add(new JobCompanyNameContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_COMPANY_NAME).orElse(""))));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_PHONE)) {
-            predicate = predicate.and(new JobPhoneContainsKeywordsPredicate(
+            predicates.add(new JobPhoneContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_PHONE).orElse(""))));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_EMAIL)) {
-            predicate = predicate.and(new JobEmailContainsKeywordsPredicate(
+            predicates.add(new JobEmailContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_EMAIL).orElse(""))));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_ADDRESS)) {
-            predicate = predicate.and(new JobAddressContainsKeywordsPredicate(
+            predicates.add(new JobAddressContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_ADDRESS).orElse(""))));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_TAG)) {
-            predicate = predicate.and(new JobTagsContainKeywordsPredicate(
+            predicates.add(new JobTagsContainKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_TAG).orElse(""))));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_PRIORITY)) {
-            predicate = predicate.and(new JobPriorityContainsKeywordsPredicate(
+            predicates.add(new JobPriorityContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_PRIORITY).orElse(""))));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_VACANCY)) {
-            predicate = predicate.and(new JobVacancyContainsKeywordsPredicate(
+            predicates.add(new JobVacancyContainsKeywordsPredicate(
                     Collections.singletonList(argMultimap.getValue(PREFIX_VACANCY).orElse(""))));
         }
 
-        return new FindJobCommand(predicate);
+        return new FindJobCommand(predicates);
     }
 
     /**
