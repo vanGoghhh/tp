@@ -54,5 +54,4 @@ public class PersonExpectedSalaryComparatorTest {
         int result = expectedSalaryComparator.compare(firstPerson, secondPerson);
         assertEquals(result, -1);
     }
-
 }

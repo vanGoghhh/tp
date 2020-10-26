@@ -9,7 +9,6 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.information.Person;
-import seedu.address.model.information.comparator.PersonComparator;
 
 /**
  * Sorts the persons using the specified comparator.

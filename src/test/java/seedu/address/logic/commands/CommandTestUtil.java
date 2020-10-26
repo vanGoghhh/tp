@@ -148,7 +148,7 @@ public class CommandTestUtil {
 
     public static final String SORT_TYPE_PERSON_EXP = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_EXP;
     public static final String SORT_TYPE_PERSON_BLACKLIST = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_BLACKLIST;
-    public static final String SORT_TYPE_PERSON_SAL = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_DOA;
+    public static final String SORT_TYPE_PERSON_SAL = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_SAL;
     public static final String SORT_TYPE_PERSON_DOA = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_DOA;
     public static final String SORT_TYPE_JOB_VACANCY = " " + PREFIX_SORT_TYPE + VALID_TYPE_JOB_VACANCY;
     public static final String SORT_TYPE_JOB_PRIORITY = " " + PREFIX_SORT_TYPE + VALID_TYPE_JOB_PRIORITY;

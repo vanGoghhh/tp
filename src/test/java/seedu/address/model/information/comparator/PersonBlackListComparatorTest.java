@@ -54,6 +54,4 @@ public class PersonBlackListComparatorTest {
         int result = blackListComparator.compare(firstPerson, secondPerson);
         assertEquals(result, -1);
     }
-
-
 }
