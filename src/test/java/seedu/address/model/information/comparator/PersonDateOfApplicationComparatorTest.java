@@ -11,8 +11,8 @@ import seedu.address.testutil.PersonBuilder;
 
 public class PersonDateOfApplicationComparatorTest {
 
-    private final PersonDateOfApplicationComparator dateOfApplicationComparator
-            = new PersonDateOfApplicationComparator();
+    private final PersonDateOfApplicationComparator dateOfApplicationComparator =
+            new PersonDateOfApplicationComparator();
 
     @Test
     public void equals() {
