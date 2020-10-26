@@ -70,17 +70,15 @@ public class FindJobCommandTest {
     public void execute_predicateAcceptedByModel_findSuccessful() {
         // matching keyword found
         String expectedMessage = String.format(MESSAGE_JOBS_LISTED_OVERVIEW, 6);
-        Predicate<Job> firstPredicate = unused -> true;
-        firstPredicate = firstPredicate.and(new JobEmailContainsKeywordsPredicate(Collections.singletonList("@")));
+        Predicate<Job> firstPredicate = new JobEmailContainsKeywordsPredicate(Collections.singletonList("@"));
         FindJobCommand command = new FindJobCommand(firstPredicate);
         expectedModel.updateFilteredJobList(firstPredicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(expectedModel.getFilteredJobList(), model.getFilteredJobList());
 
         // no matching keyword found
-        expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 0);
-        Predicate<Job> secondPredicate = unused -> true;
-        secondPredicate = secondPredicate.and(new JobPhoneContainsKeywordsPredicate(Collections.singletonList("00000000")));
+        expectedMessage = String.format(MESSAGE_JOBS_LISTED_OVERVIEW, 0);
+        Predicate<Job> secondPredicate = new JobPhoneContainsKeywordsPredicate(Collections.singletonList("00000000"));
         command = new FindJobCommand(secondPredicate);
         expectedModel.updateFilteredJobList(secondPredicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
