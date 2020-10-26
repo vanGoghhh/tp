@@ -31,7 +31,7 @@ import seedu.address.model.information.predicate.JobVacancyContainsKeywordsPredi
 /**
  * Parses input arguments and creates a new FindJobCommand object
  */
-public class FindJobCommandParser {
+public class FindJobCommandParser implements Parser<FindJobCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the FindJobCommand
      * and returns a FindJobCommand object for execution.
