@@ -61,53 +61,53 @@ public class FindPersonCommandParser implements Parser<FindPersonCommand> {
         }
 
         if (arePrefixesPresent(argMultimap, PREFIX_NAME)) {
-            String s = argMultimap.getValue(PREFIX_NAME).get();
-            List<String> words = splitInput(s);
+            String name = argMultimap.getValue(PREFIX_NAME).get();
+            List<String> words = splitInput(name);
             predicates.add(new PersonNameContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_PHONE)) {
-            String s = argMultimap.getValue(PREFIX_PHONE).get();
-            List<String> words = splitInput(s);
+            String phone = argMultimap.getValue(PREFIX_PHONE).get();
+            List<String> words = splitInput(phone);
             predicates.add(new PersonPhoneContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_EMAIL)) {
-            String s = argMultimap.getValue(PREFIX_EMAIL).get();
-            List<String> words = splitInput(s);
+            String email = argMultimap.getValue(PREFIX_EMAIL).get();
+            List<String> words = splitInput(email);
             predicates.add(new PersonEmailContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_ADDRESS)) {
-            String s = argMultimap.getValue(PREFIX_ADDRESS).get();
-            List<String> words = splitInput(s);
+            String address = argMultimap.getValue(PREFIX_ADDRESS).get();
+            List<String> words = splitInput(address);
             predicates.add(new PersonAddressContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_EXPERIENCE)) {
-            String s = argMultimap.getValue(PREFIX_EXPERIENCE).get();
-            List<String> words = splitInput(s);
+            String experience = argMultimap.getValue(PREFIX_EXPERIENCE).get();
+            List<String> words = splitInput(experience);
             predicates.add(new PersonExperienceContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_DATE_OF_APPLICATION)) {
-            String s = argMultimap.getValue(PREFIX_DATE_OF_APPLICATION).get();
-            List<String> words = splitInput(s);
+            String dateOfApplication = argMultimap.getValue(PREFIX_DATE_OF_APPLICATION).get();
+            List<String> words = splitInput(dateOfApplication);
             predicates.add(new PersonApplicationContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_SALARY)) {
-            String s = argMultimap.getValue(PREFIX_SALARY).get();
-            List<String> words = splitInput(s);
+            String salary = argMultimap.getValue(PREFIX_SALARY).get();
+            List<String> words = splitInput(salary);
             predicates.add(new PersonSalaryContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_BLACKLIST)) {
-            String s = argMultimap.getValue(PREFIX_BLACKLIST).get();
-            List<String> words = splitInput(s);
+            String blacklist = argMultimap.getValue(PREFIX_BLACKLIST).get();
+            List<String> words = splitInput(blacklist);
             predicates.add(new PersonBlacklistContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_URL_LINK)) {
-            String s = argMultimap.getValue(PREFIX_URL_LINK).get();
-            List<String> words = splitInput(s);
+            String url = argMultimap.getValue(PREFIX_URL_LINK).get();
+            List<String> words = splitInput(url);
             predicates.add(new PersonUrlLinkContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_TAG)) {
-            String s = argMultimap.getValue(PREFIX_TAG).get();
-            List<String> words = splitInput(s);
+            String tag = argMultimap.getValue(PREFIX_TAG).get();
+            List<String> words = splitInput(tag);
             predicates.add(new PersonTagsContainKeywordsPredicate(words));
         }
 
