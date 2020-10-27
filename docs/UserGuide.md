@@ -159,7 +159,7 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 :memo: *The date of application input must be in DD-MM-YY format. If the date of application is 31 December 2020, input* `doa/31-12-20`.
 </div>
 <br>
-Examples:
+**Examples:**
 
 * `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/DogGroomer exp/1 doa/16-10-20`
 * `add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 t/HR t/OfficeLady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000`
@@ -179,7 +179,7 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
 :memo: *If priority is not specified, it will be set to moderate by default.*
 </div>
 <br>
-Examples:
+**Examples:**
 
 * `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations v/1`
 * `add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222 pr/high t/delivery t/west v/10`
@@ -225,7 +225,7 @@ Format: `edit can INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…
 * You can remove all the candidate’s tags by typing `t/` without
     specifying any tags after it.
 
-Examples:
+**Examples:**
 
 *  `edit 1 p/91234567 e/johndoe@example.com` <br>
 Edits the phone number and email address of the 1st candidate to be `91234567` and `johndoe@example.com` respectively.
@@ -245,7 +245,7 @@ Format: `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/AD
 * You can remove all the job’s tags by typing `t/` without specifying any tags after it.
 * Priority of job can be specified as low, moderate or high.
 
-Examples:
+**Examples:**
 
 *  `edit job 2 c/Dog Cafe p/82827731 a/Dog Street pr/high` <br>
 Edits the job company name, phone number, address and priority of
@@ -307,7 +307,7 @@ Format: `delete can INDEX`
 * The index refers to the index number shown in the displayed candidate list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
-Examples:
+**Examples:**
 * `list can` followed by `delete can 2` deletes the 2nd candidate in the candidate list.
 
 ### Deleting a job: `delete job`
@@ -320,7 +320,7 @@ Format: `delete job INDEX`
 * The index refers to the index number shown in the displayed candidate list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
-Examples:
+**Examples:**
 * `list job` followed by `delete job2` deletes the 2nd job in the job list.
 
 ### Clearing all candidate entries: `clear can`
@@ -365,12 +365,14 @@ All data is saved in the hard disk automatically after any command that changes 
 
 Action | Candidate Format | Job Format
 --------|------------------|------------------
-**Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]…​ [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]` | `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
-**Clear** | `clear can` | `clear job`
-**Delete** | `delete can INDEX` | `delete job INDEX`
-**Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…​` | `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [t/JOB_DESCRIPTION]…​`
-**List** | `list can` | `list job`
 **Help** | `help` | `help`
+**Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]… [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]` | `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
+**List** | `list can` | `list job`
+**Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [doa/DATE_OF_APPLICATION] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
+**Find** | `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/BLACKLIST] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
+**Sort**||
+**Delete** | `delete can INDEX` | `delete job INDEX`
+**Clear** | `clear can` | `clear job`
 **Exit** | `exit` | `exit`
 
 --------------------------------------------------------------------------------------------------------------------
@@ -386,3 +388,5 @@ Terms | Explanation
 **Hard disk** | Storage of information in a computer.
 **Repository** | Online container where your code can be stored, contributed to and managed over time.
 **Pull Request** | Formal request to merge one’s code into a larger codebase.
+**Bug** | A software bug is an error, flaw or fault in a computer program or system that causes it to produce an incorrect or unexpected result, or to behave in unintended ways.
+**Developer's Guide** | A guide that includes extensive guidance and reference materials to aid the developer in creating applications and extensions 
