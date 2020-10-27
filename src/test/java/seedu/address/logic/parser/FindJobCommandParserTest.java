@@ -48,16 +48,16 @@ public class FindJobCommandParserTest {
 
         // one field
         List<Predicate<Job>> predicates = new ArrayList<>();
-        predicates.add(new JobJobTitleContainsKeywordsPredicate(Collections.singletonList(VALID_JOB_TITLE_IRAS)));
+        predicates.add(new JobJobTitleContainsKeywordsPredicate(parser.splitInput(VALID_JOB_TITLE_IRAS)));
         Command expectedFindPersonCommand = new FindJobCommand(predicates);
         assertParseSuccess(parser, JOB_TITLE_DESC_IRAS, expectedFindPersonCommand);
 
         // multiple fields
         predicates = new ArrayList<>();
-        predicates.add(new JobJobTitleContainsKeywordsPredicate(Collections.singletonList(VALID_JOB_TITLE_IRAS)));
-        predicates.add(new JobCompanyNameContainsKeywordsPredicate(Collections.singletonList(VALID_COMPANY_NAME_IRAS)));
-        predicates.add(new JobPhoneContainsKeywordsPredicate(Collections.singletonList(VALID_PHONE_IRAS)));
-        predicates.add(new JobAddressContainsKeywordsPredicate(Collections.singletonList(VALID_ADDRESS_IRAS)));
+        predicates.add(new JobJobTitleContainsKeywordsPredicate(parser.splitInput(VALID_JOB_TITLE_IRAS)));
+        predicates.add(new JobCompanyNameContainsKeywordsPredicate(parser.splitInput(VALID_COMPANY_NAME_IRAS)));
+        predicates.add(new JobPhoneContainsKeywordsPredicate(parser.splitInput(VALID_PHONE_IRAS)));
+        predicates.add(new JobAddressContainsKeywordsPredicate(parser.splitInput(VALID_ADDRESS_IRAS)));
         expectedFindPersonCommand = new FindJobCommand(predicates);
         assertParseSuccess(parser, JOB_TITLE_DESC_IRAS + COMPANY_NAME_DESC_IRAS + PHONE_DESC_IRAS + ADDRESS_DESC_IRAS,
                 expectedFindPersonCommand);
