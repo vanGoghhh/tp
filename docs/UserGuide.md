@@ -24,7 +24,7 @@ app for job recruiters to manage job applicants and job listings.
      1. [Editing a job: edit job](#editing-a-job-edit-job)
      1. [Finding a candidate: find can](#finding-a-candidate-find-can)
      1. [Finding a job: find job](#finding-a-job-find-job)
-     1. [Sorting all candidates: sort can](#sorting-all-candidates-find-can)
+     1. [Sorting all candidates: sort can](#sorting-all-candidates-sort-can)
      1. [Sorting all jobs: sort job](#sorting-all-jobs-sort-job)
      1. [Deleting a candidate: delete can](#deleting-a-candidate-delete-can)
      1. [Deleting a job: delete job](#deleting-a-job-delete-job)
@@ -39,22 +39,34 @@ app for job recruiters to manage job applicants and job listings.
 --------------------------------------------------------------------------------------------------------------------
 
 ## Introduction
+CANdidates is a powerful and optimized contact management app for job recruiters to manage job candidates and job listings. A key strength of CANdidates is its convenience and ease of managing all job-related contacts in a single application.
+
+This user guide explains the functions and features of CANdidates. The target readers of this document are new users of the CANdidates application. A glossary is provided at the end of this document to help you understand certain terms.
 
 ### Authors
+CANdidates is developed as part of a NUS CS2103T Project by:
+
+* [Amelia Tan Jin Yu](team/ameliatjy.md)
+* [Lee Joon Jie](team/breadpeanutbutter.md)
+* [Nigel Ng Yong Sheng](team/vangoghhh.md)
+* [Tan Yu Ting, Germaine](team/g-erm.md)
+* [Toh Hong Xian](team/raythx98.md)
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Preface
+For a smoother start to your usage of CANdidates, read this section to find out how this document is structured, how to navigate the document, and what all the symbols and special fonts mean.
 
 ### Understanding Symbols
 
-ame | mez
---------|------------------------------------
-**`Command`** | abc
-:sushi: | abc
-:memo: | abc
-:bulb: | abc
-:exclamation: | abc
+Symbols/Font  | Explanation
+--------------|------------------------------------
+**`Command`** | A grey highlight means that you can type the words into CANdidates and it will start performing tasks.
+:sushi:       | Food for thought.
+:black_nib:   | This gives an example of how to use the feature.
+:memo:        | This gives additional comments on the feature being explained.
+:bulb:        | There are additional tips that you can make use of when using the explained feature.
+:exclamation: | These are precautions you need to take note of when using the application.
 
 ### Understanding Input Fields
 
@@ -182,7 +194,7 @@ Format: `list can`
 
 :exclamation: *On the application, be sure to click on the “Candidates” tab to view the list of candidates.*
 
-:bulb: *This command is usually used after a* [sort can](#sorting-all-candidates-find-can) *command.*
+:bulb: *This command is usually used after a* [sort can](#sorting-all-candidates-sort-can) *command.*
 </div>
 <br>
 
@@ -196,7 +208,7 @@ Format: `list job`
 
 :exclamation: *On the application, be sure to click on the “Jobs” tab to view the job listings.*
 
-:bulb: *This command is usually used after a* [sort job](#sorting-all-jobs-find-job) *command.*
+:bulb: *This command is usually used after a* [sort job](#sorting-all-jobs-sort-job) *command.*
 </div>
 <br>
 
@@ -238,6 +250,56 @@ Examples:
 *  `edit job 2 c/Dog Cafe p/82827731 a/Dog Street pr/high` <br>
 Edits the job company name, phone number, address and priority of
 the 2nd job to be Dog Cafe, 82827731, Dog Street and high respectively.
+
+### Finding a candidate: `find can`
+
+Too many candidates with different information? CANdidates provide you with a simple and quick way for you to find candidates who fulfil certain criteria(s) or even a specific candidate from the long list. All you have to do is tell CANdidates the field you are interested in, along with the keyword you are looking for!
+
+Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
+
+:memo: The search is case insensitive, e.g. john will match John
+
+:memo: The order of the keywords does not matter, e.g. Doe John will match John Doe
+
+:memo: For number fields (i.e. phone, years of experience and expected salary), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.
+
+:bulb: If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.
+
+Examples:
+****
+:black_nib: To find for candidates with tag(s) containing the word “_developer_” and an expected salary of exactly _$4000_,
+
+    find can t/developer sal/4000
+
+:black_nib: To find for _blacklisted_ candidates
+
+    find can bl/true
+
+****
+
+### Finding a job: `find job`
+
+Too many job listings with different information? Similar to the feature above, you can also find job listings by inserting keywords for the fields you are looking for!
+
+Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
+
+:memo: The search is case insensitive, e.g. samsung will match Samsung
+
+:memo: The order of the keywords does not matter, e.g. King Burger will match Burger King
+
+:memo: For number fields (i.e. phone and vacancy), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.
+
+Examples:
+****
+:black_nib: To find jobs with email containing “_@gmail.com_” and priority level _high_,
+
+    find job e/@gmail.com pr/high
+
+:black_nib: To find jobs with job titles containing the words “_Software Engineer_”,
+
+    find job n/Software Engineer
+
+****
 
 ### Deleting a candidate: `delete can`
 
