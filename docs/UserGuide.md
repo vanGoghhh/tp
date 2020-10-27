@@ -6,27 +6,36 @@ title: User Guide
 CANdidates is a powerful and optimized contact management
 app for job recruiters to manage job applicants and job listings.
 
-## Table of Contents
+## CANdidates User Guide
 
-* [Quick start](#quick-start)
-* [Features](#features)
-     * [Viewing help: help](#viewing-help-help)
-     * [Adding a candidate: add can](#adding-a-candidate-coming-soon-add-can)
-     * [Adding a job listing: add job](#adding-a-job-listing-coming-soon-add-job)
-     * [Listing all candidates: list can](#listing-all-candidates-coming-soon-list-can)
-     * [Listing all jobs: list job](#listing-all-jobs-coming-soon-list-job)
-     * [Editing a candidate: edit can](#editing-a-candidate-coming-soon-edit-can)
-     * [Editing a job: edit job](#editing-a-job-coming-soon-edit-job)
-     * [Deleting a candidate: delete can](#deleting-a-candidate-coming-soon-delete-can)
-     * [Deleting a job: delete job](#deleting-a-job-coming-soon-delete-job)
-     * [Clearing all candidate entries: clear can](#clearing-all-candidate-entries-coming-soon-clear-can)
-     * [Clearing all job entries: clear job](#clearing-all-job-entries-coming-soon-clear-job)
-     * [Exiting the program : exit](#exiting-the-program--exit)
-     * [Saving the data](#saving-the-data)
-* [FAQ](#faq)
-* [Command summary](#command-summary)
+1. [Introduction](#introduction)
+     1. [Author](#authors)
+1. [Preface](#preface)
+     1. [Understanding Symbols](#understanding-symbols)
+     1. [Understanding Input Fields](#understanding-input-fields)
+2. [Quick start](#quick-start)
+1. [Features](#features)
+     1. [Viewing help: help](#viewing-help-help)
+     1. [Adding a candidate: add can](#adding-a-candidate-add-can)
+     1. [Adding a job listing: add job](#adding-a-job-listing-add-job)
+     1. [Listing all candidates: list can](#listing-all-candidates-list-can)
+     1. [Listing all jobs: list job](#listing-all-jobs-list-job)
+     1. [Editing a candidate: edit can](#editing-a-candidate-edit-can)
+     1. [Editing a job: edit job](#editing-a-job-edit-job)
+     1. [Finding a candidate: find can](#finding-a-candidate-find-can)
+     1. [Finding a job: find job](#finding-a-job-find-job)
+     1. [Sorting all candidates: sort can](#sorting-all-candidates-find-can)
+     1. [Sorting all jobs: sort job](#sorting-all-jobs-sort-job)
+     1. [Deleting a candidate: delete can](#deleting-a-candidate-delete-can)
+     1. [Deleting a job: delete job](#deleting-a-job-delete-job)
+     1. [Clearing all candidate entries: clear can](#clearing-all-candidate-entries--clear-can)
+     1. [Clearing all job entries: clear job](#clearing-all-job-entries-clear-job)
+     1. [Exiting the program : exit](#exiting-the-program-exit)
+     1. [Saving the data](#saving-the-data)
+1. [FAQ](#faq)
+1. [Command summary](#command-summary)
+1. [Glossary](#glossary)
 
-<<<<<<< HEAD
 --------------------------------------------------------------------------------------------------------------------
 
 ## Introduction
@@ -58,16 +67,12 @@ germ | sie
 `Field` | `list can`
 `Field` | `help`
 `Field` | `exit`
-=======
->>>>>>> parent of b270e181... Update UG
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
-
-1. Download the latest `candidates.jar` from [here]() [coming soon].
+1. Download the latest `candidates.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-3/tp/blob/master/docs).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your CANdidates.
 
@@ -89,13 +94,20 @@ germ | sie
 
 1. Refer to the [Features](#features) below for details of each command.
 
+<div markdown="span" class="alert alert-primary">
+:exclamation: Ensure you have Java 11 or above installed in your Computer.
+
+:bulb: If you are confused with the various input fields, refer to [Understanding Input Fields](#understanding-input-fields).
+</div>
+<br>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Features
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Notes about the command format:**<br>
+**:memo: Notes about the command format:**<br>
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
@@ -109,47 +121,50 @@ germ | sie
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
+*:bulb: If you are confused with the various input fields, refer to [Understanding Input Fields](#understanding-input-fields).*
 </div>
 
 ### Viewing help: `help`
 
-Shows a message explaining how to access the help page.
+If you are unsure of how to use the application, we have a help function that will direct you to our user guide! The user guide can also be found [here](https://tinyurl.com/candidatesUG).
 
 ![help message](images/helpMessage.png)
 
 Format: `help`
 
-
 ### Adding a candidate: `add can`
 
-Adds a candidate to the candidate list.
+If you have a new candidate who approached you and you would like to put him in CANdidates, you can add him into the list using the command below.
 
 Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]…​ [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A candidate can have any number of job type tags (including 0)
+<div markdown="span" class="alert alert-primary">
+
+:bulb: *A candidate can have 0 or more job type(s)*.
+
+:memo: *The blacklist input can be specified as* `bl/true` *or* `false`.
+
+:memo: *The date of application input must be in DD-MM-YY format. If the date of application is 31 December 2020, input* `doa/31-12-20`.
 </div>
 <br>
 Examples:
 
-* `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/Dog Groomer exp/1 doa/16-10-20`
-* `add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 t/HR t/Office Lady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000`
+* `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/DogGroomer exp/1 doa/16-10-20`
+* `add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 t/HR t/OfficeLady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000`
 
 ### Adding a job listing: `add job`
 
-Adds a job to the job listings.
+If you are informed of a job opening and you would like to add it in CANdidates, you can add him into the list using the command below.
 
 Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
 
-* Priority can be specified as low, moderate or high.
-* Priority is an optional field and default priority for jobs is moderate unless specified otherwise.
+<div markdown="span" class="alert alert-primary">
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A priority is an optional field that is moderate by default, it can be specified as low, moderate or high
-</div>
-<br>
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A job can have any number of job description tags (including 0)
+:bulb: *A job can have 0 or more job description(s).*
+
+:memo: *The priority input can be specified as* `pr/low`, `pr/moderate` *or* `pr/high`.
+
+:memo: *If priority is not specified, it will be set to moderate by default.*
 </div>
 <br>
 Examples:
@@ -159,15 +174,31 @@ Examples:
 
 ### Listing all candidates: `list can`
 
-Shows a list of all candidates in the candidates listing.
+To accurately reflect the latest changes of candidates in the application, you can refresh the list of candidates using the format below.
 
 Format: `list can`
 
+<div markdown="span" class="alert alert-primary">
+
+:exclamation: *On the application, be sure to click on the “Candidates” tab to view the list of candidates.*
+
+:bulb: *This command is usually used after a* [sort can](#sorting-all-candidates-find-can) *command.*
+</div>
+<br>
+
 ### Listing all jobs: `list job`
 
-Shows a list of all jobs in the jobs listing.
+To accurately reflect the latest changes of jobs in the application, you can refresh the job listings using the format below.
 
 Format: `list job`
+
+<div markdown="span" class="alert alert-primary">
+
+:exclamation: *On the application, be sure to click on the “Jobs” tab to view the job listings.*
+
+:bulb: *This command is usually used after a* [sort job](#sorting-all-jobs-find-job) *command.*
+</div>
+<br>
 
 ### Editing a candidate: `edit can`
 
