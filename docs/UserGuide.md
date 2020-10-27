@@ -153,9 +153,9 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 <div markdown="span" class="alert alert-primary">
 
 :bulb: *A candidate can have 0 or more job type(s)*.
-
+<br>
 :memo: *The blacklist input can be specified as* `bl/true` *or* `false`.
-
+<br>
 :memo: *The date of application input must be in DD-MM-YY format. If the date of application is 31 December 2020, input* `doa/31-12-20`.
 </div>
 <br>
@@ -174,9 +174,9 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
 <div markdown="span" class="alert alert-primary">
 
 :bulb: *A job can have 0 or more job description(s).*
-
+<br>
 :memo: *The priority input can be specified as* `pr/low`, `pr/moderate` *or* `pr/high`.
-
+<br>
 :memo: *If priority is not specified, it will be set to moderate by default.*
 </div>
 <br>
