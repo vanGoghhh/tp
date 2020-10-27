@@ -127,8 +127,8 @@ germ | sie
 * Items in square brackets are optional.<br>
   e.g `n/NAME [t/JOB_TYPE]` can be used as `n/John Doe t/programmer` or as `n/John Doe`.
 
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/JOB_TYPE]…​` can be used as ` ` (i.e. 0 times), `t/accountant`, `t/programmer t/technician` etc.
+* Items with `…` after them can be used multiple times including zero times.<br>
+  e.g. `[t/JOB_TYPE]…` can be used as ` ` (i.e. 0 times), `t/accountant` (i.e. 1 time), `t/programmer t/technician` (i.e. 2 times) etc.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -159,6 +159,7 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 :memo: *The date of application input must be in DD-MM-YY format. If the date of application is 31 December 2020, input* `doa/31-12-20`.
 </div>
 <br>
+
 **Examples:**
 
 * `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/DogGroomer exp/1 doa/16-10-20`
@@ -179,6 +180,7 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
 :memo: *If priority is not specified, it will be set to moderate by default.*
 </div>
 <br>
+
 **Examples:**
 
 * `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations v/1`
