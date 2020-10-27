@@ -48,16 +48,16 @@ public class FindPersonCommandParserTest {
 
         // one field
         List<Predicate<Person>> predicates = new ArrayList<>();
-        predicates.add(new PersonNameContainsKeywordsPredicate(Collections.singletonList(VALID_NAME_AMY)));
+        predicates.add(new PersonNameContainsKeywordsPredicate(parser.splitInput(VALID_NAME_AMY)));
         Command expectedFindPersonCommand = new FindPersonCommand(predicates);
         assertParseSuccess(parser, NAME_DESC_AMY, expectedFindPersonCommand);
 
         // multiple fields
         predicates = new ArrayList<>();
-        predicates.add(new PersonNameContainsKeywordsPredicate(Collections.singletonList(VALID_NAME_AMY)));
-        predicates.add(new PersonPhoneContainsKeywordsPredicate(Collections.singletonList(VALID_PHONE_AMY)));
-        predicates.add(new PersonEmailContainsKeywordsPredicate(Collections.singletonList(VALID_EMAIL_AMY)));
-        predicates.add(new PersonExperienceContainsKeywordsPredicate(Collections.singletonList(VALID_EXPERIENCE_AMY)));
+        predicates.add(new PersonNameContainsKeywordsPredicate(parser.splitInput(VALID_NAME_AMY)));
+        predicates.add(new PersonPhoneContainsKeywordsPredicate(parser.splitInput(VALID_PHONE_AMY)));
+        predicates.add(new PersonEmailContainsKeywordsPredicate(parser.splitInput(VALID_EMAIL_AMY)));
+        predicates.add(new PersonExperienceContainsKeywordsPredicate(parser.splitInput(VALID_EXPERIENCE_AMY)));
         expectedFindPersonCommand = new FindPersonCommand(predicates);
         assertParseSuccess(parser, NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY + EXPERIENCE_DESC_AMY,
                 expectedFindPersonCommand);
