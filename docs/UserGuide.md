@@ -266,6 +266,7 @@ Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIE
 :bulb: If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.
 
 **Examples:**
+
 :black_nib: To find for candidates with tag(s) containing the word “_developer_” and an expected salary of exactly _$4000_,
 
     find can t/developer sal/4000
@@ -287,6 +288,7 @@ Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
 :memo: For number fields (i.e. phone and vacancy), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.
 
 **Examples:**
+
 :black_nib: To find jobs with email containing “_@gmail.com_” and priority level _high_,
 
     find job e/@gmail.com pr/high
