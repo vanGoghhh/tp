@@ -1,14 +1,7 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_COMPANY_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_VACANCY;
+import static seedu.address.logic.parser.CliSyntax.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,36 +49,44 @@ public class FindJobCommandParser implements Parser<FindJobCommand> {
         }
 
         if (arePrefixesPresent(argMultimap, PREFIX_JOB_TITLE)) {
-            predicates.add(new JobJobTitleContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_JOB_TITLE).orElse(""))));
+            String jobTitle = argMultimap.getValue(PREFIX_JOB_TITLE).orElse("");
+            List<String> words = splitInput(jobTitle);
+            predicates.add(new JobJobTitleContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_COMPANY_NAME)) {
-            predicates.add(new JobCompanyNameContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_COMPANY_NAME).orElse(""))));
+            String company = argMultimap.getValue(PREFIX_COMPANY_NAME).orElse("");
+            List<String> words = splitInput(company);
+            predicates.add(new JobCompanyNameContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_PHONE)) {
-            predicates.add(new JobPhoneContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_PHONE).orElse(""))));
+            String phone = argMultimap.getValue(PREFIX_PHONE).orElse("");
+            List<String> words = splitInput(phone);
+            predicates.add(new JobPhoneContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_EMAIL)) {
-            predicates.add(new JobEmailContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_EMAIL).orElse(""))));
+            String email = argMultimap.getValue(PREFIX_EMAIL).orElse("");
+            List<String> words = splitInput(email);
+            predicates.add(new JobEmailContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_ADDRESS)) {
-            predicates.add(new JobAddressContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_ADDRESS).orElse(""))));
+            String address = argMultimap.getValue(PREFIX_ADDRESS).orElse("");
+            List<String> words = splitInput(address);
+            predicates.add(new JobAddressContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_TAG)) {
-            predicates.add(new JobTagsContainKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_TAG).orElse(""))));
+            String tag = argMultimap.getValue(PREFIX_TAG).orElse("");
+            List<String> words = splitInput(tag);
+            predicates.add(new JobTagsContainKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_PRIORITY)) {
-            predicates.add(new JobPriorityContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_PRIORITY).orElse(""))));
+            String priority = argMultimap.getValue(PREFIX_PRIORITY).orElse("");
+            List<String> words = splitInput(priority);
+            predicates.add(new JobPriorityContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_VACANCY)) {
-            predicates.add(new JobVacancyContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_VACANCY).orElse(""))));
+            String vacancy = argMultimap.getValue(PREFIX_VACANCY).orElse("");
+            List<String> words = splitInput(vacancy);
+            predicates.add(new JobVacancyContainsKeywordsPredicate(words));
         }
 
         return new FindJobCommand(predicates);
@@ -97,6 +98,18 @@ public class FindJobCommandParser implements Parser<FindJobCommand> {
      */
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
         return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
+    }
+
+    /**
+     * Splits a String into words.
+     * @param userInput User specified keyword for a field.
+     * @return a List containing the words.
+     */
+    public List<String> splitInput(String userInput) {
+        List<String> keywords = new ArrayList<>();
+        String[] words = userInput.split("\\s+");
+        Collections.addAll(keywords, words);
+        return keywords;
     }
 
 }
