@@ -50,7 +50,7 @@ app for job recruiters to manage job applicants and job listings.
 
 ame | mez
 --------|------------------------------------
-`Command` | abc
+**`Command`** | abc
 :sushi: | abc
 :memo: | abc
 :bulb: | abc

@@ -15,26 +15,8 @@ import seedu.address.commons.core.LogsCenter;
  */
 public class HelpWindow extends UiPart<Stage> {
 
-    public static final String GUIDE = "To add a candidate: add can\n" +
-            "To view the list of candidates: list can\n" +
-            "To edit an existing candidate: edit can\n" +
-            "To find candidates: find can\n" +
-            "To sort the candidates: sort can\n" +
-            "To delete an existing candidate: delete can\n" +
-            "To delete all candidates in the list: clear can\n" +
-            "-----------------------------------------------\n" +
-            "To add a job: add job\n" +
-            "To view the list of jobs: list job\n" +
-            "To edit an existing job: edit job\n" +
-            "To find jobs: find job\n" +
-            "To sort the jobs: sort job\n" +
-            "To delete an existing job: delete job\n" +
-            "To delete all jobs in the list: clear job\n" +
-            "-----------------------------------------\n" +
-            "To exit the program: exit\n" +
-            "If you need more help, ";
     public static final String USERGUIDE_URL = "https://tinyurl.com/candidatesUG";
-    public static final String HELP_MESSAGE = GUIDE + "refer to the user guide: " + USERGUIDE_URL;
+    public static final String HELP_MESSAGE = "Refer to the user guide: " + USERGUIDE_URL;
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
