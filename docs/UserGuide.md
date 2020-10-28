@@ -91,23 +91,23 @@ Name of input field   | How you can use them
 `YEARS_OF_EXPERIENCE` | Years of experience of the candidate in the relevant field one applied for.
 `DATE_OF_APPLICATION` | Date of job application submitted, in the format of DD-MM-YY
 `EXPECTED_SALARY`     | If a candidate expects a certain amount of salary, it can be specified using this field.
-`IS_BLACKLISTED`      | You may use this to blacklist candidates that are unresponsive, have poor attitude, etc. You can use this to sort or filter candidates. <div markdown="span" class="alert alert-primary"> :exclamation: This field only accepts 2 specific values: true or false.
+`IS_BLACKLISTED`      | You may use this to blacklist candidates that are unresponsive, have poor attitude, etc. You can use this to sort or filter candidates. <br> :exclamation: This field only accepts 2 specific values: true or false.
 `PROFILE_LINK`        | URL link to candidate profile or portfolio (e.g. LinkedIn or GitHub, etc.) to provide convenience for you to refer to their profile later on.
 `JOB_TYPE`            | You can include job type tags for candidates so that it will be easier to find candidates applying for similar jobs later on. For example, you can tag them according to the job industry.
 `JOB_TITLE`           | Title of a job position.
 `COMPANY_NAME`        | Name of the company for the job listing you are adding or editing.
 `VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.
-`PRIORITY`            | Job listings may be of different urgency levels. For better categorisation, you may specify the priority of a job listing.<div markdown="span" class="alert alert-primary"> :exclamation: This field only accepts 3 specific values: low, moderate or high.
+`PRIORITY`            | Job listings may be of different urgency levels. For better categorisation, you may specify the priority of a job listing.<br> :exclamation: This field only accepts 3 specific values: low, moderate or high.
 `JOB_DESCRIPTION`     | You can include job description tags for job listings to specify additional description for it. For example, you may wish to specify restrictions on the listing such as age or gender.
-`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by. <div markdown="span" class="alert alert-primary"> :exclamation: This field only takes in specific values described in the respective feature sections.
-`ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order. <div markdown="span" class="alert alert-primary"> :exclamation: This field only accepts 2 specific values: asc or desc.
+`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by. <br>:exclamation: This field only takes in specific values described in the respective feature sections.
+`ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order. :exclamation: This field only accepts 2 specific values: asc or desc.
 `INDEX`               | Index number of the candidate or job displayed in the list.
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick Start
 Can’t wait to start using CANdidates? This section guides you through the starting up process, so that you can proceed on to use the application for your own needs!
 
-1. Download the latest `candidates.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-3/tp/blob/master/docs).
+1. Download the latest `Candidates.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-3/tp/releases/tag/v1.3).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your CANdidates.
 
@@ -119,7 +119,9 @@ Can’t wait to start using CANdidates? This section guides you through the star
 
    * **`list can`** : Lists all candidates.
 
-   * **`add can`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/15-10-20` : Adds a candidate named 'John Doe' with phone number '98765432', email 'johnd@example.com', address 'John street, block 123, #01-01', years of experience '5' and date of application '15th October 2020' to the candidate list.
+   * **`add can`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/15-10-20` : 
+   Adds a candidate named _John Doe_ with phone number _98765432_, email _johnd<span>@</span>example.com_, 
+   address _John street, block 123, #01-01_, years of experience _5_ and date of application _15th October 2020_ to the candidate list.
 
    * **`delete can`**`3` : Deletes the 3rd candidate shown in the current candidate list.
 
@@ -185,12 +187,12 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 
 **Examples:**
 
-:black_nib: To add a candidates with name "_John Doe_", phone "_98765432_", email "_johnd@example.com_", address "_John street, block 123, #01-01_", job type "_DogGroomer_", with "_1_" year of experience who applied on "_16 October 2020_",
+:black_nib: To add a candidates with name _John Doe_, phone _98765432_, email _johnd<span>@</span>example.com_, address _John street, block 123, #01-01_, job type _DogGroomer_, with _1_ year of experience who applied on _16 October 2020_,
 
     add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 
     t/DogGroomer exp/1 doa/16-10-20
 
-:black_nib: To add a candidates with name "_Betsy Crowe_", email "_betsycrowe@example.com_", address "_NUS Temasek Hall_", phone "_92920033_",  job types "_HR_" and "_OfficeLady_", with "_5_" years of experience who applied on "_10 October 2020_", with profile link "_BetsyCrowe.com_", who will "_not be blacklisted_" with an expected salary of "_3000_",
+:black_nib: To add a candidates with name _Betsy Crowe_, email _betsycrowe<span>@</span>example.com_, address _NUS Temasek Hall_, phone _92920033_,  job types _HR_ and _OfficeLady_, with _5_ years of experience who applied on _10 October 2020_, with profile link _BetsyCrowe.com_, who will _not be blacklisted_ with an expected salary of _3000_,
 
     add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 
     t/HR t/OfficeLady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000
@@ -212,12 +214,12 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
 
 **Examples:**
 
-:black_nib: To add a job with job title "_Waiter_", company name "_Amelia’s Eating House_", phone "_98765432_", email "_ameliatjy@example.com_", address "_Amelia Street, Block 123, #01-01_", priority "_low_", job description "_MultipleLocations_" and with "_1_" vacancy,
+:black_nib: To add a job with job title _Waiter_, company name _Amelia’s Eating House_, phone _98765432_, email _ameliatjy<span>@</span>example.com_, address _Amelia Street, Block 123, #01-01_, priority _low_, job description _MultipleLocations_ and with _1_ vacancy,
 
     add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com 
     a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations v/1
 
-:black_nib: To add a job with job title "_Delivery Man_", company name "_FedEx_", email "_fedex@example.com_", address "_Joo Koon_",phone "_93333222_", priority "_high_", job descriptions "_delivery_" and "_west_", with "_1_" vacancy,
+:black_nib: To add a job with job title _Delivery Man_, company name _FedEx_, email _fedex<span>@</span>example.com_, address _Joo Koon_,phone _93333222_, priority _high_, job descriptions _delivery_ and _west_, with _1_ vacancy,
 
     add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222 
     pr/high t/delivery t/west v/10
@@ -252,42 +254,74 @@ Format: `list job`
 
 ### Editing a candidate: `edit can`
 
-Edits an existing candidate in the candidate list.
+If you would like to edit the details of a particular candidate, you can use the command below
 
-Format: `edit can INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…`
+Format: `edit can INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [doa/DATE_OF_APPLICATION] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
 
-* Edits the candidate at the specified `INDEX`. The index refers to the index number shown in the displayed candidate list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing job type tags, the existing tags of the candidate will be removed i.e adding of tags is not cumulative.
-* You can remove all the candidate’s tags by typing `t/` without
-    specifying any tags after it.
+<div markdown="span" class="alert alert-primary">
+
+:memo: *Edits the candidate at the specified* `INDEX`. The `INDEX` refers to the index number shown in the displayed candidate list. The `INDEX` must be a positive integer 1, 2, 3, …​
+<br>
+:memo: *Existing values will be updated to the input values.*
+<br>
+:memo: *At least one of the optional fields must be provided.*
+<br>
+:memo: *The blacklist input can be specified as* `bl/true` *or* `bl/false`.
+<br>
+:exclamation: *When editing the job type, the existing job types will be cleared and replaced, i.e editing of job types is not cumulative even though there can be multiple job types.*
+<br>
+:bulb: *Certain optional candidate fields can be cleared by typing their respective prefixes without specifying any value after them. 
+This works for the job type, address, expected salary and profile link fields. See the second example below for a demonstration.*
+
+</div>
 
 **Examples:**
 
-*  `edit 1 p/91234567 e/johndoe@example.com` <br>
-Edits the phone number and email address of the 1st candidate to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` <br>
-Edits the name of the 2nd candidate to be `Betsy Crower` and clears all existing tags.
+:black_nib: To edit the 1st candidate’s phone number, email and blacklist status to be _91234567_, _johndoe<span>@</span>example.com_ and _true_ respectively,
+
+
+    edit can 1 p/91234567 e/johndoe@example.com bl/true
+
+:black_nib: To edit the 2nd candidate and clear existing job types, address, expected salary and profile link,
+
+    edit can 2 t/ a/ sal/ link/ 
 
 ### Editing a job: `edit job`
 
-Edits an existing job in the job list.
+If you would like to edit the details of a particular job, you can use the command below
 
-Format: `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
+Format: `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
 
-* Edits the job at the specified `INDEX`. The index refers to the index number shown in the displayed job list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing job type tags, the existing tags of the job will be removed i.e adding of tags is not cumulative.
-* You can remove all the job’s tags by typing `t/` without specifying any tags after it.
-* Priority of job can be specified as low, moderate or high.
+<div markdown="span" class="alert alert-primary">
+
+:memo: *Edits the job at the specified* `INDEX`. The `INDEX` refers to the index number shown in the displayed job list. The `INDEX` must be a positive integer 1, 2, 3, …​
+<br>
+:memo: *Existing values will be updated to the input values.*
+<br>
+:memo: *At least one of the optional fields must be provided.*
+<br>
+:memo: *The priority input can be specified as* `pr/low`, `pr/moderate` *or* `pr/moderate`.
+<br>
+:exclamation: *When editing the job description, the existing job descriptions will be cleared and replaced, 
+i.e editing of job descriptions is not cumulative even though there can be multiple job descriptions.*
+<br>
+:bulb: *Existing job descriptions can be cleared by typing t/ without specifying any value after it. 
+See the second example below for a demonstration.*
+
+</div>
 
 **Examples:**
 
-*  `edit job 2 c/Dog Cafe p/82827731 a/Dog Street pr/high` <br>
-Edits the job company name, phone number, address and priority of
-the 2nd job to be Dog Cafe, 82827731, Dog Street and high respectively.
+:black_nib: To edit the 2nd job’s company name, phone number, vacancy and priority to be _Dog Cafe_, _82827731_, _3_ and _high_ respectively,
+
+
+    edit job 2 c/Dog Cafe p/82827731 v/3 pr/high
+
+:black_nib: To edit the 3rd job and clear existing job descriptions, 
+
+    edit job 3 t/
+
+
 
 ### Finding a candidate: `find can`
 
@@ -295,6 +329,7 @@ Too many candidates with different information? CANdidates provide you with a si
 
 Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
 
+<div markdown="span" class="alert alert-primary">
 :memo: The search is case insensitive, e.g. john will match John
 
 :memo: The order of the keywords does not matter, e.g. Doe John will match John Doe
@@ -302,6 +337,7 @@ Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIE
 :memo: For number fields (i.e. phone, years of experience and expected salary), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.
 
 :bulb: If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.
+</div>
 
 **Examples:**
 
@@ -319,11 +355,13 @@ Too many job listings with different information? Similar to the feature above, 
 
 Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
 
+<div markdown="span" class="alert alert-primary">
 :memo: The search is case insensitive, e.g. samsung will match Samsung
 
 :memo: The order of the keywords does not matter, e.g. King Burger will match Burger King
 
 :memo: For number fields (i.e. phone and vacancy), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.
+</div>
 
 **Examples:**
 
@@ -341,11 +379,13 @@ You can view all the candidates in the order you wish to by typing in your desir
 
 Format: `sort can type/FIELD_TO_SORT order/ORDER`
 
+<div markdown="span" class="alert alert-primary">
 :exclamation: Both the type and order input must be supplied if not the list of candidates would not be sorted successfully
 
 :memo: The type input must be one of  `type/exp`, `type/sal`, `type/bl` or `type/doa` depending on whether you wish to sort the candidates by their experience, expected salary, blacklist status or data of application respectively.
 
 :memo: The order input must be specified as either `order/asc` or `order/desc` depending on whether you wish the sorting to be done in an ascending or descending manner.
+</div>
 
 **Examples:**
 
@@ -367,11 +407,13 @@ Have too many job listings and need a way to organise them? You can get CANdidat
 
 Format: `sort job type/FIELD_TO_SORT order/ORDER`
 
+<div markdown="span" class="alert alert-primary">
 :memo: *The* `FIELD_TO_SORT` *can be either* `pr` *or* `v` *depending on whether you wish to sort the job listings by their priority level or number of vacancies.*
 
 :memo: *If you provide more than one* `FIELD_TO_SORT` *or* `ORDER` *, only the last one will be taken in as input e.g.* `sort job type/pr order/asc type/v order/desc` *will sort the job listings according to vacancies in descending order.* 
 
 :memo: *The* `ORDER` *can be either* `asc` *or* `desc` *depending on whether you wish the sorting to be done in an ascending or descending manner.*
+</div>
 
 **Examples:**
 
@@ -393,16 +435,29 @@ Step 3. The application will show the sorted job list based on the sort conditio
 
 ### Deleting a candidate: `delete can`
 
-Deletes the specified candidate from the candidate list.
+Have you successfully found a job for a candidate and you no longer need to keep his/her details in CANdidates? 
+To delete a particular candidate from the list, you can use the command below.
 
 Format: `delete can INDEX`
 
-* Deletes the candidate at the specified `INDEX`.
-* The index refers to the index number shown in the displayed candidate list.
-* The index **must be a positive integer** 1, 2, 3, …​
+<div markdown="span" class="alert alert-primary">
+
+:memo: *Deletes the candidate at the specified* `INDEX`. *The* `INDEX` *refers to the index number shown in the displayed job list. The* `INDEX` *must be a positive integer 1, 2, 3, …​*
+<br>
+:exclamation: *The specified candidate’s data will be cleared and this action is irreversible. 
+Please ensure you do not require the candidate’s data anymore before performing this command.*
+
+</div>
 
 **Examples:**
-* `list can` followed by `delete can 2` deletes the 2nd candidate in the candidate list.
+
+:black_nib: To delete the candidate at index _1_,
+
+    delete can 1
+
+:black_nib: To delete the candidate at index _3_,
+
+    delete can 3
 
 ### Deleting a job: `delete job`
 
@@ -410,24 +465,54 @@ Deletes the specified job from the job listing.
 
 Format: `delete job INDEX`
 
-* Deletes the job at the specified `INDEX`.
-* The index refers to the index number shown in the displayed candidate list.
-* The index **must be a positive integer** 1, 2, 3, …​
+<div markdown="span" class="alert alert-primary">
+
+:memo: *Deletes the job at the specified* `INDEX`. *The* `INDEX` *refers to the index number shown in the displayed job list. The* `INDEX` *must be a positive integer 1, 2, 3, …​*
+<br>
+:exclamation: *The specified job’s data will be cleared and this action is irreversible. 
+Please ensure you do not require the job’s data anymore before performing this command.*
+
+</div>
 
 **Examples:**
-* `list job` followed by `delete job2` deletes the 2nd job in the job list.
+
+:black_nib: To delete the job at index _1_,
+
+    delete job 1
+
+:black_nib: To delete the job at index _3_,
+
+    delete job 3
 
 ### Clearing all candidate entries: `clear can`
 
-Clears all entries from the candidate list.
+Want to clear all the candidates in the list quickly without having to delete one by one? Simply use the command below!
 
 Format: `clear can`
 
+<div markdown="span" class="alert alert-primary">
+
+:exclamation: *All candidate data will be cleared and this action is irreversible. 
+Please ensure you do not require the candidate list data anymore before performing this command.*
+<br>
+:bulb: *This command can be used to clear the sample data on CANdidates when you first downloaded it.*
+
+</div>
+
 ### Clearing all job entries: `clear job`
 
-Clears all entries from the job list.
+Want to clear all the jobs in the list quickly without having to delete one by one? Simply use the command below!
 
 Format: `clear job`
+
+<div markdown="span" class="alert alert-primary">
+
+:exclamation: *All job data will be cleared and this action is irreversible. 
+Please ensure you do not require the job list data anymore before performing this command.*
+<br>
+:bulb: *This command can be used to clear the sample data on CANdidates when you first downloaded it.*
+
+</div>
 
 ### Exiting the program : `exit`
 
