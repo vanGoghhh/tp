@@ -119,7 +119,9 @@ Can’t wait to start using CANdidates? This section guides you through the star
 
    * **`list can`** : Lists all candidates.
 
-   * **`add can`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/15-10-20` : Adds a candidate named 'John Doe' with phone number '98765432', email 'johnd@example.com', address 'John street, block 123, #01-01', years of experience '5' and date of application '15th October 2020' to the candidate list.
+   * **`add can`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/15-10-20` : 
+   Adds a candidate named _John Doe_ with phone number _98765432_, email _johnd<span>@</span>example.com_, 
+   address _John street, block 123, #01-01_, years of experience _5_ and date of application _15th October 2020_ to the candidate list.
 
    * **`delete can`**`3` : Deletes the 3rd candidate shown in the current candidate list.
 
