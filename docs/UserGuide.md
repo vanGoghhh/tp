@@ -158,20 +158,19 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 <br>
 :memo: *The date of application input must be in DD-MM-YY format. If the date of application is 31 December 2020, input* `doa/31-12-20`.
 </div>
-<br>
 
 **Examples:**
-****
+
 :black_nib: To add a candidates with name "_John Doe_", phone "_98765432_", email "_johnd@example.com_", address "_John street, block 123, #01-01_", job type "_DogGroomer_", with "_1_" year of experience who applied on "_16 October 2020_",
 
-    add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, 
+    add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123,
     #01-01 t/DogGroomer exp/1 doa/16-10-20
 
 :black_nib: To add a candidates with name "_Betsy Crowe_", email "_betsycrowe@example.com_", address "_NUS Temasek Hall_", phone "_92920033_",  job types "_HR_" and "_OfficeLady_", with "_5_" years of experience who applied on "_10 October 2020_", with profile link "_BetsyCrowe.com_", who will "_not be blacklisted_" with an expected salary of "_3000_",
 
     add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 
     t/HR t/OfficeLady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000
-****
+
 ### Adding a job listing: `add job`
 
 If you are informed of a job opening and you would like to add it in CANdidates, you can add him into the list using the command below.
@@ -186,10 +185,9 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
 <br>
 :memo: *If priority is not specified, it will be set to moderate by default.*
 </div>
-<br>
 
 **Examples:**
-****
+
 :black_nib: To add a job with job title "_Waiter_", company name "_Amelia’s Eating House_", phone "_98765432_", email "_ameliatjy@example.com_", address "_Amelia Street, Block 123, #01-01_", priority "_low_", job description "_MultipleLocations_" and with "_1_" vacancy,
 
     add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com 
@@ -199,7 +197,7 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
 
     add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222 
     pr/high t/delivery t/west v/10
-****
+
 ### Listing all candidates: `list can`
 
 To accurately reflect the latest changes of candidates in the application, you can refresh the list of candidates using the format below.
