@@ -163,8 +163,13 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 
 :black_nib: To add a candidates with name "_John Doe_", phone "_98765432_", email "_johnd@example.com_", address "_John street, block 123, #01-01_", job type "_DogGroomer_", with "_1_" year of experience who applied on "_16 October 2020_",
 
+<<<<<<< HEAD
     add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123,
     #01-01 t/DogGroomer exp/1 doa/16-10-20
+=======
+    add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 
+    t/DogGroomer exp/1 doa/16-10-20
+>>>>>>> 37132912d47674f79327e38338632aee4d0b01ef
 
 :black_nib: To add a candidates with name "_Betsy Crowe_", email "_betsycrowe@example.com_", address "_NUS Temasek Hall_", phone "_92920033_",  job types "_HR_" and "_OfficeLady_", with "_5_" years of experience who applied on "_10 October 2020_", with profile link "_BetsyCrowe.com_", who will "_not be blacklisted_" with an expected salary of "_3000_",
 
@@ -310,6 +315,32 @@ Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
 :black_nib: To find jobs with job titles containing the words “_Software Engineer_”,
 
     find job n/Software Engineer
+
+### Sorting all candidates: `sort can`
+
+You can view all the candidates in the order you wish to by typing in your desired order. Upon execution of the command, the sorted list of candidates would be displayed on the app!
+
+Format: `sort can type/FIELD_TO_SORT order/ORDER`
+
+:exclamation: Both the type and order input must be supplied if not the list of candidates would not be sorted successfully
+
+:memo: The type input must be one of  `type/exp`, `type/sal`, `type/bl` or `type/doa` depending on whether you wish to sort the candidates by their experience, expected salary, blacklist status or data of application respectively.
+
+:memo: The order input must be specified as either `order/asc` or `order/desc` depending on whether you wish the sorting to be done in an ascending or descending manner.
+
+**Examples:**
+
+:black_nib: To sort the list of candidates starting from the lowest number of years of experience,
+
+    sort can type/exp order/asc
+
+:black_nib: To sort the list of candidates starting from the most recent application date,
+
+    sort can type/doa order/desc
+
+:black_nib: To view all blacklisted candidates followed by non-blacklisted candidates,
+
+    sort can bl/desc
 
 ### Deleting a candidate: `delete can`
 
