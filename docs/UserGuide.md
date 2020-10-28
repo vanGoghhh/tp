@@ -163,13 +163,8 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 
 :black_nib: To add a candidates with name "_John Doe_", phone "_98765432_", email "_johnd@example.com_", address "_John street, block 123, #01-01_", job type "_DogGroomer_", with "_1_" year of experience who applied on "_16 October 2020_",
 
-<<<<<<< HEAD
-    add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123,
-    #01-01 t/DogGroomer exp/1 doa/16-10-20
-=======
     add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 
     t/DogGroomer exp/1 doa/16-10-20
->>>>>>> 37132912d47674f79327e38338632aee4d0b01ef
 
 :black_nib: To add a candidates with name "_Betsy Crowe_", email "_betsycrowe@example.com_", address "_NUS Temasek Hall_", phone "_92920033_",  job types "_HR_" and "_OfficeLady_", with "_5_" years of experience who applied on "_10 October 2020_", with profile link "_BetsyCrowe.com_", who will "_not be blacklisted_" with an expected salary of "_3000_",
 
