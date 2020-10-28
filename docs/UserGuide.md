@@ -185,12 +185,12 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 
 **Examples:**
 
-:black_nib: To add a candidates with name _John Doe_, phone _98765432_, email _johnd@example.com_, address _John street, block 123, #01-01_, job type _DogGroomer_, with _1_ year of experience who applied on _16 October 2020_,
+:black_nib: To add a candidates with name _John Doe_, phone _98765432_, email _johnd<span>@</span>example.com_, address _John street, block 123, #01-01_, job type _DogGroomer_, with _1_ year of experience who applied on _16 October 2020_,
 
     add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 
     t/DogGroomer exp/1 doa/16-10-20
 
-:black_nib: To add a candidates with name _Betsy Crowe_, email _betsycrowe@example.com_, address _NUS Temasek Hall_, phone _92920033_,  job types _HR_ and _OfficeLady_, with _5_ years of experience who applied on _10 October 2020_, with profile link _BetsyCrowe.com_, who will _not be blacklisted_ with an expected salary of _3000_,
+:black_nib: To add a candidates with name _Betsy Crowe_, email _betsycrowe<span>@</span>example.com_, address _NUS Temasek Hall_, phone _92920033_,  job types _HR_ and _OfficeLady_, with _5_ years of experience who applied on _10 October 2020_, with profile link _BetsyCrowe.com_, who will _not be blacklisted_ with an expected salary of _3000_,
 
     add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 
     t/HR t/OfficeLady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000
@@ -212,12 +212,12 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
 
 **Examples:**
 
-:black_nib: To add a job with job title _Waiter_, company name _Amelia’s Eating House_, phone _98765432_, email _ameliatjy@example.com_, address _Amelia Street, Block 123, #01-01_, priority _low_, job description _MultipleLocations_ and with _1_ vacancy,
+:black_nib: To add a job with job title _Waiter_, company name _Amelia’s Eating House_, phone _98765432_, email _ameliatjy<span>@</span>example.com_, address _Amelia Street, Block 123, #01-01_, priority _low_, job description _MultipleLocations_ and with _1_ vacancy,
 
     add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com 
     a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations v/1
 
-:black_nib: To add a job with job title _Delivery Man_, company name _FedEx_, email _fedex@example.com_, address _Joo Koon_,phone _93333222_, priority _high_, job descriptions _delivery_ and _west_, with _1_ vacancy,
+:black_nib: To add a job with job title _Delivery Man_, company name _FedEx_, email _fedex<span>@</span>example.com_, address _Joo Koon_,phone _93333222_, priority _high_, job descriptions _delivery_ and _west_, with _1_ vacancy,
 
     add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222 
     pr/high t/delivery t/west v/10
@@ -275,7 +275,7 @@ This works for the job type, address, expected salary and profile link fields. S
 
 **Examples:**
 
-:black_nib: To edit the 1st candidate’s phone number, email and blacklist status to be _91234567_, _johndoe@example.com_ and _true_ respectively,
+:black_nib: To edit the 1st candidate’s phone number, email and blacklist status to be _91234567_, _johndoe<span>@</span>example.com_ and _true_ respectively,
 
 
     edit can 1 p/91234567 e/johndoe@example.com bl/true
@@ -335,8 +335,8 @@ Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIE
 :memo: For number fields (i.e. phone, years of experience and expected salary), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.
 
 :bulb: If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.
-</div
->
+</div>
+
 **Examples:**
 
 :black_nib: To find for candidates with tag(s) containing the word “_developer_” and an expected salary of exactly _$4000_,
