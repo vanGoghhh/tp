@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.information.Person;
 
@@ -17,6 +19,8 @@ public class PersonListPanel extends UiPart<Region> {
     private static final String FXML = "PersonListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
 
+    public Person personClicked;
+
     @FXML
     private ListView<Person> personListView;
 
@@ -26,7 +30,35 @@ public class PersonListPanel extends UiPart<Region> {
     public PersonListPanel(ObservableList<Person> personList) {
         super(FXML);
         personListView.setItems(personList);
-        personListView.setCellFactory(listView -> new PersonListViewCell());
+        //personListView.setCellFactory(listView -> new PersonListViewCell());
+        personListView.setCellFactory(lv -> {
+            ListCell<Person> cell = new ListCell<Person>() {
+                @Override
+                protected void updateItem(Person person, boolean empty) {
+                    super.updateItem(person, empty);
+
+                    if (empty || person == null) {
+                        setGraphic(null);
+                        setText(null);
+                    } else {
+                        setGraphic(new PersonCard(person, getIndex()+1).getRoot());
+                    }
+                }
+            };
+            cell.setOnMouseClicked(e -> {
+                if (!cell.isEmpty()) {
+                    personClicked = cell.getItem();
+                    cellClicked();
+                    e.consume();
+                }
+            });
+            return cell;
+        });
+
+    };
+
+    private void cellClicked() {
+        PersonDetailedView personDetailedView = new PersonDetailedView(personClicked);
     }
 
     /**
@@ -44,5 +76,6 @@ public class PersonListPanel extends UiPart<Region> {
                 setGraphic(new PersonCard(person, getIndex() + 1).getRoot());
             }
         }
+
     }
 }

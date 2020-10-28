@@ -16,6 +16,7 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.information.Person;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -56,6 +57,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane jobListPanelPlaceholder;
+
+    @FXML
+    public static StackPane detailedViewPlaceholder;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -129,6 +133,7 @@ public class MainWindow extends UiPart<Stage> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+
     }
 
     /**
@@ -141,6 +146,11 @@ public class MainWindow extends UiPart<Stage> {
             primaryStage.setX(guiSettings.getWindowCoordinates().getX());
             primaryStage.setY(guiSettings.getWindowCoordinates().getY());
         }
+    }
+
+    @FXML
+    public static void handleCellClicked(Person person) {
+
     }
 
     /**
