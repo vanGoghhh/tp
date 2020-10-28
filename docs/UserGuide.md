@@ -6,34 +6,85 @@ title: User Guide
 CANdidates is a powerful and optimized contact management
 app for job recruiters to manage job applicants and job listings.
 
-## Table of Contents
+## CANdidates User Guide
 
-* [Quick start](#quick-start)
-* [Features](#features)
-     * [Viewing help: help](#viewing-help-help)
-     * [Adding a candidate: add can](#adding-a-candidate-coming-soon-add-can)
-     * [Adding a job listing: add job](#adding-a-job-listing-coming-soon-add-job)
-     * [Listing all candidates: list can](#listing-all-candidates-coming-soon-list-can)
-     * [Listing all jobs: list job](#listing-all-jobs-coming-soon-list-job)
-     * [Editing a candidate: edit can](#editing-a-candidate-coming-soon-edit-can)
-     * [Editing a job: edit job](#editing-a-job-coming-soon-edit-job)
-     * [Deleting a candidate: delete can](#deleting-a-candidate-coming-soon-delete-can)
-     * [Deleting a job: delete job](#deleting-a-job-coming-soon-delete-job)
-     * [Clearing all candidate entries: clear can](#clearing-all-candidate-entries-coming-soon-clear-can)
-     * [Clearing all job entries: clear job](#clearing-all-job-entries-coming-soon-clear-job)
-     * [Exiting the program : exit](#exiting-the-program--exit)
-     * [Saving the data](#saving-the-data)
-* [FAQ](#faq)
-* [Command summary](#command-summary)
+1. [Introduction](#introduction)
+     1. [Author](#authors)
+1. [Preface](#preface)
+     1. [Understanding Symbols](#understanding-symbols)
+     1. [Understanding Input Fields](#understanding-input-fields)
+2. [Quick start](#quick-start)
+1. [Features](#features)
+     1. [Viewing help: help](#viewing-help-help)
+     1. [Adding a candidate: add can](#adding-a-candidate-add-can)
+     1. [Adding a job listing: add job](#adding-a-job-listing-add-job)
+     1. [Listing all candidates: list can](#listing-all-candidates-list-can)
+     1. [Listing all jobs: list job](#listing-all-jobs-list-job)
+     1. [Editing a candidate: edit can](#editing-a-candidate-edit-can)
+     1. [Editing a job: edit job](#editing-a-job-edit-job)
+     1. [Finding a candidate: find can](#finding-a-candidate-find-can)
+     1. [Finding a job: find job](#finding-a-job-find-job)
+     1. [Sorting all candidates: sort can](#sorting-all-candidates-sort-can)
+     1. [Sorting all jobs: sort job](#sorting-all-jobs-sort-job)
+     1. [Deleting a candidate: delete can](#deleting-a-candidate-delete-can)
+     1. [Deleting a job: delete job](#deleting-a-job-delete-job)
+     1. [Clearing all candidate entries: clear can](#clearing-all-candidate-entries-clear-can)
+     1. [Clearing all job entries: clear job](#clearing-all-job-entries-clear-job)
+     1. [Exiting the program : exit](#exiting-the-program--exit)
+     1. [Saving the data](#saving-the-data)
+1. [FAQ](#faq)
+1. [Command summary](#command-summary)
+1. [Glossary](#glossary)
 
+--------------------------------------------------------------------------------------------------------------------
+
+## Introduction
+CANdidates is a powerful and optimized contact management app for job recruiters to manage job candidates and job listings. A key strength of CANdidates is its convenience and ease of managing all job-related contacts in a single application.
+
+This user guide explains the functions and features of CANdidates. The target readers of this document are new users of the CANdidates application. A glossary is provided at the end of this document to help you understand certain terms.
+
+### Authors
+CANdidates is developed as part of a NUS CS2103T Project by:
+
+* [Amelia Tan Jin Yu](team/ameliatjy.md)
+* [Lee Joon Jie](team/breadpeanutbutter.md)
+* [Nigel Ng Yong Sheng](team/vangoghhh.md)
+* [Tan Yu Ting, Germaine](team/g-erm.md)
+* [Toh Hong Xian](team/raythx98.md)
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Preface
+For a smoother start to your usage of CANdidates, read this section to find out how this document is structured, how to navigate the document, and what all the symbols and special fonts mean.
+
+### Understanding Symbols
+
+Symbols/Font  | Explanation
+--------------|------------------------------------
+**`Command`** | A grey highlight means that you can type the words into CANdidates and it will start performing tasks.
+:sushi:       | Food for thought.
+:black_nib:   | This gives an example of how to use the feature.
+:memo:        | This gives additional comments on the feature being explained.
+:bulb:        | There are additional tips that you can make use of when using the explained feature.
+:exclamation: | These are precautions you need to take note of when using the application.
+
+### Understanding Input Fields
+
+germ | sie
+--------|------------------------------------
+`Field` | `add can n/NAME p/PHONE_NUMBER e/EMAIL`
+`Field` | `clear can`
+`Field` | `delete can INDEX`
+`Field` | `edit can INDEX [n/NA`
+`Field` | `list can`
+`Field` | `help`
+`Field` | `exit`
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick start
 
-1. Ensure you have Java `11` or above installed in your Computer.
-
-1. Download the latest `candidates.jar` from [here]() [coming soon].
+1. Download the latest `candidates.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-3/tp/blob/master/docs).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your CANdidates.
 
@@ -55,13 +106,20 @@ app for job recruiters to manage job applicants and job listings.
 
 1. Refer to the [Features](#features) below for details of each command.
 
+<div markdown="span" class="alert alert-primary">
+:exclamation: Ensure you have Java 11 or above installed in your Computer.
+
+:bulb: If you are confused with the various input fields, refer to [Understanding Input Fields](#understanding-input-fields).
+</div>
+<br>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Features
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Notes about the command format:**<br>
+**:memo: Notes about the command format:**<br>
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
@@ -69,71 +127,92 @@ app for job recruiters to manage job applicants and job listings.
 * Items in square brackets are optional.<br>
   e.g `n/NAME [t/JOB_TYPE]` can be used as `n/John Doe t/programmer` or as `n/John Doe`.
 
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/JOB_TYPE]…​` can be used as ` ` (i.e. 0 times), `t/accountant`, `t/programmer t/technician` etc.
+* Items with `…` after them can be used multiple times including zero times.<br>
+  e.g. `[t/JOB_TYPE]…` can be used as ` ` (i.e. 0 times), `t/accountant` (i.e. 1 time), `t/programmer t/technician` (i.e. 2 times) etc.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
+*:bulb: If you are confused with the various input fields, refer to [Understanding Input Fields](#understanding-input-fields).*
 </div>
 
 ### Viewing help: `help`
 
-Shows a message explaining how to access the help page.
+If you are unsure of how to use the application, we have a help function that will direct you to our user guide! The user guide can also be found [here](https://tinyurl.com/candidatesUG).
 
 ![help message](images/helpMessage.png)
 
 Format: `help`
 
-
 ### Adding a candidate: `add can`
 
-Adds a candidate to the candidate list.
+If you have a new candidate who approached you and you would like to put him in CANdidates, you can add him into the list using the command below.
 
 Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]…​ [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A candidate can have any number of job type tags (including 0)
+<div markdown="span" class="alert alert-primary">
+
+:bulb: *A candidate can have 0 or more job type(s)*.
+
+:memo: *The blacklist input can be specified as* `bl/true` *or* `false`.
+
+:memo: *The date of application input must be in DD-MM-YY format. If the date of application is 31 December 2020, input* `doa/31-12-20`.
 </div>
 <br>
-Examples:
 
-* `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/Dog Groomer exp/1 doa/16-10-20`
-* `add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 t/HR t/Office Lady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000`
+**Examples:**
+
+* `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/DogGroomer exp/1 doa/16-10-20`
+* `add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 t/HR t/OfficeLady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000`
 
 ### Adding a job listing: `add job`
 
-Adds a job to the job listings.
+If you are informed of a job opening and you would like to add it in CANdidates, you can add him into the list using the command below.
 
 Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
 
-* Priority can be specified as low, moderate or high.
-* Priority is an optional field and default priority for jobs is moderate unless specified otherwise.
+<div markdown="span" class="alert alert-primary">
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A priority is an optional field that is moderate by default, it can be specified as low, moderate or high
+:bulb: *A job can have 0 or more job description(s).*
+
+:memo: *The priority input can be specified as* `pr/low`, `pr/moderate` *or* `pr/high`.
+
+:memo: *If priority is not specified, it will be set to moderate by default.*
 </div>
 <br>
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A job can have any number of job description tags (including 0)
-</div>
-<br>
-Examples:
+
+**Examples:**
 
 * `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations v/1`
 * `add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222 pr/high t/delivery t/west v/10`
 
 ### Listing all candidates: `list can`
 
-Shows a list of all candidates in the candidates listing.
+To accurately reflect the latest changes of candidates in the application, you can refresh the list of candidates using the format below.
 
 Format: `list can`
 
+<div markdown="span" class="alert alert-primary">
+
+:exclamation: *On the application, be sure to click on the “Candidates” tab to view the list of candidates.*
+
+:bulb: *This command is usually used after a* [sort can](#sorting-all-candidates-sort-can) *command.*
+</div>
+<br>
+
 ### Listing all jobs: `list job`
 
-Shows a list of all jobs in the jobs listing.
+To accurately reflect the latest changes of jobs in the application, you can refresh the job listings using the format below.
 
 Format: `list job`
+
+<div markdown="span" class="alert alert-primary">
+
+:exclamation: *On the application, be sure to click on the “Jobs” tab to view the job listings.*
+
+:bulb: *This command is usually used after a* [sort job](#sorting-all-jobs-sort-job) *command.*
+</div>
+<br>
 
 ### Editing a candidate: `edit can`
 
@@ -148,7 +227,7 @@ Format: `edit can INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…
 * You can remove all the candidate’s tags by typing `t/` without
     specifying any tags after it.
 
-Examples:
+**Examples:**
 
 *  `edit 1 p/91234567 e/johndoe@example.com` <br>
 Edits the phone number and email address of the 1st candidate to be `91234567` and `johndoe@example.com` respectively.
@@ -168,11 +247,57 @@ Format: `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/AD
 * You can remove all the job’s tags by typing `t/` without specifying any tags after it.
 * Priority of job can be specified as low, moderate or high.
 
-Examples:
+**Examples:**
 
 *  `edit job 2 c/Dog Cafe p/82827731 a/Dog Street pr/high` <br>
 Edits the job company name, phone number, address and priority of
 the 2nd job to be Dog Cafe, 82827731, Dog Street and high respectively.
+
+### Finding a candidate: `find can`
+
+Too many candidates with different information? CANdidates provide you with a simple and quick way for you to find candidates who fulfil certain criteria(s) or even a specific candidate from the long list. All you have to do is tell CANdidates the field you are interested in, along with the keyword you are looking for!
+
+Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
+
+:memo: The search is case insensitive, e.g. john will match John
+
+:memo: The order of the keywords does not matter, e.g. Doe John will match John Doe
+
+:memo: For number fields (i.e. phone, years of experience and expected salary), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.
+
+:bulb: If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.
+
+**Examples:**
+
+:black_nib: To find for candidates with tag(s) containing the word “_developer_” and an expected salary of exactly _$4000_,
+
+    find can t/developer sal/4000
+
+:black_nib: To find for _blacklisted_ candidates
+
+    find can bl/true
+
+### Finding a job: `find job`
+
+Too many job listings with different information? Similar to the feature above, you can also find job listings by inserting keywords for the fields you are looking for!
+
+Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
+
+:memo: The search is case insensitive, e.g. samsung will match Samsung
+
+:memo: The order of the keywords does not matter, e.g. King Burger will match Burger King
+
+:memo: For number fields (i.e. phone and vacancy), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.
+
+**Examples:**
+
+:black_nib: To find jobs with email containing “_@gmail.com_” and priority level _high_,
+
+    find job e/@gmail.com pr/high
+
+:black_nib: To find jobs with job titles containing the words “_Software Engineer_”,
+
+    find job n/Software Engineer
 
 ### Deleting a candidate: `delete can`
 
@@ -184,7 +309,7 @@ Format: `delete can INDEX`
 * The index refers to the index number shown in the displayed candidate list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
-Examples:
+**Examples:**
 * `list can` followed by `delete can 2` deletes the 2nd candidate in the candidate list.
 
 ### Deleting a job: `delete job`
@@ -197,7 +322,7 @@ Format: `delete job INDEX`
 * The index refers to the index number shown in the displayed candidate list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
-Examples:
+**Examples:**
 * `list job` followed by `delete job2` deletes the 2nd job in the job list.
 
 ### Clearing all candidate entries: `clear can`
@@ -242,12 +367,14 @@ All data is saved in the hard disk automatically after any command that changes 
 
 Action | Candidate Format | Job Format
 --------|------------------|------------------
-**Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]…​ [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]` | `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
-**Clear** | `clear can` | `clear job`
-**Delete** | `delete can INDEX` | `delete job INDEX`
-**Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/JOB_TYPE]…​` | `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [t/JOB_DESCRIPTION]…​`
-**List** | `list can` | `list job`
 **Help** | `help` | `help`
+**Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]… [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]` | `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
+**List** | `list can` | `list job`
+**Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [doa/DATE_OF_APPLICATION] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
+**Find** | `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/BLACKLIST] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
+**Sort**||
+**Delete** | `delete can INDEX` | `delete job INDEX`
+**Clear** | `clear can` | `clear job`
 **Exit** | `exit` | `exit`
 
 --------------------------------------------------------------------------------------------------------------------
@@ -263,3 +390,5 @@ Terms | Explanation
 **Hard disk** | Storage of information in a computer.
 **Repository** | Online container where your code can be stored, contributed to and managed over time.
 **Pull Request** | Formal request to merge one’s code into a larger codebase.
+**Bug** | A software bug is an error, flaw or fault in a computer program or system that causes it to produce an incorrect or unexpected result, or to behave in unintended ways.
+**Developer's Guide** | A guide that includes extensive guidance and reference materials to aid the developer in creating applications and extensions 
