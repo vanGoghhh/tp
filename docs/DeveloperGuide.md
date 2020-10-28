@@ -2,8 +2,47 @@
 layout: page
 title: Developer Guide
 ---
-* Table of Contents
-{:toc}
+CANdidates is an open source, brownfield project on the existing [Address book
+ Level-3](https://se-education.org/addressbook-level3/). If you are ready to
+ contribute to this [project](https://github.com/AY2021S1-CS2103T-T17-3/tp),
+ create a pull request [here](https://github.com/AY2021S1-CS2103T-T17-3/tp/pulls).
+
+## CANdidates User Guide
+
+1. [Setting up, getting started](#setting-up-getting-started)
+1. [Design](#design)
+     1. [Architecture](#architecture)
+     1. [User Interface](#ui-component)
+     1. [Logic](#logic-component)
+     1. [Model](#model-component)
+     1. [Storage](#storage-component)
+     1. [Common Classes](#common-classes)
+1. [Implementation](#implementation)
+     1. [Add feature](#implemented-add-feature)
+     1. [Edit feature](#implemented-edit-feature)
+     1. [List feature](#implemented-list-feature)
+     1. [Sort feature](#implemented-sort-feature)
+     1. [Find feature](#implemented-find-feature)
+1. [Proposed features](#proposed-features)
+     1. [Undo/Redo feature](#proposed-undoredo-feature)
+         1. [Proposed Implementation](#proposed-implementation)
+         1. [Design Consideration](#design-consideration)
+             1. [How it executes](#aspect-how-undo--redo-executes)
+     1. [Data Archiving](#proposed-data-archiving)
+1. [Documentation, Logging, Testing, Configuration, Dev-Ops](#documentation-logging-testing-configuration-dev-ops)
+1. [Appendix: Requirements](#appendix-requirements)
+     1. [Product Scope](#product-scope)
+     1. [User Stories](#user-stories)
+     1. [Use Cases](#use-cases)
+         1. [Delete a Candidate](#use-case-delete-a-candidate)
+         1. [Add a Candidate](#use-case-add-a-candidate)
+         1. [Edit a Candidate](#use-case-edit-a-candidate)
+         1. [Clear all Candidates](#use-case-clear-all-entries)
+     1. [Non-Functional Requirements](#non-functional-requirements)
+     1. [Glossary](#glossary)
+1. [Appendix: Instructions for Manual Testing](#appendix-instructions-for-manual-testing)
+     1. [Launch and Shutdown](#launch-and-shutdown)
+     1. [Deleting a Person](#deleting-a-person)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -177,65 +216,6 @@ The following sequence diagram shows how the `add can` operation works in the sc
 
 The sequence diagram for a `add job` operation is mostly similar, with `AddJobCommandParser`, `AddJobCommand`, `hasJob`, `addJob`, `saveJobAddressBook` and `JobAddressBook`.
 
-
-### \[Implemented] Sort Candidates feature
-
-The implemented sort mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `SortedList`, which is a subclass of `ObservableList`.
-Additionally, it implements the following operations:
-
-*`ModelManager#updateSortedPersonList(Comparator<Person> comp)` —  Sorts the current SortedList of persons using the supplied comparator.
-
-Given below is an example usage scenario and how the sort mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `SortedList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
-
-Step 2. The user executes `sort can exp/asc` to sort the candidates by their `Experience` in ascending order. If the comparator field e.g. `exp` or the order e.g `asc` is missing, `SortPersonCommandParser` throws an error message.
-
-Step 3. The user executes `sort can exp/asc` to sort the candidates by their `Experience` in ascending order. A `PersonExperienceComparator` is created from parsing the command and a `SortPersonCommand` object is created. In the `SortPersonCommand#execute` the method `ModelManager#updateSortedPersonList(PersonExperienceComparator)` is invoked and the `SortedList` is sorted using the `PersonExperienceComparator`. The `UniquePersonList` in `personAddressBook` is then set to be the `SortedList`.
-
-![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png)
-
-### \[Implemented] Find feature
-
-The implemented find mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
-Additionally, it implements the following operations:
-
-*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
-
-Given below is an example usage scenario and how the find mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
-
-Step 2. The user executes `find can n/John` to find candidates with the `Name` John.
-
-Step 3. A `PersonNameContainsKeywordsPredicate`, which is a subclass of `Predicate` is created from parsing the command and a `FindCommand` object is created. In the `FindCommand#execute` the method `ModelManager#updateFilteredPersonList(PersonNameContainsKeywordsPredicate)` is invoked and the `FilteredList` is filtered using the `PersonNameContainsKeywordsPredicate`.
-
-The following sequence diagram shows how the find operation works in the scenario described above:
-
-![FindSequenceDiagram](images/FindSequenceDiagram.png)
-
-The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
-
-### \[Implemented] List Job feature
-
-The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
-Additionally, it implements the following operations:
-
-*`ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
-
-Given below is an example usage scenario and how the list mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniqueJobList` from `jobAddressBook` which contains a list of jobs.
-
-Step 2. The user executes `list job` to list all jobs.
-
-Step 3. A `ListJobCommand` object is created from parsing the command. In the `ListJobCommand#execute` the method `ModelManager#updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS)` is invoked 
-and the `FilteredList` shows all jobs in the list as indicated by the given predicate.
-
-The following sequence diagram shows how the find operation works in the scenario described above:
-
-![ListSequenceDiagram](images/ListSequenceDiagram.png)
-
 ### \[Implemented] Edit feature
 
 The Edit feature has two variants, one for editing candidates (`edit can`) and one for editing jobs (`edit job`) . We will illustrate this feature using only the candidates variant here
@@ -267,6 +247,65 @@ The following sequence diagram shows how the edit operation works in the scenari
 
 A `edit job` command works similarly for Jobs but with the analogous EditJobDescriptor, EditJobCommand, JobAddressBook etc. classes.
 
+### \[Implemented] List feature
+
+The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
+Additionally, it implements the following operations:
+
+*`ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
+
+Given below is an example usage scenario and how the list mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniqueJobList` from `jobAddressBook` which contains a list of jobs.
+
+Step 2. The user executes `list job` to list all jobs.
+
+Step 3. A `ListJobCommand` object is created from parsing the command. In the `ListJobCommand#execute` the method `ModelManager#updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS)` is invoked 
+and the `FilteredList` shows all jobs in the list as indicated by the given predicate.
+
+The following sequence diagram shows how the find operation works in the scenario described above:
+
+![ListSequenceDiagram](images/ListSequenceDiagram.png)
+
+### \[Implemented] Sort feature
+
+The implemented sort mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `SortedList`, which is a subclass of `ObservableList`.
+Additionally, it implements the following operations:
+
+* `ModelManager#updateSortedPersonList(Comparator<Person> comp)` —  Sorts the current SortedList of persons using the supplied comparator.
+
+Given below is an example usage scenario and how the sort mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `SortedList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
+
+Step 2. The user executes `sort can type/exp order/asc` to sort the candidates by their `Experience` in ascending order. If the `type` of comparator field e.g. `exp` or the `order` e.g `asc` is missing, `SortPersonCommandParser` throws an error message.
+
+Step 3. A `PersonExperienceComparator` is created from parsing the command and a `SortPersonCommand` object is created. In the `SortPersonCommand#execute` the method `ModelManager#updateSortedPersonList(PersonExperienceComparator)` is invoked and the `SortedList` is sorted using the `PersonExperienceComparator`. The `UniquePersonList` in `personAddressBook` is then set to be the `SortedList`.
+
+![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png)
+
+### \[Implemented] Find feature
+
+The implemented find mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
+Additionally, it implements the following operations:
+
+*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+
+Given below is an example usage scenario and how the find mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
+
+Step 2. The user executes `find can n/John` to find candidates with the `Name` John.
+
+Step 3. A `PersonNameContainsKeywordsPredicate`, which is a subclass of `Predicate` is created from parsing the command and a `FindCommand` object is created. In the `FindCommand#execute` the method `ModelManager#updateFilteredPersonList(PersonNameContainsKeywordsPredicate)` is invoked and the `FilteredList` is filtered using the `PersonNameContainsKeywordsPredicate`.
+
+The following sequence diagram shows how the find operation works in the scenario described above:
+
+![FindSequenceDiagram](images/FindSequenceDiagram.png)
+
+The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
+
+## Proposed Features
 
 ### \[Proposed\] Undo/redo feature
 
@@ -421,7 +460,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `CANdidates` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a candidate**
+#### **Use case: Delete a candidate**
 
 **MSS**
 
@@ -445,7 +484,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case resumes at step 2.
 
 
-**Use case: Add a candidate**
+#### **Use case: Add a candidate**
 
 **MSS**
 
@@ -469,7 +508,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-**Use case: Edit a candidate**
+#### **Use case: Edit a candidate**
 
 **MSS**
 
@@ -499,7 +538,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case resumes at step 2.
 
 
-**Use case: Clear all entries**
+#### **Use case: Clear all entries**
 
 **MSS**
 

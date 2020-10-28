@@ -3,7 +3,6 @@ package seedu.address.model.information.predicate;
 import java.util.List;
 import java.util.function.Predicate;
 
-import seedu.address.commons.util.StringUtil;
 import seedu.address.model.information.Person;
 
 /**
@@ -19,7 +18,7 @@ public class PersonExperienceContainsKeywordsPredicate implements Predicate<Pers
     @Override
     public boolean test(Person person) {
         return keywords.stream()
-                .allMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getExperience().value, keyword));
+                .allMatch(keyword -> person.getExperience().experienceInYears == Float.parseFloat(keyword));
     }
 
     @Override

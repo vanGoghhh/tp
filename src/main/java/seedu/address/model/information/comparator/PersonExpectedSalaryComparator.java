@@ -27,4 +27,9 @@ public class PersonExpectedSalaryComparator extends PersonComparator implements 
             return 0;
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return this == other || other instanceof PersonExpectedSalaryComparator;
+    }
 }

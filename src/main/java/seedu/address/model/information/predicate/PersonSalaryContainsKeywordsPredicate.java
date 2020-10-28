@@ -3,7 +3,6 @@ package seedu.address.model.information.predicate;
 import java.util.List;
 import java.util.function.Predicate;
 
-import seedu.address.commons.util.StringUtil;
 import seedu.address.model.information.Person;
 
 /**
@@ -20,9 +19,9 @@ public class PersonSalaryContainsKeywordsPredicate implements Predicate<Person> 
     public boolean test(Person person) {
         assert keywords.stream().allMatch(keyword -> Double.parseDouble(keyword) >= 0) : "invalid salary";
         return keywords.stream()
-                // Salary matches keyword
+                // Salary value matches keyword
                 .allMatch(keyword -> person.getSalaryOptional()
-                        .filter(salary -> StringUtil.containsWordIgnoreCase(salary.toString(), keyword))
+                        .filter(salary -> salary.salary == Double.parseDouble(keyword))
                         .isPresent());
     }
 

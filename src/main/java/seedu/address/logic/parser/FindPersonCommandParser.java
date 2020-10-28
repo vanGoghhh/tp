@@ -12,11 +12,12 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_SALARY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_URL_LINK;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import seedu.address.logic.commands.AddJobCommand;
 import seedu.address.logic.commands.FindPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.information.Person;
@@ -42,7 +43,7 @@ public class FindPersonCommandParser implements Parser<FindPersonCommand> {
      */
     public FindPersonCommand parse(String args) throws ParseException {
 
-        Predicate<Person> predicate = unused -> true;
+        List<Predicate<Person>> predicates = new ArrayList<>();
 
         String trimmedArgs = args.trim();
         if (trimmedArgs.isEmpty()) {
@@ -56,51 +57,61 @@ public class FindPersonCommandParser implements Parser<FindPersonCommand> {
                         PREFIX_URL_LINK, PREFIX_TAG);
 
         if (!argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddJobCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
         }
 
         if (arePrefixesPresent(argMultimap, PREFIX_NAME)) {
-            predicate = predicate.and(new PersonNameContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_NAME).get())));
+            String name = argMultimap.getValue(PREFIX_NAME).get();
+            List<String> words = splitInput(name);
+            predicates.add(new PersonNameContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_PHONE)) {
-            predicate = predicate.and(new PersonPhoneContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_PHONE).get())));
+            String phone = argMultimap.getValue(PREFIX_PHONE).get();
+            List<String> words = splitInput(phone);
+            predicates.add(new PersonPhoneContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_EMAIL)) {
-            predicate = predicate.and(new PersonEmailContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_EMAIL).get())));
+            String email = argMultimap.getValue(PREFIX_EMAIL).get();
+            List<String> words = splitInput(email);
+            predicates.add(new PersonEmailContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_ADDRESS)) {
-            predicate = predicate.and(new PersonAddressContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_ADDRESS).get())));
+            String address = argMultimap.getValue(PREFIX_ADDRESS).get();
+            List<String> words = splitInput(address);
+            predicates.add(new PersonAddressContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_EXPERIENCE)) {
-            predicate = predicate.and(new PersonExperienceContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_EXPERIENCE).get())));
+            String experience = argMultimap.getValue(PREFIX_EXPERIENCE).get();
+            List<String> words = splitInput(experience);
+            predicates.add(new PersonExperienceContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_DATE_OF_APPLICATION)) {
-            predicate = predicate.and(new PersonApplicationContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_DATE_OF_APPLICATION).get())));
+            String dateOfApplication = argMultimap.getValue(PREFIX_DATE_OF_APPLICATION).get();
+            List<String> words = splitInput(dateOfApplication);
+            predicates.add(new PersonApplicationContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_SALARY)) {
-            predicate = predicate.and(new PersonSalaryContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_SALARY).get())));
+            String salary = argMultimap.getValue(PREFIX_SALARY).get();
+            List<String> words = splitInput(salary);
+            predicates.add(new PersonSalaryContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_BLACKLIST)) {
-            predicate = predicate.and(new PersonBlacklistContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_BLACKLIST).get())));
+            String blacklist = argMultimap.getValue(PREFIX_BLACKLIST).get();
+            List<String> words = splitInput(blacklist);
+            predicates.add(new PersonBlacklistContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_URL_LINK)) {
-            predicate = predicate.and(new PersonUrlLinkContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_URL_LINK).get())));
+            String url = argMultimap.getValue(PREFIX_URL_LINK).get();
+            List<String> words = splitInput(url);
+            predicates.add(new PersonUrlLinkContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_TAG)) {
-            predicate = predicate.and(new PersonTagsContainKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_TAG).get())));
+            String tag = argMultimap.getValue(PREFIX_TAG).get();
+            List<String> words = splitInput(tag);
+            predicates.add(new PersonTagsContainKeywordsPredicate(words));
         }
 
-        return new FindPersonCommand(predicate);
+        return new FindPersonCommand(predicates);
     }
 
     /**
@@ -109,6 +120,18 @@ public class FindPersonCommandParser implements Parser<FindPersonCommand> {
      */
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
         return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
+    }
+
+    /**
+     * Splits a String into words.
+     * @param userInput User specified keyword for a field.
+     * @return a List containing the words.
+     */
+    public List<String> splitInput(String userInput) {
+        List<String> keywords = new ArrayList<>();
+        String[] words = userInput.split("\\s+");
+        Collections.addAll(keywords, words);
+        return keywords;
     }
 
 }
