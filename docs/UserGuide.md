@@ -311,6 +311,32 @@ Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
 
     find job n/Software Engineer
 
+### Sorting all candidates: `sort can`
+
+You can view all the candidates in the order you wish to by typing in your desired order. Upon execution of the command, the sorted list of candidates would be displayed on the app!
+
+Format: `sort can type/FIELD_TO_SORT order/ORDER`
+
+:exclamation: Both the type and order input must be supplied if not the list of candidates would not be sorted successfully
+
+:memo: The type input must be one of  `type/exp`, `type/sal`, `type/bl` or `type/doa` depending on whether you wish to sort the candidates by their experience, expected salary, blacklist status or data of application respectively.
+
+:memo: The order input must be specified as either `order/asc` or `order/desc` depending on whether you wish the sorting to be done in an ascending or descending manner.
+
+**Examples:**
+
+:black_nib: To sort the list of candidates starting from the lowest number of years of experience,
+
+    sort can type/exp order/asc
+
+:black_nib: To sort the list of candidates starting from the most recent application date,
+
+    sort can type/doa order/desc
+
+:black_nib: To view all blacklisted candidates followed by non-blacklisted candidates,
+
+    sort can bl/desc
+
 ### Deleting a candidate: `delete can`
 
 Deletes the specified candidate from the candidate list.
