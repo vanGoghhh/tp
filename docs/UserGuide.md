@@ -98,8 +98,8 @@ Name of input field   | How you can use them
 `VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.
 `PRIORITY`            | Job listings may be of different urgency levels. For better categorisation, you may specify the priority of a job listing.<br> :exclamation: This field only accepts 3 specific values: low, moderate or high.
 `JOB_DESCRIPTION`     | You can include job description tags for job listings to specify additional description for it. For example, you may wish to specify restrictions on the listing such as age or gender.
-`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by. <br>:exclamation: This field only takes in specific values described in the respective feature sections.
-`ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order. :exclamation: This field only accepts 2 specific values: asc or desc.
+`FIELD_TO_SORT`       | Input field that is exclusive for  commands, to specify the field that the candidate or job list is being sorted by. <br>:exclamation: This field only takes in specific values described in the respective feature sections.
+`ORDER`               | Input field that is exclusive for commands, to specify the sort order. :exclamation: This field only accepts 2 specific values: asc or desc.
 `INDEX`               | Index number of the candidate or job displayed in the list.
 --------------------------------------------------------------------------------------------------------------------
 
