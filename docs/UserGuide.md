@@ -70,7 +70,6 @@ This section will explain all the symbols and fonts used in this document.
 Symbols/Font  | Explanation
 --------------|------------------------------------
 **`command`** | A grey highlight means that you can type the words into CANdidates and it will start performing tasks.
-:sushi:       | Food for thought.
 :black_nib:   | This gives an example of how to use the feature.
 :memo:        | This gives additional comments on the feature being explained.
 :bulb:        | There are additional tips that you can make use of when using the explained feature.
@@ -331,11 +330,11 @@ Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIE
 
 <div markdown="span" class="alert alert-primary">
 :memo: The search is case insensitive, e.g. john will match John
-
+<br>
 :memo: The order of the keywords does not matter, e.g. Doe John will match John Doe
-
+<br>
 :memo: For number fields (i.e. phone, years of experience and expected salary), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.
-
+<br>
 :bulb: If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.
 </div>
 
@@ -357,9 +356,9 @@ Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
 
 <div markdown="span" class="alert alert-primary">
 :memo: The search is case insensitive, e.g. samsung will match Samsung
-
+<br>
 :memo: The order of the keywords does not matter, e.g. King Burger will match Burger King
-
+<br>
 :memo: For number fields (i.e. phone and vacancy), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.
 </div>
 
@@ -381,9 +380,9 @@ Format: `sort can type/FIELD_TO_SORT order/ORDER`
 
 <div markdown="span" class="alert alert-primary">
 :exclamation: Both the type and order input must be supplied if not the list of candidates would not be sorted successfully
-
+<br>
 :memo: The type input must be one of  `type/exp`, `type/sal`, `type/bl` or `type/doa` depending on whether you wish to sort the candidates by their experience, expected salary, blacklist status or data of application respectively.
-
+<br>
 :memo: The order input must be specified as either `order/asc` or `order/desc` depending on whether you wish the sorting to be done in an ascending or descending manner.
 </div>
 
@@ -409,9 +408,9 @@ Format: `sort job type/FIELD_TO_SORT order/ORDER`
 
 <div markdown="span" class="alert alert-primary">
 :memo: *The* `FIELD_TO_SORT` *can be either* `pr` *or* `v` *depending on whether you wish to sort the job listings by their priority level or number of vacancies.*
-
+<br>
 :memo: *If you provide more than one* `FIELD_TO_SORT` *or* `ORDER` *, only the last one will be taken in as input e.g.* `sort job type/pr order/asc type/v order/desc` *will sort the job listings according to vacancies in descending order.* 
-
+<br>
 :memo: *The* `ORDER` *can be either* `asc` *or* `desc` *depending on whether you wish the sorting to be done in an ascending or descending manner.*
 </div>
 
