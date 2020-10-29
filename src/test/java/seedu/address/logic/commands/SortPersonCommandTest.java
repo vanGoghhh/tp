@@ -29,7 +29,7 @@ public class SortPersonCommandTest {
     @Test
     public void execute_ascendingExpectedSalary_sortedSuccess() {
         PersonExpectedSalaryComparator comparator = new PersonExpectedSalaryComparator();
-        String expectedMessage = MESSAGE_SUCCESS;
+        String expectedMessage = MESSAGE_SUCCESS + comparator.toString() + "in ascending order.";
         SortPersonCommand command = new SortPersonCommand(comparator, true);
         expectedModel.updateSortedPersonList(comparator);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
@@ -39,7 +39,7 @@ public class SortPersonCommandTest {
     @Test
     public void execute_ascendingExperience_sortedSuccess() {
         PersonExperienceComparator comparator = new PersonExperienceComparator();
-        String expectedMessage = MESSAGE_SUCCESS;
+        String expectedMessage = MESSAGE_SUCCESS + comparator.toString() + "in ascending order.";
         SortPersonCommand command = new SortPersonCommand(comparator, true);
         expectedModel.updateSortedPersonList(comparator);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
@@ -49,7 +49,7 @@ public class SortPersonCommandTest {
     @Test
     public void execute_descendingDateOfApplication_sortedSuccess() {
         PersonDateOfApplicationComparator comparator = new PersonDateOfApplicationComparator();
-        String expectedMessage = MESSAGE_SUCCESS;
+        String expectedMessage = MESSAGE_SUCCESS + comparator.toString() + "in descending order.";
         SortPersonCommand command = new SortPersonCommand(comparator, false);
         expectedModel.updateSortedPersonList(comparator.reversed());
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
@@ -59,7 +59,7 @@ public class SortPersonCommandTest {
     @Test
     public void execute_descendingBlacklist_sortedSuccess() {
         PersonBlackListComparator comparator = new PersonBlackListComparator();
-        String expectedMessage = MESSAGE_SUCCESS;
+        String expectedMessage = MESSAGE_SUCCESS + comparator.toString() + "in descending order.";
         SortPersonCommand command = new SortPersonCommand(comparator, false);
         expectedModel.updateSortedPersonList(comparator.reversed());
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
