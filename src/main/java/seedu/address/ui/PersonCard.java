@@ -69,7 +69,7 @@ public class PersonCard extends UiPart<Region> {
         person.getSalaryOptional().ifPresent(sal -> personSalary.setText(String.format("$%.0f", sal.salary)));
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> personTags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> personTags.getChildren().add(new Label(tag.tagName + " ")));
     }
 
     @Override
