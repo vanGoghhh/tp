@@ -23,6 +23,7 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.CompanyName;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
@@ -104,7 +105,7 @@ public class EditJobCommand extends Command {
         assert jobToEdit != null;
 
         Name updatedJobTitle = editJobDescriptor.getJobTitle().orElse(jobToEdit.getJobTitle());
-        Name updatedCompanyName = editJobDescriptor.getCompanyName().orElse(jobToEdit.getCompanyName());
+        CompanyName updatedCompanyName = editJobDescriptor.getCompanyName().orElse(jobToEdit.getCompanyName());
         Phone updatedPhone = editJobDescriptor.getPhone().orElse(jobToEdit.getPhone());
         Email updatedEmail = editJobDescriptor.getEmail().orElse(jobToEdit.getEmail());
         Address updatedAddress = editJobDescriptor.getAddress().orElse(jobToEdit.getAddress());
@@ -140,7 +141,7 @@ public class EditJobCommand extends Command {
      */
     public static class EditJobDescriptor {
         private Name jobTitle;
-        private Name companyName;
+        private CompanyName companyName;
         private Phone phone;
         private Email email;
         private Address address;
@@ -180,11 +181,11 @@ public class EditJobCommand extends Command {
             return Optional.ofNullable(jobTitle);
         }
 
-        public void setCompanyName(Name companyName) {
+        public void setCompanyName(CompanyName companyName) {
             this.companyName = companyName;
         }
 
-        public Optional<Name> getCompanyName() {
+        public Optional<CompanyName> getCompanyName() {
             return Optional.ofNullable(companyName);
         }
 
