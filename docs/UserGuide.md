@@ -90,16 +90,16 @@ Name of input field   | How you can use them
 `YEARS_OF_EXPERIENCE` | Years of experience of the candidate in the relevant field one applied for.
 `DATE_OF_APPLICATION` | Date of job application submitted, in the format of DD-MM-YY
 `EXPECTED_SALARY`     | If a candidate expects a certain amount of salary, it can be specified using this field.
-`IS_BLACKLISTED`      | You may use this to blacklist candidates that are unresponsive, have poor attitude, etc. You can use this to sort or filter candidates.<br/>:exclamation: This field only accepts 2 specific values: true or false.
+`IS_BLACKLISTED`      | You may use this to blacklist candidates that are unresponsive, have poor attitude, etc. You can use this to sort or filter candidates. :exclamation: This field only accepts 2 specific values: true or false.
 `PROFILE_LINK`        | URL link to candidate profile or portfolio (e.g. LinkedIn or GitHub, etc.) to provide convenience for you to refer to their profile later on.
 `JOB_TYPE`            | You can include job type tags for candidates so that it will be easier to find candidates applying for similar jobs later on. For example, you can tag them according to the job industry.
 `JOB_TITLE`           | Title of a job position.
 `COMPANY_NAME`        | Name of the company for the job listing you are adding or editing.
 `VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.
-`PRIORITY`            | Job listings may be of different urgency levels. For better categorisation, you may specify the priority of a job listing.<br/>:exclamation: This field only accepts 3 specific values: low, moderate or high.
+`PRIORITY`            | Job listings may be of different urgency levels. For better categorisation, you may specify the priority of a job listing. :exclamation: This field only accepts 3 specific values: low, moderate or high.
 `JOB_DESCRIPTION`     | You can include job description tags for job listings to specify additional description for it. For example, you may wish to specify restrictions on the listing such as age or gender.
-`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:exclamation: This field only takes in specific values described in the respective feature sections.
-`ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:exclamation: This field only accepts 2 specific values: asc or desc.
+`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by. :exclamation: This field only takes in specific values described in the respective feature sections.
+`ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order. :exclamation: This field only accepts 2 specific values: asc or desc.
 `INDEX`               | Index number of the candidate or job displayed in the list.
 --------------------------------------------------------------------------------------------------------------------
 
