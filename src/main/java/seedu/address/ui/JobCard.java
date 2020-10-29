@@ -63,7 +63,7 @@ public class JobCard extends UiPart<Region> {
         jobVacancy.setText(job.getVacancy().value + " needed");
         job.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> jobTags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> jobTags.getChildren().add(new Label(tag.tagName + " ")));
     }
 
     @Override
