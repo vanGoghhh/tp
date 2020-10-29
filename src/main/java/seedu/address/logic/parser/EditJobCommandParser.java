@@ -52,7 +52,8 @@ public class EditJobCommandParser implements Parser<EditJobCommand> {
             editJobDescriptor.setJobTitle(ParserUtil.parseName(argMultimap.getValue(PREFIX_JOB_TITLE).get()));
         }
         if (argMultimap.getValue(PREFIX_COMPANY_NAME).isPresent()) {
-            editJobDescriptor.setCompanyName(ParserUtil.parseName(argMultimap.getValue(PREFIX_COMPANY_NAME).get()));
+            editJobDescriptor.setCompanyName(ParserUtil.parseCompanyName(
+                    argMultimap.getValue(PREFIX_COMPANY_NAME).get()));
         }
         if (argMultimap.getValue(PREFIX_PHONE).isPresent()) {
             editJobDescriptor.setPhone(ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get()));

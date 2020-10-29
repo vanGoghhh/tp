@@ -19,7 +19,8 @@ public class JobCompanyNameContainsKeywordsPredicate implements Predicate<Job> {
     @Override
     public boolean test(Job job) {
         return keywords.stream()
-                .allMatch(keyword -> StringUtil.containsPhraseIgnoreCase(job.getCompanyName().fullName, keyword));
+                .allMatch(keyword -> StringUtil.containsPhraseIgnoreCase(
+                        job.getCompanyName().fullCompanyName, keyword));
     }
 
     @Override
