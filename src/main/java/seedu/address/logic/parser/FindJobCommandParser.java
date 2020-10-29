@@ -17,6 +17,7 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.FindJobCommand;
+import seedu.address.logic.commands.FindPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.predicate.JobAddressContainsKeywordsPredicate;
@@ -57,41 +58,49 @@ public class FindJobCommandParser implements Parser<FindJobCommand> {
 
         if (arePrefixesPresent(argMultimap, PREFIX_JOB_TITLE)) {
             String jobTitle = argMultimap.getValue(PREFIX_JOB_TITLE).orElse("");
+            checkInput(jobTitle);
             List<String> words = splitInput(jobTitle);
             predicates.add(new JobJobTitleContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_COMPANY_NAME)) {
             String company = argMultimap.getValue(PREFIX_COMPANY_NAME).orElse("");
+            checkInput(company);
             List<String> words = splitInput(company);
             predicates.add(new JobCompanyNameContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_PHONE)) {
             String phone = argMultimap.getValue(PREFIX_PHONE).orElse("");
+            checkInput(phone);
             List<String> words = splitInput(phone);
             predicates.add(new JobPhoneContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_EMAIL)) {
             String email = argMultimap.getValue(PREFIX_EMAIL).orElse("");
+            checkInput(email);
             List<String> words = splitInput(email);
             predicates.add(new JobEmailContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_ADDRESS)) {
             String address = argMultimap.getValue(PREFIX_ADDRESS).orElse("");
+            checkInput(address);
             List<String> words = splitInput(address);
             predicates.add(new JobAddressContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_TAG)) {
             String tag = argMultimap.getValue(PREFIX_TAG).orElse("");
+            checkInput(tag);
             List<String> words = splitInput(tag);
             predicates.add(new JobTagsContainKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_PRIORITY)) {
             String priority = argMultimap.getValue(PREFIX_PRIORITY).orElse("");
+            checkInput(priority);
             List<String> words = splitInput(priority);
             predicates.add(new JobPriorityContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_VACANCY)) {
             String vacancy = argMultimap.getValue(PREFIX_VACANCY).orElse("");
+            checkInput(vacancy);
             List<String> words = splitInput(vacancy);
             predicates.add(new JobVacancyContainsKeywordsPredicate(words));
         }
@@ -117,6 +126,18 @@ public class FindJobCommandParser implements Parser<FindJobCommand> {
         String[] words = userInput.split("\\s+");
         Collections.addAll(keywords, words);
         return keywords;
+    }
+
+    /**
+     * Checks if userInput is non-empty.
+     * @param userInput User specified keyword for a field.
+     * @throws ParseException if the user input does not conform the expected format.
+     */
+    public void checkInput(String userInput) throws ParseException {
+        if (userInput.length() == 0) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindJobCommand.MESSAGE_USAGE));
+        }
     }
 
 }
