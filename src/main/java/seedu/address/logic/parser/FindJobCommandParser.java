@@ -128,7 +128,7 @@ public class FindJobCommandParser implements Parser<FindJobCommand> {
     }
 
     /**
-     * Checks if userInput is non-empty.
+     * Checks if userInput is empty.
      * @param userInput User specified keyword for a field.
      * @throws ParseException if the user input does not conform the expected format.
      */
