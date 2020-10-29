@@ -7,8 +7,8 @@ import static seedu.address.logic.commands.CommandTestUtil.COMPANY_NAME_DESC_IRA
 import static seedu.address.logic.commands.CommandTestUtil.COMPANY_NAME_DESC_MAYBANK;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_MAYBANK;
+import static seedu.address.logic.commands.CommandTestUtil.EMPTY_COMPANY_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_COMPANY_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_JOB_PRIORITY_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_JOB_TITLE_DESC;
@@ -53,6 +53,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditJobCommand;
 import seedu.address.logic.commands.EditJobCommand.EditJobDescriptor;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.CompanyName;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
@@ -100,7 +101,8 @@ public class EditJobCommandParserTest {
     @Test
     public void parse_invalidValue_failure() {
         assertParseFailure(parser, "1" + INVALID_JOB_TITLE_DESC, Name.MESSAGE_CONSTRAINTS); // invalid title
-        assertParseFailure(parser, "1" + INVALID_COMPANY_NAME_DESC, Name.MESSAGE_CONSTRAINTS); // invalid name
+        assertParseFailure(parser, "1" + EMPTY_COMPANY_NAME_DESC, CompanyName.MESSAGE_CONSTRAINTS);
+        // empty company name
         assertParseFailure(parser, "1" + INVALID_PHONE_DESC, Phone.MESSAGE_CONSTRAINTS); // invalid phone
         assertParseFailure(parser, "1" + INVALID_EMAIL_DESC, Email.MESSAGE_CONSTRAINTS); // invalid email
         assertParseFailure(parser, "1" + INVALID_ADDRESS_DESC, Address.MESSAGE_CONSTRAINTS); // invalid address
@@ -123,8 +125,8 @@ public class EditJobCommandParserTest {
         assertParseFailure(parser, "1" + TAG_EMPTY + TAG_DESC_IRAS + TAG_DESC_MAYBANK, Tag.MESSAGE_CONSTRAINTS);
 
         // multiple invalid values, but only the first invalid value is captured
-        assertParseFailure(parser, "1" + INVALID_COMPANY_NAME_DESC + INVALID_EMAIL_DESC
-                        + VALID_ADDRESS_IRAS + VALID_PHONE_IRAS, Name.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, "1" + EMPTY_COMPANY_NAME_DESC + INVALID_EMAIL_DESC
+                        + VALID_ADDRESS_IRAS + VALID_PHONE_IRAS, CompanyName.MESSAGE_CONSTRAINTS);
     }
 
     @Test

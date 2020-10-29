@@ -7,8 +7,8 @@ import static seedu.address.logic.commands.CommandTestUtil.COMPANY_NAME_DESC_IRA
 import static seedu.address.logic.commands.CommandTestUtil.COMPANY_NAME_DESC_MAYBANK;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_MAYBANK;
+import static seedu.address.logic.commands.CommandTestUtil.EMPTY_COMPANY_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_COMPANY_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_JOB_PRIORITY_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_JOB_TITLE_DESC;
@@ -44,6 +44,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddJobCommand;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.CompanyName;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
@@ -167,10 +168,10 @@ public class AddJobCommandParserTest {
                 Name.MESSAGE_CONSTRAINTS);
 
         // invalid company name
-        assertParseFailure(parser, JOB_TITLE_DESC_MAYBANK + INVALID_COMPANY_NAME_DESC + PHONE_DESC_MAYBANK
+        assertParseFailure(parser, JOB_TITLE_DESC_MAYBANK + EMPTY_COMPANY_NAME_DESC + PHONE_DESC_MAYBANK
                 + EMAIL_DESC_MAYBANK + ADDRESS_DESC_MAYBANK + TAG_DESC_MAYBANK + TAG_DESC_IRAS + PRIORITY_DESC_MAYBANK
                 + VACANCY_DESC_MAYBANK,
-                Name.MESSAGE_CONSTRAINTS);
+                CompanyName.MESSAGE_CONSTRAINTS);
 
         // invalid phone
         assertParseFailure(parser, JOB_TITLE_DESC_MAYBANK + COMPANY_NAME_DESC_MAYBANK + INVALID_PHONE_DESC

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.information.Address;
+import seedu.address.model.information.CompanyName;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
@@ -27,7 +28,7 @@ public class JobBuilder {
     public static final String DEFAULT_VACANCY = "2";
 
     private Name jobTitle;
-    private Name companyName;
+    private CompanyName companyName;
     private Phone phone;
     private Email email;
     private Address address;
@@ -40,7 +41,7 @@ public class JobBuilder {
      */
     public JobBuilder() {
         jobTitle = new Name(DEFAULT_JOB_TITLE);
-        companyName = new Name(DEFAULT_COMPANY_NAME);
+        companyName = new CompanyName(DEFAULT_COMPANY_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
@@ -75,7 +76,7 @@ public class JobBuilder {
      * Sets the {@code companyName} of the {@code Job} that we are building.
      */
     public JobBuilder withCompanyName(String companyName) {
-        this.companyName = new Name(companyName);
+        this.companyName = new CompanyName(companyName);
         return this;
     }
 

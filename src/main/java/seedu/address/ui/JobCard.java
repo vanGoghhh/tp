@@ -55,7 +55,7 @@ public class JobCard extends UiPart<Region> {
         this.job = job;
         companyId.setText(displayedIndex + ". ");
         jobName.setText(job.getJobTitle().fullName);
-        companyName.setText(job.getCompanyName().fullName);
+        companyName.setText(job.getCompanyName().fullCompanyName);
         companyPhone.setText(job.getPhone().value);
         companyAddress.setText(job.getAddress().value);
         companyEmail.setText(job.getEmail().value);
@@ -63,7 +63,7 @@ public class JobCard extends UiPart<Region> {
         jobVacancy.setText(job.getVacancy().value + " needed");
         job.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> jobTags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> jobTags.getChildren().add(new Label(tag.tagName + " ")));
     }
 
     @Override

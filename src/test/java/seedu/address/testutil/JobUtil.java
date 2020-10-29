@@ -34,7 +34,7 @@ public class JobUtil {
     public static String getJobDetails(Job job) {
         StringBuilder sb = new StringBuilder();
         sb.append(PREFIX_JOB_TITLE + job.getJobTitle().fullName + " ");
-        sb.append(PREFIX_COMPANY_NAME + job.getCompanyName().fullName + " ");
+        sb.append(PREFIX_COMPANY_NAME + job.getCompanyName().fullCompanyName + " ");
         sb.append(PREFIX_PHONE + job.getPhone().value + " ");
         sb.append(PREFIX_EMAIL + job.getEmail().value + " ");
         sb.append(PREFIX_ADDRESS + job.getAddress().value + " ");
@@ -52,7 +52,7 @@ public class JobUtil {
         descriptor.getJobTitle().ifPresent(
             jobTitle -> sb.append(PREFIX_JOB_TITLE).append(jobTitle.fullName).append(" "));
         descriptor.getCompanyName().ifPresent(
-            companyName -> sb.append(PREFIX_COMPANY_NAME).append(companyName.fullName).append(" "));
+            companyName -> sb.append(PREFIX_COMPANY_NAME).append(companyName.fullCompanyName).append(" "));
         descriptor.getPhone().ifPresent(phone -> sb.append(PREFIX_PHONE).append(phone.value).append(" "));
         descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
         descriptor.getAddress().ifPresent(address -> sb.append(PREFIX_ADDRESS).append(address.value).append(" "));
