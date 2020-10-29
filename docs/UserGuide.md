@@ -101,6 +101,7 @@ Name of input field   | How you can use them
 `FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by. :exclamation: This field only takes in specific values described in the respective feature sections.
 `ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order. :exclamation: This field only accepts 2 specific values: asc or desc.
 `INDEX`               | Index number of the candidate or job displayed in the list.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick Start
