@@ -15,7 +15,7 @@ public class Date {
 
     public static final String DATE_FORMAT = "d-M-yy"; // eg. 31-12-20
     public static final String MESSAGE_CONSTRAINTS = String.format("Dates must be of the format %s ,"
-                    + " eg. 12-31-20", DATE_FORMAT);
+                    + " eg. 31-12-20", DATE_FORMAT);
     public static final DateTimeFormatter DATE_FORMATTER =
             DateTimeFormatter.ofPattern(DATE_FORMAT);
 
