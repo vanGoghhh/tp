@@ -449,9 +449,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | job recruiter                              | be notified of duplicate job listings when adding a new entry to the list             |                                                                                            |
 | `* *`    | efficient job recruiter                    | be able to effectively search for candidates whenever there is a new job opening      | answer to hiring companies quickly                                                         |
 | `* *`    | veteran job recruiter                      | be able to store as many contacts as possible without lagging the software            |                                                                                            |
+| `* *`    | user that is ready to start using the app  | have an easy way to clear all the sample data                                         | fill in my data                                                                            |
 | `*`      | job recruiter                              | have a way to keep track of interview schedules                                       |                                                                                            |
 | `*`      | single person                              | have a way to store the contacts of cute job applicants                               |                                                                                            |
-| `*`      | user that is ready to start using the app  | have an easy way to clear all the sample data                                         | fill in my data                                                                            |
 | `*`      | long term user of the App                  | have a way to archive some of the unused data                                         | prevent cluttering                                                                         |
 | `*`      | efficient person                           | be able to perform mass operations like deleting multiple entries at once             |                                                                                            |
 | `*`      | job recruiter                              | have a way to filter job applicants by their gender                                   |                                                                                            |
@@ -459,32 +459,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Use cases
 
 (For all use cases below, the **System** is the `CANdidates` and the **Actor** is the `user`, unless specified otherwise)
+      
 
-#### **Use case: Delete a candidate**
-
-**MSS**
-
-1.  User requests to list candidates
-2.  CANdidates shows a list of candidates
-3.  User requests to delete a specific candidate in the list
-4.  CANdidates deletes the candidate
-
-    Use case ends.
-
-**Extensions**
-
-* 2a. The list is empty.
-
-  Use case ends.
-
-* 3a. The given index is invalid.
-
-    * 3a1. CANdidates shows an error message.
-
-      Use case resumes at step 2.
-
-
-#### **Use case: Add a candidate**
+#### **Use case: UC01 - Add a candidate**
 
 **MSS**
 
@@ -508,52 +485,138 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **Use case: Edit a candidate**
+#### **Use case: UC02 - List candidates**
 
 **MSS**
 
 1.  User requests to list candidates
 2.  CANdidates shows a list of candidates
-3.  User requests to edit the details of a specific candidate index in the list
-4.  CANdidates edits the candidate
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. Input format is invalid.
 
-  Use case ends.
+    * 1a1. CANdidates shows an error message.
 
-* 3a. The given index is invalid.
-
-    * 3a1. CANdidates shows an error message.
-
-      Use case resumes at step 2.
-
-* 3b. The format of the given details are invalid.
-
-    * 3b1. CANdidates shows an error message.
-
-      Use case resumes at step 2.
+      Use case ends.
 
 
-#### **Use case: Clear all entries**
+#### **Use case: UC03 - Delete a candidate**
 
 **MSS**
 
-1.  User requests to list candidates
-2.  CANdidates shows a list of candidates
-3.  User requests to clear all entries in the list
-4.  CANdidates clears the list
+1.  User requests to _list candidates (UC01)_
+2.  User requests to delete a specific candidate index in the list
+3.  CANdidates deletes the candidate
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. The list is empty.
 
   Use case ends.
+
+* 2a. The given index is invalid.
+
+    * 2a1. CANdidates shows an error message.
+
+      Use case ends.
+
+
+#### **Use case: UC04 - Edit a candidate**
+
+**MSS**
+
+1.  User requests to _list candidates (UC01)_
+2.  User requests to edit the details of a specific candidate index in the list
+3.  CANdidates edits the candidate
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+  
+* 2a. The given index is invalid.
+
+    * 2a1. CANdidates shows an error message.
+
+      Use case ends.
+
+* 2b. The format of the given details are invalid.
+
+    * 2b1. CANdidates shows an error message.
+
+      Use case ends.
+
+
+#### **Use case: UC05 - Clear all entries**
+
+**MSS**
+
+1.  User requests to _list candidates (UC01)_
+2.  User requests to clear all entries in the list
+3.  CANdidates clears the list
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+
+
+#### **Use case: UC06 - Find candidates**
+
+**MSS**
+
+1.  User requests to find candidates with keywords
+2.  CANdidates shows a list of candidates matching keywords
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. Input format is invalid.
+
+    * 1a1. CANdidates shows an error message.
+
+      Use case ends.
+
+
+#### **Use case: UC07 - Sort candidates**
+
+**MSS**
+
+1.  User requests to _list candidates (UC01)_
+2.  User requests to sort the list in an order based on a field type
+3.  CANdidates displays the list of candidates in the specified order
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+  
+* 2a. The given field type is invalid.
+
+    * 2a1. CANdidates shows an error message.
+
+      Use case ends.
+
+* 2b. The given order is invalid.
+
+    * 2b1. CANdidates shows an error message.
+
+      Use case ends.
 
 
 *{More to be added}*
