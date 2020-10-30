@@ -33,6 +33,8 @@ title: User Guide
 1. [Command Summary](#command-summary)
 1. [Glossary](#glossary)
 
+<br>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Introduction
@@ -57,6 +59,8 @@ CANdidates is developed as part of a NUS CS2103T Project by:
 * [Nigel Ng Yong Sheng](team/vangoghhh.md)
 * [Tan Yu Ting, Germaine](team/g-erm.md)
 * [Toh Hong Xian](team/raythx98.md)
+
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -101,6 +105,8 @@ Name of input field   | How you can use them
 `FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:exclamation: This field only takes in specific values described in the respective feature sections.
 `ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:exclamation: This field only accepts 2 specific values: asc or desc.
 `INDEX`               | Index number of the candidate or job displayed in the list.
+
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -161,6 +167,7 @@ This exciting section describes all the amazing features we have in CANdidates f
 
 *:bulb: If you are confused with the various input fields, refer to [Understanding Input Fields](#understanding-input-fields).*
 </div>
+<br>
 
 ### Viewing help: `help`
 
@@ -169,6 +176,8 @@ If you are unsure of how to use the application, we have a help function that wi
 ![help message](images/helpMessage.png)
 
 Format: `help`
+
+<br>
 
 ### Adding a candidate: `add can`
 
@@ -196,6 +205,7 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 
     add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 
     t/HR t/OfficeLady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000
+<br>
 
 ### Adding a job listing: `add job`
 
@@ -223,6 +233,7 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
 
     add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222 
     pr/high t/delivery t/west v/10
+<br>
 
 ### Listing all candidates: `list can`
 
@@ -285,6 +296,7 @@ This works for the job type, address, expected salary and profile link fields. S
 :black_nib: To edit the 2nd candidate and clear existing job types, address, expected salary and profile link,
 
     edit can 2 t/ a/ sal/ link/ 
+<br>
 
 ### Editing a job: `edit job`
 
@@ -320,8 +332,7 @@ See the second example below for a demonstration.*
 :black_nib: To edit the 3rd job and clear existing job descriptions, 
 
     edit job 3 t/
-
-
+<br>
 
 ### Finding a candidate: `find can`
 
@@ -330,15 +341,16 @@ Too many candidates with different information? CANdidates provide you with a si
 Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
 
 <div markdown="span" class="alert alert-primary">
+
 :memo: *At least one of the optional fields must be provided.*
 <br>
-:memo: The search is case insensitive, e.g. john will match John
+:memo: *The search is case insensitive, e.g. john will match John*
 <br>
-:memo: The order of the keywords does not matter, e.g. Doe John will match John Doe
+:memo: *The order of the keywords does not matter, e.g. Doe John will match John Doe*
 <br>
-:memo: For number fields (i.e. phone, years of experience and expected salary), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.
+:memo: *For number fields (i.e. phone, years of experience and expected salary), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.*
 <br>
-:bulb: If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.
+:bulb: *If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.*
 
 </div>
 
@@ -351,6 +363,7 @@ Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIE
 :black_nib: To find for _blacklisted_ candidates
 
     find can bl/true
+<br>
 
 ### Finding a job: `find job`
 
@@ -359,13 +372,14 @@ Too many job listings with different information? Similar to the feature above, 
 Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
 
 <div markdown="span" class="alert alert-primary">
+
 :memo: *At least one of the optional fields must be provided.*
 <br>
-:memo: The search is case insensitive, e.g. samsung will match Samsung
+:memo: *The search is case insensitive, e.g. samsung will match Samsung*
 <br>
-:memo: The order of the keywords does not matter, e.g. King Burger will match Burger King
+:memo: *The order of the keywords does not matter, e.g. King Burger will match Burger King*
 <br>
-:memo: For number fields (i.e. phone and vacancy), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.
+:memo: *For number fields (i.e. phone and vacancy), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.*
 
 </div>
 
@@ -378,6 +392,7 @@ Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
 :black_nib: To find jobs with job titles containing the words “_Software Engineer_”,
 
     find job n/Software Engineer
+<br>
 
 ### Sorting all candidates: `sort can`
 
@@ -386,11 +401,12 @@ You can view all the candidates in the order you wish to by typing in your desir
 Format: `sort can type/FIELD_TO_SORT order/ORDER`
 
 <div markdown="span" class="alert alert-primary">
-:exclamation: Both the type and order input must be supplied if not the list of candidates would not be sorted successfully
+
+:exclamation: *Both the type and order input must be supplied if not the list of candidates would not be sorted successfully*
 <br>
-:memo: The type input must be one of  `type/exp`, `type/sal`, `type/bl` or `type/doa` depending on whether you wish to sort the candidates by their experience, expected salary, blacklist status or data of application respectively.
+:memo: *The type input must be one of  `type/exp`, `type/sal`, `type/bl` or `type/doa` depending on whether you wish to sort the candidates by their experience, expected salary, blacklist status or data of application respectively.*
 <br>
-:memo: The order input must be specified as either `order/asc` or `order/desc` depending on whether you wish the sorting to be done in an ascending or descending manner.
+:memo: *The order input must be specified as either `order/asc` or `order/desc` depending on whether you wish the sorting to be done in an ascending or descending manner.*
 
 </div>
 
@@ -407,6 +423,7 @@ Format: `sort can type/FIELD_TO_SORT order/ORDER`
 :black_nib: To view all blacklisted candidates followed by non-blacklisted candidates,
 
     sort can type/bl order/desc
+<br>
 
 ### Sorting all jobs: `sort job`
 
@@ -415,6 +432,7 @@ Have too many job listings and need a way to organise them? You can get CANdidat
 Format: `sort job type/FIELD_TO_SORT order/ORDER`
 
 <div markdown="span" class="alert alert-primary">
+
 :memo: *The* `FIELD_TO_SORT` *can be either* `pr` *or* `v` *depending on whether you wish to sort the job listings by their priority level or number of vacancies.*
 <br>
 :memo: *If you provide more than one* `FIELD_TO_SORT` *or* `ORDER` *, only the last one will be taken in as input e.g.* `sort job type/pr order/asc type/v order/desc` *will sort the job listings according to vacancies in descending order.* 
@@ -441,6 +459,8 @@ Step 2. The CANdidates application will display the message “Successfully sort
 
 Step 3. The application will show the sorted job list based on the sort condition given.
 
+<br>
+
 ### Deleting a candidate: `delete can`
 
 Have you successfully found a job for a candidate and you no longer need to keep his/her details in CANdidates? 
@@ -466,6 +486,7 @@ Please ensure you do not require the candidate’s data anymore before performin
 :black_nib: To delete the candidate at index _3_,
 
     delete can 3
+<br>
 
 ### Deleting a job: `delete job`
 
@@ -491,6 +512,7 @@ Please ensure you do not require the job’s data anymore before performing this
 :black_nib: To delete the job at index _3_,
 
     delete job 3
+<br>
 
 ### Clearing all candidate entries: `clear can`
 
@@ -506,6 +528,7 @@ Please ensure you do not require the candidate list data anymore before performi
 :bulb: *This command can be used to clear the sample data on CANdidates when you first downloaded it.*
 
 </div>
+<br>
 
 ### Clearing all job entries: `clear job`
 
@@ -521,6 +544,7 @@ Please ensure you do not require the job list data anymore before performing thi
 :bulb: *This command can be used to clear the sample data on CANdidates when you first downloaded it.*
 
 </div>
+<br>
 
 ### Exiting the program : `exit`
 
@@ -528,9 +552,13 @@ Done with updating your information with CANdidates? Use this command to exit th
 
 Format: `exit`
 
+<br>
+
 ### Saving the data
 
 All data is saved in the hard disk automatically after any command that changes the data. No need worry about having to save manually!
+
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -544,6 +572,8 @@ All data is saved in the hard disk automatically after any command that changes 
 
 **Q**: How can I contribute to this project?<br>
 **A**: You may create a pull request to this [repository](https://github.com/AY2021S1-CS2103T-T17-3/tp). Here is our [developer's guide](https://ay2021s1-cs2103t-t17-3.github.io/tp/DeveloperGuide.html) for your reference.
+
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -562,6 +592,8 @@ Action | Candidate Format | Job Format
 **Delete** | `delete can INDEX` | `delete job INDEX`
 **Clear** | `clear can` | `clear job`
 **Exit** | `exit` | `exit`
+
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
 
