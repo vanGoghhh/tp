@@ -4,8 +4,10 @@ import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -19,52 +21,36 @@ public class PersonListPanel extends UiPart<Region> {
     private static final String FXML = "PersonListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
 
-    public Person personClicked;
+    private MainWindow mainWindow;
 
     @FXML
     private ListView<Person> personListView;
 
+    @FXML
+    private StackPane detailedView;
+
+
+
     /**
      * Creates a {@code PersonListPanel} with the given {@code ObservableList}.
      */
-    public PersonListPanel(ObservableList<Person> personList) {
+    public PersonListPanel(ObservableList<Person> personList, MainWindow mainWindow) {
         super(FXML);
         personListView.setItems(personList);
         //personListView.setCellFactory(listView -> new PersonListViewCell());
-        personListView.setCellFactory(lv -> {
-            ListCell<Person> cell = new ListCell<Person>() {
-                @Override
-                protected void updateItem(Person person, boolean empty) {
-                    super.updateItem(person, empty);
-
-                    if (empty || person == null) {
-                        setGraphic(null);
-                        setText(null);
-                    } else {
-                        setGraphic(new PersonCard(person, getIndex()+1).getRoot());
-                    }
-                }
-            };
-            cell.setOnMouseClicked(e -> {
-                if (!cell.isEmpty()) {
-                    personClicked = cell.getItem();
-                    cellClicked();
-                    e.consume();
-                }
-            });
-            return cell;
-        });
-
+        personListView.setCellFactory(listView -> new PersonListPanel.PersonListViewCell(mainWindow));
     };
-
-    private void cellClicked() {
-        PersonDetailedView personDetailedView = new PersonDetailedView(personClicked);
-    }
 
     /**
      * Custom {@code ListCell} that displays the graphics of a {@code Person} using a {@code PersonCard}.
      */
     class PersonListViewCell extends ListCell<Person> {
+
+        private MainWindow mainWindow;
+
+        public PersonListViewCell(MainWindow mainWindow) {
+            this.mainWindow = mainWindow;
+        }
         @Override
         protected void updateItem(Person person, boolean empty) {
             super.updateItem(person, empty);
@@ -74,6 +60,7 @@ public class PersonListPanel extends UiPart<Region> {
                 setText(null);
             } else {
                 setGraphic(new PersonCard(person, getIndex() + 1).getRoot());
+                setOnMouseClicked(event -> mainWindow.updateDetailedPersonPanel(person));
             }
         }
 

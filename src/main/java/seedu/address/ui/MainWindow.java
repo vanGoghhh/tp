@@ -4,7 +4,9 @@ import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
@@ -50,7 +52,7 @@ public class MainWindow extends UiPart<Stage> {
     private StackPane statusbarPlaceholder;
 
     @FXML
-    private StackPane personAndJobTabPanePlaceholder;
+    private TabPane tabPane;
 
     @FXML
     private StackPane personListPanelPlaceholder;
@@ -59,7 +61,10 @@ public class MainWindow extends UiPart<Stage> {
     private StackPane jobListPanelPlaceholder;
 
     @FXML
-    public static StackPane detailedViewPlaceholder;
+    private StackPane detailedView;
+
+    @FXML
+    private ListView<Person> personListView;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -77,6 +82,8 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpWindow = new HelpWindow();
+
+
     }
 
     public Stage getPrimaryStage() {
@@ -125,15 +132,16 @@ public class MainWindow extends UiPart<Stage> {
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
-        TabBar personAndJobTabPane = new TabBar(logic);
-        personAndJobTabPanePlaceholder.getChildren().add(personAndJobTabPane.getRoot());
+        PersonListPanel personListPanel = new PersonListPanel(logic.getFilteredPersonList(), this   );
+        JobListPanel jobListPanel = new JobListPanel(logic.getFilteredJobList());
+        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+        jobListPanelPlaceholder.getChildren().add(jobListPanel.getRoot());
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getPersonAddressBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
-
     }
 
     /**
@@ -148,10 +156,6 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
-    @FXML
-    public static void handleCellClicked(Person person) {
-
-    }
 
     /**
      * Opens the help window or focuses on it if it's already opened.
@@ -167,6 +171,12 @@ public class MainWindow extends UiPart<Stage> {
 
     void show() {
         primaryStage.show();
+    }
+
+    public void updateDetailedPersonPanel(Person person) {
+        PersonDetailedView personDetailedView = new PersonDetailedView(person);
+        detailedView.getChildren().clear();
+        detailedView.getChildren().add(personDetailedView.getRoot());
     }
 
     /**

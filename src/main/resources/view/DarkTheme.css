@@ -1,6 +1,21 @@
+
+@font-face {
+    font-family: Poppins Regular;
+    src: url('PoppinsRegular.ttf');
+}
+
+@font-face {
+    font-family: Poppins Thin;
+    src: url('PoppinsThin.ttf');
+}
+
 .background {
     -fx-background-color: derive(#1d1d1d, 20%);
     background-color: #383838; /* Used in the default.html file */
+}
+
+.detailed-background {
+    -fx-background-color: #ffffff;
 }
 
 .label {
@@ -10,11 +25,35 @@
     -fx-opacity: 0.9;
 }
 
-.label-bright {
-    -fx-font-size: 11pt;
-    -fx-font-family: "Segoe UI Semibold";
-    -fx-text-fill: white;
+.label-big {
+    -fx-font-size: 100px ;
+    -fx-font-family: "Poppins Thin";
+    -fx-text-fill: black;
     -fx-opacity: 1;
+    -fx-alignment: center;
+}
+
+.label-details {
+    -fx-padding: 1 1 1 1;
+    -fx-font-family: "Poppins Thin";
+}
+
+.label-side {
+    -fx-font-family: "Poppins Regular";
+    -fx-padding: 3 3 3 3;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 12;
+    -fx-pref-height: 20;
+    -fx-pref-width: 100;
+    -fx-alignment: center;
+}
+
+
+.label-label {
+    -fx-font-family: "Poppins Regular";
+    -fx-font-size: 20px;
+    -fx-text-fill: #5f66b9;
 }
 
 .label-header {
@@ -112,21 +151,23 @@
 
 .list-view {
     -fx-background-insets: 0;
-    -fx-padding: 0;
-    -fx-background-color: #ffffff;
+    -fx-background-color: #F5F6F8;
+    -fx-padding: 3px;
+
 }
 
 .list-cell {
-    -fx-label-padding: 0 0 0 0;
-    -fx-graphic-text-gap : 0;
-    -fx-padding: 1 1 1 1;
-    -fx-border-radius: 10;
-    -fx-border-color: #5f66b9;
-    -fx-border-width: 1;
+    -fx-padding: 3px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-graphic-text-gap : 0px;
+    -fx-background-insets: 0px, 2px ;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 15px;
+    -fx-border-radius: 10px;
 }
 
 .list-cell:filled:even {
-    -fx-background-color: #f6f6f6;
+    -fx-background-color: #ffffff;
 }
 
 .list-cell:filled:odd {
@@ -147,26 +188,31 @@
     -fx-text-fill: black;
 }
 
+.list-view .scroll-bar:vertical {
+    -fx-scale-x: 0;
+}
+
 .cell_big_label {
-    -fx-font-family: sans-serif;
-    -fx-font-size: 16px;
+    -fx-font-family: "Poppins Regular";
+    -fx-font-size: 24px;
     -fx-text-fill: #000000;
 }
 
 .cell_small_label {
-    -fx-font-family: sans-serif;
+    -fx-font-family: "Poppins Thin";
     -fx-font-size: 13px;
     -fx-text-fill: #000000;
+    -fx-padding: 1 3 1 3;
+    -fx-border-radius: 5;
 }
 
 .stack-pane {
-     -fx-background-color: derive(#ffffff, 20%);
+
 }
 
 .pane-with-border {
      -fx-background-color: #f0f0f0;
      -fx-border-color: #ffffff;
-     -fx-border-top-width: 1px;
 }
 
 .status-bar {
@@ -175,7 +221,7 @@
 
 .result-display {
     -fx-background-color: white;
-    -fx-font-family: sans-serif;
+    -fx-font-family: "Poppins Regular";
     -fx-font-size: 13pt;
     -fx-text-fill: white;
 }
@@ -204,7 +250,6 @@
 .grid-pane {
     -fx-background-color: derive(#1d1d1d, 30%);
     -fx-border-color: derive(#1d1d1d, 30%);
-    -fx-border-width: 1px;
 }
 
 .grid-pane .stack-pane {
@@ -309,7 +354,7 @@
 }
 
 .scroll-bar {
-    -fx-background-color: #f6f6f6;
+    -fx-background-color: #000000;
 }
 
 .scroll-bar .thumb {
@@ -346,10 +391,6 @@
 
 #commandTextField {
     -fx-background-color: transparent #ffffff transparent #ffffff;
-    -fx-background-insets: 0;
-    -fx-border-color: #f6f6f6 #f6f6f6 #ffffff #f6f6f6;
-    -fx-border-insets: 0;
-    -fx-border-width: 1;
     -fx-font-family: sans-serif;
     -fx-font-size: 13pt;
     -fx-text-fill: black;
@@ -372,9 +413,33 @@
 
 .tags .label {
     -fx-text-fill: white;
-    -fx-background-color: #3e7b91;
+    -fx-background-color: #ff605c;
+    -fx-padding: 3 3 3 3;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 20;
+}
+.tab-down-button {
+-fx-padding: 0;
+}
+
+.tab-down-button .arrow {
+-fx-padding: 0;
+}
+
+tabs {
+-fx-background-color: #384081;
+    -fx-pref-height: 1;
+    -fx-max-height: 1;
+    -fx-pref-width: 70;
+}
+
+.attributes.label  {
+    -fx-text-fill: white;
     -fx-padding: 1 3 1 3;
     -fx-border-radius: 2;
     -fx-background-radius: 2;
-    -fx-font-size: 11;
+    -fx-font-size: 13;
 }
+
+

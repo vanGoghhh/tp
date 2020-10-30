@@ -23,13 +23,6 @@ public class TabBar extends UiPart<Region> {
     @FXML
     private Tab jobTab;
 
-    @FXML
-    private StackPane personListPanelPlaceholder;
-
-    @FXML
-    private StackPane jobListPanelPlaceholder;
-
-
     /**
      * Creates a {@code TabBar} with the given {@code Logic}.
      */
@@ -54,9 +47,6 @@ public class TabBar extends UiPart<Region> {
      * Fills the tabs with a list of applicants or jobs.
      */
     private void populateTab() {
-        PersonListPanel personListPanel = new PersonListPanel(logic.getFilteredPersonList());
-        JobListPanel jobListPanel = new JobListPanel(logic.getFilteredJobList());
-        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
-        jobListPanelPlaceholder.getChildren().add(jobListPanel.getRoot());
+
     }
 }
