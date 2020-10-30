@@ -330,6 +330,8 @@ Too many candidates with different information? CANdidates provide you with a si
 Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
 
 <div markdown="span" class="alert alert-primary">
+:memo: *At least one of the optional fields must be provided.*
+<br>
 :memo: The search is case insensitive, e.g. john will match John
 <br>
 :memo: The order of the keywords does not matter, e.g. Doe John will match John Doe
@@ -356,6 +358,8 @@ Too many job listings with different information? Similar to the feature above, 
 Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
 
 <div markdown="span" class="alert alert-primary">
+:memo: *At least one of the optional fields must be provided.*
+<br>
 :memo: The search is case insensitive, e.g. samsung will match Samsung
 <br>
 :memo: The order of the keywords does not matter, e.g. King Burger will match Burger King
