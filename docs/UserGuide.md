@@ -161,6 +161,7 @@ This exciting section describes all the amazing features we have in CANdidates f
 
 *:bulb: If you are confused with the various input fields, refer to [Understanding Input Fields](#understanding-input-fields).*
 </div>
+<br>
 
 ### Viewing help: `help`
 
@@ -169,6 +170,7 @@ If you are unsure of how to use the application, we have a help function that wi
 ![help message](images/helpMessage.png)
 
 Format: `help`
+<br>
 
 ### Adding a candidate: `add can`
 
@@ -196,6 +198,7 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 
     add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 
     t/HR t/OfficeLady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000
+<br>
 
 ### Adding a job listing: `add job`
 
@@ -223,6 +226,7 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
 
     add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222 
     pr/high t/delivery t/west v/10
+<br>
 
 ### Listing all candidates: `list can`
 
@@ -285,6 +289,7 @@ This works for the job type, address, expected salary and profile link fields. S
 :black_nib: To edit the 2nd candidate and clear existing job types, address, expected salary and profile link,
 
     edit can 2 t/ a/ sal/ link/ 
+<br>
 
 ### Editing a job: `edit job`
 
@@ -320,8 +325,7 @@ See the second example below for a demonstration.*
 :black_nib: To edit the 3rd job and clear existing job descriptions, 
 
     edit job 3 t/
-
-
+<br>
 
 ### Finding a candidate: `find can`
 
@@ -352,6 +356,7 @@ Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIE
 :black_nib: To find for _blacklisted_ candidates
 
     find can bl/true
+<br>
 
 ### Finding a job: `find job`
 
@@ -380,6 +385,7 @@ Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
 :black_nib: To find jobs with job titles containing the words “_Software Engineer_”,
 
     find job n/Software Engineer
+<br>
 
 ### Sorting all candidates: `sort can`
 
@@ -410,6 +416,7 @@ Format: `sort can type/FIELD_TO_SORT order/ORDER`
 :black_nib: To view all blacklisted candidates followed by non-blacklisted candidates,
 
     sort can type/bl order/desc
+<br>
 
 ### Sorting all jobs: `sort job`
 
@@ -444,6 +451,7 @@ Step 1. Type sort job type/pr order/asc in the command box and press Enter.
 Step 2. The CANdidates application will display the message “Successfully sorted jobs by priority in ascending order.”
 
 Step 3. The application will show the sorted job list based on the sort condition given.
+<br>
 
 ### Deleting a candidate: `delete can`
 
@@ -470,6 +478,7 @@ Please ensure you do not require the candidate’s data anymore before performin
 :black_nib: To delete the candidate at index _3_,
 
     delete can 3
+<br>
 
 ### Deleting a job: `delete job`
 
@@ -495,6 +504,7 @@ Please ensure you do not require the job’s data anymore before performing this
 :black_nib: To delete the job at index _3_,
 
     delete job 3
+<br>
 
 ### Clearing all candidate entries: `clear can`
 
@@ -510,6 +520,7 @@ Please ensure you do not require the candidate list data anymore before performi
 :bulb: *This command can be used to clear the sample data on CANdidates when you first downloaded it.*
 
 </div>
+<br>
 
 ### Clearing all job entries: `clear job`
 
@@ -525,12 +536,14 @@ Please ensure you do not require the job list data anymore before performing thi
 :bulb: *This command can be used to clear the sample data on CANdidates when you first downloaded it.*
 
 </div>
+<br>
 
 ### Exiting the program : `exit`
 
 Done with updating your information with CANdidates? Use this command to exit the program!
 
 Format: `exit`
+<br>
 
 ### Saving the data
 
