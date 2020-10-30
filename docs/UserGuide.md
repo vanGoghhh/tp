@@ -191,12 +191,13 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 <br>
 :memo: *The blacklist input can be specified as* `bl/true` *or* `false`.
 <br>
-:memo: *The date of application input must be in DD-MM-YY format. If the date of application is 31 December 2020, input* `doa/31-12-20`.
+:memo: *The date of application input must be in DD-MM-YY format where Day and Month can be 1 or 2 digits as long as they are valid.
+ If the date of application is 31 December 2020, input* `doa/31-12-20`.
 </div>
 
 **Examples:**
 
-:black_nib: To add a candidates with name _John Doe_, phone _98765432_, email _johnd<span>@</span>example.com_, address _John street, block 123, #01-01_, job type _DogGroomer_, with _1_ year of experience who applied on _16 October 2020_,
+:black_nib: To add a candidate with name _John Doe_, phone _98765432_, email _johnd<span>@</span>example.com_, address _John street, block 123, #01-01_, job type _DogGroomer_, with _1_ year of experience who applied on _16 October 2020_,
 
     add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 
     t/DogGroomer exp/1 doa/16-10-20
@@ -205,11 +206,13 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 
     add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 
     t/HR t/OfficeLady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000
+    
+    
 <br>
 
 ### Adding a job listing: `add job`
 
-If you are informed of a job opening and you would like to add it in CANdidates, you can add him into the list using the command below.
+If you are informed of a job opening and you would like to add it in CANdidates, you can add it into the list using the command below.
 
 Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
 
@@ -271,7 +274,7 @@ Format: `edit can INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [doa/DATE_OF_AP
 
 <div markdown="span" class="alert alert-primary">
 
-:memo: *Edits the candidate at the specified* `INDEX`. The `INDEX` refers to the index number shown in the displayed candidate list. The `INDEX` must be a positive integer 1, 2, 3, …​
+:memo: *Edits the candidate at the specified* `INDEX`. *The* `INDEX` *refers to the index number shown in the displayed candidate list. The* `INDEX` *must be a positive integer 1, 2, 3, …​*
 <br>
 :memo: *Existing values will be updated to the input values.*
 <br>
@@ -306,7 +309,7 @@ Format: `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/AD
 
 <div markdown="span" class="alert alert-primary">
 
-:memo: *Edits the job at the specified* `INDEX`. The `INDEX` refers to the index number shown in the displayed job list. The `INDEX` must be a positive integer 1, 2, 3, …​
+:memo: *Edits the job at the specified* `INDEX`. *The* `INDEX` *refers to the index number shown in the displayed job list. The* `INDEX` *must be a positive integer 1, 2, 3, …​*
 <br>
 :memo: *Existing values will be updated to the input values.*
 <br>
