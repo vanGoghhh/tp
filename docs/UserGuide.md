@@ -33,6 +33,8 @@ title: User Guide
 1. [Command Summary](#command-summary)
 1. [Glossary](#glossary)
 
+<br>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Introduction
@@ -57,6 +59,8 @@ CANdidates is developed as part of a NUS CS2103T Project by:
 * [Nigel Ng Yong Sheng](team/vangoghhh.md)
 * [Tan Yu Ting, Germaine](team/g-erm.md)
 * [Toh Hong Xian](team/raythx98.md)
+
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -101,6 +105,8 @@ Name of input field   | How you can use them
 `FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:exclamation: This field only takes in specific values described in the respective feature sections.
 `ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:exclamation: This field only accepts 2 specific values: asc or desc.
 `INDEX`               | Index number of the candidate or job displayed in the list.
+
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -170,6 +176,7 @@ If you are unsure of how to use the application, we have a help function that wi
 ![help message](images/helpMessage.png)
 
 Format: `help`
+
 <br>
 
 ### Adding a candidate: `add can`
@@ -451,6 +458,7 @@ Step 1. Type sort job type/pr order/asc in the command box and press Enter.
 Step 2. The CANdidates application will display the message “Successfully sorted jobs by priority in ascending order.”
 
 Step 3. The application will show the sorted job list based on the sort condition given.
+
 <br>
 
 ### Deleting a candidate: `delete can`
@@ -543,11 +551,14 @@ Please ensure you do not require the job list data anymore before performing thi
 Done with updating your information with CANdidates? Use this command to exit the program!
 
 Format: `exit`
+
 <br>
 
 ### Saving the data
 
 All data is saved in the hard disk automatically after any command that changes the data. No need worry about having to save manually!
+
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -561,6 +572,8 @@ All data is saved in the hard disk automatically after any command that changes 
 
 **Q**: How can I contribute to this project?<br>
 **A**: You may create a pull request to this [repository](https://github.com/AY2021S1-CS2103T-T17-3/tp). Here is our [developer's guide](https://ay2021s1-cs2103t-t17-3.github.io/tp/DeveloperGuide.html) for your reference.
+
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -579,6 +592,8 @@ Action | Candidate Format | Job Format
 **Delete** | `delete can INDEX` | `delete job INDEX`
 **Clear** | `clear can` | `clear job`
 **Exit** | `exit` | `exit`
+
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
 
