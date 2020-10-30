@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Experience {
 
     public static final String MESSAGE_CONSTRAINTS = "Experience in years has to be an unsigned (non-negative) number "
-            + "that is less than 101 (max of 100).";
+            + "that is less than or equals to 100.";
 
     public final double experienceInYears;
 
@@ -37,7 +37,7 @@ public class Experience {
         } catch (NumberFormatException exception) {
             return false;
         }
-        return experience >= 0 && experience < 101;
+        return experience >= 0 && experience <= 100;
     }
 
     @Override

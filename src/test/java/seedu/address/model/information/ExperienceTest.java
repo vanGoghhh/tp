@@ -33,7 +33,7 @@ public class ExperienceTest {
         assertFalse(Experience.isValidExperience("phone")); // non-numeric
         assertFalse(Experience.isValidExperience("9011p041")); // alphabets within digits
         assertFalse(Experience.isValidExperience("-100")); // negative number
-        assertFalse(Experience.isValidExperience("101")); // number more that 100
+        assertFalse(Experience.isValidExperience("100.1")); // number more that 100
         assertFalse(Experience.isValidExperience("Infinity")); // infinity
 
         // valid experience
