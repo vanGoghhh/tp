@@ -15,7 +15,7 @@ import java.time.format.ResolverStyle;
 public class Date {
 
     public static final String DATE_FORMAT = "d-M-uu"; // eg. 31-12-20
-    public static final String MESSAGE_CONSTRAINTS = "Dates must be of the format DD-MM-YY. Day and Month can be "
+    public static final String MESSAGE_CONSTRAINTS = "Dates must be of the format DD-MM-YY where Day and Month can be "
             + "1 or 2 digits as long as they are valid, eg. 1-12-20";
     public static final DateTimeFormatter DATE_FORMATTER =
             DateTimeFormatter.ofPattern(DATE_FORMAT).withResolverStyle(ResolverStyle.STRICT);
