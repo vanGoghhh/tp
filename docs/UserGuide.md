@@ -12,22 +12,22 @@ title: User Guide
      1. [Understanding Input Fields](#understanding-input-fields)
 2. [Quick Start](#quick-start)
 1. [Features](#features)
-     1. [Viewing help: help](#viewing-help-help)
-     1. [Adding a candidate: add can](#adding-a-candidate-add-can)
-     1. [Adding a job listing: add job](#adding-a-job-listing-add-job)
-     1. [Listing all candidates: list can](#listing-all-candidates-list-can)
-     1. [Listing all jobs: list job](#listing-all-jobs-list-job)
-     1. [Editing a candidate: edit can](#editing-a-candidate-edit-can)
-     1. [Editing a job: edit job](#editing-a-job-edit-job)
-     1. [Finding a candidate: find can](#finding-a-candidate-find-can)
-     1. [Finding a job: find job](#finding-a-job-find-job)
-     1. [Sorting all candidates: sort can](#sorting-all-candidates-sort-can)
-     1. [Sorting all jobs: sort job](#sorting-all-jobs-sort-job)
-     1. [Deleting a candidate: delete can](#deleting-a-candidate-delete-can)
-     1. [Deleting a job: delete job](#deleting-a-job-delete-job)
-     1. [Clearing all candidate entries: clear can](#clearing-all-candidate-entries-clear-can)
-     1. [Clearing all job entries: clear job](#clearing-all-job-entries-clear-job)
-     1. [Exiting the program : exit](#exiting-the-program--exit)
+     1. [Viewing help: **`help`**](#viewing-help-help)
+     1. [Adding a candidate: **`add can`**](#adding-a-candidate-add-can)
+     1. [Adding a job listing: **`add job`**](#adding-a-job-listing-add-job)
+     1. [Listing all candidates: **`list can`**](#listing-all-candidates-list-can)
+     1. [Listing all jobs: **`list job`**](#listing-all-jobs-list-job)
+     1. [Editing a candidate: **`edit can`**](#editing-a-candidate-edit-can)
+     1. [Editing a job: **`edit job`**](#editing-a-job-edit-job)
+     1. [Finding a candidate: **`find can`**](#finding-a-candidate-find-can)
+     1. [Finding a job: **`find job`**](#finding-a-job-find-job)
+     1. [Sorting all candidates: **`sort can`**](#sorting-all-candidates-sort-can)
+     1. [Sorting all jobs: **`sort job`**](#sorting-all-jobs-sort-job)
+     1. [Deleting a candidate: **`delete can`**](#deleting-a-candidate-delete-can)
+     1. [Deleting a job: **`delete job`**](#deleting-a-job-delete-job)
+     1. [Clearing all candidate entries: **`clear can`**](#clearing-all-candidate-entries-clear-can)
+     1. [Clearing all job entries: **`clear job`**](#clearing-all-job-entries-clear-job)
+     1. [Exiting the program : **`exit`**](#exiting-the-program--exit)
      1. [Saving the data](#saving-the-data)
 1. [FAQ](#faq)
 1. [Command Summary](#command-summary)
@@ -550,7 +550,7 @@ Action | Candidate Format | Job Format
 **List** | `list can` | `list job`
 **Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [doa/DATE_OF_APPLICATION] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
 **Find** | `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
-**Sort** | `sort can type/FIELD_TO_SORT ORDER/order` | `sort job type/FIELD_TO_SORT ORDER/order`
+**Sort** | `sort can type/FIELD_TO_SORT order/ORDER` | `sort job type/FIELD_TO_SORT order/ORDER`
 **Delete** | `delete can INDEX` | `delete job INDEX`
 **Clear** | `clear can` | `clear job`
 **Exit** | `exit` | `exit`
