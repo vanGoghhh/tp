@@ -64,6 +64,15 @@ public class JobCard extends UiPart<Region> {
         job.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> jobTags.getChildren().add(new Label(tag.tagName)));
+        if (job.getPriority().value.equals("high")) {
+            jobPriority.setStyle("-fx-background-color: red; -fx-text-fill:white;");
+        } else if (job.getPriority().value.equals("moderate")) {
+            jobPriority.setStyle("-fx-background-color: #fdfd96; -fx-text-fill:white;");
+        } else if (job.getPriority().value.equals("low")) {
+            jobPriority.setStyle("-fx-background-color: green; -fx-text-fill:white;");
+        } else {
+            jobPriority.setStyle("-fx-background-color:black;");
+        }
     }
 
     @Override
