@@ -33,10 +33,12 @@ public class ExperienceTest {
         assertFalse(Experience.isValidExperience("phone")); // non-numeric
         assertFalse(Experience.isValidExperience("9011p041")); // alphabets within digits
         assertFalse(Experience.isValidExperience("-100")); // negative number
+        assertFalse(Experience.isValidExperience("101")); // number more that 100
+        assertFalse(Experience.isValidExperience("Infinity")); // infinity
 
         // valid experience
         assertTrue(Experience.isValidExperience("0")); // zero
         assertTrue(Experience.isValidExperience("9")); // positive
-        assertTrue(Experience.isValidExperience("  8  ")); // positive with whitespace
+        assertTrue(Experience.isValidExperience("    9    ")); // valid number with whitespace
     }
 }

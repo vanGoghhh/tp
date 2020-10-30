@@ -78,7 +78,7 @@ class JsonAdaptedPerson {
         isBlacklisted = source.getBlacklistStatus().toString();
         address = source.getAddressOptional().map(address -> address.value).orElse(null);
         urlLink = source.getUrlLinkOptional().map(link -> link.value).orElse(null);
-        salary = source.getSalaryOptional().map(sal -> sal.toString()).orElse(null);
+        salary = source.getSalaryOptional().map(Salary::toString).orElse(null);
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
