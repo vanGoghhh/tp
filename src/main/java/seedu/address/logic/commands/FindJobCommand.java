@@ -63,7 +63,7 @@ public class FindJobCommand extends Command {
         requireNonNull(model);
         model.updateFilteredJobList(composePredicatesList(predicates));
         return new CommandResult(
-                String.format(Messages.MESSAGE_JOBS_LISTED_OVERVIEW, model.getFilteredJobList().size()));
+                String.format(Messages.MESSAGE_JOBS_LISTED_OVERVIEW, model.getFilteredJobList().size()),"Jobs");
     }
 
     @Override

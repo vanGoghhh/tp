@@ -1,21 +1,15 @@
 package seedu.address.ui;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
-
 import javafx.scene.layout.StackPane;
 import seedu.address.model.information.Person;
 
+/**
+ * UI component that displays the details of a {@code Person}.
+ */
 public class PersonDetailedView extends UiPart<Region> {
     private static final String FXML = "PersonDetailedView.fxml";
 
@@ -39,6 +33,9 @@ public class PersonDetailedView extends UiPart<Region> {
     @FXML
     private Label detailedSalary;
 
+    /**
+     * Creates a detailed view of a {@code Person} with given person.
+     */
     public PersonDetailedView(Person person) {
         super(FXML);
         this.person = person;

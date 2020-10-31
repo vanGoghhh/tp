@@ -4,13 +4,10 @@ import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.information.Person;
 
@@ -18,6 +15,7 @@ import seedu.address.model.information.Person;
  * Panel containing the list of persons.
  */
 public class PersonListPanel extends UiPart<Region> {
+    public static final String TAB_NAME = "Candidates";
     private static final String FXML = "PersonListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
 
@@ -28,8 +26,6 @@ public class PersonListPanel extends UiPart<Region> {
 
     @FXML
     private StackPane detailedView;
-
-
 
     /**
      * Creates a {@code PersonListPanel} with the given {@code ObservableList}.

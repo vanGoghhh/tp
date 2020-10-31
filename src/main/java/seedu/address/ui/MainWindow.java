@@ -1,7 +1,9 @@
 package seedu.address.ui;
 
+import java.util.Optional;
 import java.util.logging.Logger;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -173,10 +175,30 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.show();
     }
 
+    /**
+     * Updates the detailed view on the right panel with the supplied {@code Person}.
+     * @param person
+     */
     public void updateDetailedPersonPanel(Person person) {
         PersonDetailedView personDetailedView = new PersonDetailedView(person);
         detailedView.getChildren().clear();
         detailedView.getChildren().add(personDetailedView.getRoot());
+    }
+
+    /**
+     * Switches tab to the desired tab.
+     */
+    private void switchTab(String tabName) {
+        switch (tabName) {
+        case PersonListPanel.TAB_NAME:
+            tabPane.getSelectionModel().select(0);
+            break;
+        case JobListPanel.TAB_NAME:
+            tabPane.getSelectionModel().select(1);
+            break;
+        default:
+            throw new AssertionError("No such tab name " + tabName);
+        }
     }
 
     /**
@@ -201,6 +223,11 @@ public class MainWindow extends UiPart<Stage> {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+            Optional<String> tabNameToDisplay = commandResult.getTabName();
+            if (tabNameToDisplay.isPresent()) {
+                System.out.println(tabNameToDisplay.get());
+                switchTab(tabNameToDisplay.get());
+            }
 
             if (commandResult.isShowHelp()) {
                 handleHelp();

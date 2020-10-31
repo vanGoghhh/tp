@@ -45,7 +45,7 @@ public class SortPersonCommand extends Command {
         requireNonNull(model);
         model.updateSortedPersonList(comparator);
         logger.info("Sorting People");
-        return new CommandResult(MESSAGE_SUCCESS);
+        return new CommandResult(MESSAGE_SUCCESS, "Candidates");
     }
 
     @Override
