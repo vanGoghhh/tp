@@ -52,7 +52,7 @@ public class SortJobCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
         model.updateSortedJobList(comparator);
-        return new CommandResult(MESSAGE_SUCCESS + this.sortMessage);
+        return new CommandResult(MESSAGE_SUCCESS + this.sortMessage, "Jobs");
     }
 
     @Override

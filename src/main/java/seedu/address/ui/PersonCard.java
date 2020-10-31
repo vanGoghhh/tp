@@ -35,17 +35,11 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label personPhone;
     @FXML
-    private Label personEmail;
-    @FXML
     private Label personExperience;
     @FXML
     private Label personDateOfApplication;
     @FXML
     private Label personBlacklistStatus;
-    @FXML
-    private Label personAddress;
-    @FXML
-    private Label personUrlLink;
     @FXML
     private Label personSalary;
     @FXML
@@ -60,16 +54,16 @@ public class PersonCard extends UiPart<Region> {
         personId.setText(displayedIndex + ". ");
         personName.setText(person.getName().fullName);
         personPhone.setText(person.getPhone().value);
-        personEmail.setText(person.getEmail().value);
         personExperience.setText(String.format("%.1f years", person.getExperience().experienceInYears));
         personDateOfApplication.setText(person.getDateOfApplication().dateString);
         personBlacklistStatus.setText(person.getBlacklistStatus().isBlacklisted ? "Blacklisted" : "Not Blacklisted");
-        person.getAddressOptional().ifPresent(address -> personAddress.setText(address.value));
-        person.getUrlLinkOptional().ifPresent(link -> personUrlLink.setText(link.value));
         person.getSalaryOptional().ifPresent(sal -> personSalary.setText("$" + sal.toString()));
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> personTags.getChildren().add(new Label(tag.tagName + " ")));
+        personBlacklistStatus.setStyle(person.getBlacklistStatus().isBlacklisted
+                ? "-fx-background-color: black; -fx-text-fill: white;"
+                : "-fx-background-color: green; -fx-text-fill:white;");
     }
 
     @Override
