@@ -63,7 +63,7 @@ public class JobCard extends UiPart<Region> {
         jobVacancy.setText(job.getVacancy().value + " needed");
         job.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> jobTags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> jobTags.getChildren().add(new Label(tag.tagName + " ")));
         if (job.getPriority().value.equals("high")) {
             jobPriority.setStyle("-fx-background-color: red; -fx-text-fill:white;");
         } else if (job.getPriority().value.equals("moderate")) {
