@@ -21,7 +21,8 @@
                         </minWidth>
                     </Label>
                 </HBox>
-                <HBox spacing="220">
+                <GridPane>
+                <HBox spacing="220" GridPane.columnIndex="0" GridPane.rowIndex="1">
                     <children>
                     <Label text="Email" styleClass="label-label"></Label>
                     </children>
@@ -29,7 +30,7 @@
                     <Label fx:id="detailedEmail" styleClass="label-detail" translateX="120"></Label>
                     </children>
                 </HBox>
-                <HBox spacing="220">
+                <HBox spacing="220" GridPane.columnIndex="0" GridPane.rowIndex="5">
                     <children>
                         <Label text="Experience" styleClass="label-label"></Label>
                     </children>
@@ -37,7 +38,7 @@
                         <Label fx:id="detailedExperience" styleClass="label-detail" translateX="120"></Label>
                     </children>
                 </HBox>
-                <HBox spacing="166">
+                <HBox spacing="166" GridPane.columnIndex="0" GridPane.rowIndex="9">
                     <children>
                         <Label text="Date of Application" styleClass="label-label"></Label>
                     </children>
@@ -45,15 +46,15 @@
                         <Label fx:id="detailedDateOfApplication" styleClass="label-detail" translateX="75"></Label>
                     </children>
                 </HBox>
-                <HBox spacing="220">
+                <HBox spacing="220" GridPane.columnIndex="0" GridPane.rowIndex="13">
                     <children>
                         <Label text="Address" styleClass="label-label"></Label>
                     </children>
                     <children>
-                        <Label fx:id="detailedAddress" styleClass="label-detail" translateX="110"></Label>
+                        <Label fx:id="detailedAddress" styleClass="label-detail" translateX="53"></Label>
                     </children>
                 </HBox>
-                <HBox spacing="220">
+                <HBox spacing="220" GridPane.columnIndex="0" GridPane.rowIndex="17">
                     <children>
                         <Label text="Profile Link" styleClass="label-label"></Label>
                     </children>
@@ -61,7 +62,7 @@
                         <Label fx:id="detailedUrlLink" styleClass="label-detail" translateX="120"></Label>
                     </children>
                 </HBox>
-                <HBox spacing="220">
+                <HBox spacing="220" GridPane.columnIndex="0" GridPane.rowIndex="21">
                     <children>
                         <Label text="Salary" styleClass="label-label"></Label>
                     </children>
@@ -69,6 +70,7 @@
                         <Label fx:id="detailedSalary" styleClass="label-detail" translateX="164"></Label>
                     </children>
                 </HBox>
+                </GridPane>
             </VBox>
     </GridPane>
 </HBox>
