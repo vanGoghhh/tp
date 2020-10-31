@@ -29,6 +29,11 @@ public class PersonExpectedSalaryComparator extends PersonComparator implements 
     }
 
     @Override
+    public String toString() {
+        return "by expected salary ";
+    }
+
+    @Override
     public boolean equals(Object other) {
         return this == other || other instanceof PersonExpectedSalaryComparator;
     }

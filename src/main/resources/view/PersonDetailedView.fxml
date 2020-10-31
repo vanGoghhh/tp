@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<HBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" styleClass="detailed-background" minWidth="600">
+    <GridPane prefWidth="441.0" HBox.hgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150"/>
+        </columnConstraints>
+            <VBox prefWidth="244.0" GridPane.columnIndex="0" spacing="20">
+                <padding>
+                    <Insets top="5" right="5" bottom="5" left="15" />
+                </padding>
+                <HBox alignment="CENTER" spacing="50">
+                    <Label fx:id="detailedName" styleClass="label-big" alignment="CENTER">
+                        <minWidth>
+                            <!-- Ensures that the label text is never truncated -->
+                            <Region fx:constant="USE_PREF_SIZE" />
+                        </minWidth>
+                    </Label>
+                </HBox>
+                <HBox spacing="220">
+                    <children>
+                    <Label text="Email" styleClass="label-label"></Label>
+                    </children>
+                    <children>
+                    <Label fx:id="detailedEmail" alignment="CENTER"></Label>
+                    </children>
+                </HBox>
+                <HBox spacing="220">
+                    <children>
+                        <Label text="Experience" styleClass="label-label"></Label>
+                    </children>
+                    <children>
+                        <Label fx:id="detailedExperience"></Label>
+                    </children>
+                </HBox>
+                <HBox spacing="166">
+                    <children>
+                        <Label text="Date of Application" styleClass="label-label"></Label>
+                    </children>
+                    <children>
+                        <Label fx:id="detailedDateOfApplication"></Label>
+                    </children>
+                </HBox>
+                <HBox spacing="220">
+                    <children>
+                        <Label text="Address" styleClass="label-label"></Label>
+                    </children>
+                    <children>
+                        <Label fx:id="detailedAddress"></Label>
+                    </children>
+                </HBox>
+                <HBox spacing="220">
+                    <children>
+                        <Label text="Profile Link" styleClass="label-label"></Label>
+                    </children>
+                    <children>
+                        <Label fx:id="detailedUrlLink"></Label>
+                    </children>
+                </HBox>
+                <HBox spacing="220">
+                    <children>
+                        <Label text="Salary" styleClass="label-label"></Label>
+                    </children>
+                    <children>
+                        <Label fx:id="detailedSalary"></Label>
+                    </children>
+                </HBox>
+            </VBox>
+    </GridPane>
+</HBox>
