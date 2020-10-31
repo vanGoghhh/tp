@@ -10,12 +10,25 @@
 }
 
 .background {
-    -fx-background-color: derive(#1d1d1d, 20%);
-    background-color: #ffffff; /* Used in the default.html file */
+    -fx-background-color: #ffffff;
+}
+
+.right-panel {
+    -fx-background-color: #fdfdfd;
+}
+
+.left-panel {
+    -fx-background-color: #ffffff;
+}
+
+.status {
+    -fx-background-color: #000000;
 }
 
 .detailed-background {
     -fx-background-color: #ffffff;
+    -fx-background-insets: 40 20 180 40;
+    -fx-effect: dropshadow(three-pass-box, rgba(0.5,0.5,0.5,0.5), 10, 0, 0, 0);
 }
 
 .label {
@@ -35,18 +48,20 @@
 
 .label-details {
     -fx-padding: 1 1 1 1;
-    -fx-font-family: "Poppins Thin";
+    -fx-font-family: "Poppins Regular";
 }
 
 .label-side {
     -fx-font-family: "Poppins Regular";
     -fx-padding: 3 3 3 3;
     -fx-border-radius: 10;
-    -fx-background-radius: 10;
+    -fx-background-radius: 20;
     -fx-font-size: 12;
-    -fx-pref-height: 20;
-    -fx-pref-width: 100;
+    -fx-pref-height: 30;
+    -fx-pref-width: 170;
     -fx-alignment: center;
+    -fx-font-weight: 20;
+    -fx-translate-x: -50;
 }
 
 
@@ -54,6 +69,13 @@
     -fx-font-family: "Poppins Regular";
     -fx-font-size: 20px;
     -fx-text-fill: #5f66b9;
+    -fx-alignment: center;
+    -fx-translate-x: 50;
+    -fx-translate-y: 50;
+}
+
+.label-detail {
+    -fx-translate-y: 50;
 }
 
 .label-header {
@@ -81,6 +103,10 @@
     -fx-background-color: #f6f6f6;
 }
 
+.tab-pane .tab-header-area .tab-header-background{
+    -fx-background-color: white;
+}
+
 .tab-pane .tab:selected {
     -fx-background-color: #ff605c;
 }
@@ -90,7 +116,7 @@
     -fx-background-radius: 10 10 10 10;
     -fx-focus-color: transparent;
     -fx-pref-height: 35;
-    -fx-pref-width: 410;
+    -fx-pref-width: 320;
     -fx-background-insets: 0 4 0 4,0,0,0;
 }
 .tab .tab-label {
@@ -100,11 +126,10 @@
     -fx-font-family: sans-serif;
 }
 
-.split-pane {
-    -fx-border-radius: 1;
-    -fx-border-width: 1;
-    -fx-background-color: derive(#1d1d1d, 20%);
+.list-view .list-background {
+    -fx-background-color: white;
 }
+
 
 .list-view {
     -fx-background-insets: 0;
@@ -148,21 +173,14 @@
 }
 
 .cell_small_label {
-    -fx-font-family: "Poppins Thin";
-    -fx-font-size: 13px;
+    -fx-font-family: "Poppins thin";
+    -fx-font-size: 14px;
+    -font-weight:4;
     -fx-text-fill: #000000;
     -fx-padding: 1 3 1 3;
     -fx-border-radius: 5;
 }
 
-.stack-pane {
-    -fx-background-color: #ffffff;
-}
-
-.pane-with-border {
-     -fx-background-color: #f0f0f0;
-     -fx-border-color: #f0f0f0;
-}
 
 .status-bar {
     -fx-background-color: #f0f0f0;
@@ -172,7 +190,12 @@
     -fx-background-color: white;
     -fx-font-family: "Poppins Regular";
     -fx-font-size: 13pt;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
+    -fx-text-alignment: center;
+}
+
+.result-display .background {
+    -fx-background-color: white;
 }
 
 .result-display .label {
@@ -225,7 +248,7 @@
 }
 
 .menu .left-container {
-    -fx-background-color: black;
+    -fx-background-color: white;
 }
 
 /*
@@ -277,56 +300,6 @@
     -fx-background-color: derive(-fx-focus-color, 30%);
 }
 
-.dialog-pane {
-    -fx-background-color: #1d1d1d;
-}
-
-.dialog-pane > *.button-bar > *.container {
-    -fx-background-color: #1d1d1d;
-}
-
-.dialog-pane > *.label.content {
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-text-fill: white;
-}
-
-.dialog-pane:header *.header-panel {
-    -fx-background-color: derive(#1d1d1d, 25%);
-}
-
-.dialog-pane:header *.header-panel *.label {
-    -fx-font-size: 18px;
-    -fx-font-style: italic;
-    -fx-fill: white;
-    -fx-text-fill: white;
-}
-
-.scroll-bar {
-    -fx-background-color: #000000;
-}
-
-.scroll-bar .thumb {
-    -fx-background-color: derive(#1d1d1d, 50%);
-    -fx-background-insets: 3;
-}
-
-.scroll-bar .increment-button, .scroll-bar .decrement-button {
-    -fx-background-color: transparent;
-    -fx-padding: 0 0 0 0;
-}
-
-.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
-    -fx-shape: " ";
-}
-
-.scroll-bar:vertical .increment-arrow, .scroll-bar:vertical .decrement-arrow {
-    -fx-padding: 1 8 1 8;
-}
-
-.scroll-bar:horizontal .increment-arrow, .scroll-bar:horizontal .decrement-arrow {
-    -fx-padding: 8 1 8 1;
-}
 
 #cardPane {
     -fx-background-color: transparent;
@@ -350,10 +323,11 @@
 }
 
 #resultDisplay .content {
-    -fx-background-color: #5f66b9;
-    -fx-background-radius: 25;
-    -fx-font-family: sans-serif;
+    -fx-background-color: #ffffff;
+    -fx-font-family: "Poppins Regular";
+    -fx-background-insets: 10;
 }
+
 
 .tags {
     -fx-hgap: 7;
@@ -374,13 +348,6 @@
 
 .tab-down-button .arrow {
 -fx-padding: 0;
-}
-
-tabs {
--fx-background-color: #384081;
-    -fx-pref-height: 1;
-    -fx-max-height: 1;
-    -fx-pref-width: 70;
 }
 
 .attributes.label  {
