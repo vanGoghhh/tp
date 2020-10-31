@@ -46,13 +46,13 @@ public class PersonSalaryContainsKeywordsPredicateTest {
 
         // Exact Matching
         PersonSalaryContainsKeywordsPredicate predicate = new PersonSalaryContainsKeywordsPredicate(
-                Arrays.asList("3000.69"));
-        assertTrue(predicate.test(new PersonBuilder().withSalary("3000.69").build()));
+                Arrays.asList("3000"));
+        assertTrue(predicate.test(new PersonBuilder().withSalary("3000").build()));
 
         // Zero keywords
         predicate =
                 new PersonSalaryContainsKeywordsPredicate(Collections.emptyList());
-        assertTrue(predicate.test(new PersonBuilder().withSalary("3000.69").build()));
+        assertTrue(predicate.test(new PersonBuilder().withSalary("3000").build()));
     }
 
     @Test
@@ -61,20 +61,20 @@ public class PersonSalaryContainsKeywordsPredicateTest {
         // One keyword containing
         PersonSalaryContainsKeywordsPredicate predicate = new PersonSalaryContainsKeywordsPredicate(
                 Collections.singletonList("3000"));
-        assertFalse(predicate.test(new PersonBuilder().withSalary("3000.69").build()));
+        assertFalse(predicate.test(new PersonBuilder().withSalary("3001").build()));
 
         // Only one matching keyword, the rest does not match
         predicate = new PersonSalaryContainsKeywordsPredicate(
-                Arrays.asList("2154.77", "3000.69"));
-        assertFalse(predicate.test(new PersonBuilder().withSalary("3000.69").build()));
+                Arrays.asList("2154", "3000"));
+        assertFalse(predicate.test(new PersonBuilder().withSalary("3000").build()));
 
         // Non-matching keyword
-        predicate = new PersonSalaryContainsKeywordsPredicate(Arrays.asList("2154.77"));
-        assertFalse(predicate.test(new PersonBuilder().withSalary("3000.69").build()));
+        predicate = new PersonSalaryContainsKeywordsPredicate(Arrays.asList("2154"));
+        assertFalse(predicate.test(new PersonBuilder().withSalary("3000").build()));
 
         // Keywords match phone but does not match address
         predicate = new PersonSalaryContainsKeywordsPredicate(
-                Arrays.asList("12345", "2122.88"));
-        assertFalse(predicate.test(new PersonBuilder().withPhone("12345").withSalary("3000.69").build()));
+                Arrays.asList("12345", "2122"));
+        assertFalse(predicate.test(new PersonBuilder().withPhone("12345").withSalary("3000").build()));
     }
 }

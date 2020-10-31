@@ -61,15 +61,15 @@ public class PersonCard extends UiPart<Region> {
         personName.setText(person.getName().fullName);
         personPhone.setText(person.getPhone().value);
         personEmail.setText(person.getEmail().value);
-        personExperience.setText(person.getExperience().toString() + " years");
+        personExperience.setText(String.format("%.1f years", person.getExperience().experienceInYears));
         personDateOfApplication.setText(person.getDateOfApplication().dateString);
         personBlacklistStatus.setText(person.getBlacklistStatus().isBlacklisted ? "Blacklisted" : "Not Blacklisted");
         person.getAddressOptional().ifPresent(address -> personAddress.setText(address.value));
         person.getUrlLinkOptional().ifPresent(link -> personUrlLink.setText(link.value));
-        person.getSalaryOptional().ifPresent(sal -> personSalary.setText(String.format("$%.0f", sal.salary)));
+        person.getSalaryOptional().ifPresent(sal -> personSalary.setText("$" + sal.toString()));
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> personTags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> personTags.getChildren().add(new Label(tag.tagName + " ")));
     }
 
     @Override
