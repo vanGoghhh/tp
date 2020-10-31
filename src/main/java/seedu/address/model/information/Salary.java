@@ -9,9 +9,10 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Salary {
 
-    public static final String MESSAGE_CONSTRAINTS = "Salary has to be an unsigned (non-negative) number.";
+    public static final String MESSAGE_CONSTRAINTS = "Salary has to be an unsigned (non-negative) integer "
+            + "that is less than 1 billion (max of 999,999,999).";
 
-    public final double salary;
+    public final int salary;
 
     /**
      * Constructs an {@code Salary}.
@@ -21,20 +22,22 @@ public class Salary {
     public Salary(String salary) {
         requireNonNull(salary);
         checkArgument(isValidSalary(salary), MESSAGE_CONSTRAINTS);
-        this.salary = Double.parseDouble(salary);
+        this.salary = Integer.parseInt(salary);
     }
 
     /**
      * Returns if a given String represents valid amount of salary.
      */
     public static boolean isValidSalary(String test) {
-        double salaryAmount;
+        requireNonNull(test);
+        int salaryAmount;
+        test = test.strip();
         try {
-            salaryAmount = Double.parseDouble(test);
+            salaryAmount = Integer.parseInt(test);
         } catch (NumberFormatException exception) {
             return false;
         }
-        return salaryAmount >= 0;
+        return salaryAmount >= 0 && salaryAmount < 1000000000;
     }
 
     @Override
@@ -51,6 +54,6 @@ public class Salary {
 
     @Override
     public int hashCode() {
-        return Double.valueOf(salary).hashCode();
+        return Integer.valueOf(salary).hashCode();
     }
 }
