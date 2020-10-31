@@ -2,8 +2,47 @@
 layout: page
 title: Developer Guide
 ---
-* Table of Contents
-{:toc}
+CANdidates is an open source, brownfield project on the existing [Address book
+ Level-3](https://se-education.org/addressbook-level3/). If you are ready to
+ contribute to this [project](https://github.com/AY2021S1-CS2103T-T17-3/tp),
+ create a pull request [here](https://github.com/AY2021S1-CS2103T-T17-3/tp/pulls).
+
+## CANdidates User Guide
+
+1. [Setting up, getting started](#setting-up-getting-started)
+1. [Design](#design)
+     1. [Architecture](#architecture)
+     1. [User Interface](#ui-component)
+     1. [Logic](#logic-component)
+     1. [Model](#model-component)
+     1. [Storage](#storage-component)
+     1. [Common Classes](#common-classes)
+1. [Implementation](#implementation)
+     1. [Add feature](#implemented-add-feature)
+     1. [Edit feature](#implemented-edit-feature)
+     1. [List feature](#implemented-list-feature)
+     1. [Sort feature](#implemented-sort-feature)
+     1. [Find feature](#implemented-find-feature)
+1. [Proposed features](#proposed-features)
+     1. [Undo/Redo feature](#proposed-undoredo-feature)
+         1. [Proposed Implementation](#proposed-implementation)
+         1. [Design Consideration](#design-consideration)
+             1. [How it executes](#aspect-how-undo--redo-executes)
+     1. [Data Archiving](#proposed-data-archiving)
+1. [Documentation, Logging, Testing, Configuration, Dev-Ops](#documentation-logging-testing-configuration-dev-ops)
+1. [Appendix: Requirements](#appendix-requirements)
+     1. [Product Scope](#product-scope)
+     1. [User Stories](#user-stories)
+     1. [Use Cases](#use-cases)
+         1. [Delete a Candidate](#use-case-delete-a-candidate)
+         1. [Add a Candidate](#use-case-add-a-candidate)
+         1. [Edit a Candidate](#use-case-edit-a-candidate)
+         1. [Clear all Candidates](#use-case-clear-all-entries)
+     1. [Non-Functional Requirements](#non-functional-requirements)
+     1. [Glossary](#glossary)
+1. [Appendix: Instructions for Manual Testing](#appendix-instructions-for-manual-testing)
+     1. [Launch and Shutdown](#launch-and-shutdown)
+     1. [Deleting a Person](#deleting-a-person)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -177,8 +216,63 @@ The following sequence diagram shows how the `add can` operation works in the sc
 
 The sequence diagram for a `add job` operation is mostly similar, with `AddJobCommandParser`, `AddJobCommand`, `hasJob`, `addJob`, `saveJobAddressBook` and `JobAddressBook`.
 
+### \[Implemented] Edit feature
 
-### \[Implemented] Sort Candidates feature
+The Edit feature has two variants, one for editing candidates (`edit can`) and one for editing jobs (`edit job`) . We will illustrate this feature using only the candidates variant here
+as the job variant works analogously. 
+
+The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
+Additionally, it implements the following operations:
+
+*`ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
+
+*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+
+Given below is an example usage scenario and how the edit mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
+
+Step 2. The user executes `edit can 2 n/Rob Mi` to change the `Name` of the candidate at `index` 2 to Rob Mi. 
+
+Step 3. The method `AddressBookParser#parseCommand` is invoked to distinguish which type of command it is. After discerning it is an `edit can` command,
+the `EditPersonCommandParser#parse` is then invoked to parse the arguments.
+If the command format is invalid, `EditPersonCommandParser` throws an error.
+
+Step 4. A `EditPersonDescriptor` object, which is an inner class of `EditPersonCommand`, is created from parsing the command and is used
+to store the details to edit the candidate with. In this case, it stores the `Name` Rob Mi.
+
+Step 5. A `EditPersonCommand` object is also created from parsing the comamand. In the `EditPersonCommand#execute` method, 
+if the candidate index provided by the user is invalid, an error is thrown. 
+Otherwise, the method `ModelManager#setPerson()` is invoked to replace the old candidate with the newly edited candidate. 
+ Then, `ModelManager#updateFilteredPersonList()` is invoked and the `FilteredList` and `personAddressBook` is updated and saved.
+
+The following sequence diagram shows how the edit operation works in the scenario described above:
+
+![EditSequenceDiagram](images/EditSequenceDiagram.png)
+
+A `edit job` command works similarly for Jobs but with the analogous EditJobDescriptor, EditJobCommand, JobAddressBook etc. classes.
+
+### \[Implemented] List feature
+
+The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
+Additionally, it implements the following operations:
+
+*`ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
+
+Given below is an example usage scenario and how the list mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniqueJobList` from `jobAddressBook` which contains a list of jobs.
+
+Step 2. The user executes `list job` to list all jobs.
+
+Step 3. A `ListJobCommand` object is created from parsing the command. In the `ListJobCommand#execute` the method `ModelManager#updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS)` is invoked 
+and the `FilteredList` shows all jobs in the list as indicated by the given predicate.
+
+The following sequence diagram shows how the find operation works in the scenario described above:
+
+![ListSequenceDiagram](images/ListSequenceDiagram.png)
+
+### \[Implemented] Sort feature
 
 The implemented sort mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `SortedList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
@@ -216,57 +310,7 @@ The following sequence diagram shows how the find operation works in the scenari
 
 The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
 
-### \[Implemented] List Job feature
-
-The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
-Additionally, it implements the following operations:
-
-*`ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
-
-Given below is an example usage scenario and how the list mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniqueJobList` from `jobAddressBook` which contains a list of jobs.
-
-Step 2. The user executes `list job` to list all jobs.
-
-Step 3. A `ListJobCommand` object is created from parsing the command. In the `ListJobCommand#execute` the method `ModelManager#updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS)` is invoked 
-and the `FilteredList` shows all jobs in the list as indicated by the given predicate.
-
-The following sequence diagram shows how the find operation works in the scenario described above:
-
-![ListSequenceDiagram](images/ListSequenceDiagram.png)
-
-### \[Implemented] Edit feature
-
-The Edit feature has two variants, one for editing candidates (`edit can`) and one for editing jobs (`edit job`) . We will illustrate this feature using only the candidates variant here
-as the job variant works analogously. 
-The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
-Additionally, it implements the following operations:
-
-*`ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
-*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
-
-Given below is an example usage scenario and how the edit mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
-
-Step 2. The user executes `edit can 2 n/Rob Mi e/rob@kmail.com` to change the `Name` and `Email` of the candidate at `index` 2 to Rob Mi and rob<span>@</span>kmail.com respectively. 
-
-Step 3. The method `AddressBookParser#parseCommand` is invoked to distinguish which type of command it is. After discerning it is an `edit can` command,
-the `EditPersonCommandParser#parse` is then invoked to parse the arguments.
-If the command format is invalid, `EditPersonCommandParser` throws an error.
-
-Step 4. A `EditPersonDescriptor`, which is an inner class of `EditPersonCommand`, is created from parsing the command and a `EditPersonCommand` object is created. In the `EditPersonCommand#execute` method, if the candidate index provided by the user is invalid, an error is thrown. 
-Otherwise, the method `ModelManager#setPerson()` is invoked to replace the old candidate with the newly edited candidate. 
- Then, `ModelManager#updateFilteredPersonList()` is invoked and the `FilteredList` is updated.
-The `personAddressBook` is also updated with the new changes and saved. 
-
-The following sequence diagram shows how the edit operation works in the scenario described above:
-
-![EditSequenceDiagram](images/EditSequenceDiagram.png)
-
-A `edit job` command works similarly for Jobs but with the analogous EditJobDescriptor, EditJobCommand, JobAddressBook etc. classes.
-
+## Proposed Features
 
 ### \[Proposed\] Undo/redo feature
 
@@ -421,7 +465,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `CANdidates` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a candidate**
+#### **Use case: Delete a candidate**
 
 **MSS**
 
@@ -445,7 +489,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case resumes at step 2.
 
 
-**Use case: Add a candidate**
+#### **Use case: Add a candidate**
 
 **MSS**
 
@@ -469,7 +513,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-**Use case: Edit a candidate**
+#### **Use case: Edit a candidate**
 
 **MSS**
 
@@ -499,7 +543,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case resumes at step 2.
 
 
-**Use case: Clear all entries**
+#### **Use case: Clear all entries**
 
 **MSS**
 

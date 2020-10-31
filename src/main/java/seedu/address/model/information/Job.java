@@ -17,7 +17,7 @@ public class Job {
 
     // Identity fields
     private final Name jobTitle;
-    private final Name companyName;
+    private final CompanyName companyName;
     private final Phone phone;
     private final Email email;
 
@@ -30,7 +30,7 @@ public class Job {
     /**
      * Every field must be present and not null.
      */
-    public Job(Name jobTitle, Name companyName, Phone phone, Email email, Address address,
+    public Job(Name jobTitle, CompanyName companyName, Phone phone, Email email, Address address,
                Set<Tag> tags, Priority priority, Vacancy vacancy) {
         requireAllNonNull(jobTitle, companyName, phone, email, address, tags, priority, vacancy);
         this.jobTitle = jobTitle;
@@ -47,7 +47,7 @@ public class Job {
         return jobTitle;
     }
 
-    public Name getCompanyName() {
+    public CompanyName getCompanyName() {
         return companyName;
     }
 

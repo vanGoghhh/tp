@@ -55,12 +55,12 @@ public class JobCard extends UiPart<Region> {
         this.job = job;
         companyId.setText(displayedIndex + ". ");
         jobName.setText(job.getJobTitle().fullName);
-        companyName.setText(job.getCompanyName().fullName);
+        companyName.setText(job.getCompanyName().fullCompanyName);
         companyPhone.setText(job.getPhone().value);
         companyAddress.setText(job.getAddress().value);
         companyEmail.setText(job.getEmail().value);
-        jobPriority.setText(job.getPriority().value);
-        jobVacancy.setText(job.getVacancy().value + " needed");
+        jobPriority.setText("Priority: " + job.getPriority().value);
+        jobVacancy.setText("Vacancies: " + job.getVacancy().value);
         job.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> jobTags.getChildren().add(new Label(tag.tagName + " ")));

@@ -16,6 +16,7 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.AddJobCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.CompanyName;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
@@ -45,7 +46,7 @@ public class AddJobCommandParser implements Parser<AddJobCommand> {
         }
 
         Name jobTitle = ParserUtil.parseName(argMultimap.getValue(PREFIX_JOB_TITLE).get());
-        Name companyName = ParserUtil.parseName(argMultimap.getValue(PREFIX_COMPANY_NAME).get());
+        CompanyName companyName = ParserUtil.parseCompanyName(argMultimap.getValue(PREFIX_COMPANY_NAME).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());

@@ -11,6 +11,7 @@ import seedu.address.model.ReadOnlyJobAddressBook;
 import seedu.address.model.ReadOnlyPersonAddressBook;
 import seedu.address.model.information.Address;
 import seedu.address.model.information.BlacklistStatus;
+import seedu.address.model.information.CompanyName;
 import seedu.address.model.information.Date;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Experience;
@@ -65,22 +66,22 @@ public class SampleDataUtil {
 
     public static Job[] getSampleJobs() {
         return new Job[] {
-            new Job(new Name("Toilet Bowl Cleaner"), new Name("Facebook"), new Phone("67438807"),
+            new Job(new Name("Toilet Bowl Cleaner"), new CompanyName("Facebook"), new Phone("67438807"),
                 new Email("recruitment@facebook.com"), new Address("1 Hacker Way, Menlo Park, CA 94025"),
                 getTagSet("Cleaner"), new Priority("low"), new Vacancy("1")),
-            new Job(new Name("Wall Painter"), new Name("Apple"), new Phone("69272758"),
+            new Job(new Name("Wall Painter"), new CompanyName("Apple"), new Phone("69272758"),
                 new Email("recruitment@apple.com"), new Address("1 Apple Park Way, Cupertino, California"),
                 getTagSet("Cleaner"), new Priority("moderate"), new Vacancy("3")),
-            new Job(new Name("Plant Waterer"), new Name("Amazon"), new Phone("63210283"),
+            new Job(new Name("Plant Waterer"), new CompanyName("Amazon"), new Phone("63210283"),
                 new Email("recruitment@amazon.com"), new Address("16 Forest Way, Seattle, Washington"),
                 getTagSet("Cleaner"), new Priority("moderate"), new Vacancy("1")),
-            new Job(new Name("Glass Wiper"), new Name("Netflix"), new Phone("61031282"),
+            new Job(new Name("Glass Wiper"), new CompanyName("Netflix"), new Phone("61031282"),
                 new Email("recruitment@netflix.com"), new Address("19 Netflix Lane, Los Gatos, California"),
                 getTagSet("Cleaner"), new Priority("moderate"), new Vacancy("5")),
-            new Job(new Name("Software Engineer"), new Name("Google"), new Phone("62492021"),
+            new Job(new Name("Software Engineer"), new CompanyName("Google"), new Phone("62492021"),
                 new Email("recruitment@google.com"), new Address("1600 Google Way, Mountain View, California"),
                 getTagSet("SE"), new Priority("high"), new Vacancy("2")),
-            new Job(new Name("CS2103T Lecturer"), new Name("NUS"), new Phone("62624417"),
+            new Job(new Name("CS2103T Lecturer"), new CompanyName("NUS"), new Phone("62624417"),
                 new Email("recruitment@nus.edu.sg"), new Address("21 Lower Kent Ridge Rd, Singapore 119077"),
                 getTagSet("Teaching"), new Priority("high"), new Vacancy("1"))
         };
