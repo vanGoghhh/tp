@@ -9,10 +9,10 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Experience {
 
-    public static final String MESSAGE_CONSTRAINTS = "Experience in years has to be an unsigned (non-negative) number.";
+    public static final String MESSAGE_CONSTRAINTS = "Experience in years has to be an unsigned (non-negative) number "
+            + "that is less than or equals to 100.";
 
     public final double experienceInYears;
-    public final String value;
 
     /**
      * Constructs an {@code Experience}.
@@ -22,7 +22,6 @@ public class Experience {
     public Experience(String experience) {
         requireNonNull(experience);
         checkArgument(isValidExperience(experience), MESSAGE_CONSTRAINTS);
-        value = experience;
         experienceInYears = Double.parseDouble(experience);
     }
 
@@ -30,13 +29,15 @@ public class Experience {
      * Returns if a given String represents valid number of years of experience.
      */
     public static boolean isValidExperience(String test) {
+        requireNonNull(test);
         double experience;
+        test = test.strip();
         try {
             experience = Double.parseDouble(test);
         } catch (NumberFormatException exception) {
             return false;
         }
-        return experience >= 0;
+        return experience >= 0 && experience <= 100;
     }
 
     @Override
