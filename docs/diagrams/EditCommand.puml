@@ -15,10 +15,10 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("edit can 2 \nn/Rob Mi \ne/rob@kmail.com")
+[-> LogicManager : execute(\n"edit can 2 n/Rob Mi")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("edit can 2 \nn/Rob Mi \ne/rob@kmail.com")
+LogicManager -> AddressBookParser : parseCommand(\n"edit can 2 n/Rob Mi")
 activate AddressBookParser
 
 create EditPersonCommandParser
@@ -28,7 +28,7 @@ activate EditPersonCommandParser
 EditPersonCommandParser --> AddressBookParser
 deactivate EditPersonCommandParser
 
-AddressBookParser -> EditPersonCommandParser : parse("edit can 2 \nn/Rob Mi \ne/rob@kmail.com")
+AddressBookParser -> EditPersonCommandParser : parse(\n"edit can 2 n/Rob Mi")
 activate EditPersonCommandParser
 
 create EditPersonDescriptor
@@ -69,7 +69,7 @@ activate CommandResult
 CommandResult --> EditPersonCommand
 deactivate CommandResult
 
-EditPersonCommand --> LogicManager : "Edited candidate: Rob Mi ... Email: rob@kmail.com ... "
+EditPersonCommand --> LogicManager : "Edited candidate: Rob Mi"
 deactivate EditPersonCommand
 
 [<--LogicManager
