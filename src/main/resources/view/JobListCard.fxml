@@ -32,10 +32,8 @@
                 <children>
                     <VBox>
                         <Label fx:id="companyName" text="\$first" styleClass="cell_big_label" />
-                        <FlowPane fx:id="jobTags" />
-                        <Label fx:id="companyPhone" styleClass="cell_small_label" text="\$phone" />
+                        <FlowPane fx:id="jobTags" styleClass="tags"/>
                         <Label fx:id="companyAddress" styleClass="cell_small_label" text="\$address" />
-                        <Label fx:id="companyEmail" styleClass="cell_small_label" text="\$email" />
                         <Label fx:id="jobVacancy" styleClass="cell_small_label" text="\$vacancy" />
                     </VBox>
                 </children>
