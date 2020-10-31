@@ -20,7 +20,7 @@ public class SalaryTest {
     }
 
     @Test
-    public void isValidUrlLink() {
+    public void isValidSalary() {
         // null salary
         assertThrows(NullPointerException.class, () -> Salary.isValidSalary(null));
 
@@ -31,12 +31,14 @@ public class SalaryTest {
         assertFalse(Salary.isValidSalary("google")); // alphabets
         assertFalse(Salary.isValidSalary("9011p041")); // alphabets within digits
         assertFalse(Salary.isValidSalary("8,000")); // numbers with comma
+        assertFalse(Salary.isValidSalary("Infinity")); // numbers more than 1 billion
+        assertFalse(Salary.isValidSalary("1000000001")); // numbers more than 1 billion
+        assertFalse(Salary.isValidSalary("2000.5")); // numbers with decimal
 
         // valid salary
         assertTrue(Salary.isValidSalary("0")); // 0
-        assertTrue(Salary.isValidSalary("  0   ")); // 0 with whitespace
-        assertTrue(Salary.isValidSalary("8000")); // positive number
-        assertTrue(Salary.isValidSalary("  8888   ")); // positive number with whitespace
+        assertTrue(Salary.isValidSalary("8000")); // positive number less than 1 billion
+        assertTrue(Salary.isValidSalary("    8000     ")); // valid number with whitespace
     }
 }
 
