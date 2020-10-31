@@ -33,7 +33,6 @@ public class PersonListPanel extends UiPart<Region> {
     public PersonListPanel(ObservableList<Person> personList, MainWindow mainWindow) {
         super(FXML);
         personListView.setItems(personList);
-        //personListView.setCellFactory(listView -> new PersonListViewCell());
         personListView.setCellFactory(listView -> new PersonListPanel.PersonListViewCell(mainWindow));
     };
 

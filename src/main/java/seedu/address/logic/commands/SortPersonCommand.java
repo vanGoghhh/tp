@@ -26,6 +26,7 @@ public class SortPersonCommand extends Command {
     private static final Logger logger = LogsCenter.getLogger(SortPersonCommand.class);
 
     private final Comparator<Person> comparator;
+    private final String sortMessage;
 
     /**
      * Constructor for SortPersonCommand. Checks the order of sort required
@@ -34,8 +35,10 @@ public class SortPersonCommand extends Command {
     public SortPersonCommand(Comparator<Person> comparator, Boolean isAscending) {
         assert (comparator != null);
         if (!isAscending) {
+            this.sortMessage = comparator.toString() + "in descending order.";
             this.comparator = comparator.reversed();
         } else {
+            this.sortMessage = comparator.toString() + "in ascending order.";
             this.comparator = comparator;
         }
     }
@@ -45,7 +48,7 @@ public class SortPersonCommand extends Command {
         requireNonNull(model);
         model.updateSortedPersonList(comparator);
         logger.info("Sorting People");
-        return new CommandResult(MESSAGE_SUCCESS, "Candidates");
+        return new CommandResult(MESSAGE_SUCCESS + this.sortMessage, "Candidates");
     }
 
     @Override
