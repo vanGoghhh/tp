@@ -19,6 +19,11 @@ public class PersonBlackListComparator extends PersonComparator implements Compa
     }
 
     @Override
+    public String toString() {
+        return "by blacklist status ";
+    }
+
+    @Override
     public boolean equals(Object other) {
         return this == other || other instanceof PersonBlackListComparator;
     }
