@@ -41,7 +41,7 @@ public class PersonExpectedSalaryComparatorTest {
 
     @Test
     public void testGreaterThan() {
-        Person firstPerson = new PersonBuilder().withSalary("1000.0").build();
+        Person firstPerson = new PersonBuilder().withSalary("1000").build();
         Person secondPerson = new PersonBuilder().withSalary("500").build();
         int result = expectedSalaryComparator.compare(firstPerson, secondPerson);
         assertEquals(result, 1);

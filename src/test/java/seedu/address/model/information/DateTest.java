@@ -34,11 +34,14 @@ public class DateTest {
         assertFalse(Date.isValidDate("12/12/12")); // date with slash
         assertFalse(Date.isValidDate("3 July 2020")); // date with words
         assertFalse(Date.isValidDate("01-01-2020")); // date with yyyy
+        assertFalse(Date.isValidDate("31-02-20")); // date that does not exist
+        assertFalse(Date.isValidDate("35-12-20")); // date that does not exist
 
         // valid date
         assertTrue(Date.isValidDate("12-12-12")); // date with dashes
         assertTrue(Date.isValidDate("1-1-20")); // date with 1 day and 1 month number
         assertTrue(Date.isValidDate("   11-11-11   ")); // date with whitespace
+        assertTrue(Date.isValidDate("   29-02-20   ")); // leap year date that is valid
     }
 
     @Test
