@@ -28,7 +28,7 @@ public class SortPersonCommand extends Command {
             + PREFIX_SORT_TYPE + "exp "
             + PREFIX_SORT_ORDER + "asc ";
 
-    public static final String MESSAGE_SUCCESS = "Successfully sorted people";
+    public static final String MESSAGE_SUCCESS = "Successfully sorted list of candidates ";
 
     public static final String MESSAGE_SORT_TYPE_INVALID = "Invalid Sort Type.\n"
             + "Sort type must be one of exp, sal, bl or doa";
