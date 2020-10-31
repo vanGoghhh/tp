@@ -50,9 +50,6 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane resultDisplayPlaceholder;
 
-//    @FXML
-//    private StackPane statusbarPlaceholder;
-
     @FXML
     private TabPane tabPane;
 
@@ -138,11 +135,6 @@ public class MainWindow extends UiPart<Stage> {
         JobListPanel jobListPanel = new JobListPanel(logic.getFilteredJobList(), this);
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
         jobListPanelPlaceholder.getChildren().add(jobListPanel.getRoot());
-
-
-
-//        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getPersonAddressBookFilePath());
-//        statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());

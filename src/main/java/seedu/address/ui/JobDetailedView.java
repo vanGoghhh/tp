@@ -5,7 +5,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import seedu.address.model.information.Job;
-import seedu.address.model.information.Person;
 
 /**
  * UI component that displays the details of a {@code Job}.
