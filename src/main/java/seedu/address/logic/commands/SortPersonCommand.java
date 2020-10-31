@@ -1,6 +1,8 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_ORDER;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_TYPE;
 
 import java.util.Comparator;
 import java.util.logging.Logger;
@@ -17,11 +19,19 @@ public class SortPersonCommand extends Command {
 
     public static final String COMMAND_WORD = "sort can";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sorts the candidates in the address book.";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sorts the candidates in the address book"
+            + "according to the specified order given by the user input. \n"
+            + "Parameters: "
+            + PREFIX_SORT_TYPE + "FIELD_TO_BE_SORTED "
+            + PREFIX_SORT_ORDER + "ORDER_TO_SORT\n"
+            + "Example: " + COMMAND_WORD + " "
+            + PREFIX_SORT_TYPE + "exp "
+            + PREFIX_SORT_ORDER + "asc ";
 
-    public static final String MESSAGE_SUCCESS = "Successfully sorted people";
+    public static final String MESSAGE_SUCCESS = "Successfully sorted list of candidates ";
 
-    public static final String MESSAGE_SORT_TYPE_INVALID = "Invalid Sort Type";
+    public static final String MESSAGE_SORT_TYPE_INVALID = "Invalid Sort Type.\n"
+            + "Sort type must be one of exp, sal, bl or doa";
 
     private static final Logger logger = LogsCenter.getLogger(SortPersonCommand.class);
 

@@ -20,8 +20,8 @@ public class SortJobCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sorts the list of jobs in the address book"
             + "according to the specified order given by user input.\n"
             + "Parameters: "
-            + PREFIX_SORT_TYPE + "FIELD TO BE SORTED "
-            + PREFIX_SORT_ORDER + "ORDER TO SORT\n"
+            + PREFIX_SORT_TYPE + "FIELD_TO_BE_SORTED "
+            + PREFIX_SORT_ORDER + "ORDER_TO_SORT\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_SORT_TYPE + "v "
             + PREFIX_SORT_ORDER + "asc ";

@@ -17,6 +17,11 @@ public class PersonDateOfApplicationComparator extends PersonComparator implemen
     }
 
     @Override
+    public String toString() {
+        return "by date of application ";
+    }
+
+    @Override
     public boolean equals(Object other) {
         return this == other || other instanceof PersonDateOfApplicationComparator;
     }

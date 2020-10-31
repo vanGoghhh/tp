@@ -61,44 +61,64 @@ public class FindPersonCommandParser implements Parser<FindPersonCommand> {
         }
 
         if (arePrefixesPresent(argMultimap, PREFIX_NAME)) {
-            predicates.add(new PersonNameContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_NAME).get())));
+            String name = argMultimap.getValue(PREFIX_NAME).orElse("");
+            checkInput(name);
+            List<String> words = splitInput(name);
+            predicates.add(new PersonNameContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_PHONE)) {
-            predicates.add(new PersonPhoneContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_PHONE).get())));
+            String phone = argMultimap.getValue(PREFIX_PHONE).orElse("");
+            checkInput(phone);
+            List<String> words = splitInput(phone);
+            predicates.add(new PersonPhoneContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_EMAIL)) {
-            predicates.add(new PersonEmailContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_EMAIL).get())));
+            String email = argMultimap.getValue(PREFIX_EMAIL).orElse("");
+            checkInput(email);
+            List<String> words = splitInput(email);
+            predicates.add(new PersonEmailContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_ADDRESS)) {
-            predicates.add(new PersonAddressContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_ADDRESS).get())));
+            String address = argMultimap.getValue(PREFIX_ADDRESS).orElse("");
+            checkInput(address);
+            List<String> words = splitInput(address);
+            predicates.add(new PersonAddressContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_EXPERIENCE)) {
-            predicates.add(new PersonExperienceContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_EXPERIENCE).get())));
+            String experience = argMultimap.getValue(PREFIX_EXPERIENCE).orElse("");
+            checkInput(experience);
+            List<String> words = splitInput(experience);
+            predicates.add(new PersonExperienceContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_DATE_OF_APPLICATION)) {
-            predicates.add(new PersonApplicationContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_DATE_OF_APPLICATION).get())));
+            String dateOfApplication = argMultimap.getValue(PREFIX_DATE_OF_APPLICATION).orElse("");
+            checkInput(dateOfApplication);
+            List<String> words = splitInput(dateOfApplication);
+            predicates.add(new PersonApplicationContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_SALARY)) {
-            predicates.add(new PersonSalaryContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_SALARY).get())));
+            String salary = argMultimap.getValue(PREFIX_SALARY).orElse("");
+            checkInput(salary);
+            List<String> words = splitInput(salary);
+            predicates.add(new PersonSalaryContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_BLACKLIST)) {
-            predicates.add(new PersonBlacklistContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_BLACKLIST).get())));
+            String blacklist = argMultimap.getValue(PREFIX_BLACKLIST).orElse("");
+            checkInput(blacklist);
+            List<String> words = splitInput(blacklist);
+            predicates.add(new PersonBlacklistContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_URL_LINK)) {
-            predicates.add(new PersonUrlLinkContainsKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_URL_LINK).get())));
+            String url = argMultimap.getValue(PREFIX_URL_LINK).orElse("");
+            checkInput(url);
+            List<String> words = splitInput(url);
+            predicates.add(new PersonUrlLinkContainsKeywordsPredicate(words));
         }
         if (arePrefixesPresent(argMultimap, PREFIX_TAG)) {
-            predicates.add(new PersonTagsContainKeywordsPredicate(
-                    Collections.singletonList(argMultimap.getValue(PREFIX_TAG).get())));
+            String tag = argMultimap.getValue(PREFIX_TAG).orElse("");
+            checkInput(tag);
+            List<String> words = splitInput(tag);
+            predicates.add(new PersonTagsContainKeywordsPredicate(words));
         }
 
         return new FindPersonCommand(predicates);
@@ -110,6 +130,30 @@ public class FindPersonCommandParser implements Parser<FindPersonCommand> {
      */
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
         return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
+    }
+
+    /**
+     * Splits a String into words.
+     * @param userInput User specified keyword for a field.
+     * @return a List containing the words.
+     */
+    public List<String> splitInput(String userInput) {
+        List<String> keywords = new ArrayList<>();
+        String[] words = userInput.split("\\s+");
+        Collections.addAll(keywords, words);
+        return keywords;
+    }
+
+    /**
+     * Checks if userInput is empty.
+     * @param userInput User specified keyword for a field.
+     * @throws ParseException if the user input does not conform the expected format.
+     */
+    public void checkInput(String userInput) throws ParseException {
+        if (userInput.length() == 0) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
+        }
     }
 
 }
