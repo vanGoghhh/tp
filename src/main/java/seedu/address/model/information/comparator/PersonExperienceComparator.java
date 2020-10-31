@@ -27,6 +27,11 @@ public class PersonExperienceComparator extends PersonComparator implements Comp
     }
 
     @Override
+    public String toString() {
+        return "by years of experience ";
+    }
+
+    @Override
     public boolean equals(Object other) {
         return this == other || other instanceof PersonExperienceComparator;
     }
