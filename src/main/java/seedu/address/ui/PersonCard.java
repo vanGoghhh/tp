@@ -72,7 +72,7 @@ public class PersonCard extends UiPart<Region> {
                 .forEach(tag -> personTags.getChildren().add(new Label(tag.tagName + " ")));
         personBlacklistStatus.setStyle(person.getBlacklistStatus().isBlacklisted
                 ? "-fx-background-color: black; -fx-text-fill: white;"
-                :"-fx-background-color: green; -fx-text-fill:white;");
+                : "-fx-background-color: green; -fx-text-fill:white;");
     }
 
     @Override

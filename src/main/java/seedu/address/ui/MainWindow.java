@@ -3,7 +3,6 @@ package seedu.address.ui;
 import java.util.Optional;
 import java.util.logging.Logger;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -134,7 +133,7 @@ public class MainWindow extends UiPart<Stage> {
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
-        PersonListPanel personListPanel = new PersonListPanel(logic.getFilteredPersonList(), this   );
+        PersonListPanel personListPanel = new PersonListPanel(logic.getFilteredPersonList(), this);
         JobListPanel jobListPanel = new JobListPanel(logic.getFilteredJobList());
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
         jobListPanelPlaceholder.getChildren().add(jobListPanel.getRoot());
