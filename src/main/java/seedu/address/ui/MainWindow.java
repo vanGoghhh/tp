@@ -19,6 +19,7 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.information.Job;
 import seedu.address.model.information.Person;
 
 /**
@@ -48,9 +49,6 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane resultDisplayPlaceholder;
-
-    @FXML
-    private StackPane statusbarPlaceholder;
 
     @FXML
     private TabPane tabPane;
@@ -134,12 +132,9 @@ public class MainWindow extends UiPart<Stage> {
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
         PersonListPanel personListPanel = new PersonListPanel(logic.getFilteredPersonList(), this);
-        JobListPanel jobListPanel = new JobListPanel(logic.getFilteredJobList());
+        JobListPanel jobListPanel = new JobListPanel(logic.getFilteredJobList(), this);
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
         jobListPanelPlaceholder.getChildren().add(jobListPanel.getRoot());
-
-        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getPersonAddressBookFilePath());
-        statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
@@ -183,6 +178,17 @@ public class MainWindow extends UiPart<Stage> {
         detailedView.getChildren().clear();
         detailedView.getChildren().add(personDetailedView.getRoot());
     }
+
+    /**
+     * Updates the detailed view on the right panel with the supplied {@code Job}.
+     */
+    public void updateDetailedJobPanel(Job job) {
+        JobDetailedView jobDetailedView = new JobDetailedView(job);
+        detailedView.getChildren().clear();
+        detailedView.getChildren().add(jobDetailedView.getRoot());
+    }
+
+
 
     /**
      * Switches tab to the desired tab.

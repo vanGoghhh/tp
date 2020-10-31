@@ -30,14 +30,11 @@
       <HBox spacing="115">
         <children>
           <VBox>
-          <FlowPane fx:id="personTags" styleClass="tags"/>
-          <Label fx:id="personPhone" styleClass="cell_small_label" text="\$phone" />
-          <Label fx:id="personEmail" styleClass="cell_small_label" text="\$email" />
-          <Label fx:id="personExperience" styleClass="cell_small_label" text="\$experience" />
-          <Label fx:id="personDateOfApplication" styleClass="cell_small_label" text="\$date" />
-          <Label fx:id="personAddress" styleClass="cell_small_label" text="no address" />
-          <Label fx:id="personUrlLink" styleClass="cell_small_label" text="no profile link" />
-          <Label fx:id="personSalary" styleClass="cell_small_label"  text="no expected salary"/>
+            <FlowPane fx:id="personTags" styleClass="tags"/>
+            <Label fx:id="personPhone" styleClass="cell_small_label" text="\$phone" />
+            <Label fx:id="personExperience" styleClass="cell_small_label" text="\$experience" />
+            <Label fx:id="personDateOfApplication" styleClass="cell_small_label" text="\$date" />
+            <Label fx:id="personSalary" styleClass="cell_small_label"  text="no expected salary"/>
           </VBox>
         </children>
         <children>
