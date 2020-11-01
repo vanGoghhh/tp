@@ -28,6 +28,7 @@ title: User Guide
      1. [Clearing all candidate entries: **`clear can`**](#clearing-all-candidate-entries-clear-can)
      1. [Clearing all job entries: **`clear job`**](#clearing-all-job-entries-clear-job)
      1. [Exiting the program : **`exit`**](#exiting-the-program--exit)
+     1. [Detecting duplicate entries](#detecting-duplicate-entries)
      1. [Saving the data](#saving-the-data)
 1. [FAQ](#faq)
 1. [Command Summary](#command-summary)
@@ -566,6 +567,40 @@ Please ensure you do not require the job list data anymore before performing thi
 Done with updating your information with CANdidates? Use this command to exit the program!
 
 Format: `exit`
+
+<br>
+
+### Detecting duplicate entries
+
+Worried that you might accidentally create duplicate entries of the same candidate or job? No need to worry, 
+CANdidates has you covered! Duplicate entries are automatically detected and prevented from being created. 
+You will be notified by an error message when this happens. No command is needed.
+
+<div markdown="span" class="alert alert-primary">
+
+:memo: *For candidates, duplicates are defined as entries with the same name and phone number or same name and email.*
+<br>
+:memo: *For jobs, duplicates are defined as entries with the same job title and company name.*
+<br>
+:memo: *Detection and prevention of duplicates apply when adding entries as well as editing entries. 
+This means you will not be able to edit an entry to match another entry.*
+
+</div>
+
+**Examples:**
+
+:black_nib: Creating candidates with the same name and phone is not allowed
+
+    add can n/Rob p/12345 e/rob@mail.com exp/4 doa/08-08-22
+    
+    add can n/Rob p/12345 e/robby@gmail.com exp/3.5 doa/09-08-22
+
+
+:black_nib: Creating jobs with the same job title and company name is not allowed
+
+    dadd job n/Actor c/Hollywood p/8888 e/h@mail.com a/Serangoon v/3
+     
+    add job n/Actor c/Hollywood p/1234 e/g@mail.com a/Nex v/3
 
 <br>
 
