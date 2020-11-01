@@ -28,6 +28,7 @@ title: User Guide
      1. [Clearing all candidate entries: **`clear can`**](#clearing-all-candidate-entries-clear-can)
      1. [Clearing all job entries: **`clear job`**](#clearing-all-job-entries-clear-job)
      1. [Exiting the program : **`exit`**](#exiting-the-program--exit)
+     1. [Detecting duplicate entries](#detecting-duplicate-entries)
      1. [Saving the data](#saving-the-data)
 1. [FAQ](#faq)
 1. [Command Summary](#command-summary)
@@ -569,6 +570,40 @@ Format: `exit`
 
 <br>
 
+### Detecting duplicate entries
+
+Worried that you might accidentally create duplicate entries of the same candidate or job? No need to worry, 
+CANdidates has you covered! Duplicate entries are automatically detected and prevented from being created. 
+You will be notified by an error message when this happens. No command is needed.
+
+<div markdown="span" class="alert alert-primary">
+
+:memo: *For candidates, duplicates are defined as entries with the same name and phone number or same name and email.*
+<br>
+:memo: *For jobs, duplicates are defined as entries with the same job title and company name.*
+<br>
+:memo: *Detection and prevention of duplicates apply when adding entries as well as editing entries. 
+This means you will not be able to edit an entry to match another entry.*
+
+</div>
+
+**Examples:**
+
+:black_nib: Creating candidates with the same name and phone is not allowed
+
+    add can n/Rob p/12345 e/rob@mail.com exp/4 doa/08-08-22
+    
+    add can n/Rob p/12345 e/robby@gmail.com exp/3.5 doa/09-08-22
+
+
+:black_nib: Creating jobs with the same job title and company name is not allowed
+
+    add job n/Actor c/Hollywood Pte Ltd  p/8888 e/h@mail.com a/Serangoon v/3
+     
+    add job n/Actor c/Hollywood Pte Ltd p/1234 e/g@mail.com a/Nex v/3
+
+<br>
+
 ### Saving the data
 
 All data is saved in the hard disk automatically after any command that changes the data. No need worry about having to save manually!
@@ -619,7 +654,7 @@ Terms | Explanation
 **Java** | Java is a widely-used programming language that developers use to create applications on computers.
 **GUI** | A GUI (Graphical User Interface) is a system of interactive visual components for computer software. It is the visible component of the software.
 **Input field** | Input to the command that the user specifies.
-**Cumulative** | Increasing in quantity.
+**Cumulative** | Increasing in quantity by successive additions.
 **Hard disk** | Storage of information in a computer.
 **Repository** | Online container where your code can be stored, contributed to and managed over time.
 **Pull Request** | Formal request to merge one’s code into a larger codebase.
