@@ -410,11 +410,11 @@ Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIE
 
 **Examples:**
 
-:black_nib: To find for candidates with tag(s) containing the word “_developer_” and an expected salary of exactly _$4000_,
+:black_nib: To find candidates with tag(s) containing the word “_developer_” and an expected salary of exactly _$4000_,
 
     find can t/developer sal/4000
 
-:black_nib: To find for _blacklisted_ candidates
+:black_nib: To find candidates who are _blacklisted_,
 
     find can bl/true
     
