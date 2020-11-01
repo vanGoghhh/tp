@@ -598,7 +598,7 @@ This means you will not be able to edit an entry to match another entry.*
 
 :black_nib: Creating jobs with the same job title and company name is not allowed
 
-    dadd job n/Actor c/Hollywood p/8888 e/h@mail.com a/Serangoon v/3
+    add job n/Actor c/Hollywood p/8888 e/h@mail.com a/Serangoon v/3
      
     add job n/Actor c/Hollywood p/1234 e/g@mail.com a/Nex v/3
 
