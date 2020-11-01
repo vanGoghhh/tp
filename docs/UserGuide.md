@@ -28,6 +28,7 @@ title: User Guide
      1. [Clearing all candidate entries: **`clear can`**](#clearing-all-candidate-entries-clear-can)
      1. [Clearing all job entries: **`clear job`**](#clearing-all-job-entries-clear-job)
      1. [Exiting the program : **`exit`**](#exiting-the-program--exit)
+     1. [Detecting duplicate entries](#detecting-duplicate-entries)
      1. [Saving the data](#saving-the-data)
 1. [FAQ](#faq)
 1. [Command Summary](#command-summary)
@@ -87,23 +88,23 @@ You may refer back to this table whenever you need help understanding the input 
 
 Name of input field   | How you can use them
 ----------------------|------------------------------------
-`NAME`                | Name of candidate being added or edited.
-`PHONE_NUMBER`        | Contact number of candidate or job listing being added or edited.
-`EMAIL`               | Contact email address of candidate or job listing being added or edited.
+`NAME`                | Name of candidate being added or edited.<br/>:memo: Names should contain only alphanumerical values or spaces.
+`PHONE_NUMBER`        | Contact number of candidate or job listing being added or edited<br/>:memo: Numbers should have at least 3 digits.
+`EMAIL`               | Contact email address of candidate or job listing being added or edited.<br/>:exclamation: This field does not check whether the email is valid!.<br/>:bulb:If you entered an erroneous email address, use the [edit can](#editing-a-candidate-edit-can) feature to correct it!
 `ADDRESS`             | Residential address of candidate or address of workplace for the job listing.
-`YEARS_OF_EXPERIENCE` | Years of experience of the candidate in the relevant field one applied for.
-`DATE_OF_APPLICATION` | Date of job application submitted, in the format of DD-MM-YY
-`EXPECTED_SALARY`     | If a candidate expects a certain amount of salary, it can be specified using this field.
-`IS_BLACKLISTED`      | You may use this to blacklist candidates that are unresponsive, have poor attitude, etc. You can use this to sort or filter candidates.<br/>:exclamation: This field only accepts 2 specific values: true or false.
+`YEARS_OF_EXPERIENCE` | Years of experience of the candidate in the relevant field one applied for.<br/>:memo: You can key up to 2 decimal points.
+`DATE_OF_APPLICATION` | Date of job application submitted.<br/>:memo: Date should be in the format of DD-MM-YY<br/>:bulb: Day and Month can be 1 or 2 digits as long as they are valid.<br/>:black_nib: If the date of application is 31 September 2021, input* `doa/31-9-21`
+`EXPECTED_SALARY`     | If a candidate expects a certain amount of salary,  it can be specified using this field.<br/>:memo: This field only accepts whole numbers.<br/>:bulb: you can round up your figure to the next whole number!
+`IS_BLACKLISTED`      | You may use this to blacklist candidates that are unresponsive, have poor attitude, etc. You can use this to sort or filter candidates.<br/>:memo: This field only accepts 2 specific values: true or false.
 `PROFILE_LINK`        | URL link to candidate profile or portfolio (e.g. LinkedIn or GitHub, etc.) to provide convenience for you to refer to their profile later on.
-`JOB_TYPE`            | You can include job type tags for candidates so that it will be easier to find candidates applying for similar jobs later on. For example, you can tag them according to the job industry.
-`JOB_TITLE`           | Title of a job position.
+`JOB_TYPE`            | You can include job type tags for candidates so that it will be easier to find candidates applying for similar jobs later on. For example, you can tag them according to the job industry.<br/>:memo: Job type is one word, made up of alphanumerical values with no spaces.
+`JOB_TITLE`           | Title of a job position.<br/>:exclamation: Job titles should contain only alphanumerical values or spaces.
 `COMPANY_NAME`        | Name of the company for the job listing you are adding or editing.
-`VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.
-`PRIORITY`            | Job listings may be of different urgency levels. For better categorisation, you may specify the priority of a job listing.<br/>:exclamation: This field only accepts 3 specific values: low, moderate or high.
-`JOB_DESCRIPTION`     | You can include job description tags for job listings to specify additional description for it. For example, you may wish to specify restrictions on the listing such as age or gender.
+`VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.<br/>:memo: This field only accept whole numbers from 0 to 99.
+`PRIORITY`            | Job listings may be of different urgency levels. For better categorisation, you may specify the priority of a job listing.<br/>:memo: This field only accepts 3 specific values: low, moderate or high.
+`JOB_DESCRIPTION`     | You can include job description tags for job listings to specify additional description for it. For example, you may wish to specify restrictions on the listing such as age or gender.<br/>:memo: Job description is one word, made up of alphanumerical values with no spaces.
 `FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:exclamation: This field only takes in specific values described in the respective feature sections.
-`ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:exclamation: This field only accepts 2 specific values: asc or desc.
+`ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:memo: This field only accepts 2 specific values: asc or desc.
 `INDEX`               | Index number of the candidate or job displayed in the list.
 
 <br>
@@ -171,14 +172,29 @@ This exciting section describes all the amazing features we have in CANdidates f
 
 ### Viewing help: `help`
 
-If you are unsure of how to use the application, we have a help function that will direct you to our user guide!  You might also find it helpful to refer to the summary of all the available commands [here](#command-summary).
+If you are unsure of how to use the application, we have a help function that will direct you to our user guide! You might also find it helpful to refer to the summary of all the available commands [here](#command-summary).
+
+***Image to be changed***
 
 ![help message](images/helpMessage.png)
 
 Format: `help`
 
-<br>
+Step by Step:
 
+***Image to be added***
+
+Step 1. Type `help` in the *command box* and press *Enter*.
+
+***Image to be added***
+
+Step 2. The CANdidates application will display the message "Opened help window" to indicate that the help window has been opened.
+
+***Image to be added***
+
+Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to CANdidate's user guide, which is this document!
+
+<br>
 ### Adding a candidate: `add can`
 
 If you have a new candidate who approached you and you would like to put him in CANdidates, you can add him into the list using the command below.
@@ -187,12 +203,14 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: *A candidate can have 0 or more job type(s)*.
+
+:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Understanding Input Fields](#understanding-input-fields).*
 <br>
-:memo: *The blacklist input can be specified as* `bl/true` *or* `false`.
+:bulb: *A candidate can have 0 or more job type(s).*
 <br>
-:memo: *The date of application input must be in DD-MM-YY format where Day and Month can be 1 or 2 digits as long as they are valid.
- If the date of application is 31 December 2020, input* `doa/31-12-20`.
+:memo: *If the candidate is added successfully, CANdidates will automatically switch to the "Candidates" tab.*
+<br>
+:exclamation: *If `IS_BLACKLISTED` is not specified, it will be set to false by default.*
 </div>
 
 **Examples:**
@@ -207,8 +225,22 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
     add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 
     t/HR t/OfficeLady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000
     
-<br>
+Step by Step:
 
+***Image to be added***
+
+Step 1. Type `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/DogGroomer exp/1 doa/16-10-20` in the *command box* and press *Enter*.
+
+***Image to be added***
+
+Step 2. The CANdidates application will automatically switch to "Candidates" tab and display the message “New person added: John Doe Phone: 98765432 Email: johnd@example.com Experience: 1.0 years Date of Application: 16-10-20 Address: John street, block 123, #01-01 Link:  Expected Salary:  Blacklisted: false Tags: [DogGroomer]”.
+
+***Image to be added***
+
+Step 3. The application will show the updated list of candidates with the newly added candidate.
+
+<br>
+       
 ### Adding a job listing: `add job`
 
 If you are informed of a job opening and you would like to add it in CANdidates, you can add it into the list using the command below.
@@ -217,11 +249,13 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
 
 <div markdown="span" class="alert alert-primary">
 
+:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Understanding Input Fields](#understanding-input-fields).*
+<br>
 :bulb: *A job can have 0 or more job description(s).*
 <br>
-:memo: *The priority input can be specified as* `pr/low`, `pr/moderate` *or* `pr/high`.
+:memo: *If the job is added successfully, CANdidates will automatically switch to the "Jobs" tab*
 <br>
-:memo: *If priority is not specified, it will be set to moderate by default.*
+:exclamation: *If `PRIORITY` is not specified, it will be set to moderate by default.*
 </div>
 
 **Examples:**
@@ -235,6 +269,20 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
 
     add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222 
     pr/high t/delivery t/west v/10
+    
+Step by Step:
+
+***Image to be added***
+
+Step 1. Type `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations v/1` in the *command box* and press *Enter*.
+
+***Image to be added***
+
+Step 2. The CANdidates application will automatically switch to "Jobs" tab and display the message “New job added: Waiter Company: Amelia’s Eating House Phone: 98765432 Email: ameliatjy@example.com Address: Amelia Street, Block 123, #01-01 Priority: low Vacancy: 1 Tags: [MultipleLocations]”.
+
+***Image to be added***
+
+Step 3. The application will show the updated job listings with the newly added job.
     
 <br>
 
@@ -569,6 +617,40 @@ Format: `exit`
 
 <br>
 
+### Detecting duplicate entries
+
+Worried that you might accidentally create duplicate entries of the same candidate or job? No need to worry, 
+CANdidates has you covered! Duplicate entries are automatically detected and prevented from being created. 
+You will be notified by an error message when this happens. No command is needed.
+
+<div markdown="span" class="alert alert-primary">
+
+:memo: *For candidates, duplicates are defined as entries with the same name and phone number or same name and email.*
+<br>
+:memo: *For jobs, duplicates are defined as entries with the same job title and company name.*
+<br>
+:memo: *Detection and prevention of duplicates apply when adding entries as well as editing entries. 
+This means you will not be able to edit an entry to match another entry.*
+
+</div>
+
+**Examples:**
+
+:black_nib: Creating candidates with the same name and phone is not allowed
+
+    add can n/Rob p/12345 e/rob@mail.com exp/4 doa/08-08-22
+    
+    add can n/Rob p/12345 e/robby@gmail.com exp/3.5 doa/09-08-22
+
+
+:black_nib: Creating jobs with the same job title and company name is not allowed
+
+    add job n/Actor c/Hollywood Pte Ltd  p/8888 e/h@mail.com a/Serangoon v/3
+     
+    add job n/Actor c/Hollywood Pte Ltd p/1234 e/g@mail.com a/Nex v/3
+
+<br>
+
 ### Saving the data
 
 All data is saved in the hard disk automatically after any command that changes the data. No need worry about having to save manually!
@@ -619,7 +701,7 @@ Terms | Explanation
 **Java** | Java is a widely-used programming language that developers use to create applications on computers.
 **GUI** | A GUI (Graphical User Interface) is a system of interactive visual components for computer software. It is the visible component of the software.
 **Input field** | Input to the command that the user specifies.
-**Cumulative** | Increasing in quantity.
+**Cumulative** | Increasing in quantity by successive additions.
 **Hard disk** | Storage of information in a computer.
 **Repository** | Online container where your code can be stored, contributed to and managed over time.
 **Pull Request** | Formal request to merge one’s code into a larger codebase.

@@ -413,16 +413,23 @@ _{Explain here how the data archiving feature will be implemented}_
 
 ### Product scope
 
-**Target user profile**:
+**Target user profile**: Job Recruiter
 
-* has a need to manage a significant number of contacts, specifically companies and job applicants
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+* Has a need to manage a significant number of contacts, specifically job openings and job candidates
+* Has a need to store relevant additional information of job openings and job candidates other than contact details
+* Prefer desktop apps over other types
+* Can type fast
+* Prefers typing to mouse interactions
+* Is reasonably comfortable using CLI apps
 
-**Value proposition**: Manage contacts faster than a typical mouse/GUI driven app. Contacts are centralised and
-categorised.
+**Value proposition**: 
+
+* Manage contacts faster than a typical mouse/GUI driven app. 
+* Convenient access to contact details of job candidates as well as job openings on one centralised platform.
+* Store additional information for job openings such as priority and number of vacancies.
+* Store additional information for job candidates such as years of experience and expected salary.
+* Search for job candidates and job openings by various fields.
+* Sort job candidates and job openings by various fields.
 
 
 ### User stories
