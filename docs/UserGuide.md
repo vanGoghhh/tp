@@ -87,21 +87,21 @@ You may refer back to this table whenever you need help understanding the input 
 
 Name of input field   | How you can use them
 ----------------------|------------------------------------
-`NAME`                | Name of candidate being added or edited.
-`PHONE_NUMBER`        | Contact number of candidate or job listing being added or edited.
-`EMAIL`               | Contact email address of candidate or job listing being added or edited.
+`NAME`                | Name of candidate being added or edited.<br/>:exclamation: This field only accepts alphanumerical values and spaces.
+`PHONE_NUMBER`        | Contact number of candidate or job listing being added or edited<br/>:exclamation: This field only accept numbers with at least 3 digits.
+`EMAIL`               | Contact email address of candidate or job listing being added or edited.<br/>:exclamation: This field does not check whether the email is valid!.<br/>:bulb:If you entered an erroneous email address, use the [edit can](#editing-a-candidate-edit-can) feature to correct it!
 `ADDRESS`             | Residential address of candidate or address of workplace for the job listing.
 `YEARS_OF_EXPERIENCE` | Years of experience of the candidate in the relevant field one applied for.
 `DATE_OF_APPLICATION` | Date of job application submitted, in the format of DD-MM-YY
-`EXPECTED_SALARY`     | If a candidate expects a certain amount of salary, it can be specified using this field.
+`EXPECTED_SALARY`     | If a candidate expects a certain amount of salary, it can be specified using this field.<br/>:exclamation: This field only accepts whole numbers, round up your value to the next whole number!
 `IS_BLACKLISTED`      | You may use this to blacklist candidates that are unresponsive, have poor attitude, etc. You can use this to sort or filter candidates.<br/>:exclamation: This field only accepts 2 specific values: true or false.
 `PROFILE_LINK`        | URL link to candidate profile or portfolio (e.g. LinkedIn or GitHub, etc.) to provide convenience for you to refer to their profile later on.
-`JOB_TYPE`            | You can include job type tags for candidates so that it will be easier to find candidates applying for similar jobs later on. For example, you can tag them according to the job industry.
-`JOB_TITLE`           | Title of a job position.
+`JOB_TYPE`            | You can include job type tags for candidates so that it will be easier to find candidates applying for similar jobs later on. For example, you can tag them according to the job industry.<br/>:exclamation: This field only accept alphanumerical values with no spaces.
+`JOB_TITLE`           | Title of a job position.<br/>:exclamation: This field only accepts alphanumerical values and spaces.
 `COMPANY_NAME`        | Name of the company for the job listing you are adding or editing.
-`VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.
+`VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.<br/>:exclamation: This field only accept whole numbers from 0 to 99.
 `PRIORITY`            | Job listings may be of different urgency levels. For better categorisation, you may specify the priority of a job listing.<br/>:exclamation: This field only accepts 3 specific values: low, moderate or high.
-`JOB_DESCRIPTION`     | You can include job description tags for job listings to specify additional description for it. For example, you may wish to specify restrictions on the listing such as age or gender.
+`JOB_DESCRIPTION`     | You can include job description tags for job listings to specify additional description for it. For example, you may wish to specify restrictions on the listing such as age or gender.<br/>:exclamation: This field only accept alphanumerical values with no spaces.
 `FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:exclamation: This field only takes in specific values described in the respective feature sections.
 `ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:exclamation: This field only accepts 2 specific values: asc or desc.
 `INDEX`               | Index number of the candidate or job displayed in the list.
