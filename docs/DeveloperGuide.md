@@ -143,13 +143,15 @@ The `Model`,
 * stores a `UserPref` object that represents the user’s preferences.
 * stores the address book data.
 * exposes an unmodifiable `ObservableList<Person>` and an unmodifiable `ObservableList<Job>` that can be 'observed' e.g. the UI can be bound to these lists so that the UI automatically updates when the data in the lists change.
-* does not depend on any of the other three components.
+* does not depend on any of the other three components. <br>
 
-The Model class diagram shown above omits certain details due to space constraints, namely the classes in the Information Package 
-that Person and Job hold reference to. Instead, the omitted details have been extracted and are shown here: <br>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The Model class diagram shown above omits certain details due to space constraints, namely the classes in the Information Package 
+                                                                             that Person and Job hold reference to. Instead, the omitted details have been extracted and are shown here: <br>
 
 ![InformationClassDiagram](images/InformationClassDiagram.png)
 
+</div>
+ 
 
 ### Storage component
 
