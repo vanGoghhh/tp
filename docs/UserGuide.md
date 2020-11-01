@@ -88,23 +88,23 @@ You may refer back to this table whenever you need help understanding the input 
 
 Name of input field   | How you can use them
 ----------------------|------------------------------------
-`NAME`                | Name of candidate being added or edited.<br/>:memo: Names should contain only alphanumerical values or spaces.
-`PHONE_NUMBER`        | Contact number of candidate or job listing being added or edited<br/>:memo: Numbers should have at least 3 digits.
-`EMAIL`               | Contact email address of candidate or job listing being added or edited.<br/>:exclamation: This field does not check whether the email is valid!.<br/>:bulb:If you entered an erroneous email address, use the [edit can](#editing-a-candidate-edit-can) feature to correct it!
+`NAME`                | Name of candidate being added or edited.<br/>:memo: *Names should contain only alphanumerical values or spaces.*
+`PHONE_NUMBER`        | Contact number of candidate or job listing being added or edited<br/>:memo: *Numbers should have at least 3 digits.*
+`EMAIL`               | Contact email address of candidate or job listing being added or edited.<br/>:exclamation: *This field does not check whether the email is valid!.*<br/>:bulb:*If you entered an erroneous email address, use the* [edit can](#editing-a-candidate-edit-can) *feature to correct it!*
 `ADDRESS`             | Residential address of candidate or address of workplace for the job listing.
-`YEARS_OF_EXPERIENCE` | Years of experience of the candidate in the relevant field one applied for.<br/>:memo: You can key up to 2 decimal points.
-`DATE_OF_APPLICATION` | Date of job application submitted.<br/>:memo: Date should be in the format of DD-MM-YY<br/>:bulb: Day and Month can be 1 or 2 digits as long as they are valid.<br/>:black_nib: If the date of application is 31 September 2021, input* `doa/31-9-21`
-`EXPECTED_SALARY`     | If a candidate expects a certain amount of salary,  it can be specified using this field.<br/>:memo: This field only accepts whole numbers.<br/>:bulb: you can round up your figure to the next whole number!
-`IS_BLACKLISTED`      | You may use this to blacklist candidates that are unresponsive, have poor attitude, etc. You can use this to sort or filter candidates.<br/>:memo: This field only accepts 2 specific values: true or false.
+`YEARS_OF_EXPERIENCE` | Years of experience of the candidate in the relevant field one applied for.<br/>:memo: *You can key up to 2 decimal points.*
+`DATE_OF_APPLICATION` | Date of job application submitted.<br/>:memo: *Date should be in the format of DD-MM-YY*<br/>:bulb: *Day and Month can be 1 or 2 digits as long as they are valid.*<br/>:black_nib: *If the date of application is 31 September 2021, input* `doa/31-9-21`
+`EXPECTED_SALARY`     | If a candidate expects a certain amount of salary,  it can be specified using this field.<br/>:memo: *This field only accepts whole numbers.*<br/>:bulb: *You can round up your figure to the next whole number!*
+`IS_BLACKLISTED`      | You may use this to blacklist candidates that are unresponsive, have poor attitude, etc. You can use this to sort or filter candidates.<br/>:memo: *This field only accepts 2 specific values: true or false.*
 `PROFILE_LINK`        | URL link to candidate profile or portfolio (e.g. LinkedIn or GitHub, etc.) to provide convenience for you to refer to their profile later on.
-`JOB_TYPE`            | You can include job type tags for candidates so that it will be easier to find candidates applying for similar jobs later on. For example, you can tag them according to the job industry.<br/>:memo: Job type is one word, made up of alphanumerical values with no spaces.
-`JOB_TITLE`           | Title of a job position.<br/>:exclamation: Job titles should contain only alphanumerical values or spaces.
+`JOB_TYPE`            | You can include job type tags for candidates so that it will be easier to find candidates applying for similar jobs later on. For example, you can tag them according to the job industry.<br/>:memo: *Job type is one word, made up of alphanumerical values with no spaces.*
+`JOB_TITLE`           | Title of a job position.<br/>:exclamation: *Job titles should contain only alphanumerical values or spaces.*
 `COMPANY_NAME`        | Name of the company for the job listing you are adding or editing.
-`VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.<br/>:memo: This field only accept whole numbers from 0 to 99.
-`PRIORITY`            | Job listings may be of different urgency levels. For better categorisation, you may specify the priority of a job listing.<br/>:memo: This field only accepts 3 specific values: low, moderate or high.
-`JOB_DESCRIPTION`     | You can include job description tags for job listings to specify additional description for it. For example, you may wish to specify restrictions on the listing such as age or gender.<br/>:memo: Job description is one word, made up of alphanumerical values with no spaces.
-`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:exclamation: This field only takes in specific values described in the respective feature sections.
-`ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:memo: This field only accepts 2 specific values: asc or desc.
+`VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.<br/>:memo: *This field only accept whole numbers from 0 to 99.*
+`PRIORITY`            | Job listings may be of different urgency levels. For better categorisation, you may specify the priority of a job listing.<br/>:memo: *This field only accepts 3 specific values: low, moderate or high.*
+`JOB_DESCRIPTION`     | You can include job description tags for job listings to specify additional description for it. For example, you may wish to specify restrictions on the listing such as age or gender.<br/>:memo: *Job description is one word, made up of alphanumerical values with no spaces.*
+`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:exclamation: *This field only takes in specific values described in the respective feature sections.*
+`ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:memo: *This field only accepts 2 specific values: asc or desc.*
 `INDEX`               | Index number of the candidate or job displayed in the list.
 
 <br>
@@ -139,9 +139,10 @@ Can’t wait to start using *CANdidates*? This section guides you through the st
 1. Refer to the [Features](#features) below for details of each command.
 
 <div markdown="span" class="alert alert-primary">
-:exclamation: Ensure you have Java 11 or above installed in your Computer.
 
-:bulb: If you are confused with the various input fields, refer to [Understanding Input Fields](#understanding-input-fields).
+:exclamation: *Ensure you have Java 11 or above installed in your Computer.*
+
+:bulb: *If you are confused with the various input fields, refer to* [Understanding Input Fields](#understanding-input-fields).
 </div>
 <br>
 
@@ -161,7 +162,7 @@ This exciting section describes all the amazing features we have in *CANdidates*
   e.g `c/COMPANY_NAME [t/JOB_DESCRIPTION]` can be used as `c/Samsung t/ContractWorker` or just `c/Samsung`.
 
 * Items with `…` after them can be used multiple times including zero times. You can put as much information as you want to!<br>
-  e.g. `[t/JOB_TYPE]…` can be used as ` ` (i.e. 0 times), `t/accountant` (i.e. 1 time), `t/programmer t/technician` (i.e. 2 times) etc.
+  e.g. `[t/JOB_TYPE]…` can be used as `t/accountant` (i.e. 1 time), `t/programmer t/technician` (i.e. 2 times) etc.
 
 * Input fields can be in any order you want them to be.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -195,6 +196,7 @@ Step 2. The *CANdidates* application will display the message "Opened help windo
 Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to *CANdidates*'s user guide, which is this document!
 
 <br>
+
 ### Adding a candidate: `add can`
 
 If you have a new candidate who approached you and you would like to put him in *CANdidates*, you can add him into the list using the command below.
@@ -409,11 +411,11 @@ Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIE
 
 **Examples:**
 
-:black_nib: To find for candidates with tag(s) containing the word “_developer_” and an expected salary of exactly _$4000_,
+:black_nib: To find candidates with tag(s) containing the word “_developer_” and an expected salary of exactly _$4000_,
 
     find can t/developer sal/4000
 
-:black_nib: To find for _blacklisted_ candidates
+:black_nib: To find candidates who are _blacklisted_,
 
     find can bl/true
     
