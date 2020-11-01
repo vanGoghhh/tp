@@ -654,7 +654,7 @@ Terms | Explanation
 **Java** | Java is a widely-used programming language that developers use to create applications on computers.
 **GUI** | A GUI (Graphical User Interface) is a system of interactive visual components for computer software. It is the visible component of the software.
 **Input field** | Input to the command that the user specifies.
-**Cumulative** | Increasing in quantity.
+**Cumulative** | Increasing in quantity by successive additions.
 **Hard disk** | Storage of information in a computer.
 **Repository** | Online container where your code can be stored, contributed to and managed over time.
 **Pull Request** | Formal request to merge one’s code into a larger codebase.
