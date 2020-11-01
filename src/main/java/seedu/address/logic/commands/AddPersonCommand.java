@@ -48,8 +48,8 @@ public class AddPersonCommand extends Command {
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 
-    public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the person address book";
+    public static final String MESSAGE_SUCCESS = "New candidate added: %1$s";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This candidate already exists in the address book.";
 
     private final Person toAdd;
 
@@ -70,7 +70,7 @@ public class AddPersonCommand extends Command {
         }
 
         model.addPerson(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), "Candidates");
     }
 
     @Override

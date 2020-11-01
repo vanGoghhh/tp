@@ -220,26 +220,31 @@ The sequence diagram for a `add job` operation is mostly similar, with `AddJobCo
 
 The Edit feature has two variants, one for editing candidates (`edit can`) and one for editing jobs (`edit job`) . We will illustrate this feature using only the candidates variant here
 as the job variant works analogously. 
+
 The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
 Additionally, it implements the following operations:
 
 *`ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
+
 *`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
 
 Given below is an example usage scenario and how the edit mechanism behaves at each step.
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `edit can 2 n/Rob Mi e/rob@kmail.com` to change the `Name` and `Email` of the candidate at `index` 2 to Rob Mi and rob<span>@</span>kmail.com respectively. 
+Step 2. The user executes `edit can 2 n/Rob Mi` to change the `Name` of the candidate at `index` 2 to Rob Mi. 
 
 Step 3. The method `AddressBookParser#parseCommand` is invoked to distinguish which type of command it is. After discerning it is an `edit can` command,
 the `EditPersonCommandParser#parse` is then invoked to parse the arguments.
 If the command format is invalid, `EditPersonCommandParser` throws an error.
 
-Step 4. A `EditPersonDescriptor`, which is an inner class of `EditPersonCommand`, is created from parsing the command and a `EditPersonCommand` object is created. In the `EditPersonCommand#execute` method, if the candidate index provided by the user is invalid, an error is thrown. 
+Step 4. A `EditPersonDescriptor` object, which is an inner class of `EditPersonCommand`, is created from parsing the command and is used
+to store the details to edit the candidate with. In this case, it stores the `Name` Rob Mi.
+
+Step 5. A `EditPersonCommand` object is also created from parsing the comamand. In the `EditPersonCommand#execute` method, 
+if the candidate index provided by the user is invalid, an error is thrown. 
 Otherwise, the method `ModelManager#setPerson()` is invoked to replace the old candidate with the newly edited candidate. 
- Then, `ModelManager#updateFilteredPersonList()` is invoked and the `FilteredList` is updated.
-The `personAddressBook` is also updated with the new changes and saved. 
+ Then, `ModelManager#updateFilteredPersonList()` is invoked and the `FilteredList` and `personAddressBook` is updated and saved.
 
 The following sequence diagram shows how the edit operation works in the scenario described above:
 
@@ -408,16 +413,23 @@ _{Explain here how the data archiving feature will be implemented}_
 
 ### Product scope
 
-**Target user profile**:
+**Target user profile**: Job Recruiter
 
-* has a need to manage a significant number of contacts, specifically companies and job applicants
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+* Has a need to manage a significant number of contacts, specifically job openings and job candidates
+* Has a need to store relevant additional information of job openings and job candidates other than contact details
+* Prefer desktop apps over other types
+* Can type fast
+* Prefers typing to mouse interactions
+* Is reasonably comfortable using CLI apps
 
-**Value proposition**: Manage contacts faster than a typical mouse/GUI driven app. Contacts are centralised and
-categorised.
+**Value proposition**: 
+
+* Manage contacts faster than a typical mouse/GUI driven app. 
+* Convenient access to contact details of job candidates as well as job openings on one centralised platform.
+* Store additional information for job openings such as priority and number of vacancies.
+* Store additional information for job candidates such as years of experience and expected salary.
+* Search for job candidates and job openings by various fields.
+* Sort job candidates and job openings by various fields.
 
 
 ### User stories
@@ -634,13 +646,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  The project is expected to adhere to a schedule that delivers a feature set every one to two weeks.
 1.  Should have an intuitive interface for new users to pick up the application easily.
 1.  Should be able to work without an internet connection.
-
-*{More to be added}*
+1.  Any reused code should be used with appropriate credit given.
+1.  Should not include copyrighted audio or graphics.
 
 ### Glossary
 
 * **Information**: Name, phone number, address, job type etc.
-* **Criteria**: Education background, work experience, language and other skills.
+* **Criteria**: Work experience, language and other skills.
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Hard-to-test features**: Features that heavily depend on remote APIs, audio-related features,
 as well as features requiring creation of user accounts etc.
