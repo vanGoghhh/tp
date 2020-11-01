@@ -196,6 +196,7 @@ Step 2. The CANdidates application will display the message "Opened help window"
 Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to CANdidate's user guide, which is this document!
 
 <br>
+
 ### Adding a candidate: `add can`
 
 If you have a new candidate who approached you and you would like to put him in CANdidates, you can add him into the list using the command below.
