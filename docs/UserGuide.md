@@ -38,21 +38,21 @@ title: User Guide
 --------------------------------------------------------------------------------------------------------------------
 
 ## Introduction
-Hello there! If you are reading this, you must be curious about CANdidates. 
+Hello there! If you are reading this, you must be curious about *CANdidates*. 
 
-CANdidates is a powerful and optimized contact management app for job recruiters to manage job candidates and job listings. 
-A key strength of CANdidates is its convenience and ease of managing all job-related contacts in a single application. 
+*CANdidates* is a powerful and optimized contact management app for job recruiters to manage job candidates and job listings. 
+A key strength of *CANdidates* is its convenience and ease of managing all job-related contacts in a single application. 
 
-If you find yourself having difficulty in managing job candidates and positions, then CANdidates is the perfect tool for you! 
-Use this user guide to discover the amazing functions and features of CANdidates! 
-Although CANdidates is simple and intuitive enough to use without having to read this user guide, 
-we still recommend that you read through in order to fully utilise CANdidates. 
+If you find yourself having difficulty in managing job candidates and positions, then *CANdidates* is the perfect tool for you! 
+Use this user guide to discover the amazing functions and features of *CANdidates*! 
+Although *CANdidates* is simple and intuitive enough to use without having to read this user guide, 
+we still recommend that you read through in order to fully utilise *CANdidates*. 
 
 Before you get thrown off by some of the more technical terms used in this user guide, 
 you may be happy to know that a glossary is provided at the end of this document and may be of help to you!
 
 ### Authors
-CANdidates is developed as part of a NUS CS2103T Project by:
+*CANdidates* is developed as part of a NUS CS2103T Project by:
 
 * [Amelia Tan Jin Yu](team/ameliatjy.md)
 * [Lee Joon Jie](team/breadpeanutbutter.md)
@@ -65,7 +65,7 @@ CANdidates is developed as part of a NUS CS2103T Project by:
 --------------------------------------------------------------------------------------------------------------------
 
 ## Preface
-For a smoother start to your usage of CANdidates, read this section to find out how this document is structured, 
+For a smoother start to your usage of *CANdidates*, read this section to find out how this document is structured, 
 how to navigate the document, and what all the symbols and special fonts mean.
 
 ### Understanding Symbols
@@ -73,7 +73,7 @@ This section will explain all the symbols and fonts used in this document.
 
 Symbols/Font  | Explanation
 --------------|------------------------------------
-**`command`** | A grey highlight means that you can type the words into CANdidates and it will start performing tasks.
+**`command`** | A grey highlight means that you can type the words into *CANdidates* and it will start performing tasks.
 :black_nib:   | This gives an example of how to use the feature.
 :memo:        | This gives additional comments on the feature being explained.
 :bulb:        | There are additional tips that you can make use of when using the explained feature.
@@ -111,11 +111,11 @@ Name of input field   | How you can use them
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick Start
-Can’t wait to start using CANdidates? This section guides you through the starting up process, so that you can proceed on to use the application for your own needs!
+Can’t wait to start using *CANdidates*? This section guides you through the starting up process, so that you can proceed on to use the application for your own needs!
 
 1. Download the latest `Candidates.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-3/tp/releases/tag/v1.3).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your CANdidates.
+1. Copy the file to the folder you want to use as the _home folder_ for your *CANdidates*.
 
 1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
@@ -127,9 +127,9 @@ Can’t wait to start using CANdidates? This section guides you through the star
 
    * **`add can`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/15-10-20` : 
    Adds a candidate named _John Doe_ with phone number _98765432_, email _johnd<span>@</span>example.com_, 
-   address _John street, block 123, #01-01_, years of experience _5_ and date of application _15th October 2020_ to the candidate list.
+   address _John street, block 123, #01-01_, years of experience _5_ and date of application _15th October 2020_ to the candidates list.
 
-   * **`delete can`**`3` : Deletes the 3rd candidate shown in the current candidate list.
+   * **`delete can`**`3` : Deletes the 3rd candidate shown in the current candidates list.
 
    * **`clear can`** : Deletes all candidates.
 
@@ -147,7 +147,7 @@ Can’t wait to start using CANdidates? This section guides you through the star
 --------------------------------------------------------------------------------------------------------------------
 
 ## Features
-This exciting section describes all the amazing features we have in CANdidates for your utmost convenience!
+This exciting section describes all the amazing features we have in *CANdidates* for your utmost convenience!
 
 <div markdown="block" class="alert alert-info">
 
@@ -187,16 +187,16 @@ Step 1. Type `help` in the *command box* and press *Enter*.
 
 ***Image to be added***
 
-Step 2. The CANdidates application will display the message "Opened help window" to indicate that the help window has been opened.
+Step 2. The *CANdidates* application will display the message "Opened help window" to indicate that the help window has been opened.
 
 ***Image to be added***
 
-Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to CANdidate's user guide, which is this document!
+Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to *CANdidates*'s user guide, which is this document!
 
 <br>
 ### Adding a candidate: `add can`
 
-If you have a new candidate who approached you and you would like to put him in CANdidates, you can add him into the list using the command below.
+If you have a new candidate who approached you and you would like to put him in *CANdidates*, you can add him into the list using the command below.
 
 Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]…​ [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]`
 
@@ -207,7 +207,7 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
 <br>
 :bulb: *A candidate can have 0 or more job type(s).*
 <br>
-:memo: *If the candidate is added successfully, CANdidates will automatically switch to the "Candidates" tab.*
+:memo: *If the candidate is added successfully, *CANdidates* will automatically switch to the "Candidates" tab.*
 <br>
 :exclamation: *If `IS_BLACKLISTED` is not specified, it will be set to false by default.*
 </div>
@@ -232,7 +232,7 @@ Step 1. Type `add can n/John Doe p/98765432 e/johnd@example.com a/John street, b
 
 ***Image to be added***
 
-Step 2. The CANdidates application will automatically switch to "Candidates" tab and display the message “New person added: John Doe Phone: 98765432 Email: johnd@example.com Experience: 1.0 years Date of Application: 16-10-20 Address: John street, block 123, #01-01 Link:  Expected Salary:  Blacklisted: false Tags: [DogGroomer]”.
+Step 2. The *CANdidates* application will automatically switch to "Candidates" tab and display the message “New person added: John Doe Phone: 98765432 Email: johnd@example.com Experience: 1.0 years Date of Application: 16-10-20 Address: John street, block 123, #01-01 Link:  Expected Salary:  Blacklisted: false Tags: [DogGroomer]”.
 
 ***Image to be added***
 
@@ -242,7 +242,7 @@ Step 3. The application will show the updated list of candidates with the newly 
        
 ### Adding a job listing: `add job`
 
-If you are informed of a job opening and you would like to add it in CANdidates, you can add it into the list using the command below.
+If you are informed of a job opening and you would like to add it in *CANdidates*, you can add it into the list using the command below.
 
 Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
 
@@ -252,7 +252,7 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
 <br>
 :bulb: *A job can have 0 or more job description(s).*
 <br>
-:memo: *If the job is added successfully, CANdidates will automatically switch to the "Jobs" tab*
+:memo: *If the job is added successfully, *CANdidates* will automatically switch to the "Jobs" tab*
 <br>
 :exclamation: *If `PRIORITY` is not specified, it will be set to moderate by default.*
 </div>
@@ -277,7 +277,7 @@ Step 1. Type `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@
 
 ***Image to be added***
 
-Step 2. The CANdidates application will automatically switch to "Jobs" tab and display the message “New job added: Waiter Company: Amelia’s Eating House Phone: 98765432 Email: ameliatjy@example.com Address: Amelia Street, Block 123, #01-01 Priority: low Vacancy: 1 Tags: [MultipleLocations]”.
+Step 2. The *CANdidates* application will automatically switch to "Jobs" tab and display the message “New job added: Waiter Company: Amelia’s Eating House Phone: 98765432 Email: ameliatjy@example.com Address: Amelia Street, Block 123, #01-01 Priority: low Vacancy: 1 Tags: [MultipleLocations]”.
 
 ***Image to be added***
 
@@ -388,7 +388,7 @@ See the second example below for a demonstration.*
 
 ### Finding a candidate: `find can`
 
-Too many candidates with different information? CANdidates provide you with a simple and quick way for you to find candidates who fulfil certain criteria(s) or even a specific candidate from the long list. All you have to do is tell CANdidates the field you are interested in, along with the keyword you are looking for!
+Too many candidates with different information? *CANdidates* provide you with a simple and quick way for you to find candidates who fulfil certain criteria(s) or even a specific candidate from the long list. All you have to do is tell CANdidates the field you are interested in, along with the keyword you are looking for!
 
 Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
 
@@ -485,7 +485,7 @@ Format: `sort can type/FIELD_TO_SORT order/ORDER`
 
 ### Sorting all jobs: `sort job`
 
-Have too many job listings and need a way to organise them? You can get CANdidates to help you do that by sorting them according to the priority or vacancies you have indicated for the job listings!
+Have too many job listings and need a way to organise them? You can get *CANdidates* to help you do that by sorting them according to the priority or vacancies you have indicated for the job listings!
 
 Format: `sort job type/FIELD_TO_SORT order/ORDER`
 
@@ -515,7 +515,7 @@ Step by Step:
 
 Step 1. Type sort job type/pr order/asc in the command box and press Enter.
 
-Step 2. The CANdidates application will display the message “Successfully sorted jobs by priority in ascending order.”
+Step 2. The *CANdidates* application will display the message “Successfully sorted jobs by priority in ascending order.”
 
 Step 3. The application will show the sorted job list based on the sort condition given.
 
@@ -523,7 +523,7 @@ Step 3. The application will show the sorted job list based on the sort conditio
 
 ### Deleting a candidate: `delete can`
 
-Have you successfully found a job for a candidate and you no longer need to keep his/her details in CANdidates? 
+Have you successfully found a job for a candidate and you no longer need to keep his/her details in *CANdidates*? 
 To delete a particular candidate from the list, you can use the command below.
 
 Format: `delete can INDEX`
@@ -603,14 +603,14 @@ Format: `clear job`
 :exclamation: *All job data will be cleared and this action is irreversible. 
 Please ensure you do not require the job list data anymore before performing this command.*
 <br>
-:bulb: *This command can be used to clear the sample data on CANdidates when you first downloaded it.*
+:bulb: *This command can be used to clear the sample data on *CANdidates* when you first downloaded it.*
 
 </div>
 <br>
 
 ### Exiting the program : `exit`
 
-Done with updating your information with CANdidates? Use this command to exit the program!
+Done with updating your information with *CANdidates*? Use this command to exit the program!
 
 Format: `exit`
 
@@ -641,7 +641,7 @@ All data is saved in the hard disk automatically after any command that changes 
 
 ## Command Summary
 
-This handy command summary table provides you with all the possible commands for CANdidates at one glance.
+This handy command summary table provides you with all the possible commands for *CANdidates* at one glance.
 
 Action | Candidate Format | Job Format
 --------|------------------|------------------
