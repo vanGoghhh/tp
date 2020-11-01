@@ -1,6 +1,8 @@
 package seedu.address.model.information;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COMPANY_NAME_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_IRAS;
