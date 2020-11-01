@@ -567,12 +567,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **Use case: UC05 - Clear all entries**
+#### **Use case: UC05 - Clear all candidates**
 
 **MSS**
 
 1.  User requests to _list candidates (UC01)_
-2.  User requests to clear all entries in the list
+2.  User requests to clear all candidates in the list
 3.  CANdidates clears the list
 
     Use case ends.
@@ -631,7 +631,51 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-*{More to be added}*
+#### **Use case: UC08 - Add a job**
+
+Similar to UC01, except user will request to add a job instead.
+
+
+#### **Use case: UC09 - List jobs**
+
+Similar to UC02, except user will request to list jobs and CANdidates will show a list of jobs instead.
+
+
+#### **Use case: UC10 - Delete a job**
+
+Similar to UC03, except user will request to delete a specific job index.
+
+
+#### **Use case: UC11 - Edit a candidate**
+
+Similar to UC04, except user will request to edit details of a specific job index.
+
+
+#### **Use case: UC12 - Clear all jobs**
+
+Similar to UC05, except user will request to clear all jobs.
+
+
+#### **Use case: UC13 - Find candidates**
+
+Similar to UC06, except user will request to find jobs with keywords and CANdidates will show a list of jobs instead.
+
+
+#### **Use case: UC14 - Sort candidates**
+
+Similar to UC07, except user will request to sort jobs.
+
+
+#### **Use case: UC15 - Requesting for help**
+
+**MSS**
+
+1.  User requests for help
+2.  CANdidates displays help window with link to User Guide
+3.  User copies the link and closes the window
+
+    Use case ends.
+
 
 ### Non-Functional Requirements
 
