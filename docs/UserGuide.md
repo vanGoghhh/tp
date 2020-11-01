@@ -179,8 +179,21 @@ If you are unsure of how to use the application, we have a help function that wi
 
 Format: `help`
 
-<br>
+Step by Step:
 
+***Image to be added***
+
+Step 1. Type `help` in the *command box* and press *Enter*.
+
+***Image to be added***
+
+Step 2. The CANdidates application will display the message "Opened help window" to indicate that the help window has been opened.
+
+***Image to be added***
+
+Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to CANdidate's user guide, which is this document!
+
+<br>
 ### Adding a candidate: `add can`
 
 If you have a new candidate who approached you and you would like to put him in CANdidates, you can add him into the list using the command below.
@@ -215,11 +228,11 @@ Step by Step:
 
 ***Image to be added***
 
-Step 1. Type `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/DogGroomer exp/1 doa/16-10-20` in the command box and press Enter.
+Step 1. Type `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/DogGroomer exp/1 doa/16-10-20` in the *command box* and press *Enter*.
 
 ***Image to be added***
 
-Step 2. The CANdidate application will automatically switch to "Candidates" tab and display the message “New person added: John Doe Phone: 98765432 Email: johnd@example.com Experience: 1.0 years Date of Application: 16-10-20 Address: John street, block 123, #01-01 Link:  Expected Salary:  Blacklisted: false Tags: [DogGroomer]”.
+Step 2. The CANdidates application will automatically switch to "Candidates" tab and display the message “New person added: John Doe Phone: 98765432 Email: johnd@example.com Experience: 1.0 years Date of Application: 16-10-20 Address: John street, block 123, #01-01 Link:  Expected Salary:  Blacklisted: false Tags: [DogGroomer]”.
 
 ***Image to be added***
 
@@ -260,11 +273,11 @@ Step by Step:
 
 ***Image to be added***
 
-Step 1. Type `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations v/1` in the command box and press Enter.
+Step 1. Type `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations v/1` in the *command box* and press *Enter*.
 
 ***Image to be added***
 
-Step 2. The CANdidate application will automatically switch to "Jobs" tab and display the message “New job added: Waiter Company: Amelia’s Eating House Phone: 98765432 Email: ameliatjy@example.com Address: Amelia Street, Block 123, #01-01 Priority: low Vacancy: 1 Tags: [MultipleLocations]”.
+Step 2. The CANdidates application will automatically switch to "Jobs" tab and display the message “New job added: Waiter Company: Amelia’s Eating House Phone: 98765432 Email: ameliatjy@example.com Address: Amelia Street, Block 123, #01-01 Priority: low Vacancy: 1 Tags: [MultipleLocations]”.
 
 ***Image to be added***
 
