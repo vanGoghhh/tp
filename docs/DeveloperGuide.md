@@ -136,12 +136,6 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
-The Model class diagram shown above omits certain details due to space constraints, namely the classes in the Information Package 
-that Person and Job hold reference to. Instead, the omitted details have been extracted and are shown here: <br>
-
-![InformationClassDiagram](images/InformationClassDiagram.png)
-
-
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
 
 The `Model`,
@@ -150,6 +144,12 @@ The `Model`,
 * stores the address book data.
 * exposes an unmodifiable `ObservableList<Person>` and an unmodifiable `ObservableList<Job>` that can be 'observed' e.g. the UI can be bound to these lists so that the UI automatically updates when the data in the lists change.
 * does not depend on any of the other three components.
+
+The Model class diagram shown above omits certain details due to space constraints, namely the classes in the Information Package 
+that Person and Job hold reference to. Instead, the omitted details have been extracted and are shown here: <br>
+
+![InformationClassDiagram](images/InformationClassDiagram.png)
+
 
 ### Storage component
 
