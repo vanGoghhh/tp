@@ -50,7 +50,7 @@
                     <Label text="Address" styleClass="label-label" wrapText="true" maxWidth="140"></Label>
                 </children>
                 <children>
-                    <Label fx:id="detailedAddress" styleClass="label-detail" translateX="53"></Label>
+                    <Label fx:id="detailedAddress" styleClass="label-detail" translateX="97" wrapText="true" maxWidth="140"></Label>
                 </children>
             </HBox>
             <HBox spacing="220">
