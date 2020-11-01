@@ -1,7 +1,6 @@
 package seedu.address.model.information;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
@@ -91,5 +90,15 @@ public class PersonTest {
         // different tags -> returns false
         editedAlice = new PersonBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
         assertFalse(ALICE.equals(editedAlice));
+    }
+
+    @Test
+    public void getBriefDescription() {
+        // same description
+        String briefDescription = "Name: " + ALICE.getName();
+        assertEquals(ALICE.getBriefDescription(), briefDescription);
+
+        // different description
+        assertFalse(ALICE.getBriefDescription().equals(ALICE.toString()));
     }
 }

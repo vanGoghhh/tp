@@ -1,7 +1,6 @@
 package seedu.address.model.information;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_COMPANY_NAME_IRAS;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_IRAS;
@@ -98,5 +97,15 @@ public class JobTest {
         // different tags -> returns false
         editedFacebook = new JobBuilder(FACEBOOK).withTags(VALID_TAG_MAYBANK).build();
         assertFalse(FACEBOOK.equals(editedFacebook));
+    }
+
+    @Test
+    public void getBriefDescription() {
+        // same description
+        String briefDescription = "Job Title: " + FACEBOOK.getJobTitle() + ". Company: " + FACEBOOK.getCompanyName();
+        assertEquals(FACEBOOK.getBriefDescription(), briefDescription);
+
+        // different description
+        assertFalse(FACEBOOK.getBriefDescription().equals(FACEBOOK.toString()));
     }
 }
