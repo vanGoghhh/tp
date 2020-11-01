@@ -583,13 +583,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  The project is expected to adhere to a schedule that delivers a feature set every one to two weeks.
 1.  Should have an intuitive interface for new users to pick up the application easily.
 1.  Should be able to work without an internet connection.
-
-*{More to be added}*
+1.  Any reused code should be used with appropriate credit given.
+1.  Should not include copyrighted audio or graphics.
 
 ### Glossary
 
 * **Information**: Name, phone number, address, job type etc.
-* **Criteria**: Education background, work experience, language and other skills.
+* **Criteria**: Work experience, language and other skills.
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Hard-to-test features**: Features that heavily depend on remote APIs, audio-related features,
 as well as features requiring creation of user accounts etc.
