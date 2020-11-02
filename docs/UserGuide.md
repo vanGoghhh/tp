@@ -10,23 +10,26 @@ title: User Guide
 1. [Preface](#preface)
      1. [Understanding Symbols](#understanding-symbols)
      1. [Understanding Input Fields](#understanding-input-fields)
+     1. [Understanding Command Format](#understanding-command-format)
 2. [Quick Start](#quick-start)
-1. [Features](#features)
-     1. [Viewing help: **`help`**](#viewing-help-help)
-     1. [Adding a candidate: **`add can`**](#adding-a-candidate-add-can)
-     1. [Adding a job listing: **`add job`**](#adding-a-job-listing-add-job)
-     1. [Listing all candidates: **`list can`**](#listing-all-candidates-list-can)
+1. [Features for Candidates](#features-for-candidates)
+    1. [Adding a candidate: **`add can`**](#adding-a-candidate-add-can)
+    1. [Listing all candidates: **`list can`**](#listing-all-candidates-list-can)
+    1. [Editing a candidate: **`edit can`**](#editing-a-candidate-edit-can)
+    1. [Finding a candidate: **`find can`**](#finding-a-candidate-find-can)
+    1. [Sorting all candidates: **`sort can`**](#sorting-all-candidates-sort-can)
+    1. [Deleting a candidate: **`delete can`**](#deleting-a-candidate-delete-can)
+    1. [Clearing all candidate entries: **`clear can`**](#clearing-all-candidate-entries-clear-can)
+1. [Features for Jobs](#features-for-jobs)
+    1. [Adding a job listing: **`add job`**](#adding-a-job-listing-add-job)
      1. [Listing all jobs: **`list job`**](#listing-all-jobs-list-job)
-     1. [Editing a candidate: **`edit can`**](#editing-a-candidate-edit-can)
      1. [Editing a job: **`edit job`**](#editing-a-job-edit-job)
-     1. [Finding a candidate: **`find can`**](#finding-a-candidate-find-can)
      1. [Finding a job: **`find job`**](#finding-a-job-find-job)
-     1. [Sorting all candidates: **`sort can`**](#sorting-all-candidates-sort-can)
      1. [Sorting all jobs: **`sort job`**](#sorting-all-jobs-sort-job)
-     1. [Deleting a candidate: **`delete can`**](#deleting-a-candidate-delete-can)
      1. [Deleting a job: **`delete job`**](#deleting-a-job-delete-job)
-     1. [Clearing all candidate entries: **`clear can`**](#clearing-all-candidate-entries-clear-can)
      1. [Clearing all job entries: **`clear job`**](#clearing-all-job-entries-clear-job)
+1. [Other Features](#other-features)
+     1. [Viewing help: **`help`**](#viewing-help-help)
      1. [Exiting the program : **`exit`**](#exiting-the-program--exit)
      1. [Detecting duplicate entries](#detecting-duplicate-entries)
      1. [Saving the data](#saving-the-data)
@@ -67,7 +70,7 @@ you may be happy to know that a glossary is provided at the end of this document
 
 ## Preface
 For a smoother start to your usage of *CANdidates*, read this section to find out how this document is structured, 
-how to navigate the document, and what all the symbols and special fonts mean.
+how to navigate the document and what all the symbols, special fonts and command formats mean.
 
 ### Understanding Symbols
 This section will explain all the symbols and fonts used in this document.
@@ -82,7 +85,7 @@ Symbols/Font  | Explanation
 
 ### Understanding Input Fields
 Input fields are fields that you have to specify in your commands. Still not sure what this means without context? 
-Try getting a quick glance at [Quick Start](#quick-start) and [Features](#features) sections first!
+Try getting a quick glance at the section [Quick Start](#quick-start) first!
 
 You may refer back to this table whenever you need help understanding the input fields.
 
@@ -106,6 +109,25 @@ Name of input field   | How you can use them
 `FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:exclamation: *This field only takes in specific values described in the respective feature sections.*
 `ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:memo: *This field only accepts 2 specific values: asc or desc.*
 `INDEX`               | Index number of the candidate or job displayed in the list.
+
+### Understanding Command Format
+
+This section will explain how to interpret all the command formats which you will encounter in the sections [Features for Candidates](#features-for-candidates), [Features for Jobs](#features-for-jobs) and [Other Features](#other-features).
+This will help you to understand CANdidates' features better.
+
+* Words in `UPPER_CASE` are the input fields which are supposed to be specified by you.<br>
+  e.g. in `add n/NAME`, `NAME` is a input field which can be used as `add n/John Doe`.
+
+* Items in square brackets are optional.<br>
+  e.g `c/COMPANY_NAME [t/JOB_DESCRIPTION]` can be used as `c/Samsung t/ContractWorker` or just `c/Samsung`.
+
+* Items with `…` after them can be used multiple times including zero times. You can put as much information as you want to!<br>
+  e.g. `[t/JOB_TYPE]…` can be used as `t/accountant` (i.e. 1 time), `t/programmer t/technician` (i.e. 2 times) etc.
+
+* Input fields can be in any order you want them to be.<br>
+  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+
+*:bulb: If you are confused with the various input fields, refer to [Understanding Input Fields](#understanding-input-fields).*
 
 <br>
 
@@ -148,54 +170,9 @@ Can’t wait to start using *CANdidates*? This section guides you through the st
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Features
-This exciting section describes all the amazing features we have in *CANdidates* for your utmost convenience!
-
-<div markdown="block" class="alert alert-info">
-
-:memo: Before we jump right into the details of each feature, here are some notes about the command format so that you can understand the features better:<br>
-
-* Words in `UPPER_CASE` are the input fields which are supposed to be specified by you.<br>
-  e.g. in `add n/NAME`, `NAME` is a input field which can be used as `add n/John Doe`.
-
-* Items in square brackets are optional.<br>
-  e.g `c/COMPANY_NAME [t/JOB_DESCRIPTION]` can be used as `c/Samsung t/ContractWorker` or just `c/Samsung`.
-
-* Items with `…` after them can be used multiple times including zero times. You can put as much information as you want to!<br>
-  e.g. `[t/JOB_TYPE]…` can be used as `t/accountant` (i.e. 1 time), `t/programmer t/technician` (i.e. 2 times) etc.
-
-* Input fields can be in any order you want them to be.<br>
-  e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
-
-*:bulb: If you are confused with the various input fields, refer to [Understanding Input Fields](#understanding-input-fields).*
-</div>
-<br>
-
-### Viewing help: `help`
-
-If you are unsure of how to use the application, we have a help function that will direct you to our user guide! You might also find it helpful to refer to the summary of all the available commands [here](#command-summary).
-
-***Image to be changed***
-
-![help message](images/helpMessage.png)
-
-Format: `help`
-
-Step by Step:
-
-***Image to be added***
-
-Step 1. Type `help` in the *command box* and press *Enter*.
-
-***Image to be added***
-
-Step 2. The *CANdidates* application will display the message "Opened help window" to indicate that the help window has been opened.
-
-***Image to be added***
-
-Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to *CANdidates*'s user guide, which is this document!
-
-<br>
+## Features for Candidates
+This section provides you with features to handle all information of candidates for your utmost convenience!
+Refer to [Other Features](#other-features) for more general features.
 
 ### Adding a candidate: `add can`
 
@@ -242,6 +219,161 @@ Step 2. The *CANdidates* application will automatically switch to "Candidates" t
 Step 3. The application will show the updated list of candidates with the newly added candidate.
 
 <br>
+
+### Listing all candidates: `list can`
+
+To accurately reflect the latest changes of candidates in the application, you can refresh the list of candidates using the format below.
+
+Format: `list can`
+
+<div markdown="span" class="alert alert-primary">
+
+:exclamation: *On the application, be sure to click on the “Candidates” tab to view the list of candidates.*
+
+:bulb: *This command is usually used after a* [sort can](#sorting-all-candidates-sort-can) *or* [find can](#finding-a-candidate-find-can) *command to show the full list of candidates again.*
+</div>
+<br>
+
+### Editing a candidate: `edit can`
+
+If you would like to edit the details of a particular candidate, you can use the command below
+
+Format: `edit can INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [doa/DATE_OF_APPLICATION] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
+
+<div markdown="span" class="alert alert-primary">
+
+:memo: *Edits the candidate at the specified* `INDEX`. *The* `INDEX` *refers to the index number shown in the displayed candidate list. The* `INDEX` *must be a positive integer 1, 2, 3, …​*
+<br>
+:memo: *Existing values will be updated to the input values.*
+<br>
+:memo: *At least one of the optional fields must be provided.*
+<br>
+:memo: *The blacklist input can be specified as* `bl/true` *or* `bl/false`.
+<br>
+:exclamation: *When editing the job type, the existing job types will be cleared and replaced, i.e editing of job types is not cumulative even though there can be multiple job types.*
+<br>
+:bulb: *Certain optional candidate fields can be cleared by typing their respective prefixes without specifying any value after them. 
+This works for the job type, address, expected salary and profile link fields. See the second example below for a demonstration.*
+
+</div>
+
+**Examples:**
+
+:black_nib: To edit the 1st candidate’s phone number, email and blacklist status to be _91234567_, _johndoe<span>@</span>example.com_ and _true_ respectively,
+
+
+    edit can 1 p/91234567 e/johndoe@example.com bl/true
+
+:black_nib: To edit the 2nd candidate and clear existing job types, address, expected salary and profile link,
+
+    edit can 2 t/ a/ sal/ link/ 
+    
+<br>
+
+### Finding a candidate: `find can`
+
+Too many candidates with different information? *CANdidates* provide you with a simple and quick way for you to find candidates who fulfil certain criteria(s) or even a specific candidate from the long list. All you have to do is tell CANdidates the field you are interested in, along with the keyword you are looking for!
+
+Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
+
+<div markdown="span" class="alert alert-primary">
+
+:memo: *At least one of the optional fields must be provided.*
+<br>
+:memo: *The search is case insensitive, e.g. john will match John*
+<br>
+:memo: *The order of the keywords does not matter, e.g. Doe John will match John Doe*
+<br>
+:memo: *For number fields (i.e. phone, years of experience and expected salary), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.*
+<br>
+:bulb: *If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.*
+
+</div>
+
+<br>
+
+### Sorting all candidates: `sort can`
+
+You can view all the candidates in the order you wish to by typing in your desired order. Upon execution of the command, the sorted list of candidates would be displayed on the app!
+
+Format: `sort can type/FIELD_TO_SORT order/ORDER`
+
+<div markdown="span" class="alert alert-primary">
+
+:exclamation: *Sorting will only apply to the current viewable list. e.g. Using* `sort can` *command after a* `find can` *command will only sort the list of candidates that were listed after the* `find can` *command.*
+<br>
+:memo: *The type input must be one of* `type/exp`, `type/sal`, `type/bl` *or* `type/doa` *depending on whether you wish to sort the candidates by their experience, expected salary, blacklist status or data of application respectively.*
+<br>
+:memo: *The order input must be specified as either* `order/asc` *or* `order/desc` *depending on whether you wish the sorting to be done in an ascending or descending manner.*
+<br>
+:memo: *If you provide more than one* `FIELD_TO_SORT` *or* `ORDER` *, only the last one will be taken in as input e.g.* `sort can type/exp order/asc type/sal order/desc` *will sort the candidates according to expected salary in descending order.* 
+<br>
+
+</div>
+
+**Examples:**
+
+:black_nib: To sort the list of candidates starting from the lowest number of years of experience,
+
+    sort can type/exp order/asc
+
+:black_nib: To sort the list of candidates starting from the most recent application date,
+
+    sort can type/doa order/desc
+
+:black_nib: To view all blacklisted candidates followed by non-blacklisted candidates,
+
+    sort can type/bl order/desc
+    
+<br>
+
+### Deleting a candidate: `delete can`
+
+Have you successfully found a job for a candidate and you no longer need to keep his/her details in *CANdidates*? 
+To delete a particular candidate from the list, you can use the command below.
+
+Format: `delete can INDEX`
+
+<div markdown="span" class="alert alert-primary">
+
+:memo: *Deletes the candidate at the specified* `INDEX`. *The* `INDEX` *refers to the index number shown in the displayed job list. The* `INDEX` *must be a positive integer 1, 2, 3, …​*
+<br>
+:exclamation: *The specified candidate’s data will be cleared and this action is irreversible. 
+Please ensure you do not require the candidate’s data anymore before performing this command.*
+
+</div>
+
+**Examples:**
+
+:black_nib: To delete the candidate at index _1_,
+
+    delete can 1
+
+:black_nib: To delete the candidate at index _3_,
+
+    delete can 3
+    
+<br>
+
+### Clearing all candidate entries: `clear can`
+
+Want to clear all the candidates in the list quickly without having to delete one by one? Simply use the command below!
+
+Format: `clear can`
+
+<div markdown="span" class="alert alert-primary">
+
+:exclamation: *All candidate data will be cleared and this action is irreversible. 
+Please ensure you do not require the candidate list data anymore before performing this command.*
+<br>
+:bulb: *This command can be used to clear the sample data on CANdidates when you first downloaded it.*
+
+</div>
+<br>
+
+## Features for Jobs
+This section provides you with features to handle all information of job listings for your utmost convenience!
+Refer to [Other Features](#other-features) for more general features.
        
 ### Adding a job listing: `add job`
 
@@ -288,19 +420,6 @@ Step 3. The application will show the updated job listings with the newly added 
     
 <br>
 
-### Listing all candidates: `list can`
-
-To accurately reflect the latest changes of candidates in the application, you can refresh the list of candidates using the format below.
-
-Format: `list can`
-
-<div markdown="span" class="alert alert-primary">
-
-:exclamation: *On the application, be sure to click on the “Candidates” tab to view the list of candidates.*
-
-:bulb: *This command is usually used after a* [sort can](#sorting-all-candidates-sort-can) *or* [find can](#finding-a-candidate-find-can) *command to show the full list of candidates again.*
-</div>
-<br>
 
 ### Listing all jobs: `list job`
 
@@ -314,42 +433,6 @@ Format: `list job`
 
 :bulb: *This command is usually used after a* [sort job](#sorting-all-jobs-sort-job) *or* [find job](#finding-a-job-find-job) *command to show the full list of job listings again.*
 </div>
-<br>
-
-### Editing a candidate: `edit can`
-
-If you would like to edit the details of a particular candidate, you can use the command below
-
-Format: `edit can INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [doa/DATE_OF_APPLICATION] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
-
-<div markdown="span" class="alert alert-primary">
-
-:memo: *Edits the candidate at the specified* `INDEX`. *The* `INDEX` *refers to the index number shown in the displayed candidate list. The* `INDEX` *must be a positive integer 1, 2, 3, …​*
-<br>
-:memo: *Existing values will be updated to the input values.*
-<br>
-:memo: *At least one of the optional fields must be provided.*
-<br>
-:memo: *The blacklist input can be specified as* `bl/true` *or* `bl/false`.
-<br>
-:exclamation: *When editing the job type, the existing job types will be cleared and replaced, i.e editing of job types is not cumulative even though there can be multiple job types.*
-<br>
-:bulb: *Certain optional candidate fields can be cleared by typing their respective prefixes without specifying any value after them. 
-This works for the job type, address, expected salary and profile link fields. See the second example below for a demonstration.*
-
-</div>
-
-**Examples:**
-
-:black_nib: To edit the 1st candidate’s phone number, email and blacklist status to be _91234567_, _johndoe<span>@</span>example.com_ and _true_ respectively,
-
-
-    edit can 1 p/91234567 e/johndoe@example.com bl/true
-
-:black_nib: To edit the 2nd candidate and clear existing job types, address, expected salary and profile link,
-
-    edit can 2 t/ a/ sal/ link/ 
-    
 <br>
 
 ### Editing a job: `edit job`
@@ -388,26 +471,6 @@ See the second example below for a demonstration.*
     edit job 3 t/
     
 <br>
-
-### Finding a candidate: `find can`
-
-Too many candidates with different information? *CANdidates* provide you with a simple and quick way for you to find candidates who fulfil certain criteria(s) or even a specific candidate from the long list. All you have to do is tell CANdidates the field you are interested in, along with the keyword you are looking for!
-
-Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
-
-<div markdown="span" class="alert alert-primary">
-
-:memo: *At least one of the optional fields must be provided.*
-<br>
-:memo: *The search is case insensitive, e.g. john will match John*
-<br>
-:memo: *The order of the keywords does not matter, e.g. Doe John will match John Doe*
-<br>
-:memo: *For number fields (i.e. phone, years of experience and expected salary), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.*
-<br>
-:bulb: *If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.*
-
-</div>
 
 **Examples:**
 
@@ -451,41 +514,6 @@ Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
     
 <br>
 
-### Sorting all candidates: `sort can`
-
-You can view all the candidates in the order you wish to by typing in your desired order. Upon execution of the command, the sorted list of candidates would be displayed on the app!
-
-Format: `sort can type/FIELD_TO_SORT order/ORDER`
-
-<div markdown="span" class="alert alert-primary">
-
-:exclamation: *Sorting will only apply to the current viewable list. e.g. Using* `sort can` *command after a* `find can` *command will only sort the list of candidates that were listed after the* `find can` *command.*
-<br>
-:memo: *The type input must be one of* `type/exp`, `type/sal`, `type/bl` *or* `type/doa` *depending on whether you wish to sort the candidates by their experience, expected salary, blacklist status or data of application respectively.*
-<br>
-:memo: *The order input must be specified as either* `order/asc` *or* `order/desc` *depending on whether you wish the sorting to be done in an ascending or descending manner.*
-<br>
-:memo: *If you provide more than one* `FIELD_TO_SORT` *or* `ORDER` *, only the last one will be taken in as input e.g.* `sort can type/exp order/asc type/sal order/desc` *will sort the candidates according to expected salary in descending order.* 
-<br>
-
-</div>
-
-**Examples:**
-
-:black_nib: To sort the list of candidates starting from the lowest number of years of experience,
-
-    sort can type/exp order/asc
-
-:black_nib: To sort the list of candidates starting from the most recent application date,
-
-    sort can type/doa order/desc
-
-:black_nib: To view all blacklisted candidates followed by non-blacklisted candidates,
-
-    sort can type/bl order/desc
-    
-<br>
-
 ### Sorting all jobs: `sort job`
 
 Have too many job listings and need a way to organise them? You can get *CANdidates* to help you do that by sorting them according to the priority or vacancies you have indicated for the job listings!
@@ -524,34 +552,6 @@ Step 3. The application will show the sorted job list based on the sort conditio
 
 <br>
 
-### Deleting a candidate: `delete can`
-
-Have you successfully found a job for a candidate and you no longer need to keep his/her details in *CANdidates*? 
-To delete a particular candidate from the list, you can use the command below.
-
-Format: `delete can INDEX`
-
-<div markdown="span" class="alert alert-primary">
-
-:memo: *Deletes the candidate at the specified* `INDEX`. *The* `INDEX` *refers to the index number shown in the displayed job list. The* `INDEX` *must be a positive integer 1, 2, 3, …​*
-<br>
-:exclamation: *The specified candidate’s data will be cleared and this action is irreversible. 
-Please ensure you do not require the candidate’s data anymore before performing this command.*
-
-</div>
-
-**Examples:**
-
-:black_nib: To delete the candidate at index _1_,
-
-    delete can 1
-
-:black_nib: To delete the candidate at index _3_,
-
-    delete can 3
-    
-<br>
-
 ### Deleting a job: `delete job`
 
 Deletes the specified job from the job listing.
@@ -579,22 +579,6 @@ Please ensure you do not require the job’s data anymore before performing this
     
 <br>
 
-### Clearing all candidate entries: `clear can`
-
-Want to clear all the candidates in the list quickly without having to delete one by one? Simply use the command below!
-
-Format: `clear can`
-
-<div markdown="span" class="alert alert-primary">
-
-:exclamation: *All candidate data will be cleared and this action is irreversible. 
-Please ensure you do not require the candidate list data anymore before performing this command.*
-<br>
-:bulb: *This command can be used to clear the sample data on CANdidates when you first downloaded it.*
-
-</div>
-<br>
-
 ### Clearing all job entries: `clear job`
 
 Want to clear all the jobs in the list quickly without having to delete one by one? Simply use the command below!
@@ -609,6 +593,35 @@ Please ensure you do not require the job list data anymore before performing thi
 :bulb: *This command can be used to clear the sample data on *CANdidates* when you first downloaded it.*
 
 </div>
+<br>
+
+## Other Features
+This section explores other general features that CANdidates has to offer!
+
+### Viewing help: `help`
+
+If you are unsure of how to use the application, we have a help function that will direct you to our user guide! You might also find it helpful to refer to the summary of all the available commands [here](#command-summary).
+
+***Image to be changed***
+
+![help message](images/helpMessage.png)
+
+Format: `help`
+
+Step by Step:
+
+***Image to be added***
+
+Step 1. Type `help` in the *command box* and press *Enter*.
+
+***Image to be added***
+
+Step 2. The *CANdidates* application will display the message "Opened help window" to indicate that the help window has been opened.
+
+***Image to be added***
+
+Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to *CANdidates*'s user guide, which is this document!
+
 <br>
 
 ### Exiting the program : `exit`
