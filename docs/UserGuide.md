@@ -369,7 +369,7 @@ Format: `clear can`
 :exclamation: *All candidate data will be cleared and this action is irreversible. 
 Please ensure you do not require the candidate list data anymore before performing this command.*
 <br>
-:bulb: *This command can be used to clear the sample data on CANdidates when you first downloaded it.*
+:bulb: *This command can be used to clear the sample data on CANdidates when you first download it.*
 
 </div>
 <br>
@@ -596,7 +596,7 @@ Format: `clear job`
 :exclamation: *All job data will be cleared and this action is irreversible. 
 Please ensure you do not require the job list data anymore before performing this command.*
 <br>
-:bulb: *This command can be used to clear the sample data on *CANdidates* when you first downloaded it.*
+:bulb: *This command can be used to clear the sample data on* *CANdidates* *when you first download it.*
 
 </div>
 <br>
