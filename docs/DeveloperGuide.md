@@ -136,12 +136,6 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The Model class diagram shown above omits certain details due to space constraints, namely the classes in the Information Package that Person and Job hold reference to. Instead, the omitted details have been extracted and are shown here: <br>
-</div>
-
-![InformationClassDiagram](images/InformationClassDiagram.png)
-
-
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
 
 The `Model`,
@@ -149,15 +143,15 @@ The `Model`,
 * stores a `UserPref` object that represents the user’s preferences.
 * stores the address book data.
 * exposes an unmodifiable `ObservableList<Person>` and an unmodifiable `ObservableList<Job>` that can be 'observed' e.g. the UI can be bound to these lists so that the UI automatically updates when the data in the lists change.
-* does not depend on any of the other three components.
+* does not depend on any of the other three components. <br>
 
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The Model class diagram shown above omits certain details due to space constraints, namely the classes in the Information Package 
+                                                                             that Person and Job hold reference to. Instead, the omitted details have been extracted and are shown here: <br>
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in `PersonAddressBook` and `JobAddressBook`, which `Person` and `Job` references respectively. This allows `PersonAddressBook` and `JobAddressBook` to each only require one `Tag` object per unique `Tag`, instead of each `Person` and each `Job` needing their own `Tag` object.<br>
-
-![BetterModelClassDiagram](images/BetterModelClassDiagramV1.png)
+![InformationClassDiagram](images/InformationClassDiagram.png)
 
 </div>
-
+ 
 
 ### Storage component
 
@@ -438,65 +432,42 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Priority | As a …​                                 | I want to …​                                                                       | So that I can…​                                                                         |
 | -------- | ------------------------------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| `* *`    | new user exploring the application         | see sample data stored in the App                                                     | see how the App would work when it is in use                                               |
-| `* *`    | user that is ready to start using the app  | have an easy way to clear all the sample data                                         | fill in my data                                                                            |
-| `* *`    | technology inept person                    | have an App that is intuitive to use                                                  |                                                                                            |
-| `* *`    | long term user of the App                  | have a way to archive some of the unused data                                         | prevent cluttering                                                                         |
-| `* *`    | aesthetic individual                       | have an App that is clean and aesthetically pleasing                                  |                                                                                            |
-| `* *`    | veteran job recruiter                      | be able to store as many contacts as possible without lagging the software            |                                                                                            |
-| `* *`    | efficient person                           | be able to perform mass operations like deleting multiple entries at once             |                                                                                            |
-| `* * *`  | job recruiter                              | have a platform to consolidate all _information_ of candidates                          |  avoid receiving applications from the same people repeatedly                              |
-| `* *`    | job recruiter                              | have a way to filter job applicants by their gender                                   |                                                                                            |
-| `* *`    | job recruiter                              | have a way to filter candidates by the date they applied for the job                  |                                                                                            |
+| `* * *`  | job recruiter                              | have a platform to consolidate all _information_ of candidates                        |  avoid receiving applications from the same people repeatedly                              |
 | `* * *`  | job recruiter                              | have a way to filter candidates by the type of job they are applying for              |                                                                                            |
-| `* *`    | job recruiter                              | have a way to filter candidates by their years of experience                          |                                                                                            |
-| `* *`    | job recruiter                              | have a way to blacklist candidates that do not respond or have poor attitudes         | take note to not consider them again in the future                                         |
-| `* *`    | job recruiter                              | have a way to organise my contact information easily                                  |                                                                                            |
 | `* * *`  | job recruiter                              | have a way to be able to delete candidates when they are successfully hired           | optimise my search                                                                         |
-| `* *`    | job recruiter                              | have a way to sort candidates based on their expected salary                          |                                                                                            |
 | `* * *`  | job recruiter                              | have a way to keep track of duplicate candidates                                      | avoid adding the same candidate multiple times                                             |
-| `* *`    | efficient job recruiter                    | be able to effectively search for candidates whenever there is a new job opening      | answer to hiring companies quickly                                                         |
-| `* * *`  | careless job recruiter                     | have a way to edit the contacts                                                       | rectify wrong entries                                                                      |
 | `* * *`  | job recruiter                              | keep the links to candidates' resumes (GitHub, LinkedIn, etc.)                        | review them conveniently                                                                   |
-| `* *`    | job recruiter                              | be brought directly to the relevant pages to view the candidates’ further information |                                                                                            |
-| `* *`    | job recruiter                              | be able to view the ranking of the candidates based on various _criteria_            | provide a list of candidates that best fulfil the recruitment criteria(s) to the companies |
-| `* *`    | job recruiter                              | be notified of duplicate job listings when adding a new entry to the list             |                                                                                            |
 | `* * *`  | job recruiter                              | be able to delete job listings when they are filled up                                |                                                                                            |
 | `* * *`  | job recruiter                              | be able to filter jobs by their vacancies                                             |                                                                                            |
 | `* * *`  | job recruiter                              | be able to tag jobs with different priorities                                         |                                                                                            |
 | `* * *`  | job recruiter                              | be able to filter jobs by their priorities                                            |                                                                                            |
-| `* *`    | job recruiter                              | have a way to keep track of interview schedules                                       |                                                                                            |
+| `* * *`  | careless job recruiter                     | have a way to edit the contacts                                                       | rectify wrong entries                                                                      |
+| `* *`    | new user exploring the application         | see sample data stored in the App                                                     | see how the App would work when it is in use                                               |
+| `* *`    | technology inept person                    | have an App that is intuitive to use                                                  |                                                                                            |
+| `* *`    | aesthetic individual                       | have an App that is clean and aesthetically pleasing                                  |                                                                                            |
+| `* *`    | job recruiter                              | have a way to filter candidates by the date they applied for the job                  |                                                                                            |
+| `* *`    | job recruiter                              | have a way to filter candidates by their years of experience                          |                                                                                            |
+| `* *`    | job recruiter                              | have a way to blacklist candidates that do not respond or have poor attitudes         | take note to not consider them again in the future                                         |
+| `* *`    | job recruiter                              | have a way to organise my contact information easily                                  |                                                                                            |
+| `* *`    | job recruiter                              | have a way to sort candidates based on their expected salary                          |                                                                                            |
+| `* *`    | job recruiter                              | be brought directly to the relevant pages to view the candidates’ further information |                                                                                            |
+| `* *`    | job recruiter                              | be able to view the ranking of the candidates based on various _criteria_             | provide a list of candidates that best fulfil the recruitment criteria(s) to the companies |
+| `* *`    | job recruiter                              | be notified of duplicate job listings when adding a new entry to the list             |                                                                                            |
+| `* *`    | efficient job recruiter                    | be able to effectively search for candidates whenever there is a new job opening      | answer to hiring companies quickly                                                         |
+| `* *`    | veteran job recruiter                      | be able to store as many contacts as possible without lagging the software            |                                                                                            |
+| `* *`    | user that is ready to start using the app  | have an easy way to clear all the sample data                                         | fill in my data                                                                            |
+| `*`      | job recruiter                              | have a way to keep track of interview schedules                                       |                                                                                            |
 | `*`      | single person                              | have a way to store the contacts of cute job applicants                               |                                                                                            |
+| `*`      | long term user of the App                  | have a way to archive some of the unused data                                         | prevent cluttering                                                                         |
+| `*`      | efficient person                           | be able to perform mass operations like deleting multiple entries at once             |                                                                                            |
+| `*`      | job recruiter                              | have a way to filter job applicants by their gender                                   |                                                                                            |
 
 ### Use cases
 
 (For all use cases below, the **System** is the `CANdidates` and the **Actor** is the `user`, unless specified otherwise)
+      
 
-#### **Use case: Delete a candidate**
-
-**MSS**
-
-1.  User requests to list candidates
-2.  CANdidates shows a list of candidates
-3.  User requests to delete a specific candidate in the list
-4.  CANdidates deletes the candidate
-
-    Use case ends.
-
-**Extensions**
-
-* 2a. The list is empty.
-
-  Use case ends.
-
-* 3a. The given index is invalid.
-
-    * 3a1. CANdidates shows an error message.
-
-      Use case resumes at step 2.
-
-
-#### **Use case: Add a candidate**
+#### **Use case: UC01 - Add a candidate**
 
 **MSS**
 
@@ -520,55 +491,185 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **Use case: Edit a candidate**
+#### **Use case: UC02 - List candidates**
 
 **MSS**
 
 1.  User requests to list candidates
 2.  CANdidates shows a list of candidates
-3.  User requests to edit the details of a specific candidate index in the list
-4.  CANdidates edits the candidate
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. Input format is invalid.
 
-  Use case ends.
+    * 1a1. CANdidates shows an error message.
 
-* 3a. The given index is invalid.
-
-    * 3a1. CANdidates shows an error message.
-
-      Use case resumes at step 2.
-
-* 3b. The format of the given details are invalid.
-
-    * 3b1. CANdidates shows an error message.
-
-      Use case resumes at step 2.
+      Use case ends.
 
 
-#### **Use case: Clear all entries**
+#### **Use case: UC03 - Delete a candidate**
 
 **MSS**
 
-1.  User requests to list candidates
-2.  CANdidates shows a list of candidates
-3.  User requests to clear all entries in the list
-4.  CANdidates clears the list
+1.  User requests to _list candidates (UC01)_
+2.  User requests to delete a specific candidate index in the list
+3.  CANdidates deletes the candidate
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. The list is empty.
+
+  Use case ends.
+
+* 2a. The given index is invalid.
+
+    * 2a1. CANdidates shows an error message.
+
+      Use case ends.
+
+
+#### **Use case: UC04 - Edit a candidate**
+
+**MSS**
+
+1.  User requests to _list candidates (UC01)_
+2.  User requests to edit the details of a specific candidate index in the list
+3.  CANdidates edits the candidate
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+  
+* 2a. The given index is invalid.
+
+    * 2a1. CANdidates shows an error message.
+
+      Use case ends.
+
+* 2b. The format of the given details are invalid.
+
+    * 2b1. CANdidates shows an error message.
+
+      Use case ends.
+
+
+#### **Use case: UC05 - Clear all candidates**
+
+**MSS**
+
+1.  User requests to _list candidates (UC01)_
+2.  User requests to clear all candidates in the list
+3.  CANdidates clears the list
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
 
   Use case ends.
 
 
-*{More to be added}*
+#### **Use case: UC06 - Find candidates**
+
+**MSS**
+
+1.  User requests to find candidates with keywords
+2.  CANdidates shows a list of candidates matching keywords
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. Input format is invalid.
+
+    * 1a1. CANdidates shows an error message.
+
+      Use case ends.
+
+
+#### **Use case: UC07 - Sort candidates**
+
+**MSS**
+
+1.  User requests to _list candidates (UC01)_
+2.  User requests to sort the list in an order based on a field type
+3.  CANdidates displays the list of candidates in the specified order
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+  
+* 2a. The given field type is invalid.
+
+    * 2a1. CANdidates shows an error message.
+
+      Use case ends.
+
+* 2b. The given order is invalid.
+
+    * 2b1. CANdidates shows an error message.
+
+      Use case ends.
+
+
+#### **Use case: UC08 - Add a job**
+
+Similar to UC01, except user will request to add a job instead.
+
+
+#### **Use case: UC09 - List jobs**
+
+Similar to UC02, except user will request to list jobs and CANdidates will show a list of jobs instead.
+
+
+#### **Use case: UC10 - Delete a job**
+
+Similar to UC03, except user will request to delete a specific job index.
+
+
+#### **Use case: UC11 - Edit a candidate**
+
+Similar to UC04, except user will request to edit details of a specific job index.
+
+
+#### **Use case: UC12 - Clear all jobs**
+
+Similar to UC05, except user will request to clear all jobs.
+
+
+#### **Use case: UC13 - Find candidates**
+
+Similar to UC06, except user will request to find jobs with keywords and CANdidates will show a list of jobs instead.
+
+
+#### **Use case: UC14 - Sort candidates**
+
+Similar to UC07, except user will request to sort jobs.
+
+
+#### **Use case: UC15 - Requesting for help**
+
+**MSS**
+
+1.  User requests for help
+2.  CANdidates displays help window with link to User Guide
+3.  User copies the link and closes the window
+
+    Use case ends.
+
 
 ### Non-Functional Requirements
 
@@ -583,13 +684,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  The project is expected to adhere to a schedule that delivers a feature set every one to two weeks.
 1.  Should have an intuitive interface for new users to pick up the application easily.
 1.  Should be able to work without an internet connection.
-
-*{More to be added}*
+1.  Any reused code should be used with appropriate credit given.
+1.  Should not include copyrighted audio or graphics.
 
 ### Glossary
 
 * **Information**: Name, phone number, address, job type etc.
-* **Criteria**: Education background, work experience, language and other skills.
+* **Criteria**: Work experience, language and other skills.
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Hard-to-test features**: Features that heavily depend on remote APIs, audio-related features,
 as well as features requiring creation of user accounts etc.
