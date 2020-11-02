@@ -144,11 +144,4 @@ public class Job {
         getTags().forEach(builder::append);
         return builder.toString();
     }
-
-    /**
-     * Returns a String representing a brief description of the job, containing the job title and company name.
-     */
-    public String getBriefDescription() {
-        return "Job Title: " + getJobTitle() + ". Company: " + getCompanyName();
-    }
 }
