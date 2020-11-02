@@ -703,7 +703,6 @@ This handy command summary table provides you with all the possible commands for
 
 Action | Candidate Format | Job Format
 --------|------------------|------------------
-**Help** | `help` | `help`
 **Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]… [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]` | `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
 **List** | `list can` | `list job`
 **Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [doa/DATE_OF_APPLICATION] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
@@ -711,6 +710,7 @@ Action | Candidate Format | Job Format
 **Sort** | `sort can type/FIELD_TO_SORT order/ORDER` | `sort job type/FIELD_TO_SORT order/ORDER`
 **Delete** | `delete can INDEX` | `delete job INDEX`
 **Clear** | `clear can` | `clear job`
+**Help** | `help` | `help`
 **Exit** | `exit` | `exit`
 
 <br>
