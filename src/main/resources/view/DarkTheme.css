@@ -27,7 +27,7 @@
 
 .detailed-background {
     -fx-background-color: #ffffff;
-    -fx-background-insets: 40 20 180 40;
+    -fx-background-insets: 40 20 140 40;
     -fx-effect: dropshadow(three-pass-box, rgba(0.5,0.5,0.5,0.5), 10, 0, 0, 0);
 }
 
@@ -70,13 +70,10 @@
     -fx-font-family: "Poppins Regular";
     -fx-font-size: 20px;
     -fx-text-fill: #5f66b9;
-    -fx-alignment: center;
-    -fx-translate-x: 50;
-    -fx-translate-y: 50;
 }
 
 .label-detail {
-    -fx-translate-y: 50;
+
 }
 
 .label-header {
