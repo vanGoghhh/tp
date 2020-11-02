@@ -172,7 +172,10 @@ Can’t wait to start using *CANdidates*? This section guides you through the st
 
 ## Features for Candidates
 This section provides you with features to handle all information of candidates for your utmost convenience!
+<br>
 Refer to [Other Features](#other-features) for more general features.
+
+<br>
 
 ### Adding a candidate: `add can`
 
@@ -373,7 +376,10 @@ Please ensure you do not require the candidate list data anymore before performi
 
 ## Features for Jobs
 This section provides you with features to handle all information of job listings for your utmost convenience!
+<br>
 Refer to [Other Features](#other-features) for more general features.
+
+<br>
        
 ### Adding a job listing: `add job`
 
@@ -597,6 +603,8 @@ Please ensure you do not require the job list data anymore before performing thi
 
 ## Other Features
 This section explores other general features that CANdidates has to offer!
+
+<br>
 
 ### Viewing help: `help`
 
