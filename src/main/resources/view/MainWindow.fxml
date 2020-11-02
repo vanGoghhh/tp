@@ -13,7 +13,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.layout.HBox?>
 <fx:root type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-         title="Address App" minWidth="1200" minHeight="800" onCloseRequest="#handleExit">
+         title="Candidates" width="Infinity" height="Infinity" minWidth="1300" minHeight="800" onCloseRequest="#handleExit" resizable="false">
   <icons>
     <Image url="@/images/address_book_32.png" />
   </icons>
@@ -34,18 +34,18 @@
                   <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
                 </Menu>
             </MenuBar>
-            <TabPane fx:id="tabPane" prefHeight="800.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS" styleClass="tabs">
+            <TabPane fx:id="tabPane" prefHeight="800.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS" styleClass="tabs">
               <tabs>
                 <Tab id="personTab" fx:id="personTab" text="Candidates">
                   <content>
-                    <VBox fx:id="personList" minWidth="600"  prefWidth="600" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="personList" minWidth="500"  prefWidth="500" VBox.vgrow="ALWAYS">
                       <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
                     </VBox>
                   </content>
                 </Tab>
                 <Tab fx:id="jobTab" text="Jobs">
                   <content>
-                    <VBox fx:id="jobsList" styleClass="pane-with-border" minWidth="600" prefWidth="600" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="jobsList" styleClass="pane-with-border" minWidth="500" prefWidth="500" VBox.vgrow="ALWAYS">
                       <padding>
                         <Insets top="10" right="10" bottom="10" left="10" />
                       </padding>
@@ -66,10 +66,8 @@
             </VBox>
           </children>
           <children>
-            <VBox VBox.vgrow="ALWAYS" spacing="10" prefWidth="700" styleClass="right-panel">
-              <children>
+            <VBox VBox.vgrow="ALWAYS" spacing="10" prefWidth="700" styleClass="right-panel" prefHeight="600">
                 <StackPane fx:id="detailedView" VBox.vgrow="ALWAYS"/>
-              </children>
             </VBox>
           </children>
         </HBox>
