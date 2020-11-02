@@ -35,7 +35,7 @@ public class AddJobCommandIntegrationTest {
         expectedModel.addJob(validJob);
 
         assertCommandSuccess(new AddJobCommand(validJob), model,
-                String.format(AddJobCommand.MESSAGE_SUCCESS, validJob.getBriefDescription()), expectedModel);
+                String.format(AddJobCommand.MESSAGE_SUCCESS, validJob), expectedModel);
     }
 
     @Test

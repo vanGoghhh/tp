@@ -164,12 +164,4 @@ public class Person {
         getTags().forEach(builder::append);
         return builder.toString();
     }
-
-    /**
-     * Returns a String representing a brief description of the Person by his/her name only.
-     */
-    public String getBriefDescription() {
-        return "Name: " + getName();
-    }
-
 }
