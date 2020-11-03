@@ -9,6 +9,7 @@ import static seedu.address.logic.commands.CommandTestUtil.SORT_TYPE_JOB_VACANCY
 import static seedu.address.logic.commands.CommandTestUtil.SORT_TYPE_PERSON_BLACKLIST;
 import static seedu.address.logic.commands.CommandTestUtil.SORT_TYPE_PERSON_DOA;
 import static seedu.address.logic.commands.CommandTestUtil.SORT_TYPE_PERSON_EXP;
+import static seedu.address.logic.commands.CommandTestUtil.SORT_TYPE_PERSON_NAME;
 import static seedu.address.logic.commands.CommandTestUtil.SORT_TYPE_PERSON_SAL;
 import static seedu.address.logic.commands.SortPersonCommand.MESSAGE_SORT_TYPE_INVALID;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
@@ -19,8 +20,10 @@ import org.junit.jupiter.api.Test;
 import seedu.address.logic.commands.SortPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.information.comparator.PersonBlackListComparator;
+import seedu.address.model.information.comparator.PersonDateOfApplicationComparator;
 import seedu.address.model.information.comparator.PersonExpectedSalaryComparator;
 import seedu.address.model.information.comparator.PersonExperienceComparator;
+import seedu.address.model.information.comparator.PersonNameComparator;
 
 
 public class SortPersonCommandParserTest {
@@ -65,6 +68,16 @@ public class SortPersonCommandParserTest {
         String userInput = SORT_TYPE_PERSON_BLACKLIST + SORT_ORDER_DESCENDING;
         PersonBlackListComparator comparator = new PersonBlackListComparator();
         SortPersonCommand expectedCommand = new SortPersonCommand(comparator, false);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
+        userInput = SORT_TYPE_PERSON_DOA + SORT_ORDER_ASCENDING;
+        PersonDateOfApplicationComparator doaComparator = new PersonDateOfApplicationComparator();
+        expectedCommand = new SortPersonCommand(doaComparator, true);
+        assertParseSuccess(parser, userInput, expectedCommand);
+
+        userInput = SORT_TYPE_PERSON_NAME + SORT_ORDER_ASCENDING;
+        PersonNameComparator nameComparator = new PersonNameComparator();
+        expectedCommand = new SortPersonCommand(nameComparator, true);
         assertParseSuccess(parser, userInput, expectedCommand);
     }
 
