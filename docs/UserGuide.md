@@ -85,6 +85,15 @@ Symbols/Font  | Explanation
 :bulb:        | There are additional tips that you can make use of when using the explained feature.
 :exclamation: | These are precautions you need to take note of when using the application.
 
+### Understanding the CANdidates GUI
+The figure below shows an annotated version of the GUI, to help you in understanding some of the technical terms used regarding our GUI.
+
+![Annotated GUI](images/UnderstandingGUI.png)
+
+:memo: *In the Tab Buttons, the tab you are currently on is marked as **red**. i.e. `Candidates` button is in red as the list shows the list of candidates.*
+
+You may refer back to this section whenever you need help understanding the GUI terms.
+
 ### Understanding Input Fields
 Input fields are fields that you have to specify in your commands. Still not sure what this means without context? 
 Try getting a quick glance at the section [Quick Start](#quick-start) first!
@@ -145,7 +154,7 @@ Can’t wait to start using *CANdidates*? This section guides you through the st
 1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+1. Type the command in the *command box* and press *Enter* to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
    * **`list can`** : Lists all candidates.
@@ -216,7 +225,7 @@ Step by Step:
 Step 1. Type `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/DogGroomer exp/1 doa/16-10-20` in the *command box* and press *Enter*.
 
 ![Add Candidate 2](images/addCan2.png)
-Step 2. The *CANdidates* application will automatically switch to "Candidates" tab and display the message 
+Step 2. The *CANdidates* application will automatically switch to "Candidates" tab and the following message will be shown in the *result display* 
 >“New person added: John Doe Phone: 98765432 Email: johnd@example.com Experience: 1.0 years Date of Application: 16-10-20 Address: John street, block 123, #01-01 Link:  Expected Salary:  Blacklisted: false Tags: [DogGroomer]”.
 
 Step 3. The application will show the updated list of candidates with the newly added candidate.
@@ -233,7 +242,7 @@ Format: `list can`
 
 :exclamation: *On the application, be sure to click on the “Candidates” tab to view the list of candidates.*
 
-:bulb: *This command is usually used after a* [sort can](#sorting-all-candidates-sort-can) *or* [find can](#finding-a-candidate-find-can) *command to show the full list of candidates again.*
+:bulb: *This command is usually used after a* [`sort can`](#sorting-all-candidates-sort-can) *or* [`find can`](#finding-a-candidate-find-can) *command to show the full list of candidates again.*
 </div>
 <br>
 
@@ -305,7 +314,7 @@ Format: `sort can type/FIELD_TO_SORT order/ORDER`
 
 :exclamation: *Sorting will only apply to the current viewable list. e.g. Using* `sort can` *command after a* `find can` *command will only sort the list of candidates that were listed after the* `find can` *command.*
 <br>
-:memo: *The type input must be one of* `type/exp`, `type/sal`, `type/bl` *or* `type/doa` *depending on whether you wish to sort the candidates by their experience, expected salary, blacklist status or data of application respectively.*
+:memo: *The type input must be one of* `type/n`, `type/exp`, `type/sal`, `type/bl` *or* `type/doa` *depending on whether you wish to sort the candidates by their name, experience, expected salary, blacklist status or data of application respectively.*
 <br>
 :memo: *The order input must be specified as either* `order/asc` *or* `order/desc` *depending on whether you wish the sorting to be done in an ascending or descending manner.*
 <br>
@@ -328,6 +337,21 @@ Format: `sort can type/FIELD_TO_SORT order/ORDER`
 
     sort can type/bl order/desc
     
+Step by Step:
+
+![Sort Can Step 1](images/sortCan1.png)
+
+Step 1. Type `sort can type/n order/asc` in the *command box* and press *Enter*.
+
+![Sort Can Step 2](images/sortCan2.png)
+
+Step 2. The *CANdidates* application will show the following message in the *result display* 
+>Successfully sorted list of candidates by name in ascending order.
+
+:memo: *If you were on the Jobs tab, the application will automatically direct you to the Candidates tab.*
+
+Step 3. The application will show the sorted candidates list based on the sort condition given.
+
 <br>
 
 ### Deleting a candidate: `delete can`
@@ -418,7 +442,7 @@ Step 1. Type `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@
 
 ![Add Job 2](images/addJob2.png)
 
-Step 2. The *CANdidates* application will automatically switch to "Jobs" tab and display the message 
+Step 2. The *CANdidates* application will automatically switch to "Jobs" tab and the following message will be shown in the *result display*
 >“New job added: Waiter Company: Amelia’s Eating House Phone: 98765432 Email: ameliatjy@example.com Address: Amelia Street, Block 123, #01-01 Priority: low Vacancy: 1 Tags: [MultipleLocations]”.
 
 Step 3. The application will show the updated job listings with the newly added job.
@@ -436,7 +460,7 @@ Format: `list job`
 
 :exclamation: *On the application, be sure to click on the “Jobs” tab to view the job listings.*
 
-:bulb: *This command is usually used after a* [sort job](#sorting-all-jobs-sort-job) *or* [find job](#finding-a-job-find-job) *command to show the full list of job listings again.*
+:bulb: *This command is usually used after a* [`sort job`](#sorting-all-jobs-sort-job) *or* [`find job`](#finding-a-job-find-job) *command to show the full list of job listings again.*
 </div>
 <br>
 
@@ -529,7 +553,7 @@ Format: `sort job type/FIELD_TO_SORT order/ORDER`
 
 :exclamation: *Sorting will only apply to the current viewable list. e.g. Using* `sort job` *command after a* `find job` *command will only sort the list of job listings that were listed after the* `find job` *command.*
 <br>
-:memo: *The* `FIELD_TO_SORT` *can be either* `pr` *or* `v` *depending on whether you wish to sort the job listings by their priority level or number of vacancies.*
+:memo: *The* `FIELD_TO_SORT` *can be either* `n`, `c`, `pr` *or* `v` *depending on whether you wish to sort the job listings by the job title, company name, priority level or number of vacancies respectively.*
 <br>
 :memo: *If you provide more than one* `FIELD_TO_SORT` *or* `ORDER` *, only the last one will be taken in as input e.g.* `sort job type/pr order/asc type/v order/desc` *will sort the job listings according to vacancies in descending order.* 
 <br>
@@ -549,9 +573,16 @@ Format: `sort job type/FIELD_TO_SORT order/ORDER`
     
 Step by Step:
 
-Step 1. Type sort job type/pr order/asc in the command box and press Enter.
+![Sort Job Step 1](images/sortJob1.png)
 
-Step 2. The *CANdidates* application will display the message “Successfully sorted jobs by priority in ascending order.”
+Step 1. Type `sort job type/pr order/asc` in the *command box* and press *Enter*.
+
+![Sort Job Step 2](images/sortJob2.png)
+
+Step 2. The *CANdidates* application will show the following message in the *result display* 
+>Successfully sorted jobs by priority in ascending order.
+
+:memo: *If you were on the Candidates tab, the application will automatically direct you to the Jobs tab.*
 
 Step 3. The application will show the sorted job list based on the sort condition given.
 
@@ -610,8 +641,6 @@ Refer to [Features for Candidates](#features-for-candidates) for features specif
 ### Viewing help: `help`
 
 If you are unsure of how to use the application, we have a help function that will direct you to our user guide! You might also find it helpful to refer to the summary of all the available commands [here](#command-summary).
-
-***Image to be changed***
 
 ![help message](images/helpMessage.png)
 
