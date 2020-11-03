@@ -9,6 +9,7 @@ title: User Guide
      1. [Author](#authors)
 1. [Preface](#preface)
      1. [Understanding Symbols](#understanding-symbols)
+     1. [Understanding the CANdidates GUI](#understanding-the-candidates-gui)
      1. [Understanding Input Fields](#understanding-input-fields)
      1. [Understanding Command Format](#understanding-command-format)
 2. [Quick Start](#quick-start)
@@ -718,6 +719,9 @@ All data is saved in the hard disk automatically after any command that changes 
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CANdidates home folder.
+
+**Q**: I accidentally corrupted my existing data file and my CANdidates application started up with the sample data. How can I get my data back?<br>
+**A**: Currently, our application is unfortunately not able to support recovering corrupted data files. We are sorry for the inconvenience caused. 
 
 **Q**: How do I report a bug I encountered?<br>
 **A**: Send an email to *developers@CANdidates.com* with a description and screenshot (if relevant) of the bug. We will make sure to get back to you promptly!
