@@ -47,7 +47,7 @@ CANdidates is an open source, brownfield project on the existing [Address book
      1. [Detecting Duplicate Candidates](#detecting-duplicate-candidates)
      1. [Deleting a Candidate](#deleting-a-candidate)
      1. [Clearing All Candidates](#clearing-all-candidates)
-     1. [Deleting a Person](#deleting-a-person)
+     1. [Saving Data](#saving-data)
 
 --------------------------------------------------------------------------------------------------------------------
 
