@@ -13,6 +13,7 @@ import seedu.address.model.information.comparator.PersonComparator;
 import seedu.address.model.information.comparator.PersonDateOfApplicationComparator;
 import seedu.address.model.information.comparator.PersonExpectedSalaryComparator;
 import seedu.address.model.information.comparator.PersonExperienceComparator;
+import seedu.address.model.information.comparator.PersonNameComparator;
 
 /**
  * Parses input arguments and creates a new SortPersonCommand object.
@@ -47,6 +48,9 @@ public class SortPersonCommandParser implements Parser<SortPersonCommand> {
             return new SortPersonCommand(comparator, isAscending);
         case PersonBlackListComparator.SORT_CRITERIA:
             comparator = new PersonBlackListComparator();
+            return new SortPersonCommand(comparator, isAscending);
+        case PersonNameComparator.SORT_CRITERIA:
+            comparator = new PersonNameComparator();
             return new SortPersonCommand(comparator, isAscending);
         default:
             throw new ParseException(SortPersonCommand.MESSAGE_SORT_TYPE_INVALID);

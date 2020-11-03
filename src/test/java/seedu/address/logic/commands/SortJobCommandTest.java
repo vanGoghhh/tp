@@ -13,7 +13,9 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.information.comparator.JobCompanyComparator;
 import seedu.address.model.information.comparator.JobPriorityComparator;
+import seedu.address.model.information.comparator.JobTitleComparator;
 import seedu.address.model.information.comparator.JobVacancyComparator;
 
 /**
@@ -36,8 +38,28 @@ public class SortJobCommandTest {
     }
 
     @Test
+    public void execute_ascendingTitle_jobsSorted() {
+        JobTitleComparator comparator = new JobTitleComparator();
+        String expectedMessage = MESSAGE_SUCCESS + comparator.toString() + "in ascending order.";
+        SortJobCommand command = new SortJobCommand(comparator, true);
+        expectedModel.updateSortedJobList(comparator);
+        assertCommandSuccess(command, model, expectedMessage, expectedModel);
+        assertEquals(expectedModel.getSortedJobList(), model.getSortedJobList());
+    }
+
+    @Test
     public void execute_descendingPriority_jobsSorted() {
         JobPriorityComparator comparator = new JobPriorityComparator();
+        String expectedMessage = MESSAGE_SUCCESS + comparator.toString() + "in descending order.";
+        SortJobCommand command = new SortJobCommand(comparator, false);
+        expectedModel.updateSortedJobList(comparator.reversed());
+        assertCommandSuccess(command, model, expectedMessage, expectedModel);
+        assertEquals(expectedModel.getSortedJobList(), model.getSortedJobList());
+    }
+
+    @Test
+    public void execute_descendingCompanyName_jobsSorted() {
+        JobCompanyComparator comparator = new JobCompanyComparator();
         String expectedMessage = MESSAGE_SUCCESS + comparator.toString() + "in descending order.";
         SortJobCommand command = new SortJobCommand(comparator, false);
         expectedModel.updateSortedJobList(comparator.reversed());

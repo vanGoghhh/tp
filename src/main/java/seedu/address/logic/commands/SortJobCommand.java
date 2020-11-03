@@ -28,8 +28,9 @@ public class SortJobCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Successfully sorted jobs ";
 
-    public static final String MESSAGE_SORT_JOB_TYPE_INVALID = "Only vacancy and priority can be sorted for jobs. "
-            + "Input for field to be sorted must be either v or pr.";
+    public static final String MESSAGE_SORT_JOB_TYPE_INVALID = "Only job title, company name, vacancy and priority "
+            + "can be sorted for jobs. "
+            + "Input for field to be sorted must be either n, c, v or pr.";
 
     private final Comparator<Job> comparator;
     private final String sortMessage;

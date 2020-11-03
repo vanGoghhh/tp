@@ -8,8 +8,10 @@ import java.util.stream.Stream;
 
 import seedu.address.logic.commands.SortJobCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.information.comparator.JobCompanyComparator;
 import seedu.address.model.information.comparator.JobComparator;
 import seedu.address.model.information.comparator.JobPriorityComparator;
+import seedu.address.model.information.comparator.JobTitleComparator;
 import seedu.address.model.information.comparator.JobVacancyComparator;
 
 public class SortJobCommandParser implements Parser<SortJobCommand> {
@@ -37,6 +39,14 @@ public class SortJobCommandParser implements Parser<SortJobCommand> {
 
         case JobPriorityComparator.SORT_CRITERIA:
             comparator = new JobPriorityComparator();
+            return new SortJobCommand(comparator, isAscending);
+
+        case JobTitleComparator.SORT_CRITERIA:
+            comparator = new JobTitleComparator();
+            return new SortJobCommand(comparator, isAscending);
+
+        case JobCompanyComparator.SORT_CRITERIA:
+            comparator = new JobCompanyComparator();
             return new SortJobCommand(comparator, isAscending);
 
         default:
