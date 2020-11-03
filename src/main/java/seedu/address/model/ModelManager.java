@@ -51,7 +51,6 @@ public class ModelManager implements Model {
         filteredJobs = new FilteredList<>(this.jobAddressBook.getJobList());
         sortedPersons = new SortedList<>(this.personAddressBook.getPersonList());
         sortedJobs = new SortedList<>(this.jobAddressBook.getJobList());
-        displayedPerson = this.personAddressBook.getPersonList().get(0);
     }
 
     public ModelManager() {
