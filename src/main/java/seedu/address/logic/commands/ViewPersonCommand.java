@@ -41,7 +41,8 @@ public class ViewPersonCommand extends Command {
 
         Person personToDisplay = displayablePersons.get(targetIndex.getZeroBased());
         model.setDisplayedPerson(personToDisplay);
-        return new CommandResult(String.format(MESSAGE_DISPLAY_PERSON_SUCCESS, personToDisplay), true);
+        return new CommandResult(String.format(MESSAGE_DISPLAY_PERSON_SUCCESS, personToDisplay), false,
+                false, true, false);
     }
 
     @Override

@@ -21,18 +21,24 @@ public class CommandResult {
     /** Switches tab accordingly to command. */
     private final Optional<String> tabName;
 
-    /** Right Panel should display a job or object */
-    private final boolean rightPanelView;
+    /** Right Panel should display a Person */
+    private final boolean personRightPanelView;
+
+    /** Right Panel should display a Job */
+    private final boolean jobRightPanelView;
+
 
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
-    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit) {
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit, boolean personRightPanelView,
+                         boolean jobRightPanelView) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
         this.tabName = Optional.empty();
-        this.rightPanelView = false;
+        this.jobRightPanelView = jobRightPanelView;
+        this.personRightPanelView = personRightPanelView;
     }
 
     /**
@@ -43,15 +49,8 @@ public class CommandResult {
         this.showHelp = showHelp;
         this.exit = exit;
         this.tabName = Optional.of(tabName);
-        this.rightPanelView = false;
-    }
-
-    /**
-     * Constructs a {@code CommandResult} with the specified {@code feedbackToUser},
-     * and other fields set to their default value.
-     */
-    public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false);
+        this.jobRightPanelView = false;
+        this.personRightPanelView = false;
     }
 
     /**
@@ -60,18 +59,6 @@ public class CommandResult {
      */
     public CommandResult(String feedbackToUser, String tabName) {
         this(feedbackToUser, false, false, tabName);
-    }
-
-    /**
-     * Constructs a {@code CommandResult} with the specified {@code feedbackToUser},
-     * and {@code rightPanelView}
-     */
-    public CommandResult(String feedbackToUser, boolean rightPanelView) {
-        this.feedbackToUser = feedbackToUser;
-        this.exit = false;
-        this.showHelp = false;
-        this.tabName = Optional.empty();
-        this.rightPanelView = true;
     }
 
     public String getFeedbackToUser() {
@@ -90,8 +77,12 @@ public class CommandResult {
         return exit;
     }
 
-    public boolean isRightPanelView() {
-        return rightPanelView;
+    public boolean isPersonRightPanelView() {
+        return personRightPanelView;
+    }
+
+    public boolean isJobRightPanelView() {
+        return jobRightPanelView;
     }
 
     @Override

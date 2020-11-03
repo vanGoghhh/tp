@@ -46,6 +46,9 @@ public interface Logic {
     /** Returns the person to be displayed on the right panel */
     Person getDisplayedPerson();
 
+    /** Returns the job to be displayed on the right panel */
+    Job getDisplayedJob();
+
     /**
      * Returns the user prefs' address book file path.
      */

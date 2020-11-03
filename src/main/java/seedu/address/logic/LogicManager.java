@@ -88,6 +88,11 @@ public class LogicManager implements Logic {
     }
 
     @Override
+    public Job getDisplayedJob() {
+        return model.getDisplayedJob();
+    }
+
+    @Override
     public Path getPersonAddressBookFilePath() {
         return model.getPersonAddressBookFilePath();
     }

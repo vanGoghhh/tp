@@ -124,7 +124,7 @@ public class AddressBookParser {
             return new ViewPersonCommandParser().parse(arguments);
 
         case ViewJobCommand.COMMAND_WORD:
-            return new ViewPersonCommandParser().parse(arguments);
+            return new ViewJobCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

@@ -8,7 +8,6 @@ import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
-import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -32,6 +31,7 @@ public class ModelManager implements Model {
     private final SortedList<Person> sortedPersons;
     private final SortedList<Job> sortedJobs;
     private Person displayedPerson;
+    private Job displayedJob;
 
     /**
      * Initializes a ModelManager with the given addressBook, jobAddressBook and userPrefs.
@@ -257,6 +257,19 @@ public class ModelManager implements Model {
     public void setDisplayedPerson(Person person) {
         requireAllNonNull(person);
         displayedPerson = person;
+    }
+
+    //=========== Displayed Job ===============================================================
+
+    @Override
+    public Job getDisplayedJob() {
+        return displayedJob;
+    }
+
+    @Override
+    public void setDisplayedJob(Job job) {
+        requireAllNonNull(job);
+        displayedJob = job;
     }
 
     //=========== Others =============================================================

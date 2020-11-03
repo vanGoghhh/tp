@@ -37,7 +37,9 @@ public class ViewJobCommand extends Command {
         }
 
         Job jobToDisplay = displayableJobs.get(targetIndex.getZeroBased());
-        return new CommandResult(String.format(MESSAGE_DISPLAY_PERSON_SUCCESS, jobToDisplay), true);
+        model.setDisplayedJob(jobToDisplay);
+        return new CommandResult(String.format(MESSAGE_DISPLAY_PERSON_SUCCESS, jobToDisplay), false,
+                false, false, true);
     }
 
     @Override

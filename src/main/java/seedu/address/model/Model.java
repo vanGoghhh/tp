@@ -176,4 +176,16 @@ public interface Model {
      * @throws NullPointerException if {@code comparator} is null.
      */
     void updateSortedJobList(Comparator<Job> comparator);
+
+    /**
+     * Gets the job to be displayed.
+     * The job must exist in the job address book.
+     */
+    Job getDisplayedJob();
+
+    /**
+     * Sets the job to be displayed.
+     * The job must exist in the job address book.
+     */
+    void setDisplayedJob(Job job);
 }

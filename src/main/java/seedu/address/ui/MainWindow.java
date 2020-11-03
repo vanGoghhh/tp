@@ -234,8 +234,12 @@ public class MainWindow extends UiPart<Stage> {
                 switchTab(tabNameToDisplay.get());
             }
 
-            if (commandResult.isRightPanelView()) {
+            if (commandResult.isPersonRightPanelView()) {
                 updateDetailedPersonPanel(logic.getDisplayedPerson());
+            }
+
+            if (commandResult.isJobRightPanelView()) {
+                updateDetailedJobPanel(logic.getDisplayedJob());
             }
 
             if (commandResult.isShowHelp()) {
