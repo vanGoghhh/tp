@@ -214,7 +214,8 @@ Step by Step:
 Step 1. Type `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/DogGroomer exp/1 doa/16-10-20` in the *command box* and press *Enter*.
 
 ![Add Candidate 2](images/addCan2.png)
-Step 2. The *CANdidates* application will automatically switch to "Candidates" tab and display the message “New person added: John Doe Phone: 98765432 Email: johnd@example.com Experience: 1.0 years Date of Application: 16-10-20 Address: John street, block 123, #01-01 Link:  Expected Salary:  Blacklisted: false Tags: [DogGroomer]”.
+Step 2. The *CANdidates* application will automatically switch to "Candidates" tab and display the message 
+>“New person added: John Doe Phone: 98765432 Email: johnd@example.com Experience: 1.0 years Date of Application: 16-10-20 Address: John street, block 123, #01-01 Link:  Expected Salary:  Blacklisted: false Tags: [DogGroomer]”.
 
 Step 3. The application will show the updated list of candidates with the newly added candidate.
 
@@ -415,7 +416,8 @@ Step 1. Type `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@
 
 ![Add Job 2](images/addJob2.png)
 
-Step 2. The *CANdidates* application will automatically switch to "Jobs" tab and display the message “New job added: Waiter Company: Amelia’s Eating House Phone: 98765432 Email: ameliatjy@example.com Address: Amelia Street, Block 123, #01-01 Priority: low Vacancy: 1 Tags: [MultipleLocations]”.
+Step 2. The *CANdidates* application will automatically switch to "Jobs" tab and display the message 
+>“New job added: Waiter Company: Amelia’s Eating House Phone: 98765432 Email: ameliatjy@example.com Address: Amelia Street, Block 123, #01-01 Priority: low Vacancy: 1 Tags: [MultipleLocations]”.
 
 Step 3. The application will show the updated job listings with the newly added job.
     
