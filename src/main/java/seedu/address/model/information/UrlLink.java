@@ -13,7 +13,7 @@ public class UrlLink {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Link should be a valid URL link.";
+            "Link should be a valid URL link, and it should not exceed 350 characters in length.";
 
     /**
      * UrlValidator used to check if url format is valid;
@@ -49,7 +49,7 @@ public class UrlLink {
      */
     public static boolean isValidLink(String test) {
         requireNonNull(test);
-        return validator.isValid(test);
+        return validator.isValid(test) && test.length() <= 350;
     }
 
     @Override

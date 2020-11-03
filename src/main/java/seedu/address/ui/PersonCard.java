@@ -54,7 +54,7 @@ public class PersonCard extends UiPart<Region> {
         personId.setText(displayedIndex + ". ");
         personName.setText(person.getName().fullName);
         personPhone.setText(person.getPhone().value);
-        personExperience.setText(String.format("%.1f years", person.getExperience().experienceInYears));
+        personExperience.setText(String.format("%.2f years", person.getExperience().experienceInYears));
         personDateOfApplication.setText(person.getDateOfApplication().dateString);
         personBlacklistStatus.setText(person.getBlacklistStatus().isBlacklisted ? "Blacklisted" : "Not Blacklisted");
         person.getSalaryOptional().ifPresent(sal -> personSalary.setText("$" + sal.toString()));

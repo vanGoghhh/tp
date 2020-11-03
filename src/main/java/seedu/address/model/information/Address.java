@@ -9,10 +9,10 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Address {
 
-    public static final String MESSAGE_CONSTRAINTS = "Addresses can take any values, "
-            + "and it should be at least 3 characters long";
+    public static final String MESSAGE_CONSTRAINTS = "Addresses can contain any type of characters, "
+            + "and it should be 3 to 100 characters long";
 
-    public static final String VALIDATION_REGEX = ".{3,}";
+    public static final String VALIDATION_REGEX = "[\\S].{2,99}";
 
     public final String value;
 
