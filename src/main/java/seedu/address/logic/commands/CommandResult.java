@@ -18,7 +18,11 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+    /** Switches tab accordingly to command. */
     private final Optional<String> tabName;
+
+    /** Right Panel should display a job or object */
+    private final boolean rightPanelView;
 
     /**
      * Constructs a {@code CommandResult} with the specified fields.
@@ -28,6 +32,7 @@ public class CommandResult {
         this.showHelp = showHelp;
         this.exit = exit;
         this.tabName = Optional.empty();
+        this.rightPanelView = false;
     }
 
     /**
@@ -38,6 +43,7 @@ public class CommandResult {
         this.showHelp = showHelp;
         this.exit = exit;
         this.tabName = Optional.of(tabName);
+        this.rightPanelView = false;
     }
 
     /**
@@ -50,10 +56,22 @@ public class CommandResult {
 
     /**
      * Constructs a {@code CommandResult} with the specified {@code feedbackToUser},
-     * and other fields set to their default value.
+     * and {@code tabName} and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser, String tabName) {
         this(feedbackToUser, false, false, tabName);
+    }
+
+    /**
+     * Constructs a {@code CommandResult} with the specified {@code feedbackToUser},
+     * and {@code rightPanelView}
+     */
+    public CommandResult(String feedbackToUser, boolean rightPanelView) {
+        this.feedbackToUser = feedbackToUser;
+        this.exit = false;
+        this.showHelp = false;
+        this.tabName = Optional.empty();
+        this.rightPanelView = true;
     }
 
     public String getFeedbackToUser() {
@@ -70,6 +88,10 @@ public class CommandResult {
 
     public boolean isExit() {
         return exit;
+    }
+
+    public boolean isRightPanelView() {
+        return rightPanelView;
     }
 
     @Override

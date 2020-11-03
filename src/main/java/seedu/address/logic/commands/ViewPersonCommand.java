@@ -10,6 +10,9 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.information.Person;
 
+/**
+ * Displays a person on the right panel;
+ */
 public class ViewPersonCommand extends Command {
 
     public static final String COMMAND_WORD = "view can";
@@ -37,8 +40,8 @@ public class ViewPersonCommand extends Command {
         }
 
         Person personToDisplay = displayablePersons.get(targetIndex.getZeroBased());
-
-        return new CommandResult(String.format(MESSAGE_DISPLAY_PERSON_SUCCESS, personToDisplay));
+        model.setDisplayedPerson(personToDisplay);
+        return new CommandResult(String.format(MESSAGE_DISPLAY_PERSON_SUCCESS, personToDisplay), true);
     }
 
     @Override

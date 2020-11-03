@@ -20,5 +20,4 @@ public class ViewPersonCommandParser implements Parser<ViewPersonCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewPersonCommand.MESSAGE_USAGE), pe);
         }
     }
-
 }

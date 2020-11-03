@@ -102,6 +102,18 @@ public interface Model {
      */
     void updateSortedPersonList(Comparator<Person> comparator);
 
+    /**
+     * Gets the person to be displayed.
+     * The person must exist in the person address book.
+     */
+    Person getDisplayedPerson();
+
+    /**
+     * Sets the person to be displayed.
+     * The person must exist in the person address book.
+     */
+    void setDisplayedPerson(Person person);
+
     //=========== JobAddressBook ================================================================================
 
     /**
