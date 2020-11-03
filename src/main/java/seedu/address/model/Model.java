@@ -102,6 +102,18 @@ public interface Model {
      */
     void updateSortedPersonList(Comparator<Person> comparator);
 
+    /**
+     * Gets the person to be displayed.
+     * The person must exist in the person address book.
+     */
+    Person getDisplayedPerson();
+
+    /**
+     * Sets the person to be displayed.
+     * The person must exist in the person address book.
+     */
+    void setDisplayedPerson(Person person);
+
     //=========== JobAddressBook ================================================================================
 
     /**
@@ -164,4 +176,16 @@ public interface Model {
      * @throws NullPointerException if {@code comparator} is null.
      */
     void updateSortedJobList(Comparator<Job> comparator);
+
+    /**
+     * Gets the job to be displayed.
+     * The job must exist in the job address book.
+     */
+    Job getDisplayedJob();
+
+    /**
+     * Sets the job to be displayed.
+     * The job must exist in the job address book.
+     */
+    void setDisplayedJob(Job job);
 }
