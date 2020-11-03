@@ -246,6 +246,10 @@ public class MainWindow extends UiPart<Stage> {
                 updateDetailedJobPanel(logic.getDisplayedJob());
             }
 
+            if (!commandResult.isJobRightPanelView() && !commandResult.isPersonRightPanelView()) {
+                detailedView.getChildren().clear();
+            }
+
             if (commandResult.isShowHelp()) {
                 handleHelp();
             }

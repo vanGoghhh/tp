@@ -9,9 +9,10 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class CompanyName {
 
-    public static final String MESSAGE_CONSTRAINTS = "There are no restrictions on company name!";
+    public static final String MESSAGE_CONSTRAINTS = "Company names can can contain any type of characters. "
+            + "It should not be blank, and it should be 1 to 100 characters long.";
 
-    public static final String VALIDATION_REGEX = "[\\S][\\S ]*";
+    public static final String VALIDATION_REGEX = "[\\S].{0,99}";
 
     public final String fullCompanyName;
 
