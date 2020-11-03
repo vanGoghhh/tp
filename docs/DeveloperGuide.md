@@ -791,16 +791,16 @@ testers are expected to do more *exploratory* testing.
 
 2. Deleting a candidate while on the job listings tab
     
-    2. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
     
-    2. Test case:  `delete can 1`<br>
+    1. Test case:  `delete can 1`<br>
        Expected:  The tab switches from the job listings tab to the candidates tab automatically. First condidate contact is deleted 
        from the candidates list. Details of the deleted candidate shown in the status message.
      
-    2. Test case:  `delete can 0`<br>
+    1. Test case:  `delete can 0`<br>
        Expected: The tab does not switch to the candidates tab. No candidate is deleted. Invalid candidate index error shown in the status message. 
        
-    2. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
+    1. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
        Expected: Similar to previous.  
        
 <div markdown="span" class="alert alert-info">:information_source: **Note:** Deleting jobs can be tested in the same way but with its analogous commands.
@@ -821,13 +821,13 @@ testers are expected to do more *exploratory* testing.
        
 2. Clearing all candidates while on the job listings tab
 
-    2. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
     
-    2. Test case:  `clear can`<br>
+    1. Test case:  `clear can`<br>
        Expected:  The tab switches from the job listings tab to the candidates tab automatically. 
        All candidate contacts are deleted from the candidate list. Clear candidate success message shown in the status message.
               
-    2. Test case: `clear`<br>
+    1. Test case: `clear`<br>
        Expected: No candidates or jobs are deleted. Unknown command error shown in the status message.    
        
 <div markdown="span" class="alert alert-info">:information_source: **Note:** Clearing all jobs can be tested in the same way but with its analogous commands.
