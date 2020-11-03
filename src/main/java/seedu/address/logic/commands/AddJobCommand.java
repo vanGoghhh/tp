@@ -39,7 +39,7 @@ public class AddJobCommand extends Command {
             + PREFIX_ADDRESS + "1, Manhatten Street 2, #01-25 "
             + PREFIX_VACANCY + "2 "
             + PREFIX_PRIORITY + "low "
-            + PREFIX_TAG + "part-time ";
+            + PREFIX_TAG + "fulltime ";
 
     public static final String MESSAGE_SUCCESS = "New job added: %1$s";
     public static final String MESSAGE_DUPLICATE_JOB = "This job already exists in the job address book";
@@ -63,7 +63,7 @@ public class AddJobCommand extends Command {
         }
 
         model.addJob(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd.getBriefDescription()), "Jobs");
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), "Jobs");
     }
 
     @Override
