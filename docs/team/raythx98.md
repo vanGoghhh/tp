@@ -5,8 +5,6 @@ title: Toh Hong Xian (Ray)'s Project Portfolio Page
 
 ## Project: CANdidates
 
-<br>
-
 CANdidates is a powerful contact management desktop app optimised for job recruiters to manage job applicants.
 
 The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 20 kLoC.
@@ -18,8 +16,6 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 * Responsibilities: Deliverables and Deadlines
 
 ### Given below are my contributions to the project.
-
-<br>
 
 * **New Feature**: `find can`
   * What it does: Searches the candidate list for all candidates with fields containing all the specified keywords.
