@@ -27,10 +27,9 @@ Given below are my contributions to the project.
 
 * **Community**: _{To be updated}_
   * PRs reviewed (with non-trivial review comments): [\#]()
-  * Contributed to forum discussions (examples: []())
   * Reported bugs and suggestions for other teams in the class (examples: []())
 
 * **Tools**: _{To be updated}_
   * Integrated a third party library () to the project ([\#]())
-  * Integrated a new Github plugin () to the team repo
+
 

@@ -42,7 +42,12 @@ CANdidates is an open source, brownfield project on the existing [Address book
      1. [Glossary](#glossary)
 1. [Appendix: Instructions for Manual Testing](#appendix-instructions-for-manual-testing)
      1. [Launch and Shutdown](#launch-and-shutdown)
-     1. [Deleting a Person](#deleting-a-person)
+     1. [Adding a Candidate](#adding-a-candidate)
+     1. [Editing a Candidate](#editing-a-candidate)
+     1. [Detecting Duplicate Candidates](#detecting-duplicate-candidates)
+     1. [Deleting a Candidate](#deleting-a-candidate)
+     1. [Clearing All Candidates](#clearing-all-candidates)
+     1. [Saving Data](#saving-data)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -212,7 +217,7 @@ The following sequence diagram shows how the `add can` operation works in the sc
 
 ### \[Implemented] Edit feature
 
-The Edit feature has two variants, one for editing candidates (`edit can`) and one for editing jobs (`edit job`) . We will illustrate this feature using only the candidates variant here
+The Edit feature has two variants, one for editing candidates `edit can` and one for editing jobs `edit job` . We will illustrate this feature using only the candidates variant here
 as the job variant works analogously. 
 
 The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
@@ -226,7 +231,7 @@ Given below is an example usage scenario and how the edit mechanism behaves at e
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `edit can 2 n/Rob Mi` to change the `Name` of the candidate at `index` 2 to Rob Mi. 
+Step 2. The user executes `edit can 2 n/Rob Mi` to change the `Name` of the candidate at `Index` 2 to Rob Mi. 
 
 Step 3. The method `AddressBookParser#parseCommand` is invoked to distinguish which type of command it is. After discerning it is an `edit can` command,
 the `EditPersonCommandParser#parse` is then invoked to parse the arguments.
@@ -236,7 +241,7 @@ Step 4. A `EditPersonDescriptor` object, which is an inner class of `EditPersonC
 to store the details to edit the candidate with. In this case, it stores the `Name` Rob Mi.
 
 Step 5. A `EditPersonCommand` object is also created from parsing the comamand. In the `EditPersonCommand#execute` method, 
-if the candidate index provided by the user is invalid, an error is thrown. 
+if the candidate `Index` provided by the user is invalid, an error is thrown. 
 Otherwise, the method `ModelManager#setPerson()` is invoked to replace the old candidate with the newly edited candidate. 
  Then, `ModelManager#updateFilteredPersonList()` is invoked and the `FilteredList` and `personAddressBook` is updated and saved.
 
@@ -721,22 +726,114 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a person
+### Adding a candidate
 
-1. Deleting a person while all persons are being shown
+1. Adding a candidate while on the candidates tab and all candidates are displayed 
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+    1. Prerequisites: List all candidates on the candidates tab using the `list can` command.
+    
+    1. Test case (specifying only compulsory input fields): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20 exp/5.5`
+       Expected: A new candidate is added at the end of the candidates list. 
+       Details of the added candidate shown in the status message. The compulsory input fields are set to the values specified in the command. 
+       The optional `Address`, `Salary`, `Link` and `Tag` fields are empty. The optional `Blacklisted` field is set to false by default.
+       
+    1. Test case (missing a compulsory input field): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20`
+       Expected: No new candidate is added. Invalid command format error shown in the status message due to the command
+       missing the compulsory `exp/YEARS_OF_EXPERIENCE` input field.
+       
+    1. Other incorrect add commands to try include omitting other compulsory fields. <br>
+       Expected: Similar to previous  
+   
+   <div markdown="span" class="alert alert-info">:information_source: **Note:** Adding jobs can be tested in the same way but with its analogous commands and input fields.
+   
+   </div>
+     
+### Editing a candidate
 
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+1. Editing a candidate while on the candidates tab and all candidates are displayed 
 
-   1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+    1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes.
+    
+    1. Test case: `edit can INDEX n/Ron bl/true` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
+       Expected: The `Name` of the candidate at index `INDEX` changes from _Rob_ to _Ron_ and `Blacklisted` changes from _false_ to _true_.
+       No other input fields are changed (rest of the fields remain same). Details of the edited candidate shown in the status message.
+       
+    1. Test case: `edit can INDEX` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
+       Expected: No candidate is edited. No fields provided error shown in the status message.
+       
+    
+### Detecting duplicate candidates
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+1. Detecting and preventing the creation of duplicate candidates
+     
+   1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes. 
+   
+   1. Test case (Same name and phone): `add can n/Rob p/88888888 e/mail@gmail.com doa/08-10-22 exp/15` <br>
+      Expected: No new candidate is added. Duplicate candidate error shown in the status message.
+      
+   1. Test case (Same name and email): `add can n/Rob p/12345 e/e@mail.com doa/08-10-22 exp/15` <br>
+      Expected: No new candidate is added. Duplicate candidate error shown in the status message.    
+
+### Deleting a candidate
+
+1. Deleting a candidate while on the candidates tab and all candidates are displayed
+
+   1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
+
+   1. Test case: `delete can 1`<br>
+      Expected: First candidate contact is deleted from the candidates list. Details of the deleted candidate shown in the status message.
+
+   1. Test case: `delete can 0`<br>
+      Expected: No candidate is deleted. Invalid candidate index error shown in the status message.
+
+   1. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+2. Deleting a candidate while on the job listings tab
+    
+    1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    
+    1. Test case:  `delete can 1`<br>
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. First condidate contact is deleted 
+       from the candidates list. Details of the deleted candidate shown in the status message.
+     
+    1. Test case:  `delete can 0`<br>
+       Expected: The tab does not switch to the candidates tab. No candidate is deleted. Invalid candidate index error shown in the status message. 
+       
+    1. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
+       Expected: Similar to previous.  
+       
+<div markdown="span" class="alert alert-info">:information_source: **Note:** Deleting jobs can be tested in the same way but with its analogous commands.
+
+</div>
+       
+### Clearing all candidates
+
+1. Clearing all candidates while on the candidates tab and all candidates are displayed
+
+    1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
+    
+    1. Test case: `clear can`<br>
+       Expected: All candidate contacts are deleted from the candidate list. Clear candidate success message shown in the status message. 
+       
+    1. Test case: `clear`<br>
+       Expected: No candidates or jobs are deleted. Unknown command error shown in the status message.
+       
+2. Clearing all candidates while on the job listings tab
+
+    1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    
+    1. Test case:  `clear can`<br>
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. 
+       All candidate contacts are deleted from the candidate list. Clear candidate success message shown in the status message.
+              
+    1. Test case: `clear`<br>
+       Expected: No candidates or jobs are deleted. Unknown command error shown in the status message.    
+       
+<div markdown="span" class="alert alert-info">:information_source: **Note:** Clearing all jobs can be tested in the same way but with its analogous commands.
+
+</div>
+
 
 ### Saving data
 
