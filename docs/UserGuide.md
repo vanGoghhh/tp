@@ -288,7 +288,7 @@ Type `edit can 1 p/91234567 e/johndoe@example.com bl/true` in the *command box* 
 Step 2. The *CANdidates* application will automatically switch to the "Candidates" tab if you are at the "Jobs" tab. 
 The command result will depend on the specific candidate that is being edited and the input fields that were not edited. 
 Representing the original values of the candidate's input fields which were not edited as "{}", the message that will be shown in the *result display* is
->“Edited candidate: {} Phone: 91234567 Email: johndoe@example.com Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:true Tags: {}".
+>“Edited candidate: {} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:true Tags: {}".
 
 Step 3. The application will show the updated list of candidates with the edited candidate.
 
@@ -440,7 +440,7 @@ Step 2. The *CANdidates* application will automatically switch to "Candidates" t
 The following message will be shown in the *result display*
 >"Candidate list has been cleared!"
 
-Step 3. The application will show the updated candidate list with is empty.
+Step 3. The application will show the updated candidate list which is empty.
     
 <br>
 
