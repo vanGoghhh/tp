@@ -35,10 +35,15 @@ public class ExperienceTest {
         assertFalse(Experience.isValidExperience("-100")); // negative number
         assertFalse(Experience.isValidExperience("100.1")); // number more that 100
         assertFalse(Experience.isValidExperience("Infinity")); // infinity
+        assertFalse(Experience.isValidExperience("11.111")); // 3 dp
+        assertFalse(Experience.isValidExperience("11.00000001")); // 8 dp
+
 
         // valid experience
         assertTrue(Experience.isValidExperience("0")); // zero
         assertTrue(Experience.isValidExperience("9")); // positive
         assertTrue(Experience.isValidExperience("    9    ")); // valid number with whitespace
+        assertTrue(Experience.isValidExperience("11.11")); // 2 dp
+        assertTrue(Experience.isValidExperience("11.110000000")); // 2 dp excluding trailing zeroes
     }
 }
