@@ -15,7 +15,9 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 * Role: Developer
 * Responsibilities: Deliverables and Deadlines
 
-Given below are my contributions to the project.
+<br>
+
+## Given below are my contributions to the project.
 
 <br>
 
