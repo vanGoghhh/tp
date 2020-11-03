@@ -287,7 +287,7 @@ Type `edit can 1 p/91234567 e/johndoe@example.com bl/true` in the *command box* 
 
 Step 2. The *CANdidates* application will automatically switch to the "Candidates" tab if you are at the "Jobs" tab. 
 The command result will depend on the specific candidate that is being edited and the input fields that were not edited. 
-Representing the original values of the input fields which were not edited as "{}", the message that will be shown in the *result display* is
+Representing the original values of the candidate's input fields which were not edited as "{}", the message that will be shown in the *result display* is
 >“Edited candidate: {} Phone: 91234567 Email: johndoe@example.com Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:true Tags: {}".
 
 Step 3. The application will show the updated list of candidates with the edited candidate.
@@ -552,7 +552,7 @@ Type `edit job 1 c/Dog Cafe p/82827731 v/3 pr/high` in the *command box* and pre
 
 Step 2. The *CANdidates* application will automatically switch to the "Jobs" tab if you are at the "Candidates tab". 
 The command result will depend on the specific job that is being edited and the input fields that were not edited. 
-Representing the original values of the input fields which were not edited as "{}", the message that will be shown in the *result display* is
+Representing the original values of the job's input fields which were not edited as "{}", the message that will be shown in the *result display* is
 >“Edited job: {} Company: Dog Cafe Phone: 82827731 Email: {} Address: {} Priority: high Vacancy: 3 Tags: {}".
 
 Step 3. The application will show the updated list of jobs with the edited job.
