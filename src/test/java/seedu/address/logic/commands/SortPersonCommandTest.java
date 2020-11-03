@@ -17,6 +17,7 @@ import seedu.address.model.information.comparator.PersonBlackListComparator;
 import seedu.address.model.information.comparator.PersonDateOfApplicationComparator;
 import seedu.address.model.information.comparator.PersonExpectedSalaryComparator;
 import seedu.address.model.information.comparator.PersonExperienceComparator;
+import seedu.address.model.information.comparator.PersonNameComparator;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for SortJobCommand.
@@ -25,6 +26,16 @@ public class SortPersonCommandTest {
     private Model model = new ModelManager(getTypicalPersonAddressBook(), getTypicalJobAddressBook(), new UserPrefs());
     private Model expectedModel = new ModelManager(getTypicalPersonAddressBook(), getTypicalJobAddressBook(),
             new UserPrefs());
+
+    @Test
+    public void execute_ascendingName_sortedSuccess() {
+        PersonNameComparator comparator = new PersonNameComparator();
+        String expectedMessage = MESSAGE_SUCCESS + comparator.toString() + "in ascending order.";
+        SortPersonCommand command = new SortPersonCommand(comparator, true);
+        expectedModel.updateSortedPersonList(comparator);
+        assertCommandSuccess(command, model, expectedMessage, expectedModel);
+        assertEquals(expectedModel.getSortedPersonList(), model.getSortedPersonList());
+    }
 
     @Test
     public void execute_ascendingExpectedSalary_sortedSuccess() {
@@ -69,14 +80,16 @@ public class SortPersonCommandTest {
     @Test
     public void equals() {
         PersonBlackListComparator blackListComparator = new PersonBlackListComparator();
-        PersonDateOfApplicationComparator dateOfApplicationComparatorer = new PersonDateOfApplicationComparator();
+        PersonDateOfApplicationComparator dateOfApplicationComparator = new PersonDateOfApplicationComparator();
         PersonExperienceComparator experienceComparator = new PersonExperienceComparator();
         PersonExpectedSalaryComparator expectedSalaryComparator = new PersonExpectedSalaryComparator();
+        PersonNameComparator nameComparator = new PersonNameComparator();
 
         SortPersonCommand sortFirstCommand = new SortPersonCommand(blackListComparator, true);
-        SortPersonCommand sortSecondCommand = new SortPersonCommand(dateOfApplicationComparatorer, false);
+        SortPersonCommand sortSecondCommand = new SortPersonCommand(dateOfApplicationComparator, false);
         SortPersonCommand sortThirdCommand = new SortPersonCommand(experienceComparator, true);
         SortPersonCommand sortFourthCommand = new SortPersonCommand(expectedSalaryComparator, true);
+        SortPersonCommand sortFifthCommand = new SortPersonCommand(nameComparator, false);
 
         // same object -> returns true
         assertTrue(sortFirstCommand.equals(sortFirstCommand));
@@ -95,5 +108,6 @@ public class SortPersonCommandTest {
         assertFalse(sortFirstCommand.equals(sortSecondCommand));
         assertFalse(sortFirstCommand.equals(sortThirdCommand));
         assertFalse(sortFirstCommand.equals(sortFourthCommand));
+        assertFalse(sortFirstCommand.equals(sortFifthCommand));
     }
 }

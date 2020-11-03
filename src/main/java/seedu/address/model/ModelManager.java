@@ -30,6 +30,8 @@ public class ModelManager implements Model {
     private final FilteredList<Job> filteredJobs;
     private final SortedList<Person> sortedPersons;
     private final SortedList<Job> sortedJobs;
+    private Person displayedPerson;
+    private Job displayedJob;
 
     /**
      * Initializes a ModelManager with the given addressBook, jobAddressBook and userPrefs.
@@ -241,6 +243,32 @@ public class ModelManager implements Model {
         requireNonNull(comparator);
         sortedJobs.setComparator(comparator);
         jobAddressBook.setJobs(sortedJobs);
+    }
+
+    //=========== Displayed Person ===============================================================
+
+    @Override
+    public Person getDisplayedPerson() {
+        return displayedPerson;
+    }
+
+    @Override
+    public void setDisplayedPerson(Person person) {
+        requireAllNonNull(person);
+        displayedPerson = person;
+    }
+
+    //=========== Displayed Job ===============================================================
+
+    @Override
+    public Job getDisplayedJob() {
+        return displayedJob;
+    }
+
+    @Override
+    public void setDisplayedJob(Job job) {
+        requireAllNonNull(job);
+        displayedJob = job;
     }
 
     //=========== Others =============================================================
