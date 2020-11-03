@@ -224,9 +224,9 @@ as the job variant works analogously.
 The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
 Additionally, it implements the following operations:
 
-*`ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
+* `ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
 
-*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+* `ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
 
 Given below is an example usage scenario and how the edit mechanism behaves at each step.
 
@@ -257,7 +257,7 @@ A `edit job` command works similarly for Jobs but with the analogous EditJobDesc
 The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
-*`ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
+* `ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
 
 Given below is an example usage scenario and how the list mechanism behaves at each step.
 
@@ -294,21 +294,25 @@ Step 3. A `PersonExperienceComparator` is created from parsing the command and a
 The implemented find mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
-*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+* `ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
 
 Given below is an example usage scenario and how the find mechanism behaves at each step.
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `find can n/John` to find candidates with the `Name` John.
+Step 2. The user executes `find can n/Alex exp/0` to find candidates with the `Name` Alex and `Experience` 5.
 
-Step 3. A `PersonNameContainsKeywordsPredicate`, which is a subclass of `Predicate` is created from parsing the command and a `FindCommand` object is created. In the `FindCommand#execute` the method `ModelManager#updateFilteredPersonList(PersonNameContainsKeywordsPredicate)` is invoked and the `FilteredList` is filtered using the `PersonNameContainsKeywordsPredicate`.
+Step 3. A `PersonNameContainsKeywordsPredicate` and `PersonExperienceContainsKeywordsPredicate` which are subclasses of `Predicate` are created from parsing the command and a `FindPersonCommand` object is created.
+
+Step 4. In the `FindPersonCommand#execute`, the method `composePredicatesList(List<Predicate<Person>> predicates)` is invoked to produce a `Predicate<Person>` that represents a short-circuiting logical AND of all predicates in the list.
+`ModelManager#updateFilteredPersonList(Predicate<Person>)` is invoked and the `FilteredList` is filtered using the `Predicate<Person>` returned by the method `composePredicatesList`.
 
 The following sequence diagram shows how the find operation works in the scenario described above:
 
 ![FindSequenceDiagram](images/FindSequenceDiagram.png)
 
-The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
+The above only demonstrates finding candidates by their `Name` and `Experience`.
+The find operation also supports finding candidates via other fields such as `Email` and `Vacancy`.
 
 ## Proposed Features
 
