@@ -46,6 +46,8 @@ Hello there! If you are reading this, you must be curious about *CANdidates*.
 
 *CANdidates* is a powerful and optimized contact management app for job recruiters to manage job candidates and job listings. 
 A key strength of *CANdidates* is its convenience and ease of managing all job-related contacts in a single application. 
+Additionally, it is an offline application that does not require an internet connection to function. No need to worry about
+disconnecting from the internet anymore!
 
 If you find yourself having difficulty in managing job candidates and positions, then *CANdidates* is the perfect tool for you! 
 Use this user guide to discover the amazing functions and features of *CANdidates*! 
