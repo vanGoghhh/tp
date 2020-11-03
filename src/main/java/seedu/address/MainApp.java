@@ -93,12 +93,16 @@ public class MainApp extends Application {
             initialPersonData = personAddressBookOptional.orElseGet(SampleDataUtil::getSamplePersonAddressBook);
         } catch (DataConversionException e) {
             logger.warning("Data file not in the correct format. "
-                    + "Will be starting with an empty PersonAddressBook");
-            initialPersonData = new PersonAddressBook();
+                    + "Will be starting with a sample PersonAddressBook");
+            initialPersonData = SampleDataUtil.getSamplePersonAddressBook();
         } catch (IOException e) {
             logger.warning("Problem while reading from the file. "
-                    + "Will be starting with an empty PersonAddressBook");
-            initialPersonData = new PersonAddressBook();
+                    + "Will be starting with a sample PersonAddressBook");
+            initialPersonData = SampleDataUtil.getSamplePersonAddressBook();
+        } catch (Exception e) {
+            logger.warning("Corrupted Person Data Files "
+                    + "Will be starting with a sample PersonAddressBook");
+            initialPersonData = SampleDataUtil.getSamplePersonAddressBook();
         }
 
         try {
@@ -109,12 +113,16 @@ public class MainApp extends Application {
             initialJobData = jobAddressBookOptional.orElseGet(SampleDataUtil::getSampleJobAddressBook);
         } catch (DataConversionException e) {
             logger.warning("Data file not in the correct format. "
-                    + "Will be starting with an empty JobAddressBook");
-            initialJobData = new JobAddressBook();
+                    + "Will be starting with an sample JobAddressBook");
+            initialJobData = SampleDataUtil.getSampleJobAddressBook();
         } catch (IOException e) {
             logger.warning("Problem while reading from the file. "
-                    + "Will be starting with an empty JobAddressBook");
-            initialJobData = new JobAddressBook();
+                    + "Will be starting with an sample JobAddressBook");
+            initialJobData = SampleDataUtil.getSampleJobAddressBook();
+        } catch (Exception e) {
+            logger.warning("Corrupted Job Data Files. "
+                    + "Will be starting with an sample JobAddressBook");
+            initialJobData = SampleDataUtil.getSampleJobAddressBook();
         }
 
         return new ModelManager(initialPersonData, initialJobData, userPrefs);
@@ -149,6 +157,10 @@ public class MainApp extends Application {
             logger.warning("Config file at " + configFilePathUsed + " is not in the correct format. "
                     + "Using default config properties");
             initializedConfig = new Config();
+        } catch (Exception e) {
+            logger.warning("Config file is corrupted at " + configFilePathUsed + ". "
+                    + "Using default config properties");
+            initializedConfig = new Config();
         }
 
         //Update config file in case it was missing to begin with or there are new/unused fields
@@ -156,6 +168,8 @@ public class MainApp extends Application {
             ConfigUtil.saveConfig(initializedConfig, configFilePathUsed);
         } catch (IOException e) {
             logger.warning("Failed to save config file : " + StringUtil.getDetails(e));
+        } catch (Exception e) {
+            logger.warning("Failed to save corrupted config file : " + StringUtil.getDetails(e));
         }
         return initializedConfig;
     }
@@ -177,8 +191,9 @@ public class MainApp extends Application {
             logger.warning("UserPrefs file at " + prefsFilePath + " is not in the correct format. "
                     + "Using default user prefs");
             initializedPrefs = new UserPrefs();
-        } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with an empty AddressBook");
+        } catch (Exception e) {
+            logger.warning("UserPrefs file is corrupted at " + prefsFilePath + ". "
+                    + "Using default user prefs");
             initializedPrefs = new UserPrefs();
         }
 
@@ -186,7 +201,9 @@ public class MainApp extends Application {
         try {
             storage.saveUserPrefs(initializedPrefs);
         } catch (IOException e) {
-            logger.warning("Failed to save config file : " + StringUtil.getDetails(e));
+            logger.warning("Failed to save pref file : " + StringUtil.getDetails(e));
+        } catch (Exception e) {
+            logger.warning("Failed to save corrupted pref file : " + StringUtil.getDetails(e));
         }
 
         return initializedPrefs;
