@@ -721,9 +721,57 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
+### Adding a candidate
+
+1. Adding a candidate while on the candidates tab and all candidates are displayed 
+
+    1. Prerequisites: List all candidates on the candidates tab using the `list can` command.
+    
+    1. Test case (specifying only compulsory input fields): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20 exp/5.5`
+       Expected: A new candidate is added at the end of the candidates list. 
+       Details of the added candidate shown in the status message. The compulsory input fields are set to the values specified in the command. 
+       The optional address, salary, profile link and tag fields are empty. The optional blacklisted field is set to false by default.
+       
+    1. Test case (missing a compulsory input field): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20`
+       Expected: No new candidate is added. Invalid command format error shown in the status message due to the command
+       missing the compulsory `exp/YEARS_OF_EXPERIENCE` input field.
+       
+    1. Other incorrect add commands to try include omitting other compulsory fields or entering invalid input field values. 
+   
+   <div markdown="span" class="alert alert-info">:information_source: **Note:** Adding jobs can be tested in the same way but with its analogous commands and input fields.
+   
+   </div>
+     
+### Editing a candidate
+
+1. Editing a candidate while on the candidates tab and all candidates are displayed 
+
+    1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes.
+    
+    1. Test case: `edit can INDEX n/Ron bl/true` where `INDEX` is the list index of the candidate just added in the prerequisite step
+       Expected: The name of the candidate at index `INDEX` changes from _Rob_ to _Ron_ and blacklisted changes from _false_ to _true_.
+       No other input fields are changed (rest of the fields remain same). Details of the the edited candidate shown in the status message.
+       
+    1. Test case: `edit can INDEX` where `INDEX` is the list index of the candidate just added in the prerequisite step
+       Expected: No candidate is edited. No fields provided error shown in the status message.
+       
+    1. Other incorrect edit commands to try include entering invalid input field values.
+    
+### Detecting duplicate candidates
+
+1. Detecting and preventing the creation of duplicate candidates
+     
+   1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes. 
+   
+   1. Test case (Same name and phone): `add can n/Rob p/88888888 e/mail@gmail.com doa/08-10-22 exp/15`
+      Expected: No new candidate is added. Duplicate candidate error shown in the status message.
+      
+   1. Test case (Same name and email): `add can n/Rob p/12345 e/e@mail.com doa/08-10-22 exp/15`
+      Expected: No new candidate is added. Duplicate candidate error shown in the status message.    
+
 ### Deleting a candidate
 
-1. Deleting a candidate while all candidates are being shown on the candiates tab
+1. Deleting a candidate while on the candidates tab and all candidates are displayed
 
    1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
 
@@ -731,7 +779,7 @@ testers are expected to do more *exploratory* testing.
       Expected: First candidate contact is deleted from the candidates list. Details of the deleted candidate shown in the status message.
 
    1. Test case: `delete can 0`<br>
-      Expected: No candidate is deleted. Error details shown in the status message.
+      Expected: No candidate is deleted. Invalid candidate index error shown in the status message.
 
    1. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
       Expected: Similar to previous.
@@ -745,11 +793,42 @@ testers are expected to do more *exploratory* testing.
        from the candidates list. Details of the deleted candidate shown in the status message.
      
     2. Test case:  `delete can 0`<br>
-       Expected: The tab does not switch to the candidates tab. No candidate is deleted. Error details shown in the status message. 
+       Expected: The tab does not switch to the candidates tab. No candidate is deleted. Invalid candidate index error shown in the status message. 
        
     2. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
        Expected: Similar to previous.  
-           
+       
+<div markdown="span" class="alert alert-info">:information_source: **Note:** Deleting jobs can be tested in the same way but with its analogous commands.
+
+</div>
+       
+### Clearing all candidates
+
+1. Clearing all candidates while on the candidates tab and all candidates are displayed
+
+    1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
+    
+    1. Test case: `clear can`<br>
+       Expected: All candidate contacts are deleted from the candidate list. Clear candidate success message shown in the status message. 
+       
+    1. Test case: `clear`<br>
+       Expected: No candidates or jobs are deleted. Unknown command error shown in the status message.
+       
+2. Clearing all candidates while on the job listings tab
+
+    2. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    
+    2. Test case:  `clear can`<br>
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. 
+       All candidate contacts are deleted from the candidate list. Clear candidate success message shown in the status message.
+              
+    2. Test case: `clear`<br>
+       Expected: No candidates or jobs are deleted. Unknown command error shown in the status message.    
+       
+<div markdown="span" class="alert alert-info">:information_source: **Note:** Clearing all jobs can be tested in the same way but with its analogous commands.
+
+</div>
+
 
 ### Saving data
 
