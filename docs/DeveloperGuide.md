@@ -47,6 +47,7 @@ CANdidates is an open source, brownfield project on the existing [Address book
      1. [Detecting Duplicate Candidates](#detecting-duplicate-candidates)
      1. [Deleting a Candidate](#deleting-a-candidate)
      1. [Clearing All Candidates](#clearing-all-candidates)
+     1. [Finding a Candidate](#finding-a-candidate)
      1. [Saving Data](#saving-data)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -223,9 +224,9 @@ as the job variant works analogously.
 The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
 Additionally, it implements the following operations:
 
-*`ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
+* `ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
 
-*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+* `ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
 
 Given below is an example usage scenario and how the edit mechanism behaves at each step.
 
@@ -256,7 +257,7 @@ A `edit job` command works similarly for Jobs but with the analogous EditJobDesc
 The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
-*`ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
+* `ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
 
 Given below is an example usage scenario and how the list mechanism behaves at each step.
 
@@ -293,21 +294,25 @@ Step 3. A `PersonExperienceComparator` is created from parsing the command and a
 The implemented find mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
-*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+* `ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
 
 Given below is an example usage scenario and how the find mechanism behaves at each step.
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `find can n/John` to find candidates with the `Name` John.
+Step 2. The user executes `find can n/Alex exp/0` to find candidates with the `Name` Alex and `Experience` 5.
 
-Step 3. A `PersonNameContainsKeywordsPredicate`, which is a subclass of `Predicate` is created from parsing the command and a `FindCommand` object is created. In the `FindCommand#execute` the method `ModelManager#updateFilteredPersonList(PersonNameContainsKeywordsPredicate)` is invoked and the `FilteredList` is filtered using the `PersonNameContainsKeywordsPredicate`.
+Step 3. A `PersonNameContainsKeywordsPredicate` and `PersonExperienceContainsKeywordsPredicate` which are subclasses of `Predicate` are created from parsing the command and a `FindPersonCommand` object is created.
+
+Step 4. In the `FindPersonCommand#execute`, the method `composePredicatesList(List<Predicate<Person>> predicates)` is invoked to produce a `Predicate<Person>` that represents a short-circuiting logical AND of all predicates in the list.
+`ModelManager#updateFilteredPersonList(Predicate<Person>)` is invoked and the `FilteredList` is filtered using the `Predicate<Person>` returned by the method `composePredicatesList`.
 
 The following sequence diagram shows how the find operation works in the scenario described above:
 
 ![FindSequenceDiagram](images/FindSequenceDiagram.png)
 
-The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
+The above only demonstrates finding candidates by their `Name` and `Experience`.
+The find operation also supports finding candidates via other fields such as `Email` and `Vacancy`.
 
 ## Proposed Features
 
@@ -704,7 +709,9 @@ as well as features requiring creation of user accounts etc.
 
 Given below are instructions to test the app manually.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** These instructions only provide a starting point for testers to work on;
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** These instructions only provide a starting point for testers to work on;
 testers are expected to do more *exploratory* testing.
 
 </div>
@@ -744,7 +751,9 @@ testers are expected to do more *exploratory* testing.
     1. Other incorrect add commands to try include omitting other compulsory fields. <br>
        Expected: Similar to previous  
    
-   <div markdown="span" class="alert alert-info">:information_source: **Note:** Adding jobs can be tested in the same way but with its analogous commands and input fields.
+   <div markdown="span" class="alert alert-info">
+   
+   :information_source: **Note:** Adding jobs can be tested in the same way but with its analogous commands and input fields.
    
    </div>
      
@@ -794,7 +803,7 @@ testers are expected to do more *exploratory* testing.
     1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
     
     1. Test case:  `delete can 1`<br>
-       Expected:  The tab switches from the job listings tab to the candidates tab automatically. First condidate contact is deleted 
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. First candidate contact is deleted 
        from the candidates list. Details of the deleted candidate shown in the status message.
      
     1. Test case:  `delete can 0`<br>
@@ -803,7 +812,9 @@ testers are expected to do more *exploratory* testing.
     1. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
        Expected: Similar to previous.  
        
-<div markdown="span" class="alert alert-info">:information_source: **Note:** Deleting jobs can be tested in the same way but with its analogous commands.
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Deleting jobs can be tested in the same way but with its analogous commands.
 
 </div>
        
@@ -830,7 +841,44 @@ testers are expected to do more *exploratory* testing.
     1. Test case: `clear`<br>
        Expected: No candidates or jobs are deleted. Unknown command error shown in the status message.    
        
-<div markdown="span" class="alert alert-info">:information_source: **Note:** Clearing all jobs can be tested in the same way but with its analogous commands.
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Clearing all jobs can be tested in the same way but with its analogous commands.
+
+</div>
+
+### Finding a candidate
+
+1. Finding a candidate while on the candidates tab and all candidates are displayed
+
+   1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
+
+   1. Test case: `find can n/Alex bl/false`<br>
+      Expected: Candidates who are not blacklisted and with `Name` containing "*Alex*" will be displayed. Number of candidates listed will be shown in the status message.
+
+   1. Test case: `find can n/`<br>
+      Expected: List of candidates displayed does not change. Invalid command format shown in the status message.
+
+   1. Other incorrect find commands to try: `find can n`, `find can exp/`<br>
+      Expected: Similar to previous.
+
+2. Finding a candidate while on the job listings tab
+    
+    1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    
+    1. Test case:  `find can n/Alex bl/false`<br>
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically.
+       Candidates who are not blacklisted and with `Name` containing "*Alex*" will be displayed. Number of candidates listed will be shown in the status message.
+     
+    1. Test case: `find can n/`<br>
+       Expected: List of candidates displayed does not change. Invalid command format shown in the status message.
+       
+   1. Other incorrect find commands to try: `find can n`, `find can exp/`<br>
+      Expected: Similar to previous.
+       
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Finding jobs can be tested in the same way but with its analogous commands.
 
 </div>
 

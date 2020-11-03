@@ -92,6 +92,9 @@ The figure below shows an annotated version of the GUI, to help you in understan
 ![Annotated GUI](images/UnderstandingGUI.png)
 
 :memo: *In the Tab Buttons, the tab you are currently on is marked as **red**. i.e. `Candidates` button is in red as the list shows the list of candidates.*
+<br/>
+
+:bulb: *The display panel is scrollable! Keep in mind this tip so you don't miss out on any information!*
 
 You may refer back to this section whenever you need help understanding the GUI terms.
 
@@ -725,11 +728,11 @@ Step 1. Type `help` in the *command box* and press *Enter*.
 
 ![help message 2](images/helpMessage2.png)
 
-Step 2. The *CANdidates* application will display the message "Opened help window" to indicate that the help window has been opened.
+Step 2. The *CANdidates* application will show the message "Opened help window" in the *result display* to indicate that the help window has been opened.
 
 ![help message 3](images/helpMessage3.png)
 
-Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to *CANdidates*'s user guide, which is this document!
+Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to *CANdidates*'s User Guide, which is this document!
 
 <br>
 
