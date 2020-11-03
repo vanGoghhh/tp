@@ -47,6 +47,7 @@ CANdidates is an open source, brownfield project on the existing [Address book
      1. [Detecting Duplicate Candidates](#detecting-duplicate-candidates)
      1. [Deleting a Candidate](#deleting-a-candidate)
      1. [Clearing All Candidates](#clearing-all-candidates)
+     1. [Finding a Candidate](#finding-a-candidate)
      1. [Saving Data](#saving-data)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -873,7 +874,7 @@ testers are expected to do more *exploratory* testing.
        
 <div markdown="span" class="alert alert-info">
 
-:information_source: **Note:** Deleting jobs can be tested in the same way but with its analogous commands.
+:information_source: **Note:** Finding jobs can be tested in the same way but with its analogous commands.
 
 </div>
 
