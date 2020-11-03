@@ -1,7 +1,6 @@
 package seedu.address.ui;
 
 import java.util.Optional;
-import java.util.Scanner;
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
