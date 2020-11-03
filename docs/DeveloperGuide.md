@@ -704,7 +704,9 @@ as well as features requiring creation of user accounts etc.
 
 Given below are instructions to test the app manually.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** These instructions only provide a starting point for testers to work on;
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** These instructions only provide a starting point for testers to work on;
 testers are expected to do more *exploratory* testing.
 
 </div>
@@ -744,7 +746,9 @@ testers are expected to do more *exploratory* testing.
     1. Other incorrect add commands to try include omitting other compulsory fields. <br>
        Expected: Similar to previous  
    
-   <div markdown="span" class="alert alert-info">:information_source: **Note:** Adding jobs can be tested in the same way but with its analogous commands and input fields.
+   <div markdown="span" class="alert alert-info">
+   
+   :information_source: **Note:** Adding jobs can be tested in the same way but with its analogous commands and input fields.
    
    </div>
      
@@ -794,7 +798,7 @@ testers are expected to do more *exploratory* testing.
     1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
     
     1. Test case:  `delete can 1`<br>
-       Expected:  The tab switches from the job listings tab to the candidates tab automatically. First condidate contact is deleted 
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. First candidate contact is deleted 
        from the candidates list. Details of the deleted candidate shown in the status message.
      
     1. Test case:  `delete can 0`<br>
@@ -803,7 +807,9 @@ testers are expected to do more *exploratory* testing.
     1. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
        Expected: Similar to previous.  
        
-<div markdown="span" class="alert alert-info">:information_source: **Note:** Deleting jobs can be tested in the same way but with its analogous commands.
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Deleting jobs can be tested in the same way but with its analogous commands.
 
 </div>
        
@@ -830,7 +836,44 @@ testers are expected to do more *exploratory* testing.
     1. Test case: `clear`<br>
        Expected: No candidates or jobs are deleted. Unknown command error shown in the status message.    
        
-<div markdown="span" class="alert alert-info">:information_source: **Note:** Clearing all jobs can be tested in the same way but with its analogous commands.
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Clearing all jobs can be tested in the same way but with its analogous commands.
+
+</div>
+
+### Finding a candidate
+
+1. Finding a candidate while on the candidates tab and all candidates are displayed
+
+   1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
+
+   1. Test case: `find can n/Alex bl/false`<br>
+      Expected: Candidates who are not blacklisted and with `Name` containing "*Alex*" will be displayed. Number of candidates listed will be shown in the status message.
+
+   1. Test case: `find can n/`<br>
+      Expected: List of candidates displayed does not change. Invalid command format shown in the status message.
+
+   1. Other incorrect find commands to try: `find can n`, `find can exp/`<br>
+      Expected: Similar to previous.
+
+2. Finding a candidate while on the job listings tab
+    
+    1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    
+    1. Test case:  `find can n/Alex bl/false`<br>
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically.
+       Candidates who are not blacklisted and with `Name` containing "*Alex*" will be displayed. Number of candidates listed will be shown in the status message.
+     
+    1. Test case: `find can n/`<br>
+       Expected: List of candidates displayed does not change. Invalid command format shown in the status message.
+       
+   1. Other incorrect find commands to try: `find can n`, `find can exp/`<br>
+      Expected: Similar to previous.
+       
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Deleting jobs can be tested in the same way but with its analogous commands.
 
 </div>
 
