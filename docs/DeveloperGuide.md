@@ -42,6 +42,11 @@ CANdidates is an open source, brownfield project on the existing [Address book
      1. [Glossary](#glossary)
 1. [Appendix: Instructions for Manual Testing](#appendix-instructions-for-manual-testing)
      1. [Launch and Shutdown](#launch-and-shutdown)
+     1. [Adding a Candidate](#adding-a-candidate)
+     1. [Editing a Candidate](#editing-a-candidate)
+     1. [Detecting Duplicate Candidates](#detecting-duplicate-candidates)
+     1. [Deleting a Candidate](#deleting-a-candidate)
+     1. [Clearing All Candidates](#clearing-all-candidates)
      1. [Deleting a Person](#deleting-a-person)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -736,7 +741,8 @@ testers are expected to do more *exploratory* testing.
        Expected: No new candidate is added. Invalid command format error shown in the status message due to the command
        missing the compulsory `exp/YEARS_OF_EXPERIENCE` input field.
        
-    1. Other incorrect add commands to try include omitting other compulsory fields or entering invalid input field values. 
+    1. Other incorrect add commands to try include omitting other compulsory fields. <br>
+       Expected: Similar to previous  
    
    <div markdown="span" class="alert alert-info">:information_source: **Note:** Adding jobs can be tested in the same way but with its analogous commands and input fields.
    
@@ -748,14 +754,13 @@ testers are expected to do more *exploratory* testing.
 
     1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes.
     
-    1. Test case: `edit can INDEX n/Ron bl/true` where `INDEX` is the list index of the candidate just added in the prerequisite step
+    1. Test case: `edit can INDEX n/Ron bl/true` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
        Expected: The name of the candidate at index `INDEX` changes from _Rob_ to _Ron_ and blacklisted changes from _false_ to _true_.
        No other input fields are changed (rest of the fields remain same). Details of the the edited candidate shown in the status message.
        
-    1. Test case: `edit can INDEX` where `INDEX` is the list index of the candidate just added in the prerequisite step
+    1. Test case: `edit can INDEX` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
        Expected: No candidate is edited. No fields provided error shown in the status message.
        
-    1. Other incorrect edit commands to try include entering invalid input field values.
     
 ### Detecting duplicate candidates
 
@@ -763,10 +768,10 @@ testers are expected to do more *exploratory* testing.
      
    1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes. 
    
-   1. Test case (Same name and phone): `add can n/Rob p/88888888 e/mail@gmail.com doa/08-10-22 exp/15`
+   1. Test case (Same name and phone): `add can n/Rob p/88888888 e/mail@gmail.com doa/08-10-22 exp/15` <br>
       Expected: No new candidate is added. Duplicate candidate error shown in the status message.
       
-   1. Test case (Same name and email): `add can n/Rob p/12345 e/e@mail.com doa/08-10-22 exp/15`
+   1. Test case (Same name and email): `add can n/Rob p/12345 e/e@mail.com doa/08-10-22 exp/15` <br>
       Expected: No new candidate is added. Duplicate candidate error shown in the status message.    
 
 ### Deleting a candidate
