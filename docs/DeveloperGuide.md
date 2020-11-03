@@ -721,22 +721,35 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a person
+### Deleting a candidate
 
-1. Deleting a person while all persons are being shown
+1. Deleting a candidate while all candidates are being shown on the candiates tab
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+   1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
 
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+   1. Test case: `delete can 1`<br>
+      Expected: First candidate contact is deleted from the candidates list. Details of the deleted candidate shown in the status message.
 
-   1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+   1. Test case: `delete can 0`<br>
+      Expected: No candidate is deleted. Error details shown in the status message.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+   1. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+2. Deleting a candidate while on the job listings tab
+    
+    2. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    
+    2. Test case:  `delete can 1`<br>
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. First condidate contact is deleted 
+       from the candidates list. Details of the deleted candidate shown in the status message.
+     
+    2. Test case:  `delete can 0`<br>
+       Expected: The tab does not switch to the candidates tab. No candidate is deleted. Error details shown in the status message. 
+       
+    2. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
+       Expected: Similar to previous.  
+           
 
 ### Saving data
 
