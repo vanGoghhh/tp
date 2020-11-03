@@ -173,7 +173,7 @@ Can’t wait to start using *CANdidates*? This section guides you through the st
 ## Features for Candidates
 This section provides you with features to handle all information of candidates for your utmost convenience!
 <br>
-Refer to [Other Features](#other-features) for more general features.
+Refer to [Features for Jobs](#features-for-jobs) for features specific to jobs or to [Other Features](#other-features) for more general features.
 
 <br>
 
@@ -374,7 +374,7 @@ Please ensure you do not require the candidate list data anymore before performi
 ## Features for Jobs
 This section provides you with features to handle all information of job listings for your utmost convenience!
 <br>
-Refer to [Other Features](#other-features) for more general features.
+Refer to [Features for Candidates](#features-for-candidates) for features specific to candidates or to [Other Features](#other-features) for more general features.
 
 <br>
        
@@ -598,6 +598,8 @@ Please ensure you do not require the job list data anymore before performing thi
 
 ## Other Features
 This section explores other general features that CANdidates has to offer!
+<br>
+Refer to [Features for Candidates](#features-for-candidates) for features specific to candidates or to [Features for Jobs](#features-for-jobs) for features specific to jobs.
 
 <br>
 
