@@ -10,7 +10,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Vacancy {
 
     public static final String MESSAGE_CONSTRAINTS =
-        "Vacancy should only contain integers, and it should be 1 to 2 digits long (max vacancy: 99)";
+        "Vacancy should only contain unsigned integers (non-negative), "
+                + "and it should be 1 to 2 digits long (max vacancy: 99)";
     public static final String VALIDATION_REGEX = "\\d{1,2}";
     public final String value;
     public final int vacancyNumber;
