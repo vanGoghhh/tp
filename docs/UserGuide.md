@@ -329,8 +329,8 @@ Too many candidates with different information? *CANdidates* provide you with a 
 ### Sorting all candidates: `sort can`
 
 You can view all the candidates in the order you wish to by typing in your desired order. Upon execution of the command, the sorted list of candidates would be displayed on the app!
-**
-Format:** `sort can type/FIELD_TO_SORT order/ORDER`
+
+**Format:** `sort can type/FIELD_TO_SORT order/ORDER`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -563,7 +563,7 @@ Step 3. The application will show the updated list of jobs with the edited job.
 
 Too many job listings with different information? Similar to the feature above, you can also find job listings by inserting keywords for the fields you are looking for!
 
-Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
+**Format:** `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -593,7 +593,7 @@ Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
 
 Have too many job listings and need a way to organise them? You can get *CANdidates* to help you do that by sorting them according to the priority or vacancies you have indicated for the job listings!
 
-Format: `sort job type/FIELD_TO_SORT order/ORDER`
+**Format** `sort job type/FIELD_TO_SORT order/ORDER`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -617,7 +617,7 @@ Format: `sort job type/FIELD_TO_SORT order/ORDER`
 
     sort job type/v order/desc
     
-Step by Step:
+**Step by Step:**
 
 ![Sort Job Step 1](images/sortJob1.png)
 
@@ -638,7 +638,7 @@ Step 3. The application will show the sorted job list based on the sort conditio
 
 Deletes the specified job from the job listing.
 
-Format: `delete job INDEX`
+**Format:** `delete job INDEX`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -677,7 +677,7 @@ Step 3. The application will show the updated job list without the deleted job.
 
 Want to clear all the jobs in the list quickly without having to delete one by one? Simply use the command below!
 
-Format: `clear job`
+**Format:** `clear job`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -715,9 +715,9 @@ If you are unsure of how to use the application, we have a help function that wi
 
 ![help message](images/helpMessage.png)
 
-Format: `help`
+**Format:** `help`
 
-Step by Step:
+**Step by Step:**
 
 ![help message 1](images/helpMessage1.png)
 
@@ -739,7 +739,7 @@ Done with updating your information with *CANdidates*? Use this command to exit 
 
 ![exit](images/exit.png)
 
-Format: `exit`
+**Format:** `exit`
 
 <br>
 
