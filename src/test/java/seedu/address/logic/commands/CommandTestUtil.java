@@ -138,19 +138,25 @@ public class CommandTestUtil {
     public static final String TAG_DESC_MAYBANK = " " + PREFIX_TAG + VALID_TAG_MAYBANK;
 
     // Valid sorting values
+    public static final String VALID_TYPE_PERSON_NAME = "n";
     public static final String VALID_TYPE_PERSON_EXP = "exp";
     public static final String VALID_TYPE_PERSON_BLACKLIST = "bl";
     public static final String VALID_TYPE_PERSON_SAL = "sal";
     public static final String VALID_TYPE_PERSON_DOA = "doa";
+    public static final String VALID_TYPE_JOB_TITLE = "n";
+    public static final String VALID_TYPE_JOB_COMPANY = "c";
     public static final String VALID_TYPE_JOB_VACANCY = "v";
     public static final String VALID_TYPE_JOB_PRIORITY = "pr";
     public static final String VALID_SORT_ORDER_ASCENDING = "asc";
     public static final String VALID_SORT_ORDER_DESCENDING = "desc";
 
+    public static final String SORT_TYPE_PERSON_NAME = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_NAME;
     public static final String SORT_TYPE_PERSON_EXP = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_EXP;
     public static final String SORT_TYPE_PERSON_BLACKLIST = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_BLACKLIST;
     public static final String SORT_TYPE_PERSON_SAL = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_SAL;
     public static final String SORT_TYPE_PERSON_DOA = " " + PREFIX_SORT_TYPE + VALID_TYPE_PERSON_DOA;
+    public static final String SORT_TYPE_JOB_TITLE = " " + PREFIX_SORT_TYPE + VALID_TYPE_JOB_TITLE;
+    public static final String SORT_TYPE_JOB_COMPANY = " " + PREFIX_SORT_TYPE + VALID_TYPE_JOB_COMPANY;
     public static final String SORT_TYPE_JOB_VACANCY = " " + PREFIX_SORT_TYPE + VALID_TYPE_JOB_VACANCY;
     public static final String SORT_TYPE_JOB_PRIORITY = " " + PREFIX_SORT_TYPE + VALID_TYPE_JOB_PRIORITY;
     public static final String SORT_ORDER_ASCENDING = " " + PREFIX_SORT_ORDER + VALID_SORT_ORDER_ASCENDING;
