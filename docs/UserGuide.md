@@ -92,6 +92,9 @@ The figure below shows an annotated version of the GUI, to help you in understan
 ![Annotated GUI](images/UnderstandingGUI.png)
 
 :memo: *In the Tab Buttons, the tab you are currently on is marked as **red**. i.e. `Candidates` button is in red as the list shows the list of candidates.*
+<br/>
+
+:bulb: *The display panel is scrollable! Keep in mind this tip so you don't miss out on any information!*
 
 You may refer back to this section whenever you need help understanding the GUI terms.
 
