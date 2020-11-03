@@ -735,7 +735,7 @@ testers are expected to do more *exploratory* testing.
     1. Test case (specifying only compulsory input fields): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20 exp/5.5`
        Expected: A new candidate is added at the end of the candidates list. 
        Details of the added candidate shown in the status message. The compulsory input fields are set to the values specified in the command. 
-       The optional address, salary, profile link and tag fields are empty. The optional blacklisted field is set to false by default.
+       The optional `Address`, `Salary`, `Link` and `Tag` fields are empty. The optional `Blacklisted` field is set to false by default.
        
     1. Test case (missing a compulsory input field): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20`
        Expected: No new candidate is added. Invalid command format error shown in the status message due to the command
@@ -755,8 +755,8 @@ testers are expected to do more *exploratory* testing.
     1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes.
     
     1. Test case: `edit can INDEX n/Ron bl/true` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
-       Expected: The name of the candidate at index `INDEX` changes from _Rob_ to _Ron_ and blacklisted changes from _false_ to _true_.
-       No other input fields are changed (rest of the fields remain same). Details of the the edited candidate shown in the status message.
+       Expected: The `Name` of the candidate at index `INDEX` changes from _Rob_ to _Ron_ and `Blacklisted` changes from _false_ to _true_.
+       No other input fields are changed (rest of the fields remain same). Details of the edited candidate shown in the status message.
        
     1. Test case: `edit can INDEX` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
        Expected: No candidate is edited. No fields provided error shown in the status message.
