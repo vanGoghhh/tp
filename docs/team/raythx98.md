@@ -43,12 +43,13 @@ Given below are my contributions to the project.
 
 * **Documentation**:
   * Readme:
-    * Maintained the readme regularly to match the project [\#36](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/36)
+    * Maintained the readme regularly to match the project (examples: [\#36](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/36), [\#261](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/261))
   * User Guide:
-    * Added documentation for the features `add can` and `and job` [\#118](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/118)
-    * Updated the feature `help` [\#118](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/118)
+    * Added documentation for the features `add can` and `add job` (examples: [\#118](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/118), [\#261](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/261))
+    * Updated the feature `help` (examples: [\#118](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/118), [\#261](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/261))
   * Developer Guide:
-    * Added documentation for the features `add` 
+    * Added documentation for the features `add can` and `add job` (examples: [\#134](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/134), [\#261](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/261))
+    * Updated the design for the storage component (examples: [\#134](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/134), [\#261](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/261))
 
 * **Community**:
   * PRs reviewed (with non-trivial review comments): (examples: [\#155](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/155), [\#159](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/159))
