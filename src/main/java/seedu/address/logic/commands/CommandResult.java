@@ -18,27 +18,24 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
-    /** Switches tab accordingly to command. */
     private final Optional<String> tabName;
 
-    /** Right Panel should display a Person */
     private final boolean personRightPanelView;
 
-    /** Right Panel should display a Job */
     private final boolean jobRightPanelView;
 
 
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
-    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit, boolean personRightPanelView,
-                         boolean jobRightPanelView) {
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit,
+                         boolean personRightPanelView, boolean jobRightPanelView) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
         this.tabName = Optional.empty();
-        this.jobRightPanelView = jobRightPanelView;
         this.personRightPanelView = personRightPanelView;
+        this.jobRightPanelView = jobRightPanelView;
     }
 
     /**
@@ -55,7 +52,15 @@ public class CommandResult {
 
     /**
      * Constructs a {@code CommandResult} with the specified {@code feedbackToUser},
-     * and {@code tabName} and other fields set to their default value.
+     * and other fields set to their default value.
+     */
+    public CommandResult(String feedbackToUser) {
+        this(feedbackToUser, false, false, false, false);
+    }
+
+    /**
+     * Constructs a {@code CommandResult} with the specified {@code feedbackToUser},
+     * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser, String tabName) {
         this(feedbackToUser, false, false, tabName);
@@ -77,12 +82,12 @@ public class CommandResult {
         return exit;
     }
 
-    public boolean isPersonRightPanelView() {
-        return personRightPanelView;
-    }
-
     public boolean isJobRightPanelView() {
         return jobRightPanelView;
+    }
+
+    public boolean isPersonRightPanelView() {
+        return personRightPanelView;
     }
 
     @Override

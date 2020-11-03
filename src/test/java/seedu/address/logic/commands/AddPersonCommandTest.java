@@ -218,8 +218,28 @@ public class AddPersonCommandTest {
         }
 
         @Override
+        public Job getDisplayedJob() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setDisplayedJob(Job job) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void updateSortedPersonList(Comparator<Person> comparator) {
             throw new AssertionError("This method should not be called");
+        }
+
+        @Override
+        public Person getDisplayedPerson() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setDisplayedPerson(Person person) {
+
         }
     }
 
