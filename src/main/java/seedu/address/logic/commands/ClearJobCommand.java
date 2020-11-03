@@ -18,6 +18,7 @@ public class ClearJobCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.setJobAddressBook(new JobAddressBook());
-        return new CommandResult(MESSAGE_SUCCESS);
+        return new CommandResult(MESSAGE_SUCCESS, false, false,
+                false, false);
     }
 }
