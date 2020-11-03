@@ -11,6 +11,12 @@ import seedu.address.logic.parser.exceptions.ParseException;
  */
 public class ViewJobCommandParser implements Parser<ViewJobCommand> {
 
+    /**
+     * Parses the given {@code String} of arguments in the context of the ViewJobCommand
+     * and returns a ViewJobCommand object for execution.
+     *
+     * @throws ParseException if the user input does not conform the expected format
+     */
     public ViewJobCommand parse(String args) throws ParseException {
         try {
             Index index = ParserUtil.parseIndex(args);
