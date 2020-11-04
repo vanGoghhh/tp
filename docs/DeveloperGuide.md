@@ -722,14 +722,7 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
-
-1. Saving window preferences
-
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
-
-   1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size should be fixed and non-adjustable.
 
 1. _{ more test cases …​ }_
 
@@ -739,50 +732,91 @@ testers are expected to do more *exploratory* testing.
 
     1. Prerequisites: List all candidates on the candidates tab using the `list can` command.
     
-    1. Test case (specifying only compulsory input fields): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20 exp/5.5`
+    1. Test case (specifying only compulsory input fields): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20 exp/5.5`<br>
        Expected: A new candidate is added at the end of the candidates list. 
        Details of the added candidate shown in the status message. The compulsory input fields are set to the values specified in the command. 
        The optional `Address`, `Salary`, `Link` and `Tag` fields are empty. The optional `Blacklisted` field is set to false by default.
        
-    1. Test case (missing a compulsory input field): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20`
+    1. Test case (missing a compulsory input field): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20`<br>
        Expected: No new candidate is added. Invalid command format error shown in the status message due to the command
        missing the compulsory `exp/YEARS_OF_EXPERIENCE` input field.
        
     1. Other incorrect add commands to try include omitting other compulsory fields. <br>
        Expected: Similar to previous  
-   
+     
+### Adding a job
+
+1. Adding a job while on the job listings tab and all jobs are displayed 
+
+    1. Prerequisites: List all jobs on the job listings tab using the `list job` command.
+    
+    1. Test case (specifying only compulsory input fields): `add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222`<br>
+       Expected: A new job is added at the end of the job listings list. <br>
+       Details of the added job shown in the status message. The compulsory input fields are set to the values specified in the command. 
+       The optional `Tag` field is empty. The optional `Priority` field is set to moderate by default.
+       
+    1. Test case (missing a compulsory input field): `add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon`<br>
+       Expected: No new job is added. Invalid command format error shown in the status message due to the command
+       missing the compulsory `p/PHONE_NUMBER` input field.
+       
+    1. Other incorrect add jobs to try include omitting other compulsory fields. <br>
+       Expected: Similar to previous  
+        
+### Listing all candidates
+
+1. Listing all candidates while on the job listings tab. 
+
+    1. Prerequisites: At least one candidate added to the list. Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it passes.   
+ 
+    1. Test case: `list can`<br>
+       Expected: The application automatically changes to the candidates tab, and displays all candidates. 
+        
    <div markdown="span" class="alert alert-info">
    
-   :information_source: **Note:** Adding jobs can be tested in the same way but with its analogous commands and input fields.
+   :information_source: **Note:** Listing jobs can be tested in the same way but with its analogous commands while on the candidates tab.
    
    </div>
-     
+        
 ### Editing a candidate
 
 1. Editing a candidate while on the candidates tab and all candidates are displayed 
 
-    1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes.
+    1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it passes.
     
     1. Test case: `edit can INDEX n/Ron bl/true` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
        Expected: The `Name` of the candidate at index `INDEX` changes from _Rob_ to _Ron_ and `Blacklisted` changes from _false_ to _true_.
        No other input fields are changed (rest of the fields remain same). Details of the edited candidate shown in the status message.
        
     1. Test case: `edit can INDEX` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
-       Expected: No candidate is edited. No fields provided error shown in the status message.
-       
+       Expected: No candidate edited. No fields provided error shown in the status message.
+
+   <div markdown="span" class="alert alert-info">
+   
+   :information_source: **Note:** Editing jobs can be tested in the same way but with its analogous commands and input fields.
+   
+   </div>       
     
 ### Detecting duplicate candidates
 
 1. Detecting and preventing the creation of duplicate candidates
      
-   1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes. 
+   1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it passes. 
    
    1. Test case (Same name and phone): `add can n/Rob p/88888888 e/mail@gmail.com doa/08-10-22 exp/15` <br>
-      Expected: No new candidate is added. Duplicate candidate error shown in the status message.
+      Expected: No new candidate added. Duplicate candidate error shown in the status message.
       
    1. Test case (Same name and email): `add can n/Rob p/12345 e/e@mail.com doa/08-10-22 exp/15` <br>
-      Expected: No new candidate is added. Duplicate candidate error shown in the status message.    
+      Expected: No new candidate added. Duplicate candidate error shown in the status message.    
 
+### Detecting duplicate jobs
+
+1. Detecting and preventing the creation of duplicate jobs
+     
+   1. Prerequisites: Perform test case 2.2 from [Adding a job](#adding-a-job)to add a new job and verify that it passes. 
+   
+   1. Test case (Same job title and company name): `add job n/Delivery Man c/FedEx e/anotherfedex@example.com a/Jurong West p/84378293` <br>
+      Expected: No new job listing added. Duplicate job error shown in the status message.
+      
 ### Deleting a candidate
 
 1. Deleting a candidate while on the candidates tab and all candidates are displayed
@@ -835,7 +869,7 @@ testers are expected to do more *exploratory* testing.
     1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
     
     1. Test case:  `clear can`<br>
-       Expected:  The tab switches from the job listings tab to the candidates tab automatically. 
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. <br>
        All candidate contacts are deleted from the candidate list. Clear candidate success message shown in the status message.
               
     1. Test case: `clear`<br>
@@ -871,17 +905,50 @@ testers are expected to do more *exploratory* testing.
        Candidates who are not blacklisted and with `Name` containing "*Alex*" will be displayed. Number of candidates listed will be shown in the status message.
      
     1. Test case: `find can n/`<br>
-       Expected: List of candidates displayed does not change. Invalid command format shown in the status message.
+       Expected: The tab does not switch to the candidates tab. Invalid command format shown in the status message.
        
    1. Other incorrect find commands to try: `find can n`, `find can exp/`<br>
       Expected: Similar to previous.
        
 <div markdown="span" class="alert alert-info">
 
-:information_source: **Note:** Finding jobs can be tested in the same way but with its analogous commands.
+:information_source: **Note:** Finding jobs can be tested in the same way but with its analogous commands and input fields.
 
 </div>
 
+### Sorting all candidates
+
+1. Sorting all candidates while on the candidates tab and all candidates are displayed
+
+   1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
+
+   1. Test case: `sort can type/n order/asc`<br>
+      Expected: Candidates list will be sorted according to names in alphabetical order. 
+
+   1. Test case: `sort can type/p order/asc`<br>
+      Expected: List of candidates displayed does not change. Invalid command format shown in the status message.
+
+   1. Other incorrect sort commands to try: `sort can type/n`, `sort can order/desc`<br>
+      Expected: Similar to previous.
+
+2. Sorting all candidates while on the job listings tab
+    
+    1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    
+    1. Test case: `sort can type/n order/asc`<br>
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. Candidates list will be sorted according to names in alphabetical order. 
+     
+    1. Test case: `sort can type/p order/asc`<br>
+       Expected: The tab does not switch to the candidates tab. Invalid command format shown in the status message.
+       
+    1. Other incorrect sort commands to try: `sort can type/n`, `sort can order/desc`<br>
+       Expected: Similar to previous.
+         
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Sorting jobs can be tested in the same way but with its analogous commands and input fields.
+
+</div>
 
 ### Saving data
 
