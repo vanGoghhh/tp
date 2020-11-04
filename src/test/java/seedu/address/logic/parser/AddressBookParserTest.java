@@ -71,49 +71,49 @@ public class AddressBookParserTest {
 
 
     @Test
-    public void parseCommand_sortPerson() throws Exception{
+    public void parseCommand_sortPerson() throws Exception {
         assertTrue(parser.parseCommand(SortPersonCommand.COMMAND_WORD + " type/n order/asc")
                 instanceof SortPersonCommand);
     }
 
     @Test
-    public void parseCommand_sortJob() throws Exception{
+    public void parseCommand_sortJob() throws Exception {
         assertTrue(parser.parseCommand(SortJobCommand.COMMAND_WORD + " type/n order/asc")
                 instanceof SortJobCommand);
     }
 
     @Test
-    public void parseCommand_findPerson() throws Exception{
+    public void parseCommand_findPerson() throws Exception {
         assertTrue(parser.parseCommand(FindPersonCommand.COMMAND_WORD + " n/name")
                 instanceof FindPersonCommand);
     }
 
     @Test
-    public void parseCommand_findJob() throws Exception{
+    public void parseCommand_findJob() throws Exception {
         assertTrue(parser.parseCommand(FindJobCommand.COMMAND_WORD + " n/name")
                 instanceof FindJobCommand);
     }
 
     @Test
-    public void parseCommand_listPerson() throws Exception{
+    public void parseCommand_listPerson() throws Exception {
         assertTrue(parser.parseCommand(ListPersonCommand.COMMAND_WORD)
                 instanceof ListPersonCommand);
     }
 
     @Test
-    public void parseCommand_listJob() throws Exception{
+    public void parseCommand_listJob() throws Exception {
         assertTrue(parser.parseCommand(ListJobCommand.COMMAND_WORD)
                 instanceof ListJobCommand);
     }
 
     @Test
-    public void parseCommand_viewPerson() throws Exception{
+    public void parseCommand_viewPerson() throws Exception {
         assertTrue(parser.parseCommand(ViewPersonCommand.COMMAND_WORD + " 1")
                 instanceof ViewPersonCommand);
     }
 
     @Test
-    public void parseCommand_viewJob() throws Exception{
+    public void parseCommand_viewJob() throws Exception {
         assertTrue(parser.parseCommand(ViewJobCommand.COMMAND_WORD + " 1")
                 instanceof ViewJobCommand);
     }
