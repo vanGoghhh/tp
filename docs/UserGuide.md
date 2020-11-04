@@ -21,6 +21,7 @@ title: User Guide
     1. [Sorting all candidates: **`sort can`**](#sorting-all-candidates-sort-can)
     1. [Deleting a candidate: **`delete can`**](#deleting-a-candidate-delete-can)
     1. [Clearing all candidate entries: **`clear can`**](#clearing-all-candidate-entries-clear-can)
+    1. [Viewing a candidate: **`view can`**](#viewing-a-candidate-view-can)
 1. [Features for Jobs](#features-for-jobs)
     1. [Adding a job listing: **`add job`**](#adding-a-job-listing-add-job)
      1. [Listing all jobs: **`list job`**](#listing-all-jobs-list-job)
@@ -29,6 +30,7 @@ title: User Guide
      1. [Sorting all jobs: **`sort job`**](#sorting-all-jobs-sort-job)
      1. [Deleting a job: **`delete job`**](#deleting-a-job-delete-job)
      1. [Clearing all job entries: **`clear job`**](#clearing-all-job-entries-clear-job)
+     1. [Viewing a job: **`view job`**](#viewing-a-job-view-can)
 1. [Other Features](#other-features)
      1. [Viewing help: **`help`**](#viewing-help-help)
      1. [Exiting the program : **`exit`**](#exiting-the-program--exit)
@@ -418,7 +420,6 @@ Representing the values of the candidate's input fields as "{}", the message tha
 Step 3. The application will show the updated candidates list without the deleted candidate.
 
 <br>
-   
 
 ### Clearing all candidate entries: `clear can`
 
@@ -445,6 +446,41 @@ The following message will be shown in the *result display*
 
 Step 3. The application will show the updated candidate list which is empty.
     
+<br>
+
+### Viewing a candidate: `view can`
+
+Want to view all the information of a particular candidate? Candidates provides an easy way for you to do it! Simply utilise the command below to display all the information of a candidate on the display panel of the application!
+
+**Format** `view can INDEX`
+
+<div markdown="span" class="alert alert-primary">
+
+:memo: *Displays all the information of a candidate at the specified* `INDEX`. *The* `INDEX` *refers to the index number shown in the displayed job list.*
+<br>
+:exclamation: `INDEX` *refers to the number beside the name of the candidate in the Main List. Thus* `INDEX` *cannot be a number lesser than the number beside the first candidate in the list or greater than the number beside the last candidate in the list.*
+
+</div>
+
+**Examples:**
+
+:black_nib: To view the candidate at index _1_,
+
+    view candidate 1
+
+:black_nib: To view the candidate at index _3_,
+
+    view candidate 3
+
+**Step by Step:**
+
+Step 1. Type `view can 1` in the *command box* and press *Enter*.
+
+Step 2. The *CANdidates* application will show the following message in the *result display*. The message will depend on the candidate you have selected to display on the detailed panel. Representing the values of the candidate's input fields as "{}", the message shown in *result display* is
+>"Display Candidate: {Name of candidate} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:{} Tags: {}"
+
+Step 3. All the information of the specified candidate would be displayed on the detailed panel.
+
 <br>
 
 ## Features for Jobs
@@ -703,6 +739,40 @@ The following message will be shown in the *result display*
 Step 3. The application will show the updated job list which is empty.
     
 <br>
+
+### Viewing a job: `view job`
+
+Want to view all the information of a particular job ? Candidates provides an easy way for you to do it! Simply utilise the command below to display the all the information of a job on the display panel of the application!
+
+**Format** `view job INDEX`
+
+<div markdown="span" class="alert alert-primary">
+
+:memo: *Displays all the information of a job at the specified* `INDEX`. *The* `INDEX` *refers to the index number shown in the displayed job list.*
+<br>
+:exclamation: `INDEX` *refers to the number beside the name of a job in the Main List. Thus* `INDEX` *cannot be a number lesser than the number beside the first job in the list or greater than the number beside the last job in the list.*
+
+</div>
+
+**Examples:**
+
+:black_nib: To view the job at index _1_,
+
+    view job 1
+
+:black_nib: To view the job at index _3_,
+
+    view job 3
+
+**Step by Step:**
+
+Step 1. Type `view job 1` in the *command box* and press *Enter*.
+
+Step 2. The *CANdidates* application will show the following message in the *result display*. The message will depend on the job you have selected to display on the detailed panel. Representing the values of the job's input fields as "{}", the message shown in *result display* is
+>"Display Job: {Name of job} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}"
+
+Step 3. All the information of the specified job would be displayed on the detailed panel.
+
 <br>
 
 ## Other Features
