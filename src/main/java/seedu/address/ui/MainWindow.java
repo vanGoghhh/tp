@@ -1,10 +1,14 @@
 package seedu.address.ui;
 
+import java.util.Optional;
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
@@ -16,6 +20,8 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.information.Job;
+import seedu.address.model.information.Person;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -34,6 +40,7 @@ public class MainWindow extends UiPart<Stage> {
     private PersonListPanel personListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
+    private JobListPanel jobListPanel;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -45,10 +52,22 @@ public class MainWindow extends UiPart<Stage> {
     private StackPane resultDisplayPlaceholder;
 
     @FXML
-    private StackPane statusbarPlaceholder;
+    private TabPane tabPane;
 
     @FXML
-    private StackPane personAndJobTabPanePlaceholder;
+    private StackPane personListPanelPlaceholder;
+
+    @FXML
+    private StackPane jobListPanelPlaceholder;
+
+    @FXML
+    private StackPane detailedView;
+
+    @FXML
+    private ListView<Person> personListView;
+
+    @FXML
+    private ScrollPane scrollPane;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -66,6 +85,8 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpWindow = new HelpWindow();
+
+
     }
 
     public Stage getPrimaryStage() {
@@ -114,11 +135,10 @@ public class MainWindow extends UiPart<Stage> {
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
-        TabBar personAndJobTabPane = new TabBar(this.logic);
-        personAndJobTabPanePlaceholder.getChildren().add(personAndJobTabPane.getRoot());
-
-        StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getPersonAddressBookFilePath());
-        statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
+        PersonListPanel personListPanel = new PersonListPanel(logic.getFilteredPersonList(), this);
+        JobListPanel jobListPanel = new JobListPanel(logic.getFilteredJobList(), this);
+        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+        jobListPanelPlaceholder.getChildren().add(jobListPanel.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
@@ -135,6 +155,7 @@ public class MainWindow extends UiPart<Stage> {
             primaryStage.setY(guiSettings.getWindowCoordinates().getY());
         }
     }
+
 
     /**
      * Opens the help window or focuses on it if it's already opened.
@@ -153,6 +174,43 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
+     * Updates the detailed view on the right panel with the supplied {@code Person}.
+     * @param person
+     */
+    public void updateDetailedPersonPanel(Person person) {
+        PersonDetailedView personDetailedView = new PersonDetailedView(person);
+        detailedView.getChildren().clear();
+        detailedView.getChildren().add(personDetailedView.getRoot());
+    }
+
+    /**
+     * Updates the detailed view on the right panel with the supplied {@code Job}.
+     */
+    public void updateDetailedJobPanel(Job job) {
+        JobDetailedView jobDetailedView = new JobDetailedView(job);
+        detailedView.getChildren().clear();
+        detailedView.getChildren().add(jobDetailedView.getRoot());
+    }
+
+
+
+    /**
+     * Switches tab to the desired tab.
+     */
+    private void switchTab(String tabName) {
+        switch (tabName) {
+        case PersonListPanel.TAB_NAME:
+            tabPane.getSelectionModel().select(0);
+            break;
+        case JobListPanel.TAB_NAME:
+            tabPane.getSelectionModel().select(1);
+            break;
+        default:
+            throw new AssertionError("No such tab name " + tabName);
+        }
+    }
+
+    /**
      * Closes the application.
      */
     @FXML
@@ -162,10 +220,6 @@ public class MainWindow extends UiPart<Stage> {
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
         primaryStage.hide();
-    }
-
-    public PersonListPanel getPersonListPanel() {
-        return personListPanel;
     }
 
     /**
@@ -178,15 +232,26 @@ public class MainWindow extends UiPart<Stage> {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
-
+            Optional<String> tabNameToDisplay = commandResult.getTabName();
+            if (tabNameToDisplay.isPresent()) {
+                System.out.println(tabNameToDisplay.get());
+                switchTab(tabNameToDisplay.get());
+            }
+            if (commandResult.isPersonRightPanelView()) {
+                updateDetailedPersonPanel(logic.getDisplayedPerson());
+            }
+            if (commandResult.isJobRightPanelView()) {
+                updateDetailedJobPanel(logic.getDisplayedJob());
+            }
+            if (!commandResult.isJobRightPanelView() && !commandResult.isPersonRightPanelView()) {
+                detailedView.getChildren().clear();
+            }
             if (commandResult.isShowHelp()) {
                 handleHelp();
             }
-
             if (commandResult.isExit()) {
                 handleExit();
             }
-
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);

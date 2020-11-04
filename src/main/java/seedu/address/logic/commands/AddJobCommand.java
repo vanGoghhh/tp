@@ -8,6 +8,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_JOB_TITLE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_VACANCY;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -27,7 +28,8 @@ public class AddJobCommand extends Command {
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_ADDRESS + "ADDRESS "
-            + PREFIX_PRIORITY + "PRIORITY "
+            + PREFIX_VACANCY + "VACANCY "
+            + "[" + PREFIX_PRIORITY + "PRIORITY] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_JOB_TITLE + "Cashier "
@@ -35,8 +37,9 @@ public class AddJobCommand extends Command {
             + PREFIX_PHONE + "68765432 "
             + PREFIX_EMAIL + "recruitment@walmart.com "
             + PREFIX_ADDRESS + "1, Manhatten Street 2, #01-25 "
-            + PREFIX_TAG + "part-time "
-            + PREFIX_PRIORITY + "low ";
+            + PREFIX_VACANCY + "2 "
+            + PREFIX_PRIORITY + "low "
+            + PREFIX_TAG + "fulltime ";
 
     public static final String MESSAGE_SUCCESS = "New job added: %1$s";
     public static final String MESSAGE_DUPLICATE_JOB = "This job already exists in the job address book";
@@ -60,7 +63,7 @@ public class AddJobCommand extends Command {
         }
 
         model.addJob(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), "Jobs");
     }
 
     @Override

@@ -35,13 +35,11 @@ public class JobCard extends UiPart<Region> {
     @FXML
     private Label companyId;
     @FXML
-    private Label companyPhone;
-    @FXML
     private Label companyAddress;
     @FXML
-    private Label companyEmail;
-    @FXML
     private Label jobPriority;
+    @FXML
+    private Label jobVacancy;
     @FXML
     private FlowPane jobTags;
 
@@ -53,14 +51,23 @@ public class JobCard extends UiPart<Region> {
         this.job = job;
         companyId.setText(displayedIndex + ". ");
         jobName.setText(job.getJobTitle().fullName);
-        companyName.setText(job.getCompanyName().fullName);
-        companyPhone.setText(job.getPhone().value);
+        companyName.setText(job.getCompanyName().fullCompanyName);
         companyAddress.setText(job.getAddress().value);
-        companyEmail.setText(job.getEmail().value);
-        jobPriority.setText(job.getPriority().value);
+        jobPriority.setText("Priority: " + job.getPriority().value);
+        jobVacancy.setText("Vacancies: " + job.getVacancy().value);
         job.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> jobTags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> jobTags.getChildren().add(new Label(tag.tagName + " ")));
+        if (job.getPriority().value.equals("high")) {
+            jobPriority.setStyle("-fx-background-color: #ff6961; -fx-text-fill:black;");
+        } else if (job.getPriority().value.equals("moderate")) {
+            jobPriority.setStyle("-fx-background-color: #fdfd96; -fx-text-fill:black;");
+        } else if (job.getPriority().value.equals("low")) {
+            jobPriority.setStyle("-fx-background-color: #b0ffad; -fx-text-fill:black;");
+        } else {
+            jobPriority.setStyle("-fx-background-color:black;");
+        }
+        companyName.setStyle("-fx-text-fill:#5f66b9;");
     }
 
     @Override

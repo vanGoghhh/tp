@@ -10,6 +10,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_JOB_TITLE_MAYBA
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_MAYBANK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PRIORITY_MAYBANK;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_MAYBANK;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_VACANCY_MAYBANK;
 
 import org.junit.jupiter.api.Test;
 
@@ -55,6 +56,10 @@ public class EditJobDescriptorTest {
 
         // different priority -> returns false
         editedIras = new EditJobDescriptorBuilder(DESC_IRAS).withPriority(VALID_PRIORITY_MAYBANK).build();
+        assertFalse(DESC_IRAS.equals(editedIras));
+
+        // different vacancy -> returns false
+        editedIras = new EditJobDescriptorBuilder(DESC_IRAS).withVacancy(VALID_VACANCY_MAYBANK).build();
         assertFalse(DESC_IRAS.equals(editedIras));
 
         // different tags -> returns false

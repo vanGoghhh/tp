@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<HBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" styleClass="detailed-background" minWidth="600">
+    <GridPane prefWidth="441.0" HBox.hgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150"/>
+        </columnConstraints>
+        <VBox prefWidth="244.0" GridPane.columnIndex="0" spacing="30">
+            <padding>
+                <Insets top="5" right="5" bottom="5" left="15" />
+            </padding>
+            <HBox alignment="CENTER" spacing="50">
+                <Label fx:id="detailedCompanyName" styleClass="label-big" alignment="CENTER" translateY="20" wrapText="true" maxWidth="490">
+                </Label>
+            </HBox>
+                <GridPane  alignment="CENTER_LEFT" vgap="60" translateX="15" hgap="30">
+                    <Label text="Email" styleClass="label-label" GridPane.columnIndex="1" GridPane.rowIndex="1"></Label>
+                    <Label fx:id="detailedCompanyEmail" styleClass="label-detail" wrapText="true" maxWidth="200" GridPane.columnIndex="10" GridPane.rowIndex="1"></Label>
+                    <Label text="Phone" styleClass="label-label" GridPane.columnIndex="1" GridPane.rowIndex="2"></Label>
+                    <Label fx:id="detailedCompanyPhone" styleClass="label-detail" wrapText="true" maxWidth="200" GridPane.columnIndex="10" GridPane.rowIndex="2"></Label>
+                </GridPane>
+        </VBox>
+    </GridPane>
+</HBox>

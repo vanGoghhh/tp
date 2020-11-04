@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -86,11 +87,32 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 
+    /** Returns an unmodifiable view of the sorted person list */
+    ObservableList<Person> getSortedPersonList();
+
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
+
+    /**
+     * Updates the comparator of the sorted person list to filter by the given {@code comparator}.
+     * @throws NullPointerException if {@code comparator} is null.
+     */
+    void updateSortedPersonList(Comparator<Person> comparator);
+
+    /**
+     * Gets the person to be displayed.
+     * The person must exist in the person address book.
+     */
+    Person getDisplayedPerson();
+
+    /**
+     * Sets the person to be displayed.
+     * The person must exist in the person address book.
+     */
+    void setDisplayedPerson(Person person);
 
     //=========== JobAddressBook ================================================================================
 
@@ -145,4 +167,25 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredJobList(Predicate<Job> predicate);
+
+    /** Returns an unmodifiable view of the sorted job list */
+    ObservableList<Job> getSortedJobList();
+
+    /**
+     * Updates the order of the sorted job list to sort by the given {@code comparator}.
+     * @throws NullPointerException if {@code comparator} is null.
+     */
+    void updateSortedJobList(Comparator<Job> comparator);
+
+    /**
+     * Gets the job to be displayed.
+     * The job must exist in the job address book.
+     */
+    Job getDisplayedJob();
+
+    /**
+     * Sets the job to be displayed.
+     * The job must exist in the job address book.
+     */
+    void setDisplayedJob(Job job);
 }

@@ -35,9 +35,13 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private Label personPhone;
     @FXML
-    private Label personAddress;
+    private Label personExperience;
     @FXML
-    private Label personEmail;
+    private Label personDateOfApplication;
+    @FXML
+    private Label personBlacklistStatus;
+    @FXML
+    private Label personSalary;
     @FXML
     private FlowPane personTags;
 
@@ -50,11 +54,16 @@ public class PersonCard extends UiPart<Region> {
         personId.setText(displayedIndex + ". ");
         personName.setText(person.getName().fullName);
         personPhone.setText(person.getPhone().value);
-        personAddress.setText(person.getAddress().value);
-        personEmail.setText(person.getEmail().value);
+        personExperience.setText(String.format("%.2f years", person.getExperience().experienceInYears));
+        personDateOfApplication.setText(person.getDateOfApplication().dateString);
+        personBlacklistStatus.setText(person.getBlacklistStatus().isBlacklisted ? "Blacklisted" : "Not Blacklisted");
+        person.getSalaryOptional().ifPresent(sal -> personSalary.setText("$" + sal.toString()));
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
-                .forEach(tag -> personTags.getChildren().add(new Label(tag.tagName)));
+                .forEach(tag -> personTags.getChildren().add(new Label(tag.tagName + " ")));
+        personBlacklistStatus.setStyle(person.getBlacklistStatus().isBlacklisted
+                ? "-fx-background-color: black; -fx-text-fill: white;"
+                : "-fx-background-color: green; -fx-text-fill:white;");
     }
 
     @Override

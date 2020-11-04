@@ -5,6 +5,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import seedu.address.model.tag.Tag;
@@ -21,18 +22,30 @@ public class Person {
     private final Email email;
 
     // Data fields
-    private final Address address;
+    private final Experience experience;
+    private final Date dateOfApplication;
+    private final BlacklistStatus blacklistStatus;
+    private final Optional<Address> addressOptional;
+    private final Optional<UrlLink> urlLinkOptional;
+    private final Optional<Salary> salaryOptional;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Experience experience, Date dateOfApplication,
+                  BlacklistStatus blacklistStatus, Optional<Address> addressOptional,
+                  Optional<UrlLink> urlLinkOptional, Optional<Salary> salaryOptional, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, addressOptional, experience, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
+        this.experience = experience;
+        this.dateOfApplication = dateOfApplication;
+        this.blacklistStatus = blacklistStatus;
+        this.addressOptional = addressOptional;
+        this.urlLinkOptional = urlLinkOptional;
+        this.salaryOptional = salaryOptional;
         this.tags.addAll(tags);
     }
 
@@ -48,8 +61,28 @@ public class Person {
         return email;
     }
 
-    public Address getAddress() {
-        return address;
+    public Experience getExperience() {
+        return experience;
+    }
+
+    public Date getDateOfApplication() {
+        return dateOfApplication;
+    }
+
+    public BlacklistStatus getBlacklistStatus() {
+        return blacklistStatus;
+    }
+
+    public Optional<Address> getAddressOptional() {
+        return addressOptional;
+    }
+
+    public Optional<UrlLink> getUrlLinkOptional() {
+        return urlLinkOptional;
+    }
+
+    public Optional<Salary> getSalaryOptional() {
+        return salaryOptional;
     }
 
     /**
@@ -92,14 +125,20 @@ public class Person {
         return otherPerson.getName().equals(getName())
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
-                && otherPerson.getAddress().equals(getAddress())
+                && otherPerson.getExperience().equals(getExperience())
+                && otherPerson.getDateOfApplication().equals(getDateOfApplication())
+                && otherPerson.getBlacklistStatus().equals(getBlacklistStatus())
+                && otherPerson.getAddressOptional().equals(getAddressOptional())
+                && otherPerson.getUrlLinkOptional().equals(getUrlLinkOptional())
+                && otherPerson.getSalaryOptional().equals(getSalaryOptional())
                 && otherPerson.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, experience, dateOfApplication, blacklistStatus,
+                addressOptional, urlLinkOptional, salaryOptional, tags);
     }
 
     @Override
@@ -110,11 +149,19 @@ public class Person {
                 .append(getPhone())
                 .append(" Email: ")
                 .append(getEmail())
-                .append(" Address: ")
-                .append(getAddress())
-                .append(" Tags: ");
+                .append(" Experience: ")
+                .append(getExperience().toString() + " years")
+                .append(" Date of Application: ")
+                .append(getDateOfApplication());
+        builder.append(" Address: ");
+        getAddressOptional().ifPresent(address -> builder.append(address.value));
+        builder.append(" Link: ");
+        getUrlLinkOptional().ifPresent(link -> builder.append(link.value));
+        builder.append(" Expected Salary: ");
+        getSalaryOptional().ifPresent(salary -> builder.append("$" + salary.toString()));
+        builder.append(" Blacklisted: ").append(getBlacklistStatus());
+        builder.append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
     }
-
 }

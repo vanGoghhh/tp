@@ -7,11 +7,13 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.EditJobCommand;
 import seedu.address.logic.commands.EditJobCommand.EditJobDescriptor;
 import seedu.address.model.information.Address;
+import seedu.address.model.information.CompanyName;
 import seedu.address.model.information.Email;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Name;
 import seedu.address.model.information.Phone;
 import seedu.address.model.information.Priority;
+import seedu.address.model.information.Vacancy;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -40,6 +42,7 @@ public class EditJobDescriptorBuilder {
         descriptor.setEmail(job.getEmail());
         descriptor.setAddress(job.getAddress());
         descriptor.setPriority(job.getPriority());
+        descriptor.setVacancy(job.getVacancy());
         descriptor.setTags(job.getTags());
     }
 
@@ -55,7 +58,7 @@ public class EditJobDescriptorBuilder {
      * Sets the {@code CompanyName} of the {@code EditJobDescriptor} that we are building.
      */
     public EditJobDescriptorBuilder withCompanyName(String companyName) {
-        descriptor.setCompanyName(new Name(companyName));
+        descriptor.setCompanyName(new CompanyName(companyName));
         return this;
     }
 
@@ -88,6 +91,14 @@ public class EditJobDescriptorBuilder {
      */
     public EditJobDescriptorBuilder withPriority(String priority) {
         descriptor.setPriority(new Priority(priority));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Vacancy} of the {@code EditJobDescriptor} that we are building.
+     */
+    public EditJobDescriptorBuilder withVacancy(String vacancy) {
+        descriptor.setVacancy(new Vacancy(vacancy));
         return this;
     }
 

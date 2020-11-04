@@ -3,6 +3,8 @@
 skinparam arrowThickness 1.1
 skinparam arrowColor UI_COLOR_T4
 skinparam classBackgroundColor UI_COLOR
+skinparam classFontColor #000000
+skinparam interfaceFontColor #000000
 
 package UI <<Rectangle>>{
 Interface Ui <<Interface>>
@@ -12,9 +14,15 @@ Class MainWindow
 Class HelpWindow
 Class ResultDisplay
 Class PersonListPanel
+Class JobListPanel
+Class PersonAndJobTabPane
 Class PersonCard
+Class JobCard
 Class StatusBarFooter
 Class CommandBox
+Class PersonTab
+Class JobTab
+
 }
 
 package Model <<Rectangle>> {
@@ -33,10 +41,17 @@ UiManager -down-> MainWindow
 MainWindow --> HelpWindow
 MainWindow *-down-> CommandBox
 MainWindow *-down-> ResultDisplay
-MainWindow *-down-> PersonListPanel
 MainWindow *-down-> StatusBarFooter
+MainWindow *-down--> PersonAndJobTabPane
 
-PersonListPanel -down-> PersonCard
+PersonAndJobTabPane *-down-> PersonTab
+PersonAndJobTabPane *-down-> JobTab
+
+PersonTab *-down-> PersonListPanel
+JobTab *-down-> JobListPanel
+
+PersonListPanel --> PersonCard
+JobListPanel --> JobCard
 
 MainWindow -left-|> UiPart
 
@@ -46,8 +61,10 @@ PersonListPanel --|> UiPart
 PersonCard --|> UiPart
 StatusBarFooter --|> UiPart
 HelpWindow -down-|> UiPart
+JobCard -down-|> UiPart
 
-PersonCard ..> Model
+JobCard .down..>Model
+PersonCard .down..>Model
 UiManager -right-> Logic
 MainWindow -left-> Logic
 

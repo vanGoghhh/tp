@@ -18,6 +18,6 @@ public class ClearPersonCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.setPersonAddressBook(new PersonAddressBook());
-        return new CommandResult(MESSAGE_SUCCESS);
+        return new CommandResult(MESSAGE_SUCCESS, "Candidates");
     }
 }

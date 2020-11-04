@@ -17,7 +17,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.information.PersonNameContainsKeywordsPredicate;
+import seedu.address.model.information.predicate.PersonNameContainsKeywordsPredicate;
 import seedu.address.testutil.JobAddressBookBuilder;
 import seedu.address.testutil.PersonAddressBookBuilder;
 
@@ -107,6 +107,27 @@ public class ModelManagerTest {
     @Test
     public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> modelManager.getFilteredPersonList().remove(0));
+    }
+
+    @Test
+    public void hasJob_nullJob_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> modelManager.hasJob(null));
+    }
+
+    @Test
+    public void hasJob_jobNotInAddressBook_returnsFalse() {
+        assertFalse(modelManager.hasJob(IRAS));
+    }
+
+    @Test
+    public void hasJob_jobInAddressBook_returnsTrue() {
+        modelManager.addJob(IRAS);
+        assertTrue(modelManager.hasJob(IRAS));
+    }
+
+    @Test
+    public void getFilteredJobList_modifyList_throwsUnsupportedOperationException() {
+        assertThrows(UnsupportedOperationException.class, () -> modelManager.getFilteredJobList().remove(0));
     }
 
     @Test
