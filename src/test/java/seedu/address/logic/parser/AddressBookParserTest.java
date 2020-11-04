@@ -16,13 +16,23 @@ import seedu.address.logic.commands.ClearJobCommand;
 import seedu.address.logic.commands.ClearPersonCommand;
 import seedu.address.logic.commands.DeleteJobCommand;
 import seedu.address.logic.commands.DeletePersonCommand;
+import seedu.address.logic.commands.EditJobCommand;
 import seedu.address.logic.commands.EditPersonCommand;
 import seedu.address.logic.commands.EditPersonCommand.EditPersonDescriptor;
 import seedu.address.logic.commands.ExitCommand;
+import seedu.address.logic.commands.FindJobCommand;
+import seedu.address.logic.commands.FindPersonCommand;
 import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.ListJobCommand;
+import seedu.address.logic.commands.ListPersonCommand;
+import seedu.address.logic.commands.SortJobCommand;
+import seedu.address.logic.commands.SortPersonCommand;
+import seedu.address.logic.commands.ViewJobCommand;
+import seedu.address.logic.commands.ViewPersonCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Person;
+import seedu.address.testutil.EditJobDescriptorBuilder;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 import seedu.address.testutil.JobBuilder;
 import seedu.address.testutil.JobUtil;
@@ -59,6 +69,55 @@ public class AddressBookParserTest {
         assertTrue(parser.parseCommand(ClearJobCommand.COMMAND_WORD + "     ") instanceof ClearJobCommand);
     }
 
+
+    @Test
+    public void parseCommand_sortPerson() throws Exception {
+        assertTrue(parser.parseCommand(SortPersonCommand.COMMAND_WORD + " type/n order/asc")
+                instanceof SortPersonCommand);
+    }
+
+    @Test
+    public void parseCommand_sortJob() throws Exception {
+        assertTrue(parser.parseCommand(SortJobCommand.COMMAND_WORD + " type/n order/asc")
+                instanceof SortJobCommand);
+    }
+
+    @Test
+    public void parseCommand_findPerson() throws Exception {
+        assertTrue(parser.parseCommand(FindPersonCommand.COMMAND_WORD + " n/name")
+                instanceof FindPersonCommand);
+    }
+
+    @Test
+    public void parseCommand_findJob() throws Exception {
+        assertTrue(parser.parseCommand(FindJobCommand.COMMAND_WORD + " n/name")
+                instanceof FindJobCommand);
+    }
+
+    @Test
+    public void parseCommand_listPerson() throws Exception {
+        assertTrue(parser.parseCommand(ListPersonCommand.COMMAND_WORD)
+                instanceof ListPersonCommand);
+    }
+
+    @Test
+    public void parseCommand_listJob() throws Exception {
+        assertTrue(parser.parseCommand(ListJobCommand.COMMAND_WORD)
+                instanceof ListJobCommand);
+    }
+
+    @Test
+    public void parseCommand_viewPerson() throws Exception {
+        assertTrue(parser.parseCommand(ViewPersonCommand.COMMAND_WORD + " 1")
+                instanceof ViewPersonCommand);
+    }
+
+    @Test
+    public void parseCommand_viewJob() throws Exception {
+        assertTrue(parser.parseCommand(ViewJobCommand.COMMAND_WORD + " 1")
+                instanceof ViewJobCommand);
+    }
+
     @Test
     public void parseCommand_deletePerson() throws Exception {
         DeletePersonCommand command = (DeletePersonCommand) parser.parseCommand(
@@ -83,6 +142,15 @@ public class AddressBookParserTest {
     }
 
     @Test
+    public void parseCommand_editJob() throws Exception {
+        Job job = new JobBuilder().build();
+        EditJobCommand.EditJobDescriptor descriptor = new EditJobDescriptorBuilder(job).build();
+        EditJobCommand command = (EditJobCommand) parser.parseCommand(EditJobCommand.COMMAND_WORD + " "
+                + INDEX_FIRST_JOB.getOneBased() + " " + JobUtil.getEditJobDescriptorDetails(descriptor));
+        assertEquals(new EditJobCommand(INDEX_FIRST_JOB, descriptor), command);
+    }
+
+    @Test
     public void parseCommand_exit() throws Exception {
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD) instanceof ExitCommand);
         assertTrue(parser.parseCommand(ExitCommand.COMMAND_WORD + "    ") instanceof ExitCommand);
@@ -103,5 +171,10 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_unknownCommand_throwsParseException() {
         assertThrows(ParseException.class, MESSAGE_UNKNOWN_COMMAND, () -> parser.parseCommand("unknownCommand"));
+    }
+
+    @Test
+    public void parseCommand_unknownComplexCommand_throwsParseException() {
+        assertThrows(ParseException.class, MESSAGE_UNKNOWN_COMMAND, () -> parser.parseCommand("unknown command"));
     }
 }

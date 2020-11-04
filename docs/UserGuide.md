@@ -9,6 +9,7 @@ title: User Guide
      1. [Author](#authors)
 1. [Preface](#preface)
      1. [Understanding Symbols](#understanding-symbols)
+     1. [Understanding the CANdidates GUI](#understanding-the-candidates-gui)
      1. [Understanding Input Fields](#understanding-input-fields)
      1. [Understanding Command Format](#understanding-command-format)
 2. [Quick Start](#quick-start)
@@ -20,6 +21,7 @@ title: User Guide
     1. [Sorting all candidates: **`sort can`**](#sorting-all-candidates-sort-can)
     1. [Deleting a candidate: **`delete can`**](#deleting-a-candidate-delete-can)
     1. [Clearing all candidate entries: **`clear can`**](#clearing-all-candidate-entries-clear-can)
+    1. [Viewing a candidate: **`view can`**](#viewing-a-candidate-view-can)
 1. [Features for Jobs](#features-for-jobs)
     1. [Adding a job listing: **`add job`**](#adding-a-job-listing-add-job)
      1. [Listing all jobs: **`list job`**](#listing-all-jobs-list-job)
@@ -28,6 +30,7 @@ title: User Guide
      1. [Sorting all jobs: **`sort job`**](#sorting-all-jobs-sort-job)
      1. [Deleting a job: **`delete job`**](#deleting-a-job-delete-job)
      1. [Clearing all job entries: **`clear job`**](#clearing-all-job-entries-clear-job)
+     1. [Viewing a job: **`view job`**](#viewing-a-job-view-can)
 1. [Other Features](#other-features)
      1. [Viewing help: **`help`**](#viewing-help-help)
      1. [Exiting the program : **`exit`**](#exiting-the-program--exit)
@@ -91,6 +94,9 @@ The figure below shows an annotated version of the GUI, to help you in understan
 ![Annotated GUI](images/UnderstandingGUI.png)
 
 :memo: *In the Tab Buttons, the tab you are currently on is marked as **red**. i.e. `Candidates` button is in red as the list shows the list of candidates.*
+<br/>
+
+:bulb: *The display panel is scrollable! Keep in mind this tip so you don't miss out on any information!*
 
 You may refer back to this section whenever you need help understanding the GUI terms.
 
@@ -192,7 +198,7 @@ Refer to [Features for Jobs](#features-for-jobs) for features specific to jobs o
 
 If you have a new candidate who approached you and you would like to put him in *CANdidates*, you can add him into the list using the command below.
 
-Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]…​ [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]`
+**Format:** `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]…​ [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -218,7 +224,7 @@ Format: `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE
     add can n/Betsy Crowe e/betsycrowe@example.com a/NUS Temasek Hall p/92920033 
     t/HR t/OfficeLady exp/5 doa/10-10-20 link/BetsyCrowe.com bl/false sal/3000
     
-Step by Step:
+**Step by Step:**
 
 ![Add Candidate 1](images/addCan1.png)
 
@@ -236,7 +242,7 @@ Step 3. The application will show the updated list of candidates with the newly 
 
 To accurately reflect the latest changes of candidates in the application, you can refresh the list of candidates using the format below.
 
-Format: `list can`
+**Format:** `list can`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -250,7 +256,7 @@ Format: `list can`
 
 If you would like to edit the details of a particular candidate, you can use the command below
 
-Format: `edit can INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [doa/DATE_OF_APPLICATION] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
+**Format:** `edit can INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [doa/DATE_OF_APPLICATION] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -273,20 +279,31 @@ This works for the job type, address, expected salary and profile link fields. S
 
 :black_nib: To edit the 1st candidate’s phone number, email and blacklist status to be _91234567_, _johndoe<span>@</span>example.com_ and _true_ respectively,
 
-
     edit can 1 p/91234567 e/johndoe@example.com bl/true
 
 :black_nib: To edit the 2nd candidate and clear existing job types, address, expected salary and profile link,
 
     edit can 2 t/ a/ sal/ link/ 
     
+**Step by Step:**
+
+Step 1. Ensure there is at least 1 candidate in the candidates list. <br>
+Type `edit can 1 p/91234567 e/johndoe@example.com bl/true` in the *command box* and press *Enter*.
+
+Step 2. The *CANdidates* application will automatically switch to the "Candidates" tab if you are at the "Jobs" tab. 
+The command result will depend on the specific candidate that is being edited and the input fields that were not edited. 
+Representing the original values of the candidate's input fields which were not edited as "{}", the message that will be shown in the *result display* is
+>“Edited candidate: {} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:true Tags: {}".
+
+Step 3. The application will show the updated list of candidates with the edited candidate.
+
 <br>
 
 ### Finding a candidate: `find can`
 
 Too many candidates with different information? *CANdidates* provide you with a simple and quick way for you to find candidates who fulfil certain criteria(s) or even a specific candidate from the long list. All you have to do is tell CANdidates the field you are interested in, along with the keyword you are looking for!
 
-Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
+**Format:** `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -302,13 +319,23 @@ Format: `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIE
 
 </div>
 
+**Examples:**
+
+:black_nib: To find candidates with tag(s) containing the word “_developer_” and an expected salary of exactly _$4000_,
+
+    find can t/developer sal/4000
+
+:black_nib: To find candidates who are _blacklisted_,
+
+    find can bl/true
+    
 <br>
 
 ### Sorting all candidates: `sort can`
 
 You can view all the candidates in the order you wish to by typing in your desired order. Upon execution of the command, the sorted list of candidates would be displayed on the app!
 
-Format: `sort can type/FIELD_TO_SORT order/ORDER`
+**Format:** `sort can type/FIELD_TO_SORT order/ORDER`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -337,7 +364,7 @@ Format: `sort can type/FIELD_TO_SORT order/ORDER`
 
     sort can type/bl order/desc
     
-Step by Step:
+**Step by Step:**
 
 ![Sort Can Step 1](images/sortCan1.png)
 
@@ -359,7 +386,7 @@ Step 3. The application will show the sorted candidates list based on the sort c
 Have you successfully found a job for a candidate and you no longer need to keep his/her details in *CANdidates*? 
 To delete a particular candidate from the list, you can use the command below.
 
-Format: `delete can INDEX`
+**Format:** `delete can INDEX`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -380,13 +407,25 @@ Please ensure you do not require the candidate’s data anymore before performin
 
     delete can 3
     
+**Step by Step:**
+
+Step 1. Ensure there is at least 1 candidate in the candidate list. <br>
+Type `delete can 1` in the *command box* and press *Enter*.
+
+Step 2. The *CANdidates* application will automatically switch to the "Candidates" tab if you are at the "Jobs" tab. 
+The command result will depend on the specific candidate that is being deleted.
+Representing the values of the candidate's input fields as "{}", the message that will be shown in the *result display* is
+>Deleted candidate: {} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {}  Expected Salary: {} Blacklisted: {} Tags: {}" 
+
+Step 3. The application will show the updated candidates list without the deleted candidate.
+
 <br>
 
 ### Clearing all candidate entries: `clear can`
 
 Want to clear all the candidates in the list quickly without having to delete one by one? Simply use the command below!
 
-Format: `clear can`
+**Format:** `clear can`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -396,6 +435,52 @@ Please ensure you do not require the candidate list data anymore before performi
 :bulb: *This command can be used to clear the sample data on CANdidates when you first download it.*
 
 </div>
+
+**Step by Step:**
+
+Step 1. Type `clear can` in the *command box* and press *Enter*.
+
+Step 2. The *CANdidates* application will automatically switch to "Candidates" tab if you are at the "Jobs" tab. 
+The following message will be shown in the *result display*
+>"Candidate list has been cleared!"
+
+Step 3. The application will show the updated candidate list which is empty.
+    
+<br>
+
+### Viewing a candidate: `view can`
+
+Want to view all the information of a particular candidate? Candidates provides an easy way for you to do it! Simply utilise the command below to display all the information of a candidate on the display panel of the application!
+
+**Format** `view can INDEX`
+
+<div markdown="span" class="alert alert-primary">
+
+:memo: *Displays all the information of a candidate at the specified* `INDEX`. *The* `INDEX` *refers to the index number shown in the displayed job list.*
+<br>
+:exclamation: `INDEX` *refers to the number beside the name of the candidate in the Main List. Thus* `INDEX` *cannot be a number lesser than the number beside the first candidate in the list or greater than the number beside the last candidate in the list.*
+
+</div>
+
+**Examples:**
+
+:black_nib: To view the candidate at index _1_,
+
+    view candidate 1
+
+:black_nib: To view the candidate at index _3_,
+
+    view candidate 3
+
+**Step by Step:**
+
+Step 1. Type `view can 1` in the *command box* and press *Enter*.
+
+Step 2. The *CANdidates* application will show the following message in the *result display*. The message will depend on the candidate you have selected to display on the detailed panel. Representing the values of the candidate's input fields as "{}", the message shown in *result display* is
+>"Display Candidate: {Name of candidate} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:{} Tags: {}"
+
+Step 3. All the information of the specified candidate would be displayed on the detailed panel.
+
 <br>
 
 ## Features for Jobs
@@ -409,7 +494,7 @@ Refer to [Features for Candidates](#features-for-candidates) for features specif
 
 If you are informed of a job opening and you would like to add it in *CANdidates*, you can add it into the list using the command below.
 
-Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
+**Format:** `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -434,7 +519,7 @@ Format: `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/V
     add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222 
     pr/high t/delivery t/west v/10
     
-Step by Step:
+**Step by Step:**
 
 ![Add Job 1](images/addJob1.png)
 
@@ -454,7 +539,7 @@ Step 3. The application will show the updated job listings with the newly added 
 
 To accurately reflect the latest changes of jobs in the application, you can refresh the job listings using the format below.
 
-Format: `list job`
+**Format:** `list job`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -468,7 +553,7 @@ Format: `list job`
 
 If you would like to edit the details of a particular job, you can use the command below
 
-Format: `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
+**Format:** `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -490,34 +575,34 @@ See the second example below for a demonstration.*
 
 **Examples:**
 
-:black_nib: To edit the 2nd job’s company name, phone number, vacancy and priority to be _Dog Cafe_, _82827731_, _3_ and _high_ respectively,
+:black_nib: To edit the 1st job’s company name, phone number, vacancy and priority to be _Dog Cafe_, _82827731_, _3_ and _high_ respectively,
 
 
-    edit job 2 c/Dog Cafe p/82827731 v/3 pr/high
+    edit job 1 c/Dog Cafe p/82827731 v/3 pr/high
 
 :black_nib: To edit the 3rd job and clear existing job descriptions, 
 
     edit job 3 t/
-    
-<br>
 
-**Examples:**
+**Step by Step:**
 
-:black_nib: To find candidates with tag(s) containing the word “_developer_” and an expected salary of exactly _$4000_,
+Step 1. Ensure there is at least 1 job in the jobs list. <br>
+Type `edit job 1 c/Dog Cafe p/82827731 v/3 pr/high` in the *command box* and press *Enter*.
 
-    find can t/developer sal/4000
+Step 2. The *CANdidates* application will automatically switch to the "Jobs" tab if you are at the "Candidates tab". 
+The command result will depend on the specific job that is being edited and the input fields that were not edited. 
+Representing the original values of the job's input fields which were not edited as "{}", the message that will be shown in the *result display* is
+>“Edited job: {} Company: Dog Cafe Phone: 82827731 Email: {} Address: {} Priority: high Vacancy: 3 Tags: {}".
 
-:black_nib: To find candidates who are _blacklisted_,
+Step 3. The application will show the updated list of jobs with the edited job.
 
-    find can bl/true
-    
 <br>
 
 ### Finding a job: `find job`
 
 Too many job listings with different information? Similar to the feature above, you can also find job listings by inserting keywords for the fields you are looking for!
 
-Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
+**Format:** `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -547,7 +632,7 @@ Format: `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]
 
 Have too many job listings and need a way to organise them? You can get *CANdidates* to help you do that by sorting them according to the priority or vacancies you have indicated for the job listings!
 
-Format: `sort job type/FIELD_TO_SORT order/ORDER`
+**Format** `sort job type/FIELD_TO_SORT order/ORDER`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -571,7 +656,7 @@ Format: `sort job type/FIELD_TO_SORT order/ORDER`
 
     sort job type/v order/desc
     
-Step by Step:
+**Step by Step:**
 
 ![Sort Job Step 1](images/sortJob1.png)
 
@@ -592,7 +677,7 @@ Step 3. The application will show the sorted job list based on the sort conditio
 
 Deletes the specified job from the job listing.
 
-Format: `delete job INDEX`
+**Format:** `delete job INDEX`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -613,13 +698,25 @@ Please ensure you do not require the job’s data anymore before performing this
 
     delete job 3
     
+**Step by Step:**
+
+Step 1. Ensure there is at least 1 job in the jobs list. <br>
+Type `delete job 1` in the *command box* and press *Enter*.
+
+Step 2. The *CANdidates* application will automatically switch to the "Jobs" tab if you are at the "Candidates" tab. 
+The command result will depend on the specific job that is being deleted.
+Representing the values of the job's input fields as "{}", the message that will be shown in the *result display* is
+>Deleted Job: {} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}"
+
+Step 3. The application will show the updated job list without the deleted job.
+
 <br>
 
 ### Clearing all job entries: `clear job`
 
 Want to clear all the jobs in the list quickly without having to delete one by one? Simply use the command below!
 
-Format: `clear job`
+**Format:** `clear job`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -629,6 +726,53 @@ Please ensure you do not require the job list data anymore before performing thi
 :bulb: *This command can be used to clear the sample data on* *CANdidates* *when you first download it.*
 
 </div>
+
+
+**Step by Step:**
+
+Step 1. Type `clear job` in the *command box* and press *Enter*.
+
+Step 2. The *CANdidates* application will automatically switch to "Jobs" tab if you are at the "Candidates" tab. 
+The following message will be shown in the *result display*
+>"Job list has been cleared!"
+
+Step 3. The application will show the updated job list which is empty.
+    
+<br>
+
+### Viewing a job: `view job`
+
+Want to view all the information of a particular job ? Candidates provides an easy way for you to do it! Simply utilise the command below to display the all the information of a job on the display panel of the application!
+
+**Format** `view job INDEX`
+
+<div markdown="span" class="alert alert-primary">
+
+:memo: *Displays all the information of a job at the specified* `INDEX`. *The* `INDEX` *refers to the index number shown in the displayed job list.*
+<br>
+:exclamation: `INDEX` *refers to the number beside the name of a job in the Main List. Thus* `INDEX` *cannot be a number lesser than the number beside the first job in the list or greater than the number beside the last job in the list.*
+
+</div>
+
+**Examples:**
+
+:black_nib: To view the job at index _1_,
+
+    view job 1
+
+:black_nib: To view the job at index _3_,
+
+    view job 3
+
+**Step by Step:**
+
+Step 1. Type `view job 1` in the *command box* and press *Enter*.
+
+Step 2. The *CANdidates* application will show the following message in the *result display*. The message will depend on the job you have selected to display on the detailed panel. Representing the values of the job's input fields as "{}", the message shown in *result display* is
+>"Display Job: {Name of job} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}"
+
+Step 3. All the information of the specified job would be displayed on the detailed panel.
+
 <br>
 
 ## Other Features
@@ -644,9 +788,9 @@ If you are unsure of how to use the application, we have a help function that wi
 
 ![help message](images/helpMessage.png)
 
-Format: `help`
+**Format:** `help`
 
-Step by Step:
+**Step by Step:**
 
 ![help message 1](images/helpMessage1.png)
 
@@ -654,11 +798,11 @@ Step 1. Type `help` in the *command box* and press *Enter*.
 
 ![help message 2](images/helpMessage2.png)
 
-Step 2. The *CANdidates* application will display the message "Opened help window" to indicate that the help window has been opened.
+Step 2. The *CANdidates* application will show the message "Opened help window" in the *result display* to indicate that the help window has been opened.
 
 ![help message 3](images/helpMessage3.png)
 
-Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to *CANdidates*'s user guide, which is this document!
+Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to *CANdidates*'s User Guide, which is this document!
 
 <br>
 
@@ -668,7 +812,7 @@ Done with updating your information with *CANdidates*? Use this command to exit 
 
 ![exit](images/exit.png)
 
-Format: `exit`
+**Format:** `exit`
 
 <br>
 
@@ -718,6 +862,9 @@ All data is saved in the hard disk automatically after any command that changes 
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CANdidates home folder.
+
+**Q**: I accidentally corrupted my existing data file and my CANdidates application started up with the sample data. How can I get my data back?<br>
+**A**: Currently, our application is unfortunately not able to support recovering corrupted data files. We are sorry for the inconvenience caused. 
 
 **Q**: How do I report a bug I encountered?<br>
 **A**: Send an email to *developers@CANdidates.com* with a description and screenshot (if relevant) of the bug. We will make sure to get back to you promptly!

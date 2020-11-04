@@ -30,7 +30,7 @@ import seedu.address.model.Model;
 import seedu.address.model.PersonAddressBook;
 import seedu.address.model.information.Job;
 import seedu.address.model.information.Person;
-import seedu.address.model.information.predicate.JobNameContainsKeywordsPredicate;
+import seedu.address.model.information.predicate.JobJobTitleContainsKeywordsPredicate;
 import seedu.address.model.information.predicate.PersonNameContainsKeywordsPredicate;
 import seedu.address.testutil.EditJobDescriptorBuilder;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
@@ -83,6 +83,7 @@ public class CommandTestUtil {
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 
+    public static final String EMPTY_NAME_DESC = " " + PREFIX_NAME + ""; // Field cannot be empty
     public static final String EMPTY_COMPANY_NAME_DESC = " " + PREFIX_COMPANY_NAME + ""; // Field cannot be empty
 
     // Invalid information inputs
@@ -261,7 +262,7 @@ public class CommandTestUtil {
 
         Job job = model.getFilteredJobList().get(targetIndex.getZeroBased());
         final String[] splitName = job.getJobTitle().fullName.split("\\s+");
-        model.updateFilteredJobList(new JobNameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+        model.updateFilteredJobList(new JobJobTitleContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
         assertEquals(1, model.getFilteredJobList().size());
     }

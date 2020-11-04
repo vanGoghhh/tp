@@ -23,6 +23,7 @@ CANdidates is an open source, brownfield project on the existing [Address book
      1. [List feature](#implemented-list-feature)
      1. [Sort feature](#implemented-sort-feature)
      1. [Find feature](#implemented-find-feature)
+     1. [View feature](#implemented-view-feature)
 1. [Proposed features](#proposed-features)
      1. [Undo/Redo feature](#proposed-undoredo-feature)
          1. [Proposed Implementation](#proposed-implementation)
@@ -43,10 +44,15 @@ CANdidates is an open source, brownfield project on the existing [Address book
 1. [Appendix: Instructions for Manual Testing](#appendix-instructions-for-manual-testing)
      1. [Launch and Shutdown](#launch-and-shutdown)
      1. [Adding a Candidate](#adding-a-candidate)
+     1. [Adding a Job](#adding-a-job)
+     1. [Listing all Candidates](#listing-all-candidates)
      1. [Editing a Candidate](#editing-a-candidate)
      1. [Detecting Duplicate Candidates](#detecting-duplicate-candidates)
+     1. [Detecting Duplicate Jobs](#detecting-duplicate-jobs)
      1. [Deleting a Candidate](#deleting-a-candidate)
-     1. [Clearing All Candidates](#clearing-all-candidates)
+     1. [Clearing all Candidates](#clearing-all-candidates)
+     1. [Finding a Candidate](#finding-a-candidate)
+     1. [Sorting all Candidates](#sorting-all-candidates)
      1. [Saving Data](#saving-data)
 
 --------------------------------------------------------------------------------------------------------------------
@@ -223,9 +229,9 @@ as the job variant works analogously.
 The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
 Additionally, it implements the following operations:
 
-*`ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
+* `ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
 
-*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+* `ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
 
 Given below is an example usage scenario and how the edit mechanism behaves at each step.
 
@@ -256,7 +262,7 @@ A `edit job` command works similarly for Jobs but with the analogous EditJobDesc
 The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
-*`ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
+* `ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
 
 Given below is an example usage scenario and how the list mechanism behaves at each step.
 
@@ -293,21 +299,59 @@ Step 3. A `PersonExperienceComparator` is created from parsing the command and a
 The implemented find mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
-*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+* `ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
 
 Given below is an example usage scenario and how the find mechanism behaves at each step.
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `find can n/John` to find candidates with the `Name` John.
+Step 2. The user executes `find can n/Alex exp/0` to find candidates with the `Name` Alex and `Experience` 5.
 
-Step 3. A `PersonNameContainsKeywordsPredicate`, which is a subclass of `Predicate` is created from parsing the command and a `FindCommand` object is created. In the `FindCommand#execute` the method `ModelManager#updateFilteredPersonList(PersonNameContainsKeywordsPredicate)` is invoked and the `FilteredList` is filtered using the `PersonNameContainsKeywordsPredicate`.
+Step 3. A `PersonNameContainsKeywordsPredicate` and `PersonExperienceContainsKeywordsPredicate` which are subclasses of `Predicate` are created from parsing the command and a `FindPersonCommand` object is created.
+
+Step 4. In the `FindPersonCommand#execute`, the method `composePredicatesList(List<Predicate<Person>> predicates)` is invoked to produce a `Predicate<Person>` that represents a short-circuiting logical AND of all predicates in the list.
+`ModelManager#updateFilteredPersonList(Predicate<Person>)` is invoked and the `FilteredList` is filtered using the `Predicate<Person>` returned by the method `composePredicatesList`.
 
 The following sequence diagram shows how the find operation works in the scenario described above:
 
 ![FindSequenceDiagram](images/FindSequenceDiagram.png)
 
-The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
+The above only demonstrates finding candidates by their `Name` and `Experience`.
+The find operation also supports finding candidates via other fields such as `Email` and `Vacancy`.
+
+### \[Implemented] View feature
+
+The implemented view feature has two variants `view can` and `view job` for viewing a candidate and viewing a job respectively.
+
+The mechanism for both view features are faciliated by `ModelManager` and `MainWindow`. `ModelManager` implements model and contains a `displayedPerson` which is of type `Person`.
+
+ `ModelManager` implements the following operations:
+
+* `ModelManager#setDisplayedPerson(Person person)` — Sets the `displayedPerson` in the `ModelManager` class to be the supplied person
+
+`MainWindow` implements the following operations:
+
+* `MainWindow#updateDetailedPersonPanel(Person person)` — Updates the view on the right panel of the GUI to contain information of the supplied person
+
+Given below is an example usage scenario and how the `view can` mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `displayedPerson` will be initialised with `null`.
+
+Step 2. The user executes `view can 1` to show the candidate at `Index` 1 on the right panel of the GUI.
+
+Step 3. The method `AddressBookParser#parseCommand` is invoked to distinguish which type of command it is. After discerning it is an `view can` command, the `ViewPersonCommandParser#parse` is then invoked to parse the arguments. If the command format is invalid, `ViewPersonCommandParser` throws an error.
+
+Step 4. A `ViewPersonCommand` object is created from parsing the argument.
+
+Step 5. In the `ViewPersonCommand#execute` method, the `ModelManager#getFilteredPersonList()` is invoked to obtain a `displayablePersons` which is a list of the candidates in the address book. The supplied `Index` is then used to obtain the `Person` in `displayablePerson` to be displayed. The method `ModelManager#setDisplayedPerson(Person person)` is invoked to set the person to be displayed to be the `Person` obtained from `displayablePersons`.
+
+Step 6. A `CommandResult` object is created from `ViewPersonCommand#execute`. The method `MainWindow#updateDetailedPersonPanel(Person person)` is also invoked from the execution of the command.
+
+Step 7. Candidate at `Index` 1 is now displayed on the right panel.
+
+The following sequence diagram shows how the view operation works in the scenario described above:
+
+![ViewSequenceDiagram](images/ViewSequenceDiagram.png)
 
 ## Proposed Features
 
@@ -704,7 +748,9 @@ as well as features requiring creation of user accounts etc.
 
 Given below are instructions to test the app manually.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** These instructions only provide a starting point for testers to work on;
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** These instructions only provide a starting point for testers to work on;
 testers are expected to do more *exploratory* testing.
 
 </div>
@@ -715,14 +761,7 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
-
-1. Saving window preferences
-
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
-
-   1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size should be fixed and non-adjustable.
 
 1. _{ more test cases …​ }_
 
@@ -732,48 +771,91 @@ testers are expected to do more *exploratory* testing.
 
     1. Prerequisites: List all candidates on the candidates tab using the `list can` command.
     
-    1. Test case (specifying only compulsory input fields): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20 exp/5.5`
+    1. Test case (specifying only compulsory input fields): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20 exp/5.5`<br>
        Expected: A new candidate is added at the end of the candidates list. 
        Details of the added candidate shown in the status message. The compulsory input fields are set to the values specified in the command. 
        The optional `Address`, `Salary`, `Link` and `Tag` fields are empty. The optional `Blacklisted` field is set to false by default.
        
-    1. Test case (missing a compulsory input field): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20`
+    1. Test case (missing a compulsory input field): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20`<br>
        Expected: No new candidate is added. Invalid command format error shown in the status message due to the command
        missing the compulsory `exp/YEARS_OF_EXPERIENCE` input field.
        
     1. Other incorrect add commands to try include omitting other compulsory fields. <br>
        Expected: Similar to previous  
+     
+### Adding a job
+
+1. Adding a job while on the job listings tab and all jobs are displayed 
+
+    1. Prerequisites: List all jobs on the job listings tab using the `list job` command.
+    
+    1. Test case (specifying only compulsory input fields): `add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon p/93333222`<br>
+       Expected: A new job is added at the end of the job listings list. <br>
+       Details of the added job shown in the status message. The compulsory input fields are set to the values specified in the command. 
+       The optional `Tag` field is empty. The optional `Priority` field is set to moderate by default.
+       
+    1. Test case (missing a compulsory input field): `add job n/Delivery Man c/FedEx e/fedex@example.com a/Joo Koon`<br>
+       Expected: No new job is added. Invalid command format error shown in the status message due to the command
+       missing the compulsory `p/PHONE_NUMBER` input field.
+       
+    1. Other incorrect add jobs to try include omitting other compulsory fields. <br>
+       Expected: Similar to previous  
+        
+### Listing all candidates
+
+1. Listing all candidates while on the job listings tab. 
+
+    1. Prerequisites: At least one candidate added to the list. Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it passes.   
+ 
+    1. Test case: `list can`<br>
+       Expected: The application automatically changes to the candidates tab, and displays all candidates. 
+        
+   <div markdown="span" class="alert alert-info">
    
-   <div markdown="span" class="alert alert-info">:information_source: **Note:** Adding jobs can be tested in the same way but with its analogous commands and input fields.
+   :information_source: **Note:** Listing jobs can be tested in the same way but with its analogous commands while on the candidates tab.
    
    </div>
-     
+        
 ### Editing a candidate
 
 1. Editing a candidate while on the candidates tab and all candidates are displayed 
 
-    1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes.
+    1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it passes.
     
     1. Test case: `edit can INDEX n/Ron bl/true` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
        Expected: The `Name` of the candidate at index `INDEX` changes from _Rob_ to _Ron_ and `Blacklisted` changes from _false_ to _true_.
        No other input fields are changed (rest of the fields remain same). Details of the edited candidate shown in the status message.
        
     1. Test case: `edit can INDEX` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
-       Expected: No candidate is edited. No fields provided error shown in the status message.
-       
+       Expected: No candidate edited. No fields provided error shown in the status message.
+
+   <div markdown="span" class="alert alert-info">
+   
+   :information_source: **Note:** Editing jobs can be tested in the same way but with its analogous commands and input fields.
+   
+   </div>       
     
 ### Detecting duplicate candidates
 
 1. Detecting and preventing the creation of duplicate candidates
      
-   1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes. 
+   1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it passes. 
    
    1. Test case (Same name and phone): `add can n/Rob p/88888888 e/mail@gmail.com doa/08-10-22 exp/15` <br>
-      Expected: No new candidate is added. Duplicate candidate error shown in the status message.
+      Expected: No new candidate added. Duplicate candidate error shown in the status message.
       
    1. Test case (Same name and email): `add can n/Rob p/12345 e/e@mail.com doa/08-10-22 exp/15` <br>
-      Expected: No new candidate is added. Duplicate candidate error shown in the status message.    
+      Expected: No new candidate added. Duplicate candidate error shown in the status message.    
 
+### Detecting duplicate jobs
+
+1. Detecting and preventing the creation of duplicate jobs
+     
+   1. Prerequisites: Perform test case 2.2 from [Adding a job](#adding-a-job)to add a new job and verify that it passes. 
+   
+   1. Test case (Same job title and company name): `add job n/Delivery Man c/FedEx e/anotherfedex@example.com a/Jurong West p/84378293` <br>
+      Expected: No new job listing added. Duplicate job error shown in the status message.
+      
 ### Deleting a candidate
 
 1. Deleting a candidate while on the candidates tab and all candidates are displayed
@@ -794,7 +876,7 @@ testers are expected to do more *exploratory* testing.
     1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
     
     1. Test case:  `delete can 1`<br>
-       Expected:  The tab switches from the job listings tab to the candidates tab automatically. First condidate contact is deleted 
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. First candidate contact is deleted 
        from the candidates list. Details of the deleted candidate shown in the status message.
      
     1. Test case:  `delete can 0`<br>
@@ -803,7 +885,9 @@ testers are expected to do more *exploratory* testing.
     1. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
        Expected: Similar to previous.  
        
-<div markdown="span" class="alert alert-info">:information_source: **Note:** Deleting jobs can be tested in the same way but with its analogous commands.
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Deleting jobs can be tested in the same way but with its analogous commands.
 
 </div>
        
@@ -824,16 +908,86 @@ testers are expected to do more *exploratory* testing.
     1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
     
     1. Test case:  `clear can`<br>
-       Expected:  The tab switches from the job listings tab to the candidates tab automatically. 
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. <br>
        All candidate contacts are deleted from the candidate list. Clear candidate success message shown in the status message.
               
     1. Test case: `clear`<br>
        Expected: No candidates or jobs are deleted. Unknown command error shown in the status message.    
        
-<div markdown="span" class="alert alert-info">:information_source: **Note:** Clearing all jobs can be tested in the same way but with its analogous commands.
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Clearing all jobs can be tested in the same way but with its analogous commands.
 
 </div>
 
+### Finding a candidate
+
+1. Finding a candidate while on the candidates tab and all candidates are displayed
+
+   1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
+
+   1. Test case: `find can n/Alex bl/false`<br>
+      Expected: Candidates who are not blacklisted and with `Name` containing "*Alex*" will be displayed. Number of candidates listed will be shown in the status message.
+
+   1. Test case: `find can n/`<br>
+      Expected: List of candidates displayed does not change. Invalid command format shown in the status message.
+
+   1. Other incorrect find commands to try: `find can n`, `find can exp/`<br>
+      Expected: Similar to previous.
+
+2. Finding a candidate while on the job listings tab
+    
+    1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    
+    1. Test case:  `find can n/Alex bl/false`<br>
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically.
+       Candidates who are not blacklisted and with `Name` containing "*Alex*" will be displayed. Number of candidates listed will be shown in the status message.
+     
+    1. Test case: `find can n/`<br>
+       Expected: The tab does not switch to the candidates tab. Invalid command format shown in the status message.
+       
+   1. Other incorrect find commands to try: `find can n`, `find can exp/`<br>
+      Expected: Similar to previous.
+       
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Finding jobs can be tested in the same way but with its analogous commands and input fields.
+
+</div>
+
+### Sorting all candidates
+
+1. Sorting all candidates while on the candidates tab and all candidates are displayed
+
+   1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
+
+   1. Test case: `sort can type/n order/asc`<br>
+      Expected: Candidates list will be sorted according to names in alphabetical order. 
+
+   1. Test case: `sort can type/p order/asc`<br>
+      Expected: List of candidates displayed does not change. Invalid command format shown in the status message.
+
+   1. Other incorrect sort commands to try: `sort can type/n`, `sort can order/desc`<br>
+      Expected: Similar to previous.
+
+2. Sorting all candidates while on the job listings tab
+    
+    1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    
+    1. Test case: `sort can type/n order/asc`<br>
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. Candidates list will be sorted according to names in alphabetical order. 
+     
+    1. Test case: `sort can type/p order/asc`<br>
+       Expected: The tab does not switch to the candidates tab. Invalid command format shown in the status message.
+       
+    1. Other incorrect sort commands to try: `sort can type/n`, `sort can order/desc`<br>
+       Expected: Similar to previous.
+         
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Sorting jobs can be tested in the same way but with its analogous commands and input fields.
+
+</div>
 
 ### Saving data
 

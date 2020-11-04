@@ -18,8 +18,8 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.information.Job;
+import seedu.address.model.information.predicate.JobCompanyNameContainsKeywordsPredicate;
 import seedu.address.model.information.predicate.JobEmailContainsKeywordsPredicate;
-import seedu.address.model.information.predicate.JobNameContainsKeywordsPredicate;
 import seedu.address.model.information.predicate.JobPhoneContainsKeywordsPredicate;
 
 /**
@@ -33,9 +33,9 @@ public class FindJobCommandTest {
     @Test
     public void equals() {
         Predicate<Job> firstPredicate = unused -> true;
-        firstPredicate.and(new JobNameContainsKeywordsPredicate(Collections.singletonList("Samsung")));
+        firstPredicate.and(new JobCompanyNameContainsKeywordsPredicate(Collections.singletonList("Samsung")));
         Predicate<Job> secondPredicate = unused -> true;
-        secondPredicate.and(new JobNameContainsKeywordsPredicate(Collections.singletonList("Apple")));
+        secondPredicate.and(new JobCompanyNameContainsKeywordsPredicate(Collections.singletonList("Apple")));
 
         FindJobCommand findFirstCommand = new FindJobCommand(firstPredicate);
         FindJobCommand findSecondCommand = new FindJobCommand(secondPredicate);
@@ -60,7 +60,7 @@ public class FindJobCommandTest {
     @Test
     public void execute_nullModel_throwsNullPointerException() {
         Predicate<Job> predicate = unused -> true;
-        predicate.and(new JobNameContainsKeywordsPredicate(Collections.singletonList("Samsung")));
+        predicate.and(new JobCompanyNameContainsKeywordsPredicate(Collections.singletonList("Samsung")));
         FindJobCommand command = new FindJobCommand(predicate);
         assertThrows(NullPointerException.class, () -> command.execute(null));
     }
