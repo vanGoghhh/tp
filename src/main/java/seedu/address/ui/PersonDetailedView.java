@@ -32,6 +32,8 @@ public class PersonDetailedView extends UiPart<Region> {
     private Label detailedUrlLink;
     @FXML
     private Label detailedSalary;
+    @FXML
+    private Label detailedPhone;
 
     /**
      * Creates a detailed view of a {@code Person} with given person.
@@ -46,6 +48,7 @@ public class PersonDetailedView extends UiPart<Region> {
         String address = person.getAddressOptional().map(add -> add.value).orElse("Empty!");
         String profileLink = person.getUrlLinkOptional().map(url -> url.value).orElse("Empty!");
         String salary = person.getSalaryOptional().map(sal -> String.valueOf(sal.salary)).orElse("Empty!");
+        String phone = person.getPhone().value;
         detailedName.setText(name);
         detailedEmail.setText(email);
         detailedExperience.setText(yearsOfExperience);
@@ -53,6 +56,7 @@ public class PersonDetailedView extends UiPart<Region> {
         detailedUrlLink.setText(profileLink);
         detailedDateOfApplication.setText(dateOfApplication);
         detailedSalary.setText(salary);
+        detailedPhone.setText(phone);
     }
 }
 

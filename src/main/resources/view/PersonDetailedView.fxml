@@ -17,16 +17,18 @@
             <GridPane alignment="CENTER_LEFT" vgap="30" translateX="15" hgap="20" VBox.vgrow="ALWAYS" maxHeight="1000" translateY="10">
                 <Label text="Email" styleClass="label-label"  GridPane.columnIndex="2" GridPane.rowIndex="1"></Label>
                 <Label fx:id="detailedEmail" styleClass="label-detail"  wrapText="true" maxWidth="200"  GridPane.columnIndex="8" GridPane.rowIndex="1"></Label>
-                <Label text="Experience" styleClass="label-label" GridPane.columnIndex="2" GridPane.rowIndex="2"></Label>
-                <Label fx:id="detailedExperience" styleClass="label-detail"  GridPane.columnIndex="8" GridPane.rowIndex="2"></Label>
-                <Label text="Date of Application" styleClass="label-label" GridPane.columnIndex="2" GridPane.rowIndex="3"></Label>
-                <Label fx:id="detailedDateOfApplication" styleClass="label-detail" GridPane.columnIndex="8" GridPane.rowIndex="3"></Label>
-                <Label text="Address" styleClass="label-label" wrapText="true" maxWidth="200" GridPane.columnIndex="2" GridPane.rowIndex="4"></Label>
-                <Label fx:id="detailedAddress" styleClass="label-detail" wrapText="true" maxWidth="200"  GridPane.columnIndex="8" GridPane.rowIndex="4"></Label>
-                <Label text="Profile Link" styleClass="label-label"  GridPane.columnIndex="2" GridPane.rowIndex="5"></Label>
-                <Label fx:id="detailedUrlLink" styleClass="label-detail" wrapText="true"  maxWidth="200"  GridPane.columnIndex="8" GridPane.rowIndex="5"></Label>
-                <Label text="Salary" styleClass="label-label"  GridPane.columnIndex="2" GridPane.rowIndex="6"></Label>
-                <Label fx:id="detailedSalary" styleClass="label-detail"  GridPane.columnIndex="8" GridPane.rowIndex="6"></Label>
+                <Label text="Phone" styleClass="label-label" GridPane.columnIndex="2" GridPane.rowIndex="2"></Label>
+                <Label fx:id="detailedPhone" styleClass="label-detail" wrapText="true" maxWidth="200" GridPane.columnIndex="8" GridPane.rowIndex="2"></Label>
+                <Label text="Experience" styleClass="label-label" GridPane.columnIndex="2" GridPane.rowIndex="3"></Label>
+                <Label fx:id="detailedExperience" styleClass="label-detail"  GridPane.columnIndex="8" GridPane.rowIndex="3"></Label>
+                <Label text="Date of Application" styleClass="label-label" GridPane.columnIndex="2" GridPane.rowIndex="4"></Label>
+                <Label fx:id="detailedDateOfApplication" styleClass="label-detail" GridPane.columnIndex="8" GridPane.rowIndex="4"></Label>
+                <Label text="Address" styleClass="label-label" wrapText="true" maxWidth="200" GridPane.columnIndex="2" GridPane.rowIndex="5"></Label>
+                <Label fx:id="detailedAddress" styleClass="label-detail" wrapText="true" maxWidth="200"  GridPane.columnIndex="8" GridPane.rowIndex="5"></Label>
+                <Label text="Profile Link" styleClass="label-label"  GridPane.columnIndex="2" GridPane.rowIndex="6"></Label>
+                <Label fx:id="detailedUrlLink" styleClass="label-detail" wrapText="true"  maxWidth="200"  GridPane.columnIndex="8" GridPane.rowIndex="6"></Label>
+                <Label text="Salary" styleClass="label-label"  GridPane.columnIndex="2" GridPane.rowIndex="7"></Label>
+                <Label fx:id="detailedSalary" styleClass="label-detail"  GridPane.columnIndex="8" GridPane.rowIndex="7"></Label>
             </GridPane>
         </VBox>
     </GridPane>
