@@ -19,7 +19,7 @@ import seedu.address.logic.commands.ViewJobCommand;
  */
 public class ViewJobCommandParserTest {
 
-    ViewJobCommandParser parser = new ViewJobCommandParser();
+    private ViewJobCommandParser parser = new ViewJobCommandParser();
 
     @Test
     public void parse_validArgs_returnsViewPersonCommand() {
