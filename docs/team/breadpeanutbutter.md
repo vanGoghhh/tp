@@ -8,7 +8,7 @@ title: Lee Joon Jie's Project Portfolio Page
 CANdidates is a powerful contact management desktop App optimised for job recruiters to manage job applicants and job listings.
 The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 20 kLoC.
 
-<img src="images/breadpeanutbutter.png" width="200px">
+<img src="/docs/images/breadpeanutbutter.png" width="200px">
 
 [[github](http://github.com/BreadPeanutButter)]
 
