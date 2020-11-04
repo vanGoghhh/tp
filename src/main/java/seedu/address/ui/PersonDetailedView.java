@@ -41,7 +41,7 @@ public class PersonDetailedView extends UiPart<Region> {
         this.person = person;
         String name = person.getName().fullName;
         String email = person.getEmail().value;
-        String yearsOfExperience = person.getExperience().toString();
+        String yearsOfExperience = String.format("%.2f years", person.getExperience().experienceInYears);
         String dateOfApplication = person.getDateOfApplication().dateString;
         String address = person.getAddressOptional().map(add -> add.value).orElse("Empty!");
         String profileLink = person.getUrlLinkOptional().map(url -> url.value).orElse("Empty!");

@@ -42,7 +42,13 @@ CANdidates is an open source, brownfield project on the existing [Address book
      1. [Glossary](#glossary)
 1. [Appendix: Instructions for Manual Testing](#appendix-instructions-for-manual-testing)
      1. [Launch and Shutdown](#launch-and-shutdown)
-     1. [Deleting a Person](#deleting-a-person)
+     1. [Adding a Candidate](#adding-a-candidate)
+     1. [Editing a Candidate](#editing-a-candidate)
+     1. [Detecting Duplicate Candidates](#detecting-duplicate-candidates)
+     1. [Deleting a Candidate](#deleting-a-candidate)
+     1. [Clearing All Candidates](#clearing-all-candidates)
+     1. [Finding a Candidate](#finding-a-candidate)
+     1. [Saving Data](#saving-data)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -136,12 +142,6 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The Model class diagram shown above omits certain details due to space constraints, namely the classes in the Information Package that Person and Job hold reference to. Instead, the omitted details have been extracted and are shown here: <br>
-</div>
-
-![InformationClassDiagram](images/InformationClassDiagram.png)
-
-
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
 
 The `Model`,
@@ -149,15 +149,15 @@ The `Model`,
 * stores a `UserPref` object that represents the user’s preferences.
 * stores the address book data.
 * exposes an unmodifiable `ObservableList<Person>` and an unmodifiable `ObservableList<Job>` that can be 'observed' e.g. the UI can be bound to these lists so that the UI automatically updates when the data in the lists change.
-* does not depend on any of the other three components.
+* does not depend on any of the other three components. <br>
 
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The Model class diagram shown above omits certain details due to space constraints, namely the classes in the Information Package 
+                                                                             that Person and Job hold reference to. Instead, the omitted details have been extracted and are shown here: <br>
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in `PersonAddressBook` and `JobAddressBook`, which `Person` and `Job` references respectively. This allows `PersonAddressBook` and `JobAddressBook` to each only require one `Tag` object per unique `Tag`, instead of each `Person` and each `Job` needing their own `Tag` object.<br>
-
-![BetterModelClassDiagram](images/BetterModelClassDiagramV1.png)
+![InformationClassDiagram](images/InformationClassDiagram.png)
 
 </div>
-
+ 
 
 ### Storage component
 
@@ -184,13 +184,13 @@ This section describes some noteworthy details on how certain features are imple
 
 ### \[Implemented] Add feature
 
-The Add feature exists for editing candidates, using `add can`, and jobs by using `add job`.
+The Add feature exists, using `add can` for candidates and `add job` for jobs.
 
 Both implemented add mechanisms are facilitated by `ModelManager`. They both implement `Model` and contain `FilteredList` of filtered `Person` and filtered `Job`. `FilteredList` is a subclass of `ObservableList`.
+
 Additionally, it implements the following operations:
 
 * `ModelManager#hasPerson(Person person)` —  Check whether the same person exist in the FilteredList of persons using the `equals` method of `Persons`.
-
 
 * `ModelManager#addPerson(Person person)` —  Adds the person into the FilteredList of persons.
 
@@ -198,41 +198,41 @@ Additionally, it implements the following operations:
 
 * `ModelManager#addJob(Job job)` —  Adds the job into the FilteredList of jobs.
 
-Given below is an example usage scenario and how the add mechanism behaves at each step. We will show the example for person, but the scenario for jobs are mostly similar
+Given below is an example usage scenario and how the `add can` mechanism behaves at each step. 
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
 Step 2. The user executes `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/15-10-20` to add a candidate with `Name` John, `Phone` 98765432, `Email` johnd@example.com, `Address` John street, block 123, #01-01, `Experience` 5 and `Date` 15-10-20.
 
-Step 3. The method `AddressBookParser#parseCommand` is invoked to determine the command type. Since this is an `add can` command, the `AddPersonCommandParser#parse` is then invoked to parse the arguments. If the input command has an invalid format, `AddPersonCommandParser` throws a `ParseException`, if not, a `AddPersonCommand` object is created.
+Step 3. The method `AddressBookParser#parseCommand` is invoked to determine the command type. Since this is an `add can` command, the `AddPersonCommandParser#parse` is then called to parse the arguments. If the input command has an invalid format, `AddPersonCommandParser` throws a `ParseException`, if not, a `AddPersonCommand` object is created.
 
-Step 4. `ModelManager#hasJob(Person person)` is invoked to check whether the same person exist in the FilteredList of persons using the `equals` method of `Persons`. If a duplicate person exists, a `CommandException` is thrown. Otherwise, the method `ModelManager#addPerson(Person person)` is invoked to adds the person into the FilteredList of persons.
+Step 4. `ModelManager#hasJob(Person person)` is invoked to check whether the same person exist in the FilteredList of persons using the `equals` method of `Persons`. If a duplicate person exists, a `CommandException` is thrown. Otherwise, the method `ModelManager#addPerson(Person person)` is invoked to add the person into the FilteredList of persons.
 
-Step 5. The `savePersonAddressBook` method of `StorageManager`, which is a subclass of `Storage` is invoked to update the new person addition in the `personAddressBook` and saved. 
+Step 5. The `savePersonAddressBook` method of `StorageManager`, which is a subclass of `Storage`, is invoked to update the new person addition in the `personAddressBook` and saved. 
 
 The following sequence diagram shows how the `add can` operation works in the scenario described above:
 
 ![AddSequenceDiagram](images/AddSequenceDiagram.png)
 
-The sequence diagram for a `add job` operation is mostly similar, with `AddJobCommandParser`, `AddJobCommand`, `hasJob`, `addJob`, `saveJobAddressBook` and `JobAddressBook`.
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `add job` operation are mostly similar, using its `AddJobCommandParser`, `AddJobCommand`, `hasJob`, `addJob`, `saveJobAddressBook` and `JobAddressBook` counterparts.
 
 ### \[Implemented] Edit feature
 
-The Edit feature has two variants, one for editing candidates (`edit can`) and one for editing jobs (`edit job`) . We will illustrate this feature using only the candidates variant here
+The Edit feature has two variants, one for editing candidates `edit can` and one for editing jobs `edit job` . We will illustrate this feature using only the candidates variant here
 as the job variant works analogously. 
 
 The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
 Additionally, it implements the following operations:
 
-*`ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
+* `ModelManager#setPerson(Person target, Person editedPerson)` —  Replaces the Person target  with editedPerson.
 
-*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+* `ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
 
 Given below is an example usage scenario and how the edit mechanism behaves at each step.
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `edit can 2 n/Rob Mi` to change the `Name` of the candidate at `index` 2 to Rob Mi. 
+Step 2. The user executes `edit can 2 n/Rob Mi` to change the `Name` of the candidate at `Index` 2 to Rob Mi. 
 
 Step 3. The method `AddressBookParser#parseCommand` is invoked to distinguish which type of command it is. After discerning it is an `edit can` command,
 the `EditPersonCommandParser#parse` is then invoked to parse the arguments.
@@ -242,7 +242,7 @@ Step 4. A `EditPersonDescriptor` object, which is an inner class of `EditPersonC
 to store the details to edit the candidate with. In this case, it stores the `Name` Rob Mi.
 
 Step 5. A `EditPersonCommand` object is also created from parsing the comamand. In the `EditPersonCommand#execute` method, 
-if the candidate index provided by the user is invalid, an error is thrown. 
+if the candidate `Index` provided by the user is invalid, an error is thrown. 
 Otherwise, the method `ModelManager#setPerson()` is invoked to replace the old candidate with the newly edited candidate. 
  Then, `ModelManager#updateFilteredPersonList()` is invoked and the `FilteredList` and `personAddressBook` is updated and saved.
 
@@ -257,7 +257,7 @@ A `edit job` command works similarly for Jobs but with the analogous EditJobDesc
 The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
-*`ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
+* `ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
 
 Given below is an example usage scenario and how the list mechanism behaves at each step.
 
@@ -294,21 +294,25 @@ Step 3. A `PersonExperienceComparator` is created from parsing the command and a
 The implemented find mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
-*`ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
+* `ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of persons using the supplied predicate.
 
 Given below is an example usage scenario and how the find mechanism behaves at each step.
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `find can n/John` to find candidates with the `Name` John.
+Step 2. The user executes `find can n/Alex exp/0` to find candidates with the `Name` Alex and `Experience` 5.
 
-Step 3. A `PersonNameContainsKeywordsPredicate`, which is a subclass of `Predicate` is created from parsing the command and a `FindCommand` object is created. In the `FindCommand#execute` the method `ModelManager#updateFilteredPersonList(PersonNameContainsKeywordsPredicate)` is invoked and the `FilteredList` is filtered using the `PersonNameContainsKeywordsPredicate`.
+Step 3. A `PersonNameContainsKeywordsPredicate` and `PersonExperienceContainsKeywordsPredicate` which are subclasses of `Predicate` are created from parsing the command and a `FindPersonCommand` object is created.
+
+Step 4. In the `FindPersonCommand#execute`, the method `composePredicatesList(List<Predicate<Person>> predicates)` is invoked to produce a `Predicate<Person>` that represents a short-circuiting logical AND of all predicates in the list.
+`ModelManager#updateFilteredPersonList(Predicate<Person>)` is invoked and the `FilteredList` is filtered using the `Predicate<Person>` returned by the method `composePredicatesList`.
 
 The following sequence diagram shows how the find operation works in the scenario described above:
 
 ![FindSequenceDiagram](images/FindSequenceDiagram.png)
 
-The find operation is subjected to improvements to be implemented in v1.3 where we will allow users to find candidates or jobs using other fields like address, tags, vacancy, etc.
+The above only demonstrates finding candidates by their `Name` and `Experience`.
+The find operation also supports finding candidates via other fields such as `Email` and `Vacancy`.
 
 ## Proposed Features
 
@@ -316,37 +320,37 @@ The find operation is subjected to improvements to be implemented in v1.3 where 
 
 #### Proposed Implementation
 
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
+The proposed undo/redo mechanism is facilitated by `VersionedPersonAddressBook`. It extends `PersonAddressBook` and `VersionedJobAddressBook` respectively with an undo/redo history, stored internally as an `personAddressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
+* `VersionedPersonAddressBook#commit()` — Saves the current person address book state in its history.
+* `VersionedPersonAddressBook#undo()` — Restores the previous person address book state from its history.
+* `VersionedPersonAddressBook#redo()` — Restores a previously undone person address book state from its history.
 
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
+These operations are exposed in the `Model` interface as `Model#commitPersonAddressBook()`, `Model#undoPersonAddressBook()` and `Model#redoPersonAddressBook()` respectively.
 
 Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
+Step 1. The user launches the application for the first time. The `VersionedPersonAddressBook` will be initialized with the initial person address book state, and the `currentStatePointer` pointing to that single person address book state.
 
 ![UndoRedoState0](images/UndoRedoState0.png)
 
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
+Step 2. The user executes `delete can 5` command to delete the 5th person in the address book. The `delete can` command calls `Model#commitPersonAddressBook()`, causing the modified state of the person address book after the `delete can 5` command executes to be saved in the `personAddressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted person address book state.
 
 ![UndoRedoState1](images/UndoRedoState1.png)
 
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
+Step 3. The user executes `add can n/David …​` to add a new person. The `add can` command also calls `Model#commitPersonAddressBook()`, causing another modified address book state to be saved into the `addressPersonBookStateList`.
 
 ![UndoRedoState2](images/UndoRedoState2.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitPersonAddressBook()`, so the address book state will not be saved into the `personAddressBookStateList`.
 
 </div>
 
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
+Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo can` command. The `undo can` command will call `Model#undoPersonAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous person address book state, and restores the address book to that state.
 
 ![UndoRedoState3](images/UndoRedoState3.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial PersonAddressBook state, then there are no previous PersonAddressBook states to restore. The `undo can` command uses `Model#canUndoPersonAddressBook()` to check if this is the case. If so, it will return an error to the user rather
 than attempting to perform the undo.
 
 </div>
@@ -355,27 +359,33 @@ The following sequence diagram shows how the undo operation works:
 
 ![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoPersonCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 
 </div>
 
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
+The `redo can` command does the opposite — it calls `Model#redoPersonAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the person address book to that state.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `personAddressBookStateList.size() - 1`, pointing to the latest person address book state, then there are no undone PersonAddressBook states to restore. The `redo can` command uses `Model#canRedoPersonAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 
 </div>
 
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
+Step 5. The user then decides to execute the command `list can`. Commands that do not modify the address book, such as `list can` and `help`, will usually not call `Model#commitPersonAddressBook()`, `Model#undoPersonAddressBook()` or `Model#redoPersonAddressBook()`. Thus, the `personAddressBookStateList` remains unchanged.
 
 ![UndoRedoState4](images/UndoRedoState4.png)
 
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
+Step 6. The user executes `clear can`, which calls `Model#commitPersonAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `personAddressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add can n/David …​` command. This is the behavior that most modern desktop applications follow.
 
 ![UndoRedoState5](images/UndoRedoState5.png)
 
 The following activity diagram summarizes what happens when a user executes a new command:
 
 ![CommitActivityDiagram](images/CommitActivityDiagram.png)
+
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** The analogous `redo job` and `undo job` features can be implemented in the same way, using its `VersionedJobAddressBook`, `JobAddressBook` and `jobAddressBookStateList` counterparts.
+
+</div>
 
 #### Design consideration:
 
@@ -389,13 +399,6 @@ The following activity diagram summarizes what happens when a user executes a ne
   itself.
   * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
-
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -438,65 +441,42 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Priority | As a …​                                 | I want to …​                                                                       | So that I can…​                                                                         |
 | -------- | ------------------------------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| `* *`    | new user exploring the application         | see sample data stored in the App                                                     | see how the App would work when it is in use                                               |
-| `* *`    | user that is ready to start using the app  | have an easy way to clear all the sample data                                         | fill in my data                                                                            |
-| `* *`    | technology inept person                    | have an App that is intuitive to use                                                  |                                                                                            |
-| `* *`    | long term user of the App                  | have a way to archive some of the unused data                                         | prevent cluttering                                                                         |
-| `* *`    | aesthetic individual                       | have an App that is clean and aesthetically pleasing                                  |                                                                                            |
-| `* *`    | veteran job recruiter                      | be able to store as many contacts as possible without lagging the software            |                                                                                            |
-| `* *`    | efficient person                           | be able to perform mass operations like deleting multiple entries at once             |                                                                                            |
-| `* * *`  | job recruiter                              | have a platform to consolidate all _information_ of candidates                          |  avoid receiving applications from the same people repeatedly                              |
-| `* *`    | job recruiter                              | have a way to filter job applicants by their gender                                   |                                                                                            |
-| `* *`    | job recruiter                              | have a way to filter candidates by the date they applied for the job                  |                                                                                            |
+| `* * *`  | job recruiter                              | have a platform to consolidate all _information_ of candidates                        |  avoid receiving applications from the same people repeatedly                              |
 | `* * *`  | job recruiter                              | have a way to filter candidates by the type of job they are applying for              |                                                                                            |
-| `* *`    | job recruiter                              | have a way to filter candidates by their years of experience                          |                                                                                            |
-| `* *`    | job recruiter                              | have a way to blacklist candidates that do not respond or have poor attitudes         | take note to not consider them again in the future                                         |
-| `* *`    | job recruiter                              | have a way to organise my contact information easily                                  |                                                                                            |
 | `* * *`  | job recruiter                              | have a way to be able to delete candidates when they are successfully hired           | optimise my search                                                                         |
-| `* *`    | job recruiter                              | have a way to sort candidates based on their expected salary                          |                                                                                            |
 | `* * *`  | job recruiter                              | have a way to keep track of duplicate candidates                                      | avoid adding the same candidate multiple times                                             |
-| `* *`    | efficient job recruiter                    | be able to effectively search for candidates whenever there is a new job opening      | answer to hiring companies quickly                                                         |
-| `* * *`  | careless job recruiter                     | have a way to edit the contacts                                                       | rectify wrong entries                                                                      |
 | `* * *`  | job recruiter                              | keep the links to candidates' resumes (GitHub, LinkedIn, etc.)                        | review them conveniently                                                                   |
-| `* *`    | job recruiter                              | be brought directly to the relevant pages to view the candidates’ further information |                                                                                            |
-| `* *`    | job recruiter                              | be able to view the ranking of the candidates based on various _criteria_            | provide a list of candidates that best fulfil the recruitment criteria(s) to the companies |
-| `* *`    | job recruiter                              | be notified of duplicate job listings when adding a new entry to the list             |                                                                                            |
 | `* * *`  | job recruiter                              | be able to delete job listings when they are filled up                                |                                                                                            |
 | `* * *`  | job recruiter                              | be able to filter jobs by their vacancies                                             |                                                                                            |
 | `* * *`  | job recruiter                              | be able to tag jobs with different priorities                                         |                                                                                            |
 | `* * *`  | job recruiter                              | be able to filter jobs by their priorities                                            |                                                                                            |
-| `* *`    | job recruiter                              | have a way to keep track of interview schedules                                       |                                                                                            |
+| `* * *`  | careless job recruiter                     | have a way to edit the contacts                                                       | rectify wrong entries                                                                      |
+| `* *`    | new user exploring the application         | see sample data stored in the App                                                     | see how the App would work when it is in use                                               |
+| `* *`    | technology inept person                    | have an App that is intuitive to use                                                  |                                                                                            |
+| `* *`    | aesthetic individual                       | have an App that is clean and aesthetically pleasing                                  |                                                                                            |
+| `* *`    | job recruiter                              | have a way to filter candidates by the date they applied for the job                  |                                                                                            |
+| `* *`    | job recruiter                              | have a way to filter candidates by their years of experience                          |                                                                                            |
+| `* *`    | job recruiter                              | have a way to blacklist candidates that do not respond or have poor attitudes         | take note to not consider them again in the future                                         |
+| `* *`    | job recruiter                              | have a way to organise my contact information easily                                  |                                                                                            |
+| `* *`    | job recruiter                              | have a way to sort candidates based on their expected salary                          |                                                                                            |
+| `* *`    | job recruiter                              | be brought directly to the relevant pages to view the candidates’ further information |                                                                                            |
+| `* *`    | job recruiter                              | be able to view the ranking of the candidates based on various _criteria_             | provide a list of candidates that best fulfil the recruitment criteria(s) to the companies |
+| `* *`    | job recruiter                              | be notified of duplicate job listings when adding a new entry to the list             |                                                                                            |
+| `* *`    | efficient job recruiter                    | be able to effectively search for candidates whenever there is a new job opening      | answer to hiring companies quickly                                                         |
+| `* *`    | veteran job recruiter                      | be able to store as many contacts as possible without lagging the software            |                                                                                            |
+| `* *`    | user that is ready to start using the app  | have an easy way to clear all the sample data                                         | fill in my data                                                                            |
+| `*`      | job recruiter                              | have a way to keep track of interview schedules                                       |                                                                                            |
 | `*`      | single person                              | have a way to store the contacts of cute job applicants                               |                                                                                            |
+| `*`      | long term user of the App                  | have a way to archive some of the unused data                                         | prevent cluttering                                                                         |
+| `*`      | efficient person                           | be able to perform mass operations like deleting multiple entries at once             |                                                                                            |
+| `*`      | job recruiter                              | have a way to filter job applicants by their gender                                   |                                                                                            |
 
 ### Use cases
 
 (For all use cases below, the **System** is the `CANdidates` and the **Actor** is the `user`, unless specified otherwise)
+      
 
-#### **Use case: Delete a candidate**
-
-**MSS**
-
-1.  User requests to list candidates
-2.  CANdidates shows a list of candidates
-3.  User requests to delete a specific candidate in the list
-4.  CANdidates deletes the candidate
-
-    Use case ends.
-
-**Extensions**
-
-* 2a. The list is empty.
-
-  Use case ends.
-
-* 3a. The given index is invalid.
-
-    * 3a1. CANdidates shows an error message.
-
-      Use case resumes at step 2.
-
-
-#### **Use case: Add a candidate**
+#### **Use case: UC01 - Add a candidate**
 
 **MSS**
 
@@ -520,55 +500,185 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **Use case: Edit a candidate**
+#### **Use case: UC02 - List candidates**
 
 **MSS**
 
 1.  User requests to list candidates
 2.  CANdidates shows a list of candidates
-3.  User requests to edit the details of a specific candidate index in the list
-4.  CANdidates edits the candidate
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. Input format is invalid.
 
-  Use case ends.
+    * 1a1. CANdidates shows an error message.
 
-* 3a. The given index is invalid.
-
-    * 3a1. CANdidates shows an error message.
-
-      Use case resumes at step 2.
-
-* 3b. The format of the given details are invalid.
-
-    * 3b1. CANdidates shows an error message.
-
-      Use case resumes at step 2.
+      Use case ends.
 
 
-#### **Use case: Clear all entries**
+#### **Use case: UC03 - Delete a candidate**
 
 **MSS**
 
-1.  User requests to list candidates
-2.  CANdidates shows a list of candidates
-3.  User requests to clear all entries in the list
-4.  CANdidates clears the list
+1.  User requests to _list candidates (UC01)_
+2.  User requests to delete a specific candidate index in the list
+3.  CANdidates deletes the candidate
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. The list is empty.
+
+  Use case ends.
+
+* 2a. The given index is invalid.
+
+    * 2a1. CANdidates shows an error message.
+
+      Use case ends.
+
+
+#### **Use case: UC04 - Edit a candidate**
+
+**MSS**
+
+1.  User requests to _list candidates (UC01)_
+2.  User requests to edit the details of a specific candidate index in the list
+3.  CANdidates edits the candidate
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+  
+* 2a. The given index is invalid.
+
+    * 2a1. CANdidates shows an error message.
+
+      Use case ends.
+
+* 2b. The format of the given details are invalid.
+
+    * 2b1. CANdidates shows an error message.
+
+      Use case ends.
+
+
+#### **Use case: UC05 - Clear all candidates**
+
+**MSS**
+
+1.  User requests to _list candidates (UC01)_
+2.  User requests to clear all candidates in the list
+3.  CANdidates clears the list
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
 
   Use case ends.
 
 
-*{More to be added}*
+#### **Use case: UC06 - Find candidates**
+
+**MSS**
+
+1.  User requests to find candidates with keywords
+2.  CANdidates shows a list of candidates matching keywords
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. Input format is invalid.
+
+    * 1a1. CANdidates shows an error message.
+
+      Use case ends.
+
+
+#### **Use case: UC07 - Sort candidates**
+
+**MSS**
+
+1.  User requests to _list candidates (UC01)_
+2.  User requests to sort the list in an order based on a field type
+3.  CANdidates displays the list of candidates in the specified order
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+  
+* 2a. The given field type is invalid.
+
+    * 2a1. CANdidates shows an error message.
+
+      Use case ends.
+
+* 2b. The given order is invalid.
+
+    * 2b1. CANdidates shows an error message.
+
+      Use case ends.
+
+
+#### **Use case: UC08 - Add a job**
+
+Similar to UC01, except user will request to add a job instead.
+
+
+#### **Use case: UC09 - List jobs**
+
+Similar to UC02, except user will request to list jobs and CANdidates will show a list of jobs instead.
+
+
+#### **Use case: UC10 - Delete a job**
+
+Similar to UC03, except user will request to delete a specific job index.
+
+
+#### **Use case: UC11 - Edit a candidate**
+
+Similar to UC04, except user will request to edit details of a specific job index.
+
+
+#### **Use case: UC12 - Clear all jobs**
+
+Similar to UC05, except user will request to clear all jobs.
+
+
+#### **Use case: UC13 - Find candidates**
+
+Similar to UC06, except user will request to find jobs with keywords and CANdidates will show a list of jobs instead.
+
+
+#### **Use case: UC14 - Sort candidates**
+
+Similar to UC07, except user will request to sort jobs.
+
+
+#### **Use case: UC15 - Requesting for help**
+
+**MSS**
+
+1.  User requests for help
+2.  CANdidates displays help window with link to User Guide
+3.  User copies the link and closes the window
+
+    Use case ends.
+
 
 ### Non-Functional Requirements
 
@@ -599,7 +709,9 @@ as well as features requiring creation of user accounts etc.
 
 Given below are instructions to test the app manually.
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** These instructions only provide a starting point for testers to work on;
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** These instructions only provide a starting point for testers to work on;
 testers are expected to do more *exploratory* testing.
 
 </div>
@@ -621,22 +733,155 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a person
+### Adding a candidate
 
-1. Deleting a person while all persons are being shown
+1. Adding a candidate while on the candidates tab and all candidates are displayed 
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+    1. Prerequisites: List all candidates on the candidates tab using the `list can` command.
+    
+    1. Test case (specifying only compulsory input fields): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20 exp/5.5`
+       Expected: A new candidate is added at the end of the candidates list. 
+       Details of the added candidate shown in the status message. The compulsory input fields are set to the values specified in the command. 
+       The optional `Address`, `Salary`, `Link` and `Tag` fields are empty. The optional `Blacklisted` field is set to false by default.
+       
+    1. Test case (missing a compulsory input field): `add can n/Rob p/88888888 e/e@mail.com doa/01-02-20`
+       Expected: No new candidate is added. Invalid command format error shown in the status message due to the command
+       missing the compulsory `exp/YEARS_OF_EXPERIENCE` input field.
+       
+    1. Other incorrect add commands to try include omitting other compulsory fields. <br>
+       Expected: Similar to previous  
+   
+   <div markdown="span" class="alert alert-info">
+   
+   :information_source: **Note:** Adding jobs can be tested in the same way but with its analogous commands and input fields.
+   
+   </div>
+     
+### Editing a candidate
 
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+1. Editing a candidate while on the candidates tab and all candidates are displayed 
 
-   1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+    1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes.
+    
+    1. Test case: `edit can INDEX n/Ron bl/true` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
+       Expected: The `Name` of the candidate at index `INDEX` changes from _Rob_ to _Ron_ and `Blacklisted` changes from _false_ to _true_.
+       No other input fields are changed (rest of the fields remain same). Details of the edited candidate shown in the status message.
+       
+    1. Test case: `edit can INDEX` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
+       Expected: No candidate is edited. No fields provided error shown in the status message.
+       
+    
+### Detecting duplicate candidates
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+1. Detecting and preventing the creation of duplicate candidates
+     
+   1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it is passes. 
+   
+   1. Test case (Same name and phone): `add can n/Rob p/88888888 e/mail@gmail.com doa/08-10-22 exp/15` <br>
+      Expected: No new candidate is added. Duplicate candidate error shown in the status message.
+      
+   1. Test case (Same name and email): `add can n/Rob p/12345 e/e@mail.com doa/08-10-22 exp/15` <br>
+      Expected: No new candidate is added. Duplicate candidate error shown in the status message.    
+
+### Deleting a candidate
+
+1. Deleting a candidate while on the candidates tab and all candidates are displayed
+
+   1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
+
+   1. Test case: `delete can 1`<br>
+      Expected: First candidate contact is deleted from the candidates list. Details of the deleted candidate shown in the status message.
+
+   1. Test case: `delete can 0`<br>
+      Expected: No candidate is deleted. Invalid candidate index error shown in the status message.
+
+   1. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+2. Deleting a candidate while on the job listings tab
+    
+    1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    
+    1. Test case:  `delete can 1`<br>
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. First candidate contact is deleted 
+       from the candidates list. Details of the deleted candidate shown in the status message.
+     
+    1. Test case:  `delete can 0`<br>
+       Expected: The tab does not switch to the candidates tab. No candidate is deleted. Invalid candidate index error shown in the status message. 
+       
+    1. Other incorrect delete commands to try: `delete can`, `delete can -1`, `delete can x` (where x is larger than the list size)<br>
+       Expected: Similar to previous.  
+       
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Deleting jobs can be tested in the same way but with its analogous commands.
+
+</div>
+       
+### Clearing all candidates
+
+1. Clearing all candidates while on the candidates tab and all candidates are displayed
+
+    1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
+    
+    1. Test case: `clear can`<br>
+       Expected: All candidate contacts are deleted from the candidate list. Clear candidate success message shown in the status message. 
+       
+    1. Test case: `clear`<br>
+       Expected: No candidates or jobs are deleted. Unknown command error shown in the status message.
+       
+2. Clearing all candidates while on the job listings tab
+
+    1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    
+    1. Test case:  `clear can`<br>
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically. 
+       All candidate contacts are deleted from the candidate list. Clear candidate success message shown in the status message.
+              
+    1. Test case: `clear`<br>
+       Expected: No candidates or jobs are deleted. Unknown command error shown in the status message.    
+       
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Clearing all jobs can be tested in the same way but with its analogous commands.
+
+</div>
+
+### Finding a candidate
+
+1. Finding a candidate while on the candidates tab and all candidates are displayed
+
+   1. Prerequisites: List all candidates on the candidates tab using the `list can` command. Multiple candidates in the candidates list.
+
+   1. Test case: `find can n/Alex bl/false`<br>
+      Expected: Candidates who are not blacklisted and with `Name` containing "*Alex*" will be displayed. Number of candidates listed will be shown in the status message.
+
+   1. Test case: `find can n/`<br>
+      Expected: List of candidates displayed does not change. Invalid command format shown in the status message.
+
+   1. Other incorrect find commands to try: `find can n`, `find can exp/`<br>
+      Expected: Similar to previous.
+
+2. Finding a candidate while on the job listings tab
+    
+    1. Prerequisites: Switch to the job listings tab using the `list job` command. Multiple candidates in the candidates list.
+    
+    1. Test case:  `find can n/Alex bl/false`<br>
+       Expected:  The tab switches from the job listings tab to the candidates tab automatically.
+       Candidates who are not blacklisted and with `Name` containing "*Alex*" will be displayed. Number of candidates listed will be shown in the status message.
+     
+    1. Test case: `find can n/`<br>
+       Expected: List of candidates displayed does not change. Invalid command format shown in the status message.
+       
+   1. Other incorrect find commands to try: `find can n`, `find can exp/`<br>
+      Expected: Similar to previous.
+       
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Finding jobs can be tested in the same way but with its analogous commands.
+
+</div>
+
 
 ### Saving data
 

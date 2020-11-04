@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
@@ -64,6 +65,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private ListView<Person> personListView;
+
+    @FXML
+    private ScrollPane scrollPane;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -232,6 +236,18 @@ public class MainWindow extends UiPart<Stage> {
             if (tabNameToDisplay.isPresent()) {
                 System.out.println(tabNameToDisplay.get());
                 switchTab(tabNameToDisplay.get());
+            }
+
+            if (commandResult.isPersonRightPanelView()) {
+                updateDetailedPersonPanel(logic.getDisplayedPerson());
+            }
+
+            if (commandResult.isJobRightPanelView()) {
+                updateDetailedJobPanel(logic.getDisplayedJob());
+            }
+
+            if (!commandResult.isJobRightPanelView() && !commandResult.isPersonRightPanelView()) {
+                detailedView.getChildren().clear();
             }
 
             if (commandResult.isShowHelp()) {

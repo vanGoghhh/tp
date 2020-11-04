@@ -20,14 +20,22 @@ public class CommandResult {
 
     private final Optional<String> tabName;
 
+    private final boolean personRightPanelView;
+
+    private final boolean jobRightPanelView;
+
+
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
-    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit) {
+    public CommandResult(String feedbackToUser, boolean showHelp, boolean exit,
+                         boolean personRightPanelView, boolean jobRightPanelView) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
         this.tabName = Optional.empty();
+        this.personRightPanelView = personRightPanelView;
+        this.jobRightPanelView = jobRightPanelView;
     }
 
     /**
@@ -38,6 +46,8 @@ public class CommandResult {
         this.showHelp = showHelp;
         this.exit = exit;
         this.tabName = Optional.of(tabName);
+        this.jobRightPanelView = false;
+        this.personRightPanelView = false;
     }
 
     /**
@@ -45,7 +55,7 @@ public class CommandResult {
      * and other fields set to their default value.
      */
     public CommandResult(String feedbackToUser) {
-        this(feedbackToUser, false, false);
+        this(feedbackToUser, false, false, false, false);
     }
 
     /**
@@ -70,6 +80,14 @@ public class CommandResult {
 
     public boolean isExit() {
         return exit;
+    }
+
+    public boolean isJobRightPanelView() {
+        return jobRightPanelView;
+    }
+
+    public boolean isPersonRightPanelView() {
+        return personRightPanelView;
     }
 
     @Override

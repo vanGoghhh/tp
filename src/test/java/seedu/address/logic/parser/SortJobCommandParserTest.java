@@ -4,7 +4,9 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_SORT_ORDER_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.SORT_ORDER_ASCENDING;
 import static seedu.address.logic.commands.CommandTestUtil.SORT_ORDER_DESCENDING;
+import static seedu.address.logic.commands.CommandTestUtil.SORT_TYPE_JOB_COMPANY;
 import static seedu.address.logic.commands.CommandTestUtil.SORT_TYPE_JOB_PRIORITY;
+import static seedu.address.logic.commands.CommandTestUtil.SORT_TYPE_JOB_TITLE;
 import static seedu.address.logic.commands.CommandTestUtil.SORT_TYPE_JOB_VACANCY;
 import static seedu.address.logic.commands.CommandTestUtil.SORT_TYPE_PERSON_BLACKLIST;
 import static seedu.address.logic.commands.CommandTestUtil.SORT_TYPE_PERSON_EXP;
@@ -16,7 +18,9 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.SortJobCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.information.comparator.JobCompanyComparator;
 import seedu.address.model.information.comparator.JobPriorityComparator;
+import seedu.address.model.information.comparator.JobTitleComparator;
 import seedu.address.model.information.comparator.JobVacancyComparator;
 
 public class SortJobCommandParserTest {
@@ -65,6 +69,13 @@ public class SortJobCommandParserTest {
         SortJobCommand expectedCommand = new SortJobCommand(comparator, true);
 
         assertParseSuccess(parser, userInput, expectedCommand);
+
+        userInput = SORT_TYPE_JOB_COMPANY + SORT_ORDER_DESCENDING;
+
+        JobCompanyComparator companyComparator = new JobCompanyComparator();
+        expectedCommand = new SortJobCommand(companyComparator, false);
+
+        assertParseSuccess(parser, userInput, expectedCommand);
     }
 
     @Test
@@ -80,10 +91,10 @@ public class SortJobCommandParserTest {
 
     @Test
     public void parse_invalidValueFollowedByValidValue_success() {
-        String userInput = SORT_TYPE_PERSON_EXP + SORT_ORDER_ASCENDING + SORT_TYPE_JOB_VACANCY;
+        String userInput = SORT_TYPE_PERSON_EXP + SORT_ORDER_DESCENDING + SORT_TYPE_JOB_TITLE;
 
-        JobVacancyComparator comparator = new JobVacancyComparator();
-        SortJobCommand expectedCommand = new SortJobCommand(comparator, true);
+        JobTitleComparator comparator = new JobTitleComparator();
+        SortJobCommand expectedCommand = new SortJobCommand(comparator, false);
 
         assertParseSuccess(parser, userInput, expectedCommand);
     }
