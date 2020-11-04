@@ -237,27 +237,21 @@ public class MainWindow extends UiPart<Stage> {
                 System.out.println(tabNameToDisplay.get());
                 switchTab(tabNameToDisplay.get());
             }
-
             if (commandResult.isPersonRightPanelView()) {
                 updateDetailedPersonPanel(logic.getDisplayedPerson());
             }
-
             if (commandResult.isJobRightPanelView()) {
                 updateDetailedJobPanel(logic.getDisplayedJob());
             }
-
             if (!commandResult.isJobRightPanelView() && !commandResult.isPersonRightPanelView()) {
                 detailedView.getChildren().clear();
             }
-
             if (commandResult.isShowHelp()) {
                 handleHelp();
             }
-
             if (commandResult.isExit()) {
                 handleExit();
             }
-
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);

@@ -23,6 +23,7 @@ CANdidates is an open source, brownfield project on the existing [Address book
      1. [List feature](#implemented-list-feature)
      1. [Sort feature](#implemented-sort-feature)
      1. [Find feature](#implemented-find-feature)
+     1. [View feature](#implemented-view-feature)
 1. [Proposed features](#proposed-features)
      1. [Undo/Redo feature](#proposed-undoredo-feature)
          1. [Proposed Implementation](#proposed-implementation)
@@ -317,6 +318,40 @@ The following sequence diagram shows how the find operation works in the scenari
 
 The above only demonstrates finding candidates by their `Name` and `Experience`.
 The find operation also supports finding candidates via other fields such as `Email` and `Vacancy`.
+
+### \[Implemented] View feature
+
+The implemented view feature has two variants `view can` and `view job` for viewing a candidate and viewing a job respectively.
+
+The mechanism for both view features are faciliated by `ModelManager` and `MainWindow`. `ModelManager` implements model and contains a `displayedPerson` which is of type `Person`.
+
+ `ModelManager` implements the following operations:
+
+* `ModelManager#setDisplayedPerson(Person person)` — Sets the `displayedPerson` in the `ModelManager` class to be the supplied person
+
+`MainWindow` implements the following operations:
+
+* `MainWindow#updateDetailedPersonPanel(Person person)` — Updates the view on the right panel of the GUI to contain information of the supplied person
+
+Given below is an example usage scenario and how the `view can` mechanism behaves at each step.
+
+Step 1. The user launches the application for the first time. The `displayedPerson` will be initialised with `null`.
+
+Step 2. The user executes `view can 1` to show the candidate at `Index` 1 on the right panel of the GUI.
+
+Step 3. The method `AddressBookParser#parseCommand` is invoked to distinguish which type of command it is. After discerning it is an `view can` command, the `ViewPersonCommandParser#parse` is then invoked to parse the arguments. If the command format is invalid, `ViewPersonCommandParser` throws an error.
+
+Step 4. A `ViewPersonCommand` object is created from parsing the argument.
+
+Step 5. In the `ViewPersonCommand#execute` method, the `ModelManager#getFilteredPersonList()` is invoked to obtain a `displayablePersons` which is a list of the candidates in the address book. The supplied `Index` is then used to obtain the `Person` in `displayablePerson` to be displayed. The method `ModelManager#setDisplayedPerson(Person person)` is invoked to set the person to be displayed to be the `Person` obtained from `displayablePersons`.
+
+Step 6. A `CommandResult` object is created from `ViewPersonCommand#execute`. The method `MainWindow#updateDetailedPersonPanel(Person person)` is also invoked from the execution of the command.
+
+Step 7. Candidate at `Index` 1 is now displayed on the right panel.
+
+The following sequence diagram shows how the view operation works in the scenario described above:
+
+![ViewSequenceDiagram](images/ViewSequenceDiagram.png)
 
 ## Proposed Features
 
