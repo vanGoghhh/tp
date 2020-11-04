@@ -43,11 +43,15 @@ CANdidates is an open source, brownfield project on the existing [Address book
 1. [Appendix: Instructions for Manual Testing](#appendix-instructions-for-manual-testing)
      1. [Launch and Shutdown](#launch-and-shutdown)
      1. [Adding a Candidate](#adding-a-candidate)
+     1. [Adding a Job](#adding-a-job)
+     1. [Listing all Candidates](#listing-all-candidates)
      1. [Editing a Candidate](#editing-a-candidate)
      1. [Detecting Duplicate Candidates](#detecting-duplicate-candidates)
+     1. [Detecting Duplicate Jobs](#detecting-duplicate-jobs)
      1. [Deleting a Candidate](#deleting-a-candidate)
-     1. [Clearing All Candidates](#clearing-all-candidates)
+     1. [Clearing all Candidates](#clearing-all-candidates)
      1. [Finding a Candidate](#finding-a-candidate)
+     1. [Sorting all Candidates](#sorting-all-candidates)
      1. [Saving Data](#saving-data)
 
 --------------------------------------------------------------------------------------------------------------------
