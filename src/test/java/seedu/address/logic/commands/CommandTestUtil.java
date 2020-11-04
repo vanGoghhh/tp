@@ -83,6 +83,7 @@ public class CommandTestUtil {
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 
+    public static final String EMPTY_NAME_DESC = " " + PREFIX_NAME + ""; // Field cannot be empty
     public static final String EMPTY_COMPANY_NAME_DESC = " " + PREFIX_COMPANY_NAME + ""; // Field cannot be empty
 
     // Invalid information inputs
