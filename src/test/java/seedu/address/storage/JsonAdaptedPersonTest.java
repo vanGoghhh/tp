@@ -144,6 +144,15 @@ public class JsonAdaptedPersonTest {
     }
 
     @Test
+    public void toModelType_nullBlacklistStatus_throwsIllegalValueException() {
+        JsonAdaptedPerson person =
+            new JsonAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_EXPERIENCE, VALID_DATE,
+                null, VALID_ADDRESS, VALID_URL_LINK, VALID_SALARY, VALID_TAGS);
+        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, "Blacklist Status");
+        assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
+    }
+
+    @Test
     public void toModelType_invalidBlacklistStatus_throwsIllegalValueException() {
         JsonAdaptedPerson person =
                 new JsonAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_EXPERIENCE, VALID_DATE,

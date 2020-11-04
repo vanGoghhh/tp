@@ -5,6 +5,7 @@ import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.BLACKLIST_STATUS_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.DATE_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.EMPTY_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.EXPERIENCE_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.PHONE_DESC_AMY;
@@ -64,6 +65,13 @@ public class FindPersonCommandParserTest {
     public void parse_emptyInput_throwsParseException() {
         assertParseFailure(parser, "",
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
+    }
+
+
+    @Test
+    public void parse_emptyInputField_throwsParseException() {
+        assertParseFailure(parser, EMPTY_NAME_DESC,
+            String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindPersonCommand.MESSAGE_USAGE));
     }
 
     @Test
