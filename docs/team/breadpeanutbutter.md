@@ -34,7 +34,7 @@ Given below are my contributions to the project.
        implement this field as I had to consider how to make it truly optional while adhering to good coding practices. I wanted to avoid using
        null values for this as they can be prone to errors. Hence, I decided to utlise Java's Optional class to contain UrlLink in an Optional object. 
      * Hightlight: It was also a challenge to validate the format of URL links as there are numerous possibilities. I decided to use a third party library, 
-       Apache Commons Validator, to validate the format instead of implementing my own validator.
+       Apache Commons Validator, to validate the format for this.
    * **Salary information field**    
      * What it is for: A field used to represent the expected salary of a candidate. It is an optional input field for candidates. 
        Internally, it is represented as a Salary object.
