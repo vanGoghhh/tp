@@ -74,6 +74,8 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String HELP_FORMAT = "   help";
     public static final String EXIT_FORMAT = "   exit";
 
+    //@@author KishenKumarrrrr-reused
+    //Reused from https://github.com/KishenKumarrrrr/tp/commit/5008b1b4f3f79e5fc3ac7f318e76549524aa9d25 with modifications
     private static final ObservableList<Row> tableRows =
             FXCollections.observableArrayList(
                     new Row(ADD_ACTION, ADD_CANDIDATE_FORMAT, ADD_JOB_FORMAT),
@@ -126,6 +128,9 @@ public class HelpWindow extends UiPart<Stage> {
         action.setText(TABLE_FIRST_COLUMN);
         candidateFormat.setText(TABLE_SECOND_COLUMN);
         jobFormat.setText(TABLE_THIRD_COLUMN);
+
+        //@@author KishenKumarrrrr-reused
+        //Reused from https://github.com/KishenKumarrrrr/tp/commit/5008b1b4f3f79e5fc3ac7f318e76549524aa9d25 with modifications
         action.setCellValueFactory(new PropertyValueFactory<Row, String>("action"));
         candidateFormat.setCellValueFactory(new PropertyValueFactory<Row, String>("candidateFormat"));
         jobFormat.setCellValueFactory(new PropertyValueFactory<Row, String>("jobFormat"));
@@ -195,6 +200,8 @@ public class HelpWindow extends UiPart<Stage> {
         clipboard.setContent(url);
     }
 
+    //@@author KishenKumarrrrr-reused
+    //Reused from https://github.com/KishenKumarrrrr/tp/commit/5008b1b4f3f79e5fc3ac7f318e76549524aa9d25 with modifications
     public static class Row {
         private String action;
         private String candidateFormat;
