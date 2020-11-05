@@ -762,7 +762,7 @@ testers are expected to do more *exploratory* testing.
 
 1. Listing all candidates while on the job listings tab. 
 
-    1. Prerequisites: At least one candidate added to the list. Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it passes.   
+    1. Prerequisites: At least one candidate added to the list. Perform test case 1.2 from [Section 7.2. Adding a candidate](#72-adding-a-candidate) to add a new candidate and verify that it passes.   
  
     1. Test case: `list can`<br>
        Expected: The application automatically changes to the candidates tab, and displays all candidates. 
@@ -777,7 +777,7 @@ testers are expected to do more *exploratory* testing.
 
 1. Editing a candidate while on the candidates tab and all candidates are displayed 
 
-    1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it passes.
+    1. Prerequisites: Perform test case 1.2 from [Section 7.2. Adding a candidate](#72-adding-a-candidate) to add a new candidate and verify that it passes.
     
     1. Test case: `edit can INDEX n/Ron bl/true` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
        Expected: The `Name` of the candidate at index `INDEX` changes from _Rob_ to _Ron_ and `Blacklisted` changes from _false_ to _true_.
@@ -796,7 +796,7 @@ testers are expected to do more *exploratory* testing.
 
 1. Detecting and preventing the creation of duplicate candidates
      
-   1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it passes. 
+   1. Prerequisites: Perform test case 1.2 from [Section 7.2. Adding a candidate](#72-adding-a-candidate) to add a new candidate and verify that it passes. 
    
    1. Test case (Same name and phone): `add can n/Rob p/88888888 e/mail@gmail.com doa/08-10-22 exp/15` <br>
       Expected: No new candidate added. Duplicate candidate error shown in the status message.
@@ -808,7 +808,7 @@ testers are expected to do more *exploratory* testing.
 
 1. Detecting and preventing the creation of duplicate jobs
      
-   1. Prerequisites: Perform test case 2.2 from [Adding a job](#adding-a-job)to add a new job and verify that it passes. 
+   1. Prerequisites: Perform test case 1.2 from [Section 7.3. Adding a job](#73-adding-a-job)to add a new job and verify that it passes. 
    
    1. Test case (Same job title and company name): `add job n/Delivery Man c/FedEx e/anotherfedex@example.com a/Jurong West p/84378293` <br>
       Expected: No new job listing added. Duplicate job error shown in the status message.
