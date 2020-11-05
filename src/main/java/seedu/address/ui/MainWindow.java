@@ -37,10 +37,8 @@ public class MainWindow extends UiPart<Stage> {
     private Logic logic;
 
     // Independent Ui parts residing in this Ui container
-    private PersonListPanel personListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
-    private JobListPanel jobListPanel;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -199,10 +197,10 @@ public class MainWindow extends UiPart<Stage> {
      */
     private void switchTab(String tabName) {
         switch (tabName) {
-        case PersonListPanel.TAB_NAME:
+        case Person.TAB_NAME:
             tabPane.getSelectionModel().select(0);
             break;
-        case JobListPanel.TAB_NAME:
+        case Job.TAB_NAME:
             tabPane.getSelectionModel().select(1);
             break;
         default:

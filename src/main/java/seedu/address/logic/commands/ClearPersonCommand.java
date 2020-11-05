@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.address.model.Model;
 import seedu.address.model.PersonAddressBook;
+import seedu.address.model.information.Person;
 
 /**
  * Clears the candidate list.
@@ -18,6 +19,6 @@ public class ClearPersonCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.setPersonAddressBook(new PersonAddressBook());
-        return new CommandResult(MESSAGE_SUCCESS, "Candidates");
+        return new CommandResult(MESSAGE_SUCCESS, Person.TAB_NAME);
     }
 }

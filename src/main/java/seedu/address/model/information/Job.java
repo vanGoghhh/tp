@@ -15,6 +15,8 @@ import seedu.address.model.tag.Tag;
  */
 public class Job {
 
+    public static final String TAB_NAME = "Jobs";
+
     // Identity fields
     private final Name jobTitle;
     private final CompanyName companyName;
