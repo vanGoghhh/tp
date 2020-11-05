@@ -50,5 +50,5 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 
 * **Community**:
   * Contributed to forum discussions by clarifying an issue for the team project. (Example: [\#348](https://github.com/nus-cs2103-AY2021S1/forum/issues/348))
-  * Reported bugs found and assigned the issue to relevant teammates. (Examples: [\#152](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/152), [\#161](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/161))
-  * Reported bugs and suggestions for other teams in the class. (Examples: PE-D issues [\#1](https://github.com/ameliatjy/ped/issues/1), [\#5](https://github.com/ameliatjy/ped/issues/5) and [\#8](https://github.com/ameliatjy/ped/issues/8))
+  * Reported bugs found and assigned the issues to relevant teammates. (Examples: [\#152](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/152), [\#161](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/161))
+  * Reported bugs for and gave suggestions to other teams in the class. (Examples: PE-D issues [\#1](https://github.com/ameliatjy/ped/issues/1), [\#5](https://github.com/ameliatjy/ped/issues/5) and [\#8](https://github.com/ameliatjy/ped/issues/8))
