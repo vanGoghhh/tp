@@ -68,7 +68,7 @@ You may refer back to this section whenever you need help understanding the GUI 
 
 ### 2.3 Understanding Input Fields
 Input fields are fields that you have to specify in your commands. Still not sure what this means without context? 
-Try getting a quick glance at [Section 3, Quick Start](#3-quick-start) first!
+Try getting a quick glance at [Section 3. Quick Start](#3-quick-start) first!
 
 You may refer back to this table whenever you need help understanding the input fields.
 
@@ -95,7 +95,7 @@ Name of input field   | How you can use them
 
 ### 2.4 Understanding Command Format
 
-This section will explain how to interpret all the command formats which you will encounter in [Section 4, Features for Candidates](#4-features-for-candidates), [Section 5, Features for Jobs](#5-features-for-jobs) and [Section 6, Other Features](#6-other-features).
+This section will explain how to interpret all the command formats which you will encounter in [Section 4. Features for Candidates](#4-features-for-candidates), [Section 5. Features for Jobs](#5-features-for-jobs) and [Section 6. Other Features](#6-other-features).
 This will help you to understand *CANdidates*' features better.
 
 * Words in `UPPER_CASE` are the input fields which are supposed to be specified by you.<br>
@@ -110,7 +110,7 @@ This will help you to understand *CANdidates*' features better.
 * Input fields can be in any order you want them to be.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-*:bulb: If you are confused with the various input fields, refer to [Section 2.3, Understanding Input Fields](#23-understanding-input-fields).*
+*:bulb: If you are confused with the various input fields, refer to [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).*
 
 <br>
 
@@ -141,13 +141,13 @@ Can’t wait to start using *CANdidates*? This section guides you through the st
 
    * **`exit`** : Exits the app.
 
-1. Refer to [Section 4, Features for Candidates](#4-features-for-candidates), [Section 5, Features for Jobs](#5-features-for-jobs) and [Section 6, Other Features](#6-other-features) for details of each command.
+1. Refer to [Section 4. Features for Candidates](#4-features-for-candidates), [Section 5. Features for Jobs](#5-features-for-jobs) and [Section 6. Other Features](#6-other-features) for details of each command.
 
 <div markdown="span" class="alert alert-primary">
 
 :exclamation: *Ensure you have Java 11 or above installed in your Computer.*
 
-:bulb: *If you are confused with the various input fields, refer to* [Section 2.3, Understanding Input Fields](#23-understanding-input-fields).
+:bulb: *If you are confused with the various input fields, refer to* [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).
 </div>
 <br>
 
@@ -156,7 +156,7 @@ Can’t wait to start using *CANdidates*? This section guides you through the st
 ## 4. Features for Candidates
 This section provides you with features to handle all information of candidates for your utmost convenience!
 <br>
-Refer to [Section 5, Features for Jobs](#5-features-for-jobs) for features specific to jobs or to [Section 6, Other Features](#6-other-features) for more general features.
+Refer to [Section 5. Features for Jobs](#5-features-for-jobs) for features specific to jobs or to [Section 6. Other Features](#6-other-features) for more general features.
 
 <br>
 
@@ -169,7 +169,7 @@ If you have a new candidate who approached you and you would like to put him in 
 <div markdown="span" class="alert alert-primary">
 
 
-:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.3, Understanding Input Fields](#23-understanding-input-fields).*
+:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).*
 <br>
 :bulb: *A candidate can have 0 or more job type(s).*
 <br>
@@ -452,7 +452,7 @@ Step 3. All the information of the specified candidate would be displayed on the
 ## 5. Features for Jobs
 This section provides you with features to handle all information of job listings for your utmost convenience!
 <br>
-Refer to [Section 4, Features for Candidates](#4-features-for-candidates) for features specific to candidates or to [Section 6, Other Features](#6-other-features) for more general features.
+Refer to [Section 4. Features for Candidates](#4-features-for-candidates) for features specific to candidates or to [Section 6. Other Features](#6-other-features) for more general features.
 
 <br>
        
@@ -464,7 +464,7 @@ If you are informed of a job opening and you would like to add it in *CANdidates
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.3, Understanding Input Fields](#23-understanding-input-fields).*
+:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).*
 <br>
 :bulb: *A job can have 0 or more job description(s).*
 <br>
@@ -744,7 +744,7 @@ Step 3. All the information of the specified job would be displayed on the detai
 ## 6. Other Features
 This section explores other general features that CANdidates has to offer!
 <br>
-Refer to [Section 4, Features for Candidates](#4-features-for-candidates) for features specific to candidates or to [Section 5, Features for Jobs](#5-features-for-jobs) for features specific to jobs.
+Refer to [Section 4. Features for Candidates](#4-features-for-candidates) for features specific to candidates or to [Section 5. Features for Jobs](#5-features-for-jobs) for features specific to jobs.
 
 <br>
 
