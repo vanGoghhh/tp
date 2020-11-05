@@ -259,7 +259,7 @@ Type `edit can 1 p/91234567 e/johndoe@example.com bl/true` in the *command box* 
 Step 2. The *CANdidates* application will automatically switch to the "Candidates" tab if you are at the "Jobs" tab. 
 The command result will depend on the specific candidate that is being edited and the input fields that were not edited. 
 Representing the original values of the candidate's input fields which were not edited as "{}", the message that will be shown in the *result display* is
->“Edited candidate: {} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:true Tags: {}".
+>“Edited candidate: {Name of candidate} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:true Tags: {}".
 
 Step 3. The application will show the updated list of candidates with the edited candidate.
 
@@ -381,7 +381,7 @@ Type `delete can 1` in the *command box* and press *Enter*.
 Step 2. The *CANdidates* application will automatically switch to the "Candidates" tab if you are at the "Jobs" tab. 
 The command result will depend on the specific candidate that is being deleted.
 Representing the values of the candidate's input fields as "{}", the message that will be shown in the *result display* is
->Deleted candidate: {} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {}  Expected Salary: {} Blacklisted: {} Tags: {}" 
+>Deleted candidate: {Name of candidate} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {}  Expected Salary: {} Blacklisted: {} Tags: {}" 
 
 Step 3. The application will show the updated candidates list without the deleted candidate.
 
@@ -558,7 +558,7 @@ Type `edit job 1 c/Dog Cafe p/82827731 v/3 pr/high` in the *command box* and pre
 Step 2. The *CANdidates* application will automatically switch to the "Jobs" tab if you are at the "Candidates tab". 
 The command result will depend on the specific job that is being edited and the input fields that were not edited. 
 Representing the original values of the job's input fields which were not edited as "{}", the message that will be shown in the *result display* is
->“Edited job: {} Company: Dog Cafe Phone: 82827731 Email: {} Address: {} Priority: high Vacancy: 3 Tags: {}".
+>“Edited job: {Job Title} Company: Dog Cafe Phone: 82827731 Email: {} Address: {} Priority: high Vacancy: 3 Tags: {}".
 
 Step 3. The application will show the updated list of jobs with the edited job.
 
@@ -672,7 +672,7 @@ Type `delete job 1` in the *command box* and press *Enter*.
 Step 2. The *CANdidates* application will automatically switch to the "Jobs" tab if you are at the "Candidates" tab. 
 The command result will depend on the specific job that is being deleted.
 Representing the values of the job's input fields as "{}", the message that will be shown in the *result display* is
->Deleted Job: {} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}"
+>Deleted Job: {Job Title} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}"
 
 Step 3. The application will show the updated job list without the deleted job.
 
@@ -827,9 +827,18 @@ All data is saved in the hard disk automatically after any command that changes 
 ## **7. FAQ**
 
 **Q**: How do I transfer my data to another Computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CANdidates home folder.
+**A**: Install the app in the other computer and overwrite the sample data file it creates with the file that contains the data from your previous *CANdidates* root folder.
 
-**Q**: I accidentally corrupted my existing data file and my CANdidates application started up with the sample data. How can I get my data back?<br>
+**Q**: Where is the data stored and how can I access it?<br>
+**A**: The data is stored in the "data" folder in your *CANdidates* root folder. The candidate data is stored in the personaddressbook.jsonfile
+       while the job data is stored in the jobaddressbook.json file.
+       
+**Q**: Can I modify the data files?<br>
+**A**  We recommend that you do not modify the data files unless you are an advanced user, and that you make any changes through the UI instead. 
+       In the event that the data becomes corrupted, *CANdidates* will start up with sample data as a fallback. There is a risk of losing
+       all your original data should this happen.      
+
+**Q**: I modified my existing data file and it is now corrupted. My *CANdidates* application started up with the sample data. How can I get my data back?<br>
 **A**: Currently, our application is unfortunately not able to support recovering corrupted data files. We are sorry for any inconveniences caused. 
 
 **Q**: How do I report a bug I encountered?<br>
@@ -872,6 +881,7 @@ Terms | Explanation
 **Input field** | Input to the command that the user specifies.
 **Cumulative** | Increasing in quantity by successive additions.
 **Hard disk** | Storage of information in a computer.
+**Root folder** | The top-level folder of a file system. In this context, it is the folder you put the *Candidates.jar* file in.
 **Repository** | Online container where your code can be stored, contributed to and managed over time.
 **Pull Request** | Formal request to merge one’s code into a larger codebase.
 **Bug** | A software bug is an error, flaw or fault in a computer program or system that causes it to produce an incorrect or unexpected result, or to behave in unintended ways.
