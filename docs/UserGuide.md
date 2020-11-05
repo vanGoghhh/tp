@@ -833,8 +833,8 @@ All data is saved in the hard disk automatically after any command that changes 
 **A**: The data is stored in the "data" folder in your *CANdidates* root folder. The candidate data is stored in the personaddressbook.jsonfile
        while the job data is stored in the jobaddressbook.json file.
        
-**Q**: Can I modify the data files?<br>
-**A**:  We recommend that you do not modify the data files unless you are an advanced user, and that you make any changes through the UI instead. 
+**Q**: Can I modify the data files directly?<br>
+**A**: We recommend that you do not modify the data files unless you are an advanced user, and that you make any changes through the UI instead. 
        In the event that the data becomes corrupted, *CANdidates* will start up with sample data as a fallback. There is a risk of losing
        all your original data should this happen.      
 
