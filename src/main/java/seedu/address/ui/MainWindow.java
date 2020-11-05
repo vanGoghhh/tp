@@ -199,10 +199,10 @@ public class MainWindow extends UiPart<Stage> {
      */
     private void switchTab(String tabName) {
         switch (tabName) {
-        case PersonListPanel.TAB_NAME:
+        case Person.TAB_NAME:
             tabPane.getSelectionModel().select(0);
             break;
-        case JobListPanel.TAB_NAME:
+        case Job.TAB_NAME:
             tabPane.getSelectionModel().select(1);
             break;
         default:

@@ -11,7 +11,6 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.information.Job;
 
 public class JobListPanel extends UiPart<Region> {
-    public static final String TAB_NAME = "Jobs";
     private static final String FXML = "JobListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
 

@@ -64,7 +64,7 @@ public class FindJobCommand extends Command {
         model.updateFilteredJobList(composePredicatesList(predicates));
         return new CommandResult(
                 String.format(Messages.MESSAGE_JOBS_LISTED_OVERVIEW, model.getFilteredJobList().size()),
-                "Jobs");
+                Job.TAB_NAME);
     }
 
     @Override

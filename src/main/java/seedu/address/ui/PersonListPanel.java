@@ -15,7 +15,6 @@ import seedu.address.model.information.Person;
  * Panel containing the list of persons.
  */
 public class PersonListPanel extends UiPart<Region> {
-    public static final String TAB_NAME = "Candidates";
     private static final String FXML = "PersonListPanel.fxml";
     private final Logger logger = LogsCenter.getLogger(PersonListPanel.class);
 
