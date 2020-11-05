@@ -34,15 +34,17 @@ public class Experience {
     public static boolean isValidExperience(String test) {
         requireNonNull(test);
         double experience;
+        int numberOfDecimals;
         test = test.strip();
         try {
             experience = Double.parseDouble(test);
+            numberOfDecimals = BigDecimal.valueOf(experience).scale();
         } catch (NumberFormatException exception) {
             return false;
         }
         return experience >= 0
                 && experience <= 100
-                && BigDecimal.valueOf(experience).scale() <= 2;
+                && numberOfDecimals <= 2;
     }
 
     @Override
