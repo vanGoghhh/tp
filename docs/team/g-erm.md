@@ -18,28 +18,28 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   making it significantly personalised for job recruiters to use our application to manage many job listings at once.
   * Highlights: This enhancement affects existing commands and commands to be added subsequently, such as find and sort commands. 
   This enhancement was also challenging as it was the first information field that was optional which had to take on a default value and 
-  no other similar implementations exists in the original codebase. A good understanding of the logic flow of the code base is required due to the multitude of classes and method involved.
+  no other similar implementations exists in the original codebase. A good understanding of the logic flow of the code base is required due to the multitude of classes and method involved.<br>
 
 * **New Feature**: Added the ability to store vacancies of job listings.
   * What it does: Allows the user to label a job listing with its number of vacancies.
   * Justification: This feature improves the product significantly as it differentiates the job list from the original AB3, 
   making it significantly personalised for job recruiters to use our application to manage job listings.
   * Highlights: This enhancement affects existing commands and commands to be added subsequently, such as find and sort commands. 
-  A good understanding of the logic flow of the code base is required due to the multitude of classes and method involved.
+  A good understanding of the logic flow of the code base is required due to the multitude of classes and method involved.<br>
 
 * **New Feature**: Added the ability to sort job listings.
   * What it does: Sorts the list of jobs by their job title, company name, priority level or number of vacancies in an ascending or descending order.
   * Justification: This feature improves the product significantly because a user can quickly sort the items with a single command. 
   A well organised and sorted list of jobs makes it easier for the user to view job listings according to various criteria and match suitable candidates to jobs.
   * Highlights: This enhancement is challenging as it is a fresh implementation and no similar implementations exists in the original codebase of AddressBook 3. 
-  Thus a good understanding of the logic flow of the code base is required due to the multitude of classes and methods involved.
+  Thus a good understanding of the logic flow of the code base is required due to the multitude of classes and methods involved.<br>
 
-* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#search=g-erm&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByAuthors&breakdown=false&tabOpen=false)
+* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#search=g-erm&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByAuthors&breakdown=false&tabOpen=false) <br>
 
 * **Project management and team-based tasks**: 
   * Ensured that the testing of the project is done properly and on time.
   * Maintained the issue tracker: Ensured that issues were assigned and tagged appropriately.
-  * Various documentation update that are not specific to a feature, mentioned in the documentation section.
+  * Various documentation update that are not specific to a feature, mentioned in the documentation section.<br>
 
 * **Enhancements to existing features**: 
   * Wrote additional tests for existing features to increase coverage. (Pull requests 
@@ -52,11 +52,11 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * Improve on the information display on the UI (Pull request [\#168](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/168))
   * Fixed sort candidate success message bug (Pull request [\#222](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/222))
   * Add sort by name feature for both candidates and jobs (Pull request [\#270](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/270))
-  * Update the application icon on the GUI (Pull request [\#292](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/292))
+  * Update the application icon on the GUI (Pull request [\#292](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/292))<br>
 
 * **Documentation**:
   * README:
-    * Updated the README document to solve documentation bugs (Pull request [\#77](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/77))
+    * Updated the README document to solve documentation bugs (Pull request [\#77](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/77)) <br>
   * User Guide:
     * Added and updated documentation for the sort features (examples: Pull requests 
     [\#159](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/159), 
@@ -65,7 +65,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     [\#159](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/159), 
     [\#166](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/166), 
     [\#280](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/280))
-    * Created new Understanding GUI section (Pull request [\#278](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/278))
+    * Created new Understanding GUI section (Pull request [\#278](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/278)) <br>
   * Developer Guide:
     * Update Architecture section as well as set the new colour scheme for the Developer Guide (examples: Pull requests 
     [\#125](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/125), 
@@ -74,13 +74,13 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     * Added documentation and sequence diagram for the list feature. (Pull request [\#132](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/132))
     * Identified the non-functional requirements of the project. (Pull request [\#75](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/75))
     * Updated the glossary. (Pull request [\#75](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/75))
-    * Update the Manual Testing section (Pull request [\#284](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/284))
+    * Update the Manual Testing section (Pull request [\#284](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/284)) <br>
 
 * **Community**:
   * Helped to test and report bugs for teammates features (examples: Pull requests 
     [\#79](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/79), 
-    [\#277](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/277))
-  * Contributed to forum discussions (example: CS2103T Forum Issue [\#165](https://github.com/nus-cs2103-AY2021S1/forum/issues/165))
+    [\#277](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/277)) <br>
+  * Contributed to forum discussions (example: CS2103T Forum Issue [\#165](https://github.com/nus-cs2103-AY2021S1/forum/issues/165)) <br>
   * Reported bugs and suggestions for other teams in the class (examples: ped issues 
     [\#3](https://github.com/g-erm/ped/issues/3), 
     [\#6](https://github.com/g-erm/ped/issues/6), 
