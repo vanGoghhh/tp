@@ -89,6 +89,7 @@ public class HelpWindow extends UiPart<Stage> {
                     new Row(HELP_ACTION, HELP_FORMAT, HELP_FORMAT),
                     new Row(EXIT_ACTION, EXIT_FORMAT, EXIT_FORMAT));
 
+    //@@author
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
 
@@ -137,6 +138,7 @@ public class HelpWindow extends UiPart<Stage> {
         table.setItems(tableRows);
     }
 
+    //@@author
     /**
      * Creates a new HelpWindow.
      */
@@ -200,8 +202,8 @@ public class HelpWindow extends UiPart<Stage> {
         clipboard.setContent(url);
     }
 
-    //@@author KishenKumarrrrr-reused
-    //Reused from https://github.com/KishenKumarrrrr/tp/commit/5008b1b4f3f79e5fc3ac7f318e76549524aa9d25 with modifications
+    //@@author Jakob Jenkov-reused
+    //Reused from http://tutorials.jenkov.com/javafx/tableview.html with modifications
     public static class Row {
         private String action;
         private String candidateFormat;
