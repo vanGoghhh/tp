@@ -36,6 +36,7 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String SORT_ACTION = "  Sort";
     public static final String DELETE_ACTION = "  Delete";
     public static final String CLEAR_ACTION = "  Clear";
+    public static final String VIEW_ACTION = "  View";
     public static final String HELP_ACTION = "  Help";
     public static final String EXIT_ACTION = "  Exit";
 
@@ -53,6 +54,7 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String SORT_CANDIDATE_FORMAT = "   sort can\n   type/FIELD_TO_SORT\n   order/ORDER";
     public static final String DELETE_CANDIDATE_FORMAT = "   delete can INDEX";
     public static final String CLEAR_CANDIDATE_FORMAT = "   clear can";
+    public static final String VIEW_CANDIDATE_FORMAT = "   view can INDEX";
 
     //Job Formats
     public static final String ADD_JOB_FORMAT = "   add job\n   n/JOB_TITLE\n   c/COMPANY_NAME\n   "
@@ -66,6 +68,7 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String SORT_JOB_FORMAT = "   sort job\n   type/FIELD_TO_SORT\n   order/ORDER";
     public static final String DELETE_JOB_FORMAT = "   delete job INDEX";
     public static final String CLEAR_JOB_FORMAT = "   clear job";
+    public static final String VIEW_JOB_FORMAT = "   view job INDEX";
 
     //General Formats
     public static final String HELP_FORMAT = "   help";
@@ -80,6 +83,7 @@ public class HelpWindow extends UiPart<Stage> {
                     new Row(SORT_ACTION, SORT_CANDIDATE_FORMAT, SORT_JOB_FORMAT),
                     new Row(DELETE_ACTION, DELETE_CANDIDATE_FORMAT, DELETE_JOB_FORMAT),
                     new Row(CLEAR_ACTION, CLEAR_CANDIDATE_FORMAT, CLEAR_JOB_FORMAT),
+                    new Row(VIEW_ACTION, VIEW_CANDIDATE_FORMAT, VIEW_JOB_FORMAT),
                     new Row(HELP_ACTION, HELP_FORMAT, HELP_FORMAT),
                     new Row(EXIT_ACTION, EXIT_FORMAT, EXIT_FORMAT));
 
