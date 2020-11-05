@@ -8,9 +8,9 @@
 <?import javafx.stage.*?>
 
 <?import javafx.geometry.Insets?>
-<fx:root maxHeight="700" maxWidth="1280" onCloseRequest="#handleExit" resizable="false"  title="Candidates" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="700" maxWidth="1280" onCloseRequest="#handleExit" resizable="false"  title="CANdidates" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
-    <Image url="@/images/address_book_32.png" />
+    <Image url="@/images/CANdidates1.png" />
   </icons>
   <scene>
     <Scene>
