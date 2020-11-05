@@ -10,7 +10,7 @@ title: User Guide
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 1. Introduction
+## **1. Introduction**
 Hello there! If you are reading this, you must be curious about *CANdidates*. 
 
 *CANdidates* is a powerful and optimized contact management app for job recruiters to manage job candidates and job listings. 
@@ -39,7 +39,7 @@ you may be happy to know that a glossary is provided at the end of this document
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 2. Preface
+## **2. Preface**
 For a smoother start to your usage of *CANdidates*, read this section to find out how this document is structured, 
 how to navigate the document and what all the symbols, special fonts and command formats mean.
 
@@ -116,7 +116,7 @@ This will help you to understand *CANdidates*' features better.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 3. Quick Start
+## **3. Quick Start**
 Can’t wait to start using *CANdidates*? This section guides you through the starting up process, so that you can proceed on to use the application for your own needs!
 
 1. Download the latest `Candidates.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-3/tp/releases/tag/v1.3).
@@ -153,7 +153,7 @@ Can’t wait to start using *CANdidates*? This section guides you through the st
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 4. Features for Candidates
+## **4. Features for Candidates**
 This section provides you with features to handle all information of candidates for your utmost convenience!
 <br>
 Refer to [Section 5. Features for Jobs](#5-features-for-jobs) for features specific to jobs or to [Section 6. Other Features](#6-other-features) for more general features.
@@ -449,7 +449,7 @@ Step 3. All the information of the specified candidate would be displayed on the
 
 <br>
 
-## 5. Features for Jobs
+## **5. Features for Jobs**
 This section provides you with features to handle all information of job listings for your utmost convenience!
 <br>
 Refer to [Section 4. Features for Candidates](#4-features-for-candidates) for features specific to candidates or to [Section 6. Other Features](#6-other-features) for more general features.
@@ -741,7 +741,7 @@ Step 3. All the information of the specified job would be displayed on the detai
 
 <br>
 
-## 6. Other Features
+## **6. Other Features**
 This section explores other general features that CANdidates has to offer!
 <br>
 Refer to [Section 4. Features for Candidates](#4-features-for-candidates) for features specific to candidates or to [Section 5. Features for Jobs](#5-features-for-jobs) for features specific to jobs.
@@ -824,7 +824,7 @@ All data is saved in the hard disk automatically after any command that changes 
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 7. FAQ
+## **7. FAQ**
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CANdidates home folder.
@@ -842,7 +842,7 @@ All data is saved in the hard disk automatically after any command that changes 
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 8. Command Summary
+## **8. Command Summary**
 
 This handy command summary table provides you with all the possible commands for *CANdidates* at one glance.
 
@@ -863,7 +863,7 @@ Action | Candidate Format | Job Format
 
 --------------------------------------------------------------------------------------------------------------------
 
-## 9. Glossary
+## **9. Glossary**
 
 Terms | Explanation
 --------|------------------------------------

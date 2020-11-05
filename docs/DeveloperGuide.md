@@ -472,7 +472,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 (For all use cases below, the **System** is the `CANdidates` and the **Actor** is the `user`, unless specified otherwise)
       
 
-#### **6.3.1 Use case: UC01 - Add a candidate**
+#### 6.3.1 Use case: UC01 - Add a candidate
 
 **MSS**
 
@@ -496,7 +496,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **6.3.2 Use case: UC02 - List candidates**
+#### 6.3.2 Use case: UC02 - List candidates
 
 **MSS**
 
@@ -514,7 +514,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **6.3.3 Use case: UC03 - Delete a candidate**
+#### 6.3.3 Use case: UC03 - Delete a candidate
 
 **MSS**
 
@@ -537,7 +537,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **6.3.4 Use case: UC04 - Edit a candidate**
+#### 6.3.4 Use case: UC04 - Edit a candidate
 
 **MSS**
 
@@ -566,7 +566,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **6.3.5 Use case: UC05 - Clear all candidates**
+#### 6.3.5 Use case: UC05 - Clear all candidates
 
 **MSS**
 
@@ -583,7 +583,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   Use case ends.
 
 
-#### **6.3.6 Use case: UC06 - Find candidates**
+#### 6.3.6 Use case: UC06 - Find candidates
 
 **MSS**
 
@@ -601,7 +601,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **6.3.7 Use case: UC07 - Sort candidates**
+#### 6.3.7 Use case: UC07 - Sort candidates
 
 **MSS**
 
@@ -630,42 +630,42 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **6.3.8 Use case: UC08 - Add a job**
+#### 6.3.8 Use case: UC08 - Add a job
 
 Similar to UC01, except user will request to add a job instead.
 
 
-#### **6.3.9 Use case: UC09 - List jobs**
+#### 6.3.9 Use case: UC09 - List jobs
 
 Similar to UC02, except user will request to list jobs and CANdidates will show a list of jobs instead.
 
 
-#### **6.3.10 Use case: UC10 - Delete a job**
+#### 6.3.10 Use case: UC10 - Delete a job
 
 Similar to UC03, except user will request to delete a specific job index.
 
 
-#### **6.3.11 Use case: UC11 - Edit a candidate**
+#### 6.3.11 Use case: UC11 - Edit a candidate
 
 Similar to UC04, except user will request to edit details of a specific job index.
 
 
-#### **6.3.12 Use case: UC12 - Clear all jobs**
+#### 6.3.12 Use case: UC12 - Clear all jobs
 
 Similar to UC05, except user will request to clear all jobs.
 
 
-#### **6.3.13 Use case: UC13 - Find candidates**
+#### 6.3.13 Use case: UC13 - Find candidates
 
 Similar to UC06, except user will request to find jobs with keywords and CANdidates will show a list of jobs instead.
 
 
-#### **6.3.14 Use case: UC14 - Sort candidates**
+#### 6.3.14 Use case: UC14 - Sort candidates
 
 Similar to UC07, except user will request to sort jobs.
 
 
-#### **6.3.15 Use case: UC15 - Requesting for help**
+#### 6.3.15 Use case: UC15 - Requesting for help
 
 **MSS**
 
