@@ -7,65 +7,22 @@ CANdidates is an open source, brownfield project on the existing [Address book
  contribute to this [project](https://github.com/AY2021S1-CS2103T-T17-3/tp),
  create a pull request [here](https://github.com/AY2021S1-CS2103T-T17-3/tp/pulls).
 
-## CANdidates User Guide
-
-1. [Setting up, getting started](#setting-up-getting-started)
-1. [Design](#design)
-     1. [Architecture](#architecture)
-     1. [User Interface](#ui-component)
-     1. [Logic](#logic-component)
-     1. [Model](#model-component)
-     1. [Storage](#storage-component)
-     1. [Common Classes](#common-classes)
-1. [Implementation](#implementation)
-     1. [Add feature](#implemented-add-feature)
-     1. [Edit feature](#implemented-edit-feature)
-     1. [List feature](#implemented-list-feature)
-     1. [Sort feature](#implemented-sort-feature)
-     1. [Find feature](#implemented-find-feature)
-     1. [View feature](#implemented-view-feature)
-1. [Proposed features](#proposed-features)
-     1. [Undo/Redo feature](#proposed-undoredo-feature)
-         1. [Proposed Implementation](#proposed-implementation)
-         1. [Design Consideration](#design-consideration)
-             1. [How it executes](#aspect-how-undo--redo-executes)
-     1. [Data Archiving](#proposed-data-archiving)
-1. [Documentation, Logging, Testing, Configuration, Dev-Ops](#documentation-logging-testing-configuration-dev-ops)
-1. [Appendix: Requirements](#appendix-requirements)
-     1. [Product Scope](#product-scope)
-     1. [User Stories](#user-stories)
-     1. [Use Cases](#use-cases)
-         1. [Delete a Candidate](#use-case-delete-a-candidate)
-         1. [Add a Candidate](#use-case-add-a-candidate)
-         1. [Edit a Candidate](#use-case-edit-a-candidate)
-         1. [Clear all Candidates](#use-case-clear-all-entries)
-     1. [Non-Functional Requirements](#non-functional-requirements)
-     1. [Glossary](#glossary)
-1. [Appendix: Instructions for Manual Testing](#appendix-instructions-for-manual-testing)
-     1. [Launch and Shutdown](#launch-and-shutdown)
-     1. [Adding a Candidate](#adding-a-candidate)
-     1. [Adding a Job](#adding-a-job)
-     1. [Listing all Candidates](#listing-all-candidates)
-     1. [Editing a Candidate](#editing-a-candidate)
-     1. [Detecting Duplicate Candidates](#detecting-duplicate-candidates)
-     1. [Detecting Duplicate Jobs](#detecting-duplicate-jobs)
-     1. [Deleting a Candidate](#deleting-a-candidate)
-     1. [Clearing all Candidates](#clearing-all-candidates)
-     1. [Finding a Candidate](#finding-a-candidate)
-     1. [Sorting all Candidates](#sorting-all-candidates)
-     1. [Saving Data](#saving-data)
+<div markdown="block" class="alert alert-secondary">
+* Table of Contents
+{:toc}
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Setting up, getting started**
+## **1. Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Design**
+## **2. Design**
 
-### Architecture
+### 2.1 Architecture
 
 <img src="images/Architecture.png" width="500" />
 
@@ -107,7 +64,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 
 The sections below give more details of each component.
 
-### UI component
+### 2.2 UI component
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
@@ -123,7 +80,7 @@ The `UI` component,
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
 
-### Logic component
+### 2.3 Logic component
 
 ![Structure of the Logic Component](images/LogicClassDiagram.png)
 
@@ -143,7 +100,7 @@ Given below is the Sequence Diagram for interactions within the `Logic` componen
 <div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
-### Model component
+### 2.4 Model component
 
 ![Structure of the Model Component](images/ModelClassDiagram.png)
 
@@ -164,7 +121,7 @@ The `Model`,
 </div>
  
 
-### Storage component
+### 2.5 Storage component
 
 ![Structure of the Storage Component](images/StorageClassDiagram.png)
 
@@ -177,17 +134,17 @@ The `Storage` component,
 * `JsonPersonAddressBookStorage` and `JsonJobAddressBookStorage` is reponsible for saving the datas in json format.
 
 
-### Common classes
+### 2.6 Common classes
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Implementation**
+## **3. Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### \[Implemented] Add feature
+### 3.1 Add feature
 
 The Add feature exists, using `add can` for candidates and `add job` for jobs.
 
@@ -221,7 +178,7 @@ The following sequence diagram shows how the `add can` operation works in the sc
 
 :information_source: **Note:** The usage scenario and sequence diagram for the analogous `add job` operation are mostly similar, using its `AddJobCommandParser`, `AddJobCommand`, `hasJob`, `addJob`, `saveJobAddressBook` and `JobAddressBook` counterparts.
 
-### \[Implemented] Edit feature
+### 3.2 Edit feature
 
 The Edit feature has two variants, one for editing candidates `edit can` and one for editing jobs `edit job` . We will illustrate this feature using only the candidates variant here
 as the job variant works analogously. 
@@ -257,7 +214,7 @@ The following sequence diagram shows how the edit operation works in the scenari
 
 A `edit job` command works similarly for Jobs but with the analogous EditJobDescriptor, EditJobCommand, JobAddressBook etc. classes.
 
-### \[Implemented] List feature
+### 3.3 List feature
 
 The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
@@ -277,7 +234,7 @@ The following sequence diagram shows how the find operation works in the scenari
 
 ![ListSequenceDiagram](images/ListSequenceDiagram.png)
 
-### \[Implemented] Sort feature
+### 3.4 Sort feature
 
 The implemented sort mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `SortedList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
@@ -294,7 +251,7 @@ Step 3. A `PersonExperienceComparator` is created from parsing the command and a
 
 ![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png)
 
-### \[Implemented] Find feature
+### 3.5 Find feature
 
 The implemented find mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
@@ -319,7 +276,7 @@ The following sequence diagram shows how the find operation works in the scenari
 The above only demonstrates finding candidates by their `Name` and `Experience`.
 The find operation also supports finding candidates via other fields such as `Email` and `Vacancy`.
 
-### \[Implemented] View feature
+### 3.6 View feature
 
 The implemented view feature has two variants `view can` and `view job` for viewing a candidate and viewing a job respectively.
 
@@ -353,11 +310,11 @@ The following sequence diagram shows how the view operation works in the scenari
 
 ![ViewSequenceDiagram](images/ViewSequenceDiagram.png)
 
-## Proposed Features
+## **4. Proposed Features**
 
-### \[Proposed\] Undo/redo feature
+### 4.1 Undo/redo feature
 
-#### Proposed Implementation
+#### 4.1.1 Proposed Implementation
 
 The proposed undo/redo mechanism is facilitated by `VersionedPersonAddressBook`. It extends `PersonAddressBook` and `VersionedJobAddressBook` respectively with an undo/redo history, stored internally as an `personAddressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
@@ -426,9 +383,9 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 </div>
 
-#### Design consideration:
+#### 4.1.2 Design consideration:
 
-##### Aspect: How undo & redo executes
+##### 4.1.2.1 Aspect: How undo & redo executes
 
 * **Alternative 1 (current choice):** Saves the entire address book.
   * Pros: Easy to implement.
@@ -441,7 +398,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Documentation, logging, testing, configuration, dev-ops**
+## **5. Documentation, logging, testing, configuration, dev-ops**
 
 * [Documentation guide](Documentation.md)
 * [Testing guide](Testing.md)
@@ -451,9 +408,9 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
+## **6. Appendix: Requirements**
 
-### Product scope
+### 6.1 Product scope
 
 **Target user profile**: Job Recruiter
 
@@ -474,7 +431,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 * Sort job candidates and job openings by various fields.
 
 
-### User stories
+### 6.2 User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -510,12 +467,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | efficient person                           | be able to perform mass operations like deleting multiple entries at once             |                                                                                            |
 | `*`      | job recruiter                              | have a way to filter job applicants by their gender                                   |                                                                                            |
 
-### Use cases
+### 6.3 Use cases
 
 (For all use cases below, the **System** is the `CANdidates` and the **Actor** is the `user`, unless specified otherwise)
       
 
-#### **Use case: UC01 - Add a candidate**
+#### 6.3.1 Use case: UC01 - Add a candidate
 
 **MSS**
 
@@ -539,7 +496,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **Use case: UC02 - List candidates**
+#### 6.3.2 Use case: UC02 - List candidates
 
 **MSS**
 
@@ -557,7 +514,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **Use case: UC03 - Delete a candidate**
+#### 6.3.3 Use case: UC03 - Delete a candidate
 
 **MSS**
 
@@ -580,7 +537,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **Use case: UC04 - Edit a candidate**
+#### 6.3.4 Use case: UC04 - Edit a candidate
 
 **MSS**
 
@@ -609,7 +566,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **Use case: UC05 - Clear all candidates**
+#### 6.3.5 Use case: UC05 - Clear all candidates
 
 **MSS**
 
@@ -626,7 +583,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   Use case ends.
 
 
-#### **Use case: UC06 - Find candidates**
+#### 6.3.6 Use case: UC06 - Find candidates
 
 **MSS**
 
@@ -644,7 +601,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **Use case: UC07 - Sort candidates**
+#### 6.3.7 Use case: UC07 - Sort candidates
 
 **MSS**
 
@@ -673,42 +630,42 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case ends.
 
 
-#### **Use case: UC08 - Add a job**
+#### 6.3.8 Use case: UC08 - Add a job
 
 Similar to UC01, except user will request to add a job instead.
 
 
-#### **Use case: UC09 - List jobs**
+#### 6.3.9 Use case: UC09 - List jobs
 
 Similar to UC02, except user will request to list jobs and CANdidates will show a list of jobs instead.
 
 
-#### **Use case: UC10 - Delete a job**
+#### 6.3.10 Use case: UC10 - Delete a job
 
 Similar to UC03, except user will request to delete a specific job index.
 
 
-#### **Use case: UC11 - Edit a candidate**
+#### 6.3.11 Use case: UC11 - Edit a candidate
 
 Similar to UC04, except user will request to edit details of a specific job index.
 
 
-#### **Use case: UC12 - Clear all jobs**
+#### 6.3.12 Use case: UC12 - Clear all jobs
 
 Similar to UC05, except user will request to clear all jobs.
 
 
-#### **Use case: UC13 - Find candidates**
+#### 6.3.13 Use case: UC13 - Find candidates
 
 Similar to UC06, except user will request to find jobs with keywords and CANdidates will show a list of jobs instead.
 
 
-#### **Use case: UC14 - Sort candidates**
+#### 6.3.14 Use case: UC14 - Sort candidates
 
 Similar to UC07, except user will request to sort jobs.
 
 
-#### **Use case: UC15 - Requesting for help**
+#### 6.3.15 Use case: UC15 - Requesting for help
 
 **MSS**
 
@@ -719,7 +676,7 @@ Similar to UC07, except user will request to sort jobs.
     Use case ends.
 
 
-### Non-Functional Requirements
+### 6.4 Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 1.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
@@ -735,7 +692,7 @@ Similar to UC07, except user will request to sort jobs.
 1.  Any reused code should be used with appropriate credit given.
 1.  Should not include copyrighted audio or graphics.
 
-### Glossary
+### 6.5 Glossary
 
 * **Information**: Name, phone number, address, job type etc.
 * **Criteria**: Work experience, language and other skills.
@@ -744,7 +701,7 @@ Similar to UC07, except user will request to sort jobs.
 as well as features requiring creation of user accounts etc.
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Instructions for manual testing**
+## **7. Appendix: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -755,7 +712,7 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
-### Launch and shutdown
+### 7.1 Launch and shutdown
 
 1. Initial launch
 
@@ -765,7 +722,7 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Adding a candidate
+### 7.2 Adding a candidate
 
 1. Adding a candidate while on the candidates tab and all candidates are displayed 
 
@@ -783,7 +740,7 @@ testers are expected to do more *exploratory* testing.
     1. Other incorrect add commands to try include omitting other compulsory fields. <br>
        Expected: Similar to previous  
      
-### Adding a job
+### 7.3 Adding a job
 
 1. Adding a job while on the job listings tab and all jobs are displayed 
 
@@ -801,11 +758,11 @@ testers are expected to do more *exploratory* testing.
     1. Other incorrect add jobs to try include omitting other compulsory fields. <br>
        Expected: Similar to previous  
         
-### Listing all candidates
+### 7.4 Listing all candidates
 
 1. Listing all candidates while on the job listings tab. 
 
-    1. Prerequisites: At least one candidate added to the list. Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it passes.   
+    1. Prerequisites: At least one candidate added to the list. Perform test case 1.2 from [Section 7.2. Adding a candidate](#72-adding-a-candidate) to add a new candidate and verify that it passes.   
  
     1. Test case: `list can`<br>
        Expected: The application automatically changes to the candidates tab, and displays all candidates. 
@@ -816,11 +773,11 @@ testers are expected to do more *exploratory* testing.
    
    </div>
         
-### Editing a candidate
+### 7.5 Editing a candidate
 
 1. Editing a candidate while on the candidates tab and all candidates are displayed 
 
-    1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it passes.
+    1. Prerequisites: Perform test case 1.2 from [Section 7.2. Adding a candidate](#72-adding-a-candidate) to add a new candidate and verify that it passes.
     
     1. Test case: `edit can INDEX n/Ron bl/true` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
        Expected: The `Name` of the candidate at index `INDEX` changes from _Rob_ to _Ron_ and `Blacklisted` changes from _false_ to _true_.
@@ -835,11 +792,11 @@ testers are expected to do more *exploratory* testing.
    
    </div>       
     
-### Detecting duplicate candidates
+### 7.6 Detecting duplicate candidates
 
 1. Detecting and preventing the creation of duplicate candidates
      
-   1. Prerequisites: Perform test case 1.2 from [Adding a candidate](#adding-a-candidate) to add a new candidate and verify that it passes. 
+   1. Prerequisites: Perform test case 1.2 from [Section 7.2. Adding a candidate](#72-adding-a-candidate) to add a new candidate and verify that it passes. 
    
    1. Test case (Same name and phone): `add can n/Rob p/88888888 e/mail@gmail.com doa/08-10-22 exp/15` <br>
       Expected: No new candidate added. Duplicate candidate error shown in the status message.
@@ -847,16 +804,16 @@ testers are expected to do more *exploratory* testing.
    1. Test case (Same name and email): `add can n/Rob p/12345 e/e@mail.com doa/08-10-22 exp/15` <br>
       Expected: No new candidate added. Duplicate candidate error shown in the status message.    
 
-### Detecting duplicate jobs
+### 7.7 Detecting duplicate jobs
 
 1. Detecting and preventing the creation of duplicate jobs
      
-   1. Prerequisites: Perform test case 2.2 from [Adding a job](#adding-a-job)to add a new job and verify that it passes. 
+   1. Prerequisites: Perform test case 1.2 from [Section 7.3. Adding a job](#73-adding-a-job)to add a new job and verify that it passes. 
    
    1. Test case (Same job title and company name): `add job n/Delivery Man c/FedEx e/anotherfedex@example.com a/Jurong West p/84378293` <br>
       Expected: No new job listing added. Duplicate job error shown in the status message.
       
-### Deleting a candidate
+### 7.8 Deleting a candidate
 
 1. Deleting a candidate while on the candidates tab and all candidates are displayed
 
@@ -891,7 +848,7 @@ testers are expected to do more *exploratory* testing.
 
 </div>
        
-### Clearing all candidates
+### 7.9 Clearing all candidates
 
 1. Clearing all candidates while on the candidates tab and all candidates are displayed
 
@@ -920,7 +877,7 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
-### Finding a candidate
+### 7.10 Finding a candidate
 
 1. Finding a candidate while on the candidates tab and all candidates are displayed
 
@@ -955,7 +912,7 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
-### Sorting all candidates
+### 7.11 Sorting all candidates
 
 1. Sorting all candidates while on the candidates tab and all candidates are displayed
 
@@ -989,7 +946,7 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
-### Saving data
+### 7.12 Saving data
 
 1. Dealing with missing/corrupted data files
 

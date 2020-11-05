@@ -3,48 +3,14 @@ layout: page
 title: User Guide
 ---
 
-## CANdidates User Guide
-
-1. [Introduction](#introduction)
-     1. [Author](#authors)
-1. [Preface](#preface)
-     1. [Understanding Symbols](#understanding-symbols)
-     1. [Understanding the CANdidates GUI](#understanding-the-candidates-gui)
-     1. [Understanding Input Fields](#understanding-input-fields)
-     1. [Understanding Command Format](#understanding-command-format)
-2. [Quick Start](#quick-start)
-1. [Features for Candidates](#features-for-candidates)
-    1. [Adding a candidate: **`add can`**](#adding-a-candidate-add-can)
-    1. [Listing all candidates: **`list can`**](#listing-all-candidates-list-can)
-    1. [Editing a candidate: **`edit can`**](#editing-a-candidate-edit-can)
-    1. [Finding a candidate: **`find can`**](#finding-a-candidate-find-can)
-    1. [Sorting all candidates: **`sort can`**](#sorting-all-candidates-sort-can)
-    1. [Deleting a candidate: **`delete can`**](#deleting-a-candidate-delete-can)
-    1. [Clearing all candidate entries: **`clear can`**](#clearing-all-candidate-entries-clear-can)
-    1. [Viewing a candidate: **`view can`**](#viewing-a-candidate-view-can)
-1. [Features for Jobs](#features-for-jobs)
-    1. [Adding a job listing: **`add job`**](#adding-a-job-listing-add-job)
-     1. [Listing all jobs: **`list job`**](#listing-all-jobs-list-job)
-     1. [Editing a job: **`edit job`**](#editing-a-job-edit-job)
-     1. [Finding a job: **`find job`**](#finding-a-job-find-job)
-     1. [Sorting all jobs: **`sort job`**](#sorting-all-jobs-sort-job)
-     1. [Deleting a job: **`delete job`**](#deleting-a-job-delete-job)
-     1. [Clearing all job entries: **`clear job`**](#clearing-all-job-entries-clear-job)
-     1. [Viewing a job: **`view job`**](#viewing-a-job-view-can)
-1. [Other Features](#other-features)
-     1. [Viewing help: **`help`**](#viewing-help-help)
-     1. [Exiting the program : **`exit`**](#exiting-the-program--exit)
-     1. [Detecting duplicate entries](#detecting-duplicate-entries)
-     1. [Saving the data](#saving-the-data)
-1. [FAQ](#faq)
-1. [Command Summary](#command-summary)
-1. [Glossary](#glossary)
-
-<br>
+<div markdown="block" class="alert alert-secondary">
+* Table of Contents
+{:toc}
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Introduction
+## **1. Introduction**
 Hello there! If you are reading this, you must be curious about *CANdidates*. 
 
 *CANdidates* is a powerful and optimized contact management app for job recruiters to manage job candidates and job listings. 
@@ -60,7 +26,7 @@ we still recommend that you read through in order to fully utilise *CANdidates*.
 Before you get thrown off by some of the more technical terms used in this user guide, 
 you may be happy to know that a glossary is provided at the end of this document and may be of help to you!
 
-### Authors
+### 1.1 Authors
 *CANdidates* is developed as part of a NUS CS2103T Project by:
 
 * [Amelia Tan Jin Yu](team/ameliatjy.md)
@@ -73,11 +39,11 @@ you may be happy to know that a glossary is provided at the end of this document
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Preface
+## **2. Preface**
 For a smoother start to your usage of *CANdidates*, read this section to find out how this document is structured, 
 how to navigate the document and what all the symbols, special fonts and command formats mean.
 
-### Understanding Symbols
+### 2.1 Understanding Symbols
 This section will explain all the symbols and fonts used in this document.
 
 Symbols/Font  | Explanation
@@ -88,7 +54,7 @@ Symbols/Font  | Explanation
 :bulb:        | There are additional tips that you can make use of when using the explained feature.
 :exclamation: | These are precautions you need to take note of when using the application.
 
-### Understanding the CANdidates GUI
+### 2.2 Understanding the CANdidates GUI
 The figure below shows an annotated version of the GUI, to help you in understanding some of the technical terms used regarding our GUI.
 
 ![Annotated GUI](images/UnderstandingGUI.png)
@@ -100,9 +66,9 @@ The figure below shows an annotated version of the GUI, to help you in understan
 
 You may refer back to this section whenever you need help understanding the GUI terms.
 
-### Understanding Input Fields
+### 2.3 Understanding Input Fields
 Input fields are fields that you have to specify in your commands. Still not sure what this means without context? 
-Try getting a quick glance at the section [Quick Start](#quick-start) first!
+Try getting a quick glance at [Section 3. Quick Start](#3-quick-start) first!
 
 You may refer back to this table whenever you need help understanding the input fields.
 
@@ -123,13 +89,13 @@ Name of input field   | How you can use them
 `VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.<br/>:memo: *This field accepts only whole numbers from 0 to 99.*
 `PRIORITY`            | Job listings may be of different urgency levels. For better categorisation, you may specify the priority of a job listing.<br/>:memo: *This field only accepts 3 specific values: low, moderate or high.*
 `JOB_DESCRIPTION`     | You can include job description tags for job listings to specify additional description for it. For example, you may wish to specify restrictions on the listing such as age or gender.<br/>:memo: *Job description should be one word, made up of up to 20 alphanumerical values with no spaces.*
-`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:exclamation: *This field only takes in specific values described in the respective feature sections.*
-`ORDER`               | Input field that is exclusive for [sort can](#sorting-all-candidates-sort-can) and [sort job](#sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:memo: *This field only accepts 2 specific values: asc or desc.*
+`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:exclamation: *This field only takes in specific values described in the respective feature sections.*
+`ORDER`               | Input field that is exclusive for [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:memo: *This field only accepts 2 specific values: asc or desc.*
 `INDEX`               | Index number of the candidate or job displayed in the list.
 
-### Understanding Command Format
+### 2.4 Understanding Command Format
 
-This section will explain how to interpret all the command formats which you will encounter in the sections [Features for Candidates](#features-for-candidates), [Features for Jobs](#features-for-jobs) and [Other Features](#other-features).
+This section will explain how to interpret all the command formats which you will encounter in [Section 4. Features for Candidates](#4-features-for-candidates), [Section 5. Features for Jobs](#5-features-for-jobs) and [Section 6. Other Features](#6-other-features).
 This will help you to understand *CANdidates*' features better.
 
 * Words in `UPPER_CASE` are the input fields which are supposed to be specified by you.<br>
@@ -144,13 +110,13 @@ This will help you to understand *CANdidates*' features better.
 * Input fields can be in any order you want them to be.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-*:bulb: If you are confused with the various input fields, refer to [Understanding Input Fields](#understanding-input-fields).*
+*:bulb: If you are confused with the various input fields, refer to [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).*
 
 <br>
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Quick Start
+## **3. Quick Start**
 Can’t wait to start using *CANdidates*? This section guides you through the starting up process, so that you can proceed on to use the application for your own needs!
 
 1. Download the latest `Candidates.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-3/tp/releases/tag/v1.3).
@@ -175,26 +141,26 @@ Can’t wait to start using *CANdidates*? This section guides you through the st
 
    * **`exit`** : Exits the app.
 
-1. Refer to the [Features](#features) below for details of each command.
+1. Refer to [Section 4. Features for Candidates](#4-features-for-candidates), [Section 5. Features for Jobs](#5-features-for-jobs) and [Section 6. Other Features](#6-other-features) for details of each command.
 
 <div markdown="span" class="alert alert-primary">
 
 :exclamation: *Ensure you have Java 11 or above installed in your Computer.*
 
-:bulb: *If you are confused with the various input fields, refer to* [Understanding Input Fields](#understanding-input-fields).
+:bulb: *If you are confused with the various input fields, refer to* [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).
 </div>
 <br>
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Features for Candidates
+## **4. Features for Candidates**
 This section provides you with features to handle all information of candidates for your utmost convenience!
 <br>
-Refer to [Features for Jobs](#features-for-jobs) for features specific to jobs or to [Other Features](#other-features) for more general features.
+Refer to [Section 5. Features for Jobs](#5-features-for-jobs) for features specific to jobs or to [Section 6. Other Features](#6-other-features) for more general features.
 
 <br>
 
-### Adding a candidate: `add can`
+### 4.1 Adding a candidate: `add can`
 
 If you have a new candidate who approached you and you would like to put him in *CANdidates*, you can add him into the list using the command below.
 
@@ -203,7 +169,7 @@ If you have a new candidate who approached you and you would like to put him in 
 <div markdown="span" class="alert alert-primary">
 
 
-:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Understanding Input Fields](#understanding-input-fields).*
+:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).*
 <br>
 :bulb: *A candidate can have 0 or more job type(s).*
 <br>
@@ -238,7 +204,7 @@ Step 3. The application will show the updated list of candidates with the newly 
 
 <br>
 
-### Listing all candidates: `list can`
+### 4.2 Listing all candidates: `list can`
 
 To accurately reflect the latest changes of candidates in the application, you can refresh the list of candidates using the format below.
 
@@ -248,11 +214,11 @@ To accurately reflect the latest changes of candidates in the application, you c
 
 :exclamation: *On the application, be sure to click on the “Candidates” tab to view the list of candidates.*
 
-:bulb: *This command is usually used after a* [`sort can`](#sorting-all-candidates-sort-can) *or* [`find can`](#finding-a-candidate-find-can) *command to show the full list of candidates again.*
+:bulb: *This command is usually used after a* [`find can`](#44-finding-a-candidate-find-can) *or* [`sort can`](#45-sorting-all-candidates-sort-can) *command to show the full list of candidates again.*
 </div>
 <br>
 
-### Editing a candidate: `edit can`
+### 4.3 Editing a candidate: `edit can`
 
 If you would like to edit the details of a particular candidate, you can use the command below
 
@@ -299,7 +265,7 @@ Step 3. The application will show the updated list of candidates with the edited
 
 <br>
 
-### Finding a candidate: `find can`
+### 4.4 Finding a candidate: `find can`
 
 Too many candidates with different information? *CANdidates* provide you with a simple and quick way for you to find candidates who fulfil certain criteria(s) or even a specific candidate from the long list. All you have to do is tell CANdidates the field you are interested in, along with the keyword you are looking for!
 
@@ -331,7 +297,7 @@ Too many candidates with different information? *CANdidates* provide you with a 
     
 <br>
 
-### Sorting all candidates: `sort can`
+### 4.5 Sorting all candidates: `sort can`
 
 You can view all the candidates in the order you wish to by typing in your desired order. Upon execution of the command, the sorted list of candidates would be displayed on the app!
 
@@ -381,7 +347,7 @@ Step 3. The application will show the sorted candidates list based on the sort c
 
 <br>
 
-### Deleting a candidate: `delete can`
+### 4.6 Deleting a candidate: `delete can`
 
 Have you successfully found a job for a candidate and you no longer need to keep his/her details in *CANdidates*? 
 To delete a particular candidate from the list, you can use the command below.
@@ -421,7 +387,7 @@ Step 3. The application will show the updated candidates list without the delete
 
 <br>
 
-### Clearing all candidate entries: `clear can`
+### 4.7 Clearing all candidate entries: `clear can`
 
 Want to clear all the candidates in the list quickly without having to delete one by one? Simply use the command below!
 
@@ -448,7 +414,7 @@ Step 3. The application will show the updated candidate list which is empty.
     
 <br>
 
-### Viewing a candidate: `view can`
+### 4.8 Viewing a candidate: `view can`
 
 Want to view all the information of a particular candidate? Candidates provides an easy way for you to do it! Simply utilise the command below to display all the information of a candidate on the display panel of the application!
 
@@ -483,14 +449,14 @@ Step 3. All the information of the specified candidate would be displayed on the
 
 <br>
 
-## Features for Jobs
+## **5. Features for Jobs**
 This section provides you with features to handle all information of job listings for your utmost convenience!
 <br>
-Refer to [Features for Candidates](#features-for-candidates) for features specific to candidates or to [Other Features](#other-features) for more general features.
+Refer to [Section 4. Features for Candidates](#4-features-for-candidates) for features specific to candidates or to [Section 6. Other Features](#6-other-features) for more general features.
 
 <br>
        
-### Adding a job listing: `add job`
+### 5.1 Adding a job listing: `add job`
 
 If you are informed of a job opening and you would like to add it in *CANdidates*, you can add it into the list using the command below.
 
@@ -498,7 +464,7 @@ If you are informed of a job opening and you would like to add it in *CANdidates
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Understanding Input Fields](#understanding-input-fields).*
+:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).*
 <br>
 :bulb: *A job can have 0 or more job description(s).*
 <br>
@@ -535,7 +501,7 @@ Step 3. The application will show the updated job listings with the newly added 
 <br>
 
 
-### Listing all jobs: `list job`
+### 5.2 Listing all jobs: `list job`
 
 To accurately reflect the latest changes of jobs in the application, you can refresh the job listings using the format below.
 
@@ -545,11 +511,11 @@ To accurately reflect the latest changes of jobs in the application, you can ref
 
 :exclamation: *On the application, be sure to click on the “Jobs” tab to view the job listings.*
 
-:bulb: *This command is usually used after a* [`sort job`](#sorting-all-jobs-sort-job) *or* [`find job`](#finding-a-job-find-job) *command to show the full list of job listings again.*
+:bulb: *This command is usually used after a* [`find job`](#54-finding-a-job-find-job) *or* [`sort job`](#55-sorting-all-jobs-sort-job) *command to show the full list of job listings again.*
 </div>
 <br>
 
-### Editing a job: `edit job`
+### 5.3 Editing a job: `edit job`
 
 If you would like to edit the details of a particular job, you can use the command below
 
@@ -598,7 +564,7 @@ Step 3. The application will show the updated list of jobs with the edited job.
 
 <br>
 
-### Finding a job: `find job`
+### 5.4 Finding a job: `find job`
 
 Too many job listings with different information? Similar to the feature above, you can also find job listings by inserting keywords for the fields you are looking for!
 
@@ -628,7 +594,7 @@ Too many job listings with different information? Similar to the feature above, 
     
 <br>
 
-### Sorting all jobs: `sort job`
+### 5.5 Sorting all jobs: `sort job`
 
 Have too many job listings and need a way to organise them? You can get *CANdidates* to help you do that by sorting them according to the priority or vacancies you have indicated for the job listings!
 
@@ -673,7 +639,7 @@ Step 3. The application will show the sorted job list based on the sort conditio
 
 <br>
 
-### Deleting a job: `delete job`
+### 5.6 Deleting a job: `delete job`
 
 Deletes the specified job from the job listing.
 
@@ -712,7 +678,7 @@ Step 3. The application will show the updated job list without the deleted job.
 
 <br>
 
-### Clearing all job entries: `clear job`
+### 5.7 Clearing all job entries: `clear job`
 
 Want to clear all the jobs in the list quickly without having to delete one by one? Simply use the command below!
 
@@ -740,7 +706,7 @@ Step 3. The application will show the updated job list which is empty.
     
 <br>
 
-### Viewing a job: `view job`
+### 5.8 Viewing a job: `view job`
 
 Want to view all the information of a particular job ? Candidates provides an easy way for you to do it! Simply utilise the command below to display the all the information of a job on the display panel of the application!
 
@@ -775,16 +741,16 @@ Step 3. All the information of the specified job would be displayed on the detai
 
 <br>
 
-## Other Features
+## **6. Other Features**
 This section explores other general features that CANdidates has to offer!
 <br>
-Refer to [Features for Candidates](#features-for-candidates) for features specific to candidates or to [Features for Jobs](#features-for-jobs) for features specific to jobs.
+Refer to [Section 4. Features for Candidates](#4-features-for-candidates) for features specific to candidates or to [Section 5. Features for Jobs](#5-features-for-jobs) for features specific to jobs.
 
 <br>
 
-### Viewing help: `help`
+### 6.1 Viewing help: `help`
 
-If you are unsure of how to use the application, we have a help function that will direct you to our user guide! You might also find it helpful to refer to the summary of all the available commands [here](#command-summary).
+If you are unsure of how to use the application, we have a help function that will direct you to our user guide! You might also find it helpful to refer to the summary of all the available commands [here](#8-command-summary).
 
 ![help message](images/helpMessage.png)
 
@@ -806,7 +772,7 @@ Step 3. The help window will appear as a pop-up and you may click on the "copy U
 
 <br>
 
-### Exiting the program : `exit`
+### 6.2 Exiting the program : `exit`
 
 Done with updating your information with *CANdidates*? Use this command to exit the program!
 
@@ -816,7 +782,7 @@ Done with updating your information with *CANdidates*? Use this command to exit 
 
 <br>
 
-### Detecting duplicate entries
+### 6.3 Detecting duplicate entries
 
 Worried that you might accidentally create duplicate entries of the same candidate or job? No need to worry, 
 CANdidates has you covered! Duplicate entries are automatically detected and prevented from being created. 
@@ -850,7 +816,7 @@ This means you will not be able to edit an entry to match another entry.*
 
 <br>
 
-### Saving the data
+### 6.4 Saving the data
 
 All data is saved in the hard disk automatically after any command that changes the data. No need worry about having to save manually!
 
@@ -858,13 +824,13 @@ All data is saved in the hard disk automatically after any command that changes 
 
 --------------------------------------------------------------------------------------------------------------------
 
-## FAQ
+## **7. FAQ**
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous CANdidates home folder.
 
 **Q**: I accidentally corrupted my existing data file and my CANdidates application started up with the sample data. How can I get my data back?<br>
-**A**: Currently, our application is unfortunately not able to support recovering corrupted data files. We are sorry for the inconvenience caused. 
+**A**: Currently, our application is unfortunately not able to support recovering corrupted data files. We are sorry for any inconveniences caused. 
 
 **Q**: How do I report a bug I encountered?<br>
 **A**: Send an email to *developers@CANdidates.com* with a description and screenshot (if relevant) of the bug. We will make sure to get back to you promptly!
@@ -876,7 +842,7 @@ All data is saved in the hard disk automatically after any command that changes 
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Command Summary
+## **8. Command Summary**
 
 This handy command summary table provides you with all the possible commands for *CANdidates* at one glance.
 
@@ -889,6 +855,7 @@ Action | Candidate Format | Job Format
 **Sort** | `sort can type/FIELD_TO_SORT order/ORDER` | `sort job type/FIELD_TO_SORT order/ORDER`
 **Delete** | `delete can INDEX` | `delete job INDEX`
 **Clear** | `clear can` | `clear job`
+**View** | `view can INDEX` | `view job INDEX`
 **Help** | `help` | `help`
 **Exit** | `exit` | `exit`
 
@@ -896,7 +863,7 @@ Action | Candidate Format | Job Format
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Glossary
+## **9. Glossary**
 
 Terms | Explanation
 --------|------------------------------------
