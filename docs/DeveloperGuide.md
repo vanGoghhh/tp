@@ -281,15 +281,17 @@ The find operation also supports finding candidates via other fields such as `Em
 
 The implemented view feature has two variants `view can` and `view job` for viewing a candidate and viewing a job respectively.
 
-The mechanism for both view features are faciliated by `ModelManager` and `MainWindow`. `ModelManager` implements model and contains a `displayedPerson` which is of type `Person`.
+The mechanism for both view features are faciliated by `ModelManager` and `MainWindow`. `ModelManager` implements model and contains a `displayedPerson` which is of type `Person` and a `displayedJob` which is of type `Job`.
 
  `ModelManager` implements the following operations:
 
-* `ModelManager#setDisplayedPerson(Person person)` — Sets the `displayedPerson` in the `ModelManager` class to be the supplied person
+* `ModelManager#setDisplayedPerson(Person person)` — Sets the `displayedPerson` in the `ModelManager` class to be the supplied person.
+* `ModelManager#setDisplayedJob(Job job)` — Sets the `displayedJob` in the `ModelManager` class to be the supplied job.
 
 `MainWindow` implements the following operations:
 
-* `MainWindow#updateDetailedPersonPanel(Person person)` — Updates the view on the right panel of the GUI to contain information of the supplied person
+* `MainWindow#updateDetailedPersonPanel(Person person)` — Updates the view on the right panel of the GUI to contain information of the supplied person.
+* `MainWindow#updateDetailedJobPanel(Job job)` — Updates the view on the right panel of the GUI to contain information of the supplied job.
 
 Given below is an example usage scenario and how the `view can` mechanism behaves at each step.
 
