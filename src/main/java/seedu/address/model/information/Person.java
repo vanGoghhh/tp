@@ -16,6 +16,8 @@ import seedu.address.model.tag.Tag;
  */
 public class Person {
 
+    public static final String TAB_NAME = "Candidates";
+
     // Identity fields
     private final Name name;
     private final Phone phone;
