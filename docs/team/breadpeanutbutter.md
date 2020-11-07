@@ -107,6 +107,9 @@ Given below are my contributions to the project.
 * **Community**: 
   * PRs reviewed (with non-trivial review comments): [\#287](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/287), 
     [\#302](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/302)
+  * Reported bugs for and gave suggestions to other teams in the class. 
+    (Examples: PE-D issues [\#1](https://github.com/BreadPeanutButter/ped/issues/1), [\#2](https://github.com/BreadPeanutButter/ped/issues/2), 
+    [\#3](https://github.com/BreadPeanutButter/ped/issues/3), [\#6](https://github.com/BreadPeanutButter/ped/issues/6))  
 
 * **Tools**: 
   * Integrated a third party library (Apache Commons Validator) to the project used to 
