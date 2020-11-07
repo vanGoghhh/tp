@@ -30,9 +30,10 @@ Given below are my contributions to the project.
   * What it is for: A field used to represent a URL link to a candidate's profile such as his/her LinkedIn or Github page. 
     It is an optional input field for candidates. Internally, it is represented as a UrlLink object.
   * Justification: This Information field allows job recruiters to have easy access to the URL link to profiles and resumes of candidates. 
-  * Highlight: This field was the first information field to be optional as an input to candidate and also have no default value. It was a challenge to
-    implement this field as I had to consider how to make it truly optional while adhering to good coding practices. I wanted to avoid using
-    null values for this as they can be prone to errors. Hence, I decided to utlise Java's Optional class to contain UrlLink in an Optional object. 
+  * Highlight: This field was the first information field that was optional for candidates and also have no default value. It was a challenge to
+    implement this field as I had to consider how to make it reflect no value while adhering to good coding practices. I wanted to avoid using
+    null values for this as using nulls can be "overwhelmingly likely to cause errors" as said by Brian Goetz, Java's language architect. 
+    Hence, I decided to utilise Java's Optional class to contain UrlLink in an Optional object for safer results. 
   * Hightlight: It was also a challenge to validate the format of URL links as there are numerous possibilities. I decided to use a third party library, 
     Apache Commons Validator, to validate the format for this.
     
