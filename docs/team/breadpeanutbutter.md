@@ -56,7 +56,8 @@ Given below are my contributions to the project.
     Recruiters will then know not to hire this person in the future. This field is also useful when used as input for the Sort and Find features.
 
 * **Project management**: 
-  * In charge of looking after code quality and ensuring adherence to coding standards such as SLAP and KISS principles.
+  * In charge of looking after code quality and ensuring adherence to coding standards such as SLAP and KISS principles
+  * Active usage of issue tracker to track, complete and assign tasks
 
 * **Enhancements to existing features**: 
   * Modified AddressBookParser class of AB3 to be able to parse new commands of CANdidates
@@ -89,8 +90,9 @@ Given below are my contributions to the project.
       (Pull requests [\#160](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/160))
     * Wrote documentation for Detecting duplicate entries 
       (Pull requests [\#228](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/228))
-    * Wrote some parts of the Introduction, FAQ, Command Summary and Glossary
-      (Example Pull Requests [\#70](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/70),  ) 
+    * Wrote some portions of the Introduction, FAQ, Command Summary and Glossary
+      (Example Pull Requests [\#70](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/70), [\#298](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/298), 
+      [\#304](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/304)) 
   * Developer Guide:
     * Updated the Design of the Model component including the UML diagram along with team mate [Amelia Tan](ameliatjy.md)
       (Pull requests [\#139](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/139))
