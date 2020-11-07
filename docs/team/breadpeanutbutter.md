@@ -94,7 +94,7 @@ Given below are my contributions to the project.
       (Example Pull Requests [\#70](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/70), [\#298](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/298), 
       [\#304](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/304)) 
   * Developer Guide:
-    * Updated the Design of the Model component including the UML diagram along with team mate [Amelia Tan](ameliatjy.md)
+    * Updated the Design of the Model component including the UML diagram along with team mate [Amelia Tan](ameliatjy.md)<br>
       (Pull requests [\#139](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/139))
     * Wrote documentation for implementation of Edit feature including sequence diagram
       (Pull requests [\#133](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/133))
