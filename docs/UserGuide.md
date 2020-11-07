@@ -408,34 +408,7 @@ Step 3. The application will show the updated candidates list without the delete
 
 <br>
 
-### 4.7 Clearing all candidate entries: `clear can`
-
-Want to clear all the candidates in the list quickly without having to delete one by one? Simply use the command below!
-
-**Format:** `clear can`
-
-<div markdown="span" class="alert alert-primary">
-
-:exclamation: *All candidate data will be cleared and this action is irreversible. 
-Please ensure you do not require the candidate list data anymore before performing this command.*
-<br>
-:bulb: *This command can be used to clear the sample data on CANdidates when you first download it.*
-
-</div>
-
-**Step by Step:**
-
-Step 1. Type `clear can` in the *command box* and press *Enter*.
-
-Step 2. The *CANdidates* application will automatically switch to "Candidates" tab if you are at the "Jobs" tab. 
-The following message will be shown in the *result display*
->Candidate list has been cleared!
-
-Step 3. The application will show the updated candidate list which is empty.
-    
-<br>
-
-### 4.8 Viewing a candidate: `view can`
+### 4.7 Viewing a candidate: `view can`
 
 Want to view all the information of a particular candidate? *CANdidates* provides an easy way for you to do it! Simply utilise the command below to display all the information of a candidate on the display panel of the application!
 
@@ -468,6 +441,33 @@ Step 2. The *CANdidates* application will show the following message in the *res
 
 Step 3. All the information of the specified candidate would be displayed on the detailed panel.
 
+<br>
+
+### 4.8 Clearing all candidate entries: `clear can`
+
+Want to clear all the candidates in the list quickly without having to delete one by one? Simply use the command below!
+
+**Format:** `clear can`
+
+<div markdown="span" class="alert alert-primary">
+
+:exclamation: *All candidate data will be cleared and this action is irreversible. 
+Please ensure you do not require the candidate list data anymore before performing this command.*
+<br>
+:bulb: *This command can be used to clear the sample data on CANdidates when you first download it.*
+
+</div>
+
+**Step by Step:**
+
+Step 1. Type `clear can` in the *command box* and press *Enter*.
+
+Step 2. The *CANdidates* application will automatically switch to "Candidates" tab if you are at the "Jobs" tab. 
+The following message will be shown in the *result display*
+>Candidate list has been cleared!
+
+Step 3. The application will show the updated candidate list which is empty.
+    
 <br>
 
 ## **5. Features for Jobs**
@@ -617,7 +617,7 @@ Too many job listings with different information? Similar to the feature above, 
 
 ![Find Job Step 1](images/findJob1.png)
 
-Step 1. Type `find job t/cleaner` in the *command box* and press *Enter*.
+Step 1. Type `find job v/1` in the *command box* and press *Enter*.
 
 ![Find Job Step 2](images/findJob2.png)
 
@@ -714,35 +714,7 @@ Step 3. The application will show the updated job list without the deleted job.
 
 <br>
 
-### 5.7 Clearing all job entries: `clear job`
-
-Want to clear all the jobs in the list quickly without having to delete one by one? Simply use the command below!
-
-**Format:** `clear job`
-
-<div markdown="span" class="alert alert-primary">
-
-:exclamation: *All job data will be cleared and this action is irreversible. 
-Please ensure you do not require the job list data anymore before performing this command.*
-<br>
-:bulb: *This command can be used to clear the sample data on* *CANdidates* *when you first download it.*
-
-</div>
-
-
-**Step by Step:**
-
-Step 1. Type `clear job` in the *command box* and press *Enter*.
-
-Step 2. The *CANdidates* application will automatically switch to "Jobs" tab if you are at the "Candidates" tab. 
-The following message will be shown in the *result display*
->Job list has been cleared!
-
-Step 3. The application will show the updated job list which is empty.
-    
-<br>
-
-### 5.8 Viewing a job: `view job`
+### 5.7 Viewing a job: `view job`
 
 Want to view all the information of a particular job ? *CANdidates* provides an easy way for you to do it! Simply utilise the command below to display the all the information of a job on the display panel of the application!
 
@@ -775,6 +747,34 @@ Step 2. The *CANdidates* application will show the following message in the *res
 
 Step 3. All the information of the specified job would be displayed on the detailed panel.
 
+<br>
+
+### 5.8 Clearing all job entries: `clear job`
+
+Want to clear all the jobs in the list quickly without having to delete one by one? Simply use the command below!
+
+**Format:** `clear job`
+
+<div markdown="span" class="alert alert-primary">
+
+:exclamation: *All job data will be cleared and this action is irreversible. 
+Please ensure you do not require the job list data anymore before performing this command.*
+<br>
+:bulb: *This command can be used to clear the sample data on* *CANdidates* *when you first download it.*
+
+</div>
+
+
+**Step by Step:**
+
+Step 1. Type `clear job` in the *command box* and press *Enter*.
+
+Step 2. The *CANdidates* application will automatically switch to "Jobs" tab if you are at the "Candidates" tab. 
+The following message will be shown in the *result display*
+>Job list has been cleared!
+
+Step 3. The application will show the updated job list which is empty.
+    
 <br>
 
 ## **6. Other Features**
@@ -899,8 +899,8 @@ Action | Candidate Format | Job Format
 **Find** | `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
 **Sort** | `sort can type/FIELD_TO_SORT order/ORDER` | `sort job type/FIELD_TO_SORT order/ORDER`
 **Delete** | `delete can INDEX` | `delete job INDEX`
-**Clear** | `clear can` | `clear job`
 **View** | `view can INDEX` | `view job INDEX`
+**Clear** | `clear can` | `clear job`
 **Help** | `help` | `help`
 **Exit** | `exit` | `exit`
 
