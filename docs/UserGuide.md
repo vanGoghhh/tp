@@ -60,6 +60,8 @@ The figure below shows an annotated version of the GUI, to help you in understan
 ![Annotated GUI](images/UnderstandingGUI.png)
 
 :memo: *In the Tab Buttons, the tab you are currently on is marked as **red**. i.e. "Candidates" button is in red as the list shows the list of candidates.*
+<br>
+:memo: *The application window currently does not support resizing.*
 <br/>
 
 :bulb: *The display panel is scrollable! Keep this tip in mind so that you do not miss out on any information!*
@@ -279,7 +281,13 @@ Too many candidates with different information? *CANdidates* provide you with a 
 <br>
 :memo: *For number fields (i.e. phone, years of experience and expected salary), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.*
 <br>
+:memo: *If there are multiple inputs for the same field, only the last one will be detected.*
+<br>
 :bulb: *If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.*
+<br>
+:bulb: *If you want to find candidates with no expected salary, you can use the command sort can type/sal order/asc
+(Refer to [Section 4.5, Sorting all candidates](#45-sorting-all-candidates-sort-can).
+Candidates with no expected salary will be displayed at the top of the list.*
 
 </div>
 
@@ -292,7 +300,22 @@ Too many candidates with different information? *CANdidates* provide you with a 
 :black_nib: To find candidates who are _blacklisted_,
 
     find can bl/true
-    
+
+**Step by Step:**
+
+![Find Can Step 1](images/findCan1.png)
+
+Step 1. Type `find can n/David t/Teacher` in the *command box* and press *Enter*.
+
+![Find Can Step 2](images/findCan2.png)
+
+Step 2. The *CANdidates* application will show the following message in the *result display* 
+>1 candidates listed!
+
+:memo: *If you were on the "Jobs" tab, the application will automatically direct you to the "Candidates" tab.*
+
+Step 3. The application will display candidates with all matching fields.
+
 <br>
 
 ### 4.5 Sorting all candidates: `sort can`
@@ -575,6 +598,8 @@ Too many job listings with different information? Similar to the feature above, 
 :memo: *The order of the keywords does not matter, e.g. King Burger will match Burger King*
 <br>
 :memo: *For number fields (i.e. phone and vacancy), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.*
+<br>
+:memo: *If there are multiple inputs for the same field, only the last one will be detected.*
 
 </div>
 
@@ -588,6 +613,21 @@ Too many job listings with different information? Similar to the feature above, 
 
     find job n/Software Engineer
     
+**Step by Step:**
+
+![Find Job Step 1](images/findJob1.png)
+
+Step 1. Type `find job t/cleaner` in the *command box* and press *Enter*.
+
+![Find Job Step 2](images/findJob2.png)
+
+Step 2. The *CANdidates* application will show the following message in the *result display* 
+>4 jobs listed!
+
+:memo: *If you were on the "Candidates" tab, the application will automatically direct you to the "Jobs" tab.*
+
+Step 3. The application will display jobs with all matching fields.
+
 <br>
 
 ### 5.5 Sorting all jobs: `sort job`
