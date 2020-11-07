@@ -28,7 +28,7 @@ Given below are my contributions to the project.
       
 * **New Feature: URL Link Information field**     
   * What it is for: A field used to represent a URL link to a candidate's profile such as his/her LinkedIn or Github page. 
-    It is an optional input field for candidates. Internally, it is represented as a UrlLink object.
+    It is an optional input field for candidates since not all candidates have an online profile page. Internally, it is represented as a UrlLink object.
   * Justification: This Information field allows job recruiters to have easy access to the URL link to profiles and resumes of candidates. 
   * Highlight: This field was the first information field that was optional for candidates and also have no default value. It was a challenge to
     implement this field as I had to consider how to make it reflect no value while adhering to good coding practices. I wanted to avoid using
