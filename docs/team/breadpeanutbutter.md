@@ -71,25 +71,35 @@ Given below are my contributions to the project.
   * Modified existing Information fields to adhere to new requirements, such as being optional and having a maximum length of input
     (Pull requests [\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119), [\#241](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/241), 
     [\#268](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/268))
-  * Created several new test classes used to test new Information fields and new commands
+  * Created several test classes used to test new Information fields and new commands, improved code coverage by %7.80 in one PR
     (Example Pull requests [\#97](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/97), [\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119), 
-    [\#121](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/121)
+    [\#121](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/121))
   * Updated old tests to include new features
-    (Example Pull requests [\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119), [\#121](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/121))
+    (Example Pull requests [\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119), [\#121](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/121), 
+    [\#286](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/286))
 
 * **Documentation**:
   * User Guide:
     * Wrote documentation for Editing a candidate: `edit can` and Editing a job: `edit job`
+      (Pull requests [\#160](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/160))
     * Wrote documentation for Deleting a candidate: `delete can` and Deleting a job: `delete job`
+      (Pull requests [\#160](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/160))
     * Wrote documentation for Clearing all candidate entries: `clear can` and Clearing all job entries: `clear job`
-    * Wrote documentation for Detecting duplicate entries
+      (Pull requests [\#160](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/160))
+    * Wrote documentation for Detecting duplicate entries 
+      (Pull requests [\#228](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/228))
     * Wrote some parts of the Introduction, FAQ, Command Summary and Glossary
+      (Example Pull Requests [\#70](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/70),  ) 
   * Developer Guide:
     * Updated the Design of the Model component including the UML diagram along with team mate [Amelia Tan](ameliatjy.md)
+      (Pull requests [\#139](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/139))
     * Wrote documentation for implementation of Edit feature including sequence diagram
+      (Pull requests [\#133](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/133))
     * Updated Product Scope with Target user profile and Value proposition
+      (Pull requests [\#226](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/226))
     * Updated Instructions for Manual Testing with tests for Adding a candidate, 
-      Editing a candidate, Detecting duplicate candidates, Deleting a candidate and Clearing all entries.
+      Editing a candidate, Detecting duplicate candidates, Deleting a candidate and Clearing all entries
+      (Pull requests [\#276](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/276))
 
 * **Community**: 
   * PRs reviewed (with non-trivial review comments): [\#287](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/287), 
@@ -97,6 +107,6 @@ Given below are my contributions to the project.
 
 * **Tools**: 
   * Integrated a third party library (Apache Commons Validator) to the project used to 
-    check the validity of the format of URL links in the UrlLink class([\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119))
+    check the validity of the format of URL links in the UrlLink class ([\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119))
 
 
