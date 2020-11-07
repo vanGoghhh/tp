@@ -58,14 +58,24 @@ Given below are my contributions to the project.
   * In charge of looking after code quality and ensuring adherence to coding standards such as SLAP and KISS principles.
 
 * **Enhancements to existing features**: 
-  * Implemented editing of candidates and jobs: `add can` and `add job`
-  * Implemented deleting of candidates and jobs: `delete can` and `delete job`
-  * Implemented clearing of candidates and jobs: `clear can` and `clear job`
-  * Added command summary table to Help Window
   * Modified AddressBookParser class of AB3 to be able to parse new commands of CANdidates
+    (Pull requests [\#86](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/86))
+  * Implemented editing of candidates and jobs: `add can` and `add job`
+    (Pull requests [\#86](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/86), [\#90](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/90))
+  * Implemented deleting of candidates and jobs: `delete can` and `delete job`
+    (Pull requests [\#86](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/86), [\#90](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/90))
+  * Implemented clearing of candidates and jobs: `clear can` and `clear job`
+    (Pull requests [\#86](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/86), [\#90](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/90))
+  * Added command summary table to Help Window
+    (Pull requests [\#260](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/260))
   * Modified existing Information fields to adhere to new requirements, such as being optional and having a maximum length of input
-  * Created several new test classes used to test Information fields
+    (Pull requests [\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119), [\#241](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/241), 
+    [\#268](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/268))
+  * Created several new test classes used to test new Information fields and new commands
+    (Example Pull requests [\#97](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/97), [\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119), 
+    [\#121](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/121)
   * Updated old tests to include new features
+    (Example Pull requests [\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119), [\#121](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/121))
 
 * **Documentation**:
   * User Guide:
@@ -82,10 +92,11 @@ Given below are my contributions to the project.
       Editing a candidate, Detecting duplicate candidates, Deleting a candidate and Clearing all entries.
 
 * **Community**: 
-  * PRs reviewed (with non-trivial review comments): [\#]()
+  * PRs reviewed (with non-trivial review comments): [\#287](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/287), 
+    [\#302](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/302)
 
 * **Tools**: 
   * Integrated a third party library (Apache Commons Validator) to the project used to 
-    check the validity of the format of URL links in the UrlLink class([\#]())
+    check the validity of the format of URL links in the UrlLink class([\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119))
 
 
