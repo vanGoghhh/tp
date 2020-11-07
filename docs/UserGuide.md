@@ -285,7 +285,9 @@ Too many candidates with different information? *CANdidates* provide you with a 
 <br>
 :bulb: *If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.*
 <br>
-:bulb: *If you want to find candidates with no expected salary, you can use the command sort can type/sal order/asc (Refer to [Section 4.5, Sorting all candidates](#45-sorting-all-candidates-sort-can). Candidates with no expected salary will be displayed at the top of the list.*
+:bulb: *If you want to find candidates with no expected salary, you can use the command sort can type/sal order/asc
+(Refer to [Section 4.5, Sorting all candidates](#45-sorting-all-candidates-sort-can).
+Candidates with no expected salary will be displayed at the top of the list.*
 
 </div>
 
@@ -303,18 +305,16 @@ Too many candidates with different information? *CANdidates* provide you with a 
 
 ![Find Can Step 1](images/findCan1.png)
 
-Step 1. Type `find can ` in the *command box* and press *Enter*.
+Step 1. Type `find can n/David t/Teacher` in the *command box* and press *Enter*.
 
 ![Find Can Step 2](images/findCan2.png)
 
 Step 2. The *CANdidates* application will show the following message in the *result display* 
->Successfully sorted list of candidates by name in ascending order.
+>1 candidates listed!
 
 :memo: *If you were on the "Jobs" tab, the application will automatically direct you to the "Candidates" tab.*
 
-Step 3. The application will show the sorted candidates list based on the sort condition given.
-
-<br>
+Step 3. The application will display candidates with all matching fields.
 
 <br>
 
@@ -613,6 +613,21 @@ Too many job listings with different information? Similar to the feature above, 
 
     find job n/Software Engineer
     
+**Step by Step:**
+
+![Find Job Step 1](images/findJob1.png)
+
+Step 1. Type `find job t/cleaner` in the *command box* and press *Enter*.
+
+![Find Job Step 2](images/findJob2.png)
+
+Step 2. The *CANdidates* application will show the following message in the *result display* 
+>4 jobs listed!
+
+:memo: *If you were on the "Candidates" tab, the application will automatically direct you to the "Jobs" tab.*
+
+Step 3. The application will display jobs with all matching fields.
+
 <br>
 
 ### 5.5 Sorting all jobs: `sort job`
