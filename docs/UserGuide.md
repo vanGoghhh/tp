@@ -279,6 +279,8 @@ Too many candidates with different information? *CANdidates* provide you with a 
 <br>
 :memo: *For number fields (i.e. phone, years of experience and expected salary), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.*
 <br>
+:memo: *If there are multiple inputs for the same field, only the last one will be detected.*
+<br>
 :bulb: *If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.*
 
 </div>
@@ -575,6 +577,8 @@ Too many job listings with different information? Similar to the feature above, 
 :memo: *The order of the keywords does not matter, e.g. King Burger will match Burger King*
 <br>
 :memo: *For number fields (i.e. phone and vacancy), only exact matching results will be displayed. For the remaining fields, results containing and exactly matching the keywords will be displayed.*
+<br>
+:memo: *If there are multiple inputs for the same field, only the last one will be detected.*
 
 </div>
 
