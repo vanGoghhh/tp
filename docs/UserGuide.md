@@ -60,6 +60,8 @@ The figure below shows an annotated version of the GUI, to help you in understan
 ![Annotated GUI](images/UnderstandingGUI.png)
 
 :memo: *In the Tab Buttons, the tab you are currently on is marked as **red**. i.e. "Candidates" button is in red as the list shows the list of candidates.*
+<br>
+:memo: *The application window currently does not support resizing.*
 <br/>
 
 :bulb: *The display panel is scrollable! Keep this tip in mind so that you do not miss out on any information!*
