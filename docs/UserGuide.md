@@ -622,7 +622,7 @@ Step 1. Type `find job v/1` in the *command box* and press *Enter*.
 ![Find Job Step 2](images/findJob2.png)
 
 Step 2. The *CANdidates* application will show the following message in the *result display* 
->4 jobs listed!
+>3 jobs listed!
 
 :memo: *If you were on the "Candidates" tab, the application will automatically direct you to the "Jobs" tab.*
 
