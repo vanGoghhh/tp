@@ -57,7 +57,8 @@ Given below are my contributions to the project.
 
 * **Project management**: 
   * In charge of looking after code quality and ensuring adherence to coding standards such as SLAP and KISS principles
-  * Active usage of issue tracker to track, complete and assign tasks
+  * Regularly reviewed pull requests to ensure good code quality and coding standards
+  * Actively used issue tracker to track, complete and assign tasks
 
 * **Enhancements to existing features**: 
   * Modified AddressBookParser class of AB3 to be able to parse new commands of CANdidates
@@ -109,7 +110,8 @@ Given below are my contributions to the project.
     [\#302](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/302)
   * Reported bugs for and gave suggestions to other teams in the class. 
     (Examples: PE-D issues [\#1](https://github.com/BreadPeanutButter/ped/issues/1), [\#2](https://github.com/BreadPeanutButter/ped/issues/2), 
-    [\#3](https://github.com/BreadPeanutButter/ped/issues/3), [\#6](https://github.com/BreadPeanutButter/ped/issues/6))  
+    [\#3](https://github.com/BreadPeanutButter/ped/issues/3), [\#6](https://github.com/BreadPeanutButter/ped/issues/6)) 
+  * Contributed to forum discussions (Example: [\#147](https://github.com/nus-cs2103-AY2021S1/forum/issues/147)) 
 
 * **Tools**: 
   * Integrated a third party library (Apache Commons Validator) to the project used to 
