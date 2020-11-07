@@ -284,6 +284,8 @@ Too many candidates with different information? *CANdidates* provide you with a 
 :memo: *If there are multiple inputs for the same field, only the last one will be detected.*
 <br>
 :bulb: *If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.*
+<br>
+:bulb: *If you want to find candidates with no expected salary, you can use the command sort can type/sal order/asc (Refer to [Section 4.5, Sorting all candidates](#45-sorting-all-candidates-sort-can). Candidates with no expected salary will be displayed at the top of the list.*
 
 </div>
 
@@ -296,7 +298,24 @@ Too many candidates with different information? *CANdidates* provide you with a 
 :black_nib: To find candidates who are _blacklisted_,
 
     find can bl/true
-    
+
+**Step by Step:**
+
+![Find Can Step 1](images/findCan1.png)
+
+Step 1. Type `find can ` in the *command box* and press *Enter*.
+
+![Find Can Step 2](images/findCan2.png)
+
+Step 2. The *CANdidates* application will show the following message in the *result display* 
+>Successfully sorted list of candidates by name in ascending order.
+
+:memo: *If you were on the "Jobs" tab, the application will automatically direct you to the "Candidates" tab.*
+
+Step 3. The application will show the sorted candidates list based on the sort condition given.
+
+<br>
+
 <br>
 
 ### 4.5 Sorting all candidates: `sort can`
