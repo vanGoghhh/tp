@@ -719,10 +719,19 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size should be fixed and non-adjustable.
+   1. Double-click the jar file <br>
+   Expected: Shows the GUI with a set of sample contacts. The window size should be fixed and non-adjustable.
 
-1. _{ more test cases …​ }_
+1. Exiting the application
 
+   1. Type `Exit` in the command box and press *Enter*. <br>
+   Expected: The application closes. The json files `personaddressbook.json` and `jobaddressbook.json` are updated accordingly.
+   
+1. Subsequent launch
+
+   1. Double-click the jar file <br>
+   Expected: Shows the GUI with contacts loaded from the json data files. The window size should be fixed and non-adjustable.
+   
 ### 7.2 Adding a candidate
 
 1. Adding a candidate while on the candidates tab and all candidates are displayed 
@@ -949,8 +958,28 @@ testers are expected to do more *exploratory* testing.
 
 ### 7.12 Saving data
 
-1. Dealing with missing/corrupted data files
+1. Dealing with missing data files
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+   1. Prerequisites: The `personaddressbook.json` and `jobaddressbook.json` json file exists in the application directory. The application is able to launch without error.
+       
+   1. Test case: Delete the json file `personaddressbook.json` from the application directory.<br>
+      Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
+    
+   1. Test case: Delete the json file `jobaddressbook.json` from the application directory.<br>
+      Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
+      
+   1. Other data files to try: `config.json`, `preferences.json`<br>
+      Expected: The application launches with the default configurations and preferences.
 
-1. _{ more test cases …​ }_
+1. Dealing with corrupted job data files
+
+   1. Prerequisites: The `personaddressbook.json` and `jobaddressbook.json` json file exists in the application directory. The application is able to launch without error.
+       
+   1. Test case: Insert glibberish and incorrect syntax into the json file `personaddressbook.json` from the application directory.<br>
+      Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
+    
+   1. Test case: Insert glibberish and incorrect syntax into the json file `jobaddressbook.json` from the application directory.<br>
+      Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
+      
+   1. Other data files to try: `config.json`, `preferences.json`<br>
+      Expected: The application launches with the default configurations and preferences.
