@@ -690,7 +690,7 @@ Similar to UC07, except user will request to sort jobs.
 
 Similar to UC08, except user will request to view a job and CANdidates will display information of the job on the right panel instead.
 
-#### 6.3.16 Use case: UC15 - Requesting for help
+#### 6.3.17 Use case: UC15 - Requesting for help
 
 **MSS**
 
@@ -990,14 +990,18 @@ testers are expected to do more *exploratory* testing.
 2. Viewing a candidate with a 5 candidates in the candidates list.
 
     1. Test case: `view can 2`<br>
-      Expected: The information of candidate 2 would be displayed on the right panel.
+      Expected: The information of the candidate at index 2 would be displayed on the right panel.
       
     2. Test case: `view can 6`<br>
       Expected: No candidate would be displayed on the right panel. Invalid index message would be shown in the status message.
       
+<div markdown="span" class="alert alert-info">
 
+:information_source: **Note:** Viewing jobs can be tested in the same way but with its analogous commands.
 
-### 7.12 Saving data
+</div>
+
+### 7.13 Saving data
 
 1. Dealing with missing data files
 
