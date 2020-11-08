@@ -863,6 +863,16 @@ This means you will not be able to edit an entry to match another entry.*
 that you enter so that you do not have to spend time clicking to switch tab to see the results of your entered command! With this
 feature, you can simply enter any command regardless of which tab you are on!
 
+<div markdown="span" class="alert alert-primary">
+
+:memo: *Using* [`view can`](#47-viewing-a-candidate-view-can) *command when on the jobs tab does not result in auto tab switch to the candidates tab. 
+This allows you to do side by side comparison of a candidate to job listings.*
+<br>
+:memo: *Using* [`view job`](#57-viewing-a-job-view-job) *command when on the candidates tab does not result in auto tab switch to the jobs tab. 
+This allows you to do side by side comparison of a job listing to candidates.*
+
+</div>
+
 **Step by Step:**
 
 Step 1. While on the candidates tab, type `find job t/Cleaner` in the *command box* and press *Enter*.
@@ -875,8 +885,6 @@ Step 2. The *CANdidates* application will show the following message in the *res
 Step 3. The application will automatically direct you to the "Jobs" tab and display jobs with all matching fields in the *main list*.
 
 ![Tab Switch Step 2](images/tabSwitch2.png)
-
-<br>
 
 <br>
 
