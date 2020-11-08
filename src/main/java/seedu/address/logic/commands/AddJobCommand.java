@@ -63,7 +63,7 @@ public class AddJobCommand extends Command {
         }
 
         model.addJob(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), "Jobs");
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), Job.TAB_NAME);
     }
 
     @Override

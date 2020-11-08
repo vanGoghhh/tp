@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.address.model.JobAddressBook;
 import seedu.address.model.Model;
+import seedu.address.model.information.Job;
 
 /**
  * Clears the job list.
@@ -18,6 +19,6 @@ public class ClearJobCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.setJobAddressBook(new JobAddressBook());
-        return new CommandResult(MESSAGE_SUCCESS, "Jobs");
+        return new CommandResult(MESSAGE_SUCCESS, Job.TAB_NAME);
     }
 }

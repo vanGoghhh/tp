@@ -21,5 +21,5 @@ Job Recruiters can:
 * [About Us](https://ay2021s1-cs2103t-t17-3.github.io/tp/AboutUs.html)
 
 #### Acknowledgements
-* Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
+* Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5), [Apache Commons Validator](https://commons.apache.org/proper/commons-validator/)
 * This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).

@@ -71,7 +71,7 @@ The sections below give more details of each component.
 **API** :
 [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `JobListPanel`, `PersonDetailedView`, `JobDetailedView` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
 The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
@@ -79,6 +79,7 @@ The `UI` component,
 
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
+* Responds to events raised by various commands which may result in changed to the UI.
 
 ### 2.3 Logic component
 
@@ -280,15 +281,17 @@ The find operation also supports finding candidates via other fields such as `Em
 
 The implemented view feature has two variants `view can` and `view job` for viewing a candidate and viewing a job respectively.
 
-The mechanism for both view features are faciliated by `ModelManager` and `MainWindow`. `ModelManager` implements model and contains a `displayedPerson` which is of type `Person`.
+The mechanism for both view features are faciliated by `ModelManager` and `MainWindow`. `ModelManager` implements model and contains a `displayedPerson` which is of type `Person` and a `displayedJob` which is of type `Job`.
 
  `ModelManager` implements the following operations:
 
-* `ModelManager#setDisplayedPerson(Person person)` — Sets the `displayedPerson` in the `ModelManager` class to be the supplied person
+* `ModelManager#setDisplayedPerson(Person person)` — Sets the `displayedPerson` in the `ModelManager` class to be the supplied person.
+* `ModelManager#setDisplayedJob(Job job)` — Sets the `displayedJob` in the `ModelManager` class to be the supplied job.
 
 `MainWindow` implements the following operations:
 
-* `MainWindow#updateDetailedPersonPanel(Person person)` — Updates the view on the right panel of the GUI to contain information of the supplied person
+* `MainWindow#updateDetailedPersonPanel(Person person)` — Updates the view on the right panel of the GUI to contain information of the supplied person.
+* `MainWindow#updateDetailedJobPanel(Job job)` — Updates the view on the right panel of the GUI to contain information of the supplied job.
 
 Given below is an example usage scenario and how the `view can` mechanism behaves at each step.
 
@@ -628,44 +631,66 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2b1. CANdidates shows an error message.
 
       Use case ends.
+    
+#### 6.3.8 Use case: UC08 - View a Candidate
 
+**MSS**
 
-#### 6.3.8 Use case: UC08 - Add a job
+1. User requests to view a candidate.
+2. CANdidates displays the information of a candidate on the right panel.
+    
+    Use case ends.
+    
+**Extensions**
+
+* 1a. The list is empty.
+
+    Use case ends.
+
+* 2a. The given index is invalid.
+    
+    * 2a1. CANdidates shows an error message.
+    
+    Use case ends.
+    
+#### 6.3.9 Use case: UC08 - Add a job
 
 Similar to UC01, except user will request to add a job instead.
 
 
-#### 6.3.9 Use case: UC09 - List jobs
+#### 6.3.10 Use case: UC09 - List jobs
 
 Similar to UC02, except user will request to list jobs and CANdidates will show a list of jobs instead.
 
 
-#### 6.3.10 Use case: UC10 - Delete a job
+#### 6.3.11 Use case: UC10 - Delete a job
 
 Similar to UC03, except user will request to delete a specific job index.
 
 
-#### 6.3.11 Use case: UC11 - Edit a candidate
+#### 6.3.12 Use case: UC11 - Edit a candidate
 
 Similar to UC04, except user will request to edit details of a specific job index.
 
 
-#### 6.3.12 Use case: UC12 - Clear all jobs
+#### 6.3.13 Use case: UC12 - Clear all jobs
 
 Similar to UC05, except user will request to clear all jobs.
 
 
-#### 6.3.13 Use case: UC13 - Find candidates
+#### 6.3.14 Use case: UC13 - Find jobs
 
 Similar to UC06, except user will request to find jobs with keywords and CANdidates will show a list of jobs instead.
 
-
-#### 6.3.14 Use case: UC14 - Sort candidates
+#### 6.3.15 Use case: UC14 - Sort jobs
 
 Similar to UC07, except user will request to sort jobs.
 
+#### 6.3.16 Use case: UC14 - View a job
 
-#### 6.3.15 Use case: UC15 - Requesting for help
+Similar to UC08, except user will request to view a job and CANdidates will display information of the job on the right panel instead.
+
+#### 6.3.17 Use case: UC15 - Requesting for help
 
 **MSS**
 
@@ -718,10 +743,19 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size should be fixed and non-adjustable.
+   1. Double-click the jar file <br>
+   Expected: Shows the GUI with a set of sample contacts. The window size should be fixed and non-adjustable.
 
-1. _{ more test cases …​ }_
+1. Exiting the application
 
+   1. Type `Exit` in the command box and press *Enter*. <br>
+   Expected: The application closes. The json files `personaddressbook.json` and `jobaddressbook.json` are updated accordingly.
+   
+1. Subsequent launch
+
+   1. Double-click the jar file <br>
+   Expected: Shows the GUI with contacts loaded from the json data files. The window size should be fixed and non-adjustable.
+   
 ### 7.2 Adding a candidate
 
 1. Adding a candidate while on the candidates tab and all candidates are displayed 
@@ -946,10 +980,51 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
-### 7.12 Saving data
+### 7.12 Viewing a candidate
 
-1. Dealing with missing/corrupted data files
+1. Viewing a candidate with no candidates in the candidates list.
+    
+    1. Test case: `view can 1` <br>
+      Expected: No candidate would be displayed on the right panel. Invalid index message would be shown in the status message
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+2. Viewing a candidate with a 5 candidates in the candidates list.
 
-1. _{ more test cases …​ }_
+    1. Test case: `view can 2`<br>
+      Expected: The information of the candidate at index 2 would be displayed on the right panel.
+      
+    2. Test case: `view can 6`<br>
+      Expected: No candidate would be displayed on the right panel. Invalid index message would be shown in the status message.
+      
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Viewing jobs can be tested in the same way but with its analogous commands.
+
+</div>
+
+### 7.13 Saving data
+
+1. Dealing with missing data files
+
+   1. Prerequisites: The `personaddressbook.json` and `jobaddressbook.json` json file exists in the application directory. The application is able to launch without error.
+       
+   1. Test case: Delete the json file `personaddressbook.json` from the application directory.<br>
+      Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
+    
+   1. Test case: Delete the json file `jobaddressbook.json` from the application directory.<br>
+      Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
+      
+   1. Other data files to try: `config.json`, `preferences.json`<br>
+      Expected: The application launches with the default configurations and preferences.
+
+1. Dealing with corrupted job data files
+
+   1. Prerequisites: The `personaddressbook.json` and `jobaddressbook.json` json file exists in the application directory. The application is able to launch without error.
+       
+   1. Test case: Insert glibberish and incorrect syntax into the json file `personaddressbook.json` from the application directory.<br>
+      Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
+    
+   1. Test case: Insert glibberish and incorrect syntax into the json file `jobaddressbook.json` from the application directory.<br>
+      Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
+      
+   1. Other data files to try: `config.json`, `preferences.json`<br>
+      Expected: The application launches with the default configurations and preferences.

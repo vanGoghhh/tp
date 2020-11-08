@@ -12,7 +12,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 ### Given below are my contributions to the project.
 
 * **New Feature**: Ability to sort candidates
-  * What it does: Sorts the list of candidates by their experience, expected salary, name, blacklist status and data of application in an ascending or descending order.
+  * What it does: Sorts the list of candidates by their experience, expected salary, name, blacklist status and date of application in an ascending or descending order.
   * Justification: This feature improves the product significantly because a user can quickly sort the items with a single command. A well organised and sorted list of candidates makes it easier for the user, a job recruiter to select candidates for a particular job listing.
   * Highlights: This enhancement is challenging as it is a fresh implementation and no similar implementations exists in the original codebase of AddressBook 3. Thus a good understanding of the logic flow of the code base is required due to the multitude of classes and methods involved.
 
@@ -51,7 +51,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * Wrote tests for some existing features to increase code coverage (Pull requests
     [\#149](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/149),
     [\#290](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/290))
-* Implemented auto switching of tabs upon execution of a 'candidate' or 'job' command (Pull requests [\#223](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/223))
+  * Implemented auto switching of tabs upon execution of a 'candidate' or 'job' command (Pull requests [\#223](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/223))
 
 <br>
 

@@ -70,7 +70,7 @@ public class AddPersonCommand extends Command {
         }
 
         model.addPerson(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), "Candidates");
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), Person.TAB_NAME);
     }
 
     @Override

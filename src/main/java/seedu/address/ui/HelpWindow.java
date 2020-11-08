@@ -74,6 +74,8 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String HELP_FORMAT = "   help";
     public static final String EXIT_FORMAT = "   exit";
 
+    //@@author KishenKumarrrrr-reused
+    //Reused from https://tinyurl.com/y5ahoa7f with modifications
     private static final ObservableList<Row> tableRows =
             FXCollections.observableArrayList(
                     new Row(ADD_ACTION, ADD_CANDIDATE_FORMAT, ADD_JOB_FORMAT),
@@ -87,6 +89,7 @@ public class HelpWindow extends UiPart<Stage> {
                     new Row(HELP_ACTION, HELP_FORMAT, HELP_FORMAT),
                     new Row(EXIT_ACTION, EXIT_FORMAT, EXIT_FORMAT));
 
+    //@@author
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
 
@@ -126,12 +129,16 @@ public class HelpWindow extends UiPart<Stage> {
         action.setText(TABLE_FIRST_COLUMN);
         candidateFormat.setText(TABLE_SECOND_COLUMN);
         jobFormat.setText(TABLE_THIRD_COLUMN);
+
+        //@@author KishenKumarrrrr-reused
+        //Reused from https://tinyurl.com/y5ahoa7f with modifications
         action.setCellValueFactory(new PropertyValueFactory<Row, String>("action"));
         candidateFormat.setCellValueFactory(new PropertyValueFactory<Row, String>("candidateFormat"));
         jobFormat.setCellValueFactory(new PropertyValueFactory<Row, String>("jobFormat"));
         table.setItems(tableRows);
     }
 
+    //@@author
     /**
      * Creates a new HelpWindow.
      */
@@ -195,6 +202,8 @@ public class HelpWindow extends UiPart<Stage> {
         clipboard.setContent(url);
     }
 
+    //@@author Jakob Jenkov-reused
+    //Reused from http://tutorials.jenkov.com/javafx/tableview.html with modifications
     public static class Row {
         private String action;
         private String candidateFormat;
