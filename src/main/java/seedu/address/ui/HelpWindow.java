@@ -47,7 +47,7 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String LIST_CANDIDATE_FORMAT = "   list can";
     public static final String EDIT_CANDIDATE_FORMAT = "   edit can INDEX\n   "
             + "[n/NAME]\n   [p/PHONE_NUMBER]\n   [e/EMAIL]\n   [exp/YEARS_OF_EXPERIENCE]\n   "
-            + "[doa/DATE_OF_APPLICATION]\n   [sal/EXPECTED_SALARY]\n   [a/ADDRESS]\n   "
+            + "[doa/DATE_OF_APPLICATION]\n   [a/ADDRESS]\n   [sal/EXPECTED_SALARY]\n   "
             + "[bl/IS_BLACKLISTED]\n   [link/PROFILE_LINK]\n   [t/JOB_TYPE]…";
     public static final String FIND_CANDIDATE_FORMAT = "   find can\n   [n/NAME]\n   [p/PHONE_NUMBER]\n   "
             + "[e/EMAIL]\n   [a/ADDRESS]\n   [exp/YEARS_OF_EXPERIENCE]\n   [doa/DATE_OF_APPLICATION]\n   [sal/EXPECTED_SALARY]\n   "
