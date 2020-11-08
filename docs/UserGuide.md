@@ -859,15 +859,9 @@ This means you will not be able to edit an entry to match another entry.*
 
 ### 6.4 Auto tab switch
 
-*CANdidates* is designed for fast typers like you! Switching of tabs are done automatically, depending on the command
-that you enter so that you do not have to spend time clicking to switch tab to see the results of your entered command!
-
-**Examples:**
-
-:black_nib: Enter a command for jobs while on the candidates tab
-
-:black_nib: Enter a command for candidates while on the jobs tab
-
+*CANdidates* is designed for fast typers like you! Switching of tabs are done automatically, smartly detected based on the command
+that you enter so that you do not have to spend time clicking to switch tab to see the results of your entered command! With this
+feature, you can simply enter any command regardless of which tab you are on!
 
 **Step by Step:**
 
