@@ -65,7 +65,7 @@ public class HelpWindow extends UiPart<Stage> {
             + "[c/COMPANY_NAME]\n   [p/PHONE]\n   [e/EMAIL]\n   "
             + "[a/ADDRESS]\n   [v/VACANCY]\n   [pr/PRIORITY]\n   [t/JOB_DESCRIPTION]…";
     public static final String FIND_JOB_FORMAT = "   find job\n   [n/JOB_TITLE]\n   [c/COMPANY_NAME]\n   [p/PHONE]\n"
-            + "   [e/EMAIL]\n   " + "[a/ADDRESS]\n   [pr/PRIORITY]\n   [v/VACANCY]\n   [t/JOB_DESCRIPTION]…";
+            + "   [e/EMAIL]\n   " + "[a/ADDRESS]\n   [v/VACANCY]\n   [pr/PRIORITY]\n   [t/JOB_DESCRIPTION]…";
     public static final String SORT_JOB_FORMAT = "   sort job\n   type/FIELD_TO_SORT\n   order/ORDER";
     public static final String DELETE_JOB_FORMAT = "   delete job INDEX";
     public static final String CLEAR_JOB_FORMAT = "   clear job";
