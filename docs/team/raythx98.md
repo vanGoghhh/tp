@@ -7,7 +7,7 @@ title: Toh Hong Xian (Ray)'s Project Portfolio Page
 
 CANdidates is a powerful contact management desktop app optimised for job recruiters to manage job applicants.
 
-The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 20 kLoC.
+The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 25 kLoC.
 
 <img src="https://i.imgur.com/sfvvyn3.jpg" width="200px">
 
@@ -64,9 +64,8 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 <br>
 
 * **Community**:
-  * PRs reviewed (with non-trivial review comments): (examples: [\#155](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/155), [\#159](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/159))
   * Contributed to forum discussions [#68](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/68)
-  * Reported bugs and suggestions for other teams in the class (examples: [#247](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/247), [#249](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/249), [#252](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/252))
+  * Reported bugs and suggestions (examples: [#247](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/247), [#249](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/249), [#252](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/252))
 
 <br>
 
