@@ -194,15 +194,16 @@ If you have a new candidate who approached you and you would like to put him in 
     
 **Step by Step:**
 
-![Add Candidate 1](images/addCan1.png)
-
 Step 1. Type `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 t/DogGroomer exp/1 doa/16-10-20` in the *command box* and press *Enter*.
 
-![Add Candidate 2](images/addCan2.png)
-Step 2. The *CANdidates* application will automatically switch to "Candidates" tab and the following message will be shown in the *result display* 
+![Add Candidate 1](images/addCan1.png)
+
+Step 2. The *CANdidates* application will show the following message in the *result display*.
 >New person added: John Doe Phone: 98765432 Email: johnd@example.com Experience: 1.0 years Date of Application: 16-10-20 Address: John street, block 123, #01-01 Link:  Expected Salary:  Blacklisted: false Tags: [DogGroomer].
 
-Step 3. The application will show the updated list of candidates with the newly added candidate.
+Step 3. The application will show the updated list of candidates with the newly added candidate in the *main list*.
+
+![Add Candidate 2](images/addCan2.png)
 
 <br>
 
@@ -303,18 +304,16 @@ Candidates with no expected salary will be displayed at the top of the list.*
 
 **Step by Step:**
 
-![Find Can Step 1](images/findCan1.png)
-
 Step 1. Type `find can n/David t/Teacher` in the *command box* and press *Enter*.
 
-![Find Can Step 2](images/findCan2.png)
+![Find Can Step 1](images/findCan1.png)
 
-Step 2. The *CANdidates* application will show the following message in the *result display* 
+Step 2. The *CANdidates* application will show the following message in the *result display*.
 >1 candidates listed!
 
-:memo: *If you were on the "Jobs" tab, the application will automatically direct you to the "Candidates" tab.*
+Step 3. The application will show candidates with all matching fields in the *main list*.
 
-Step 3. The application will display candidates with all matching fields.
+![Find Can Step 2](images/findCan2.png)
 
 <br>
 
@@ -353,18 +352,16 @@ You can view all the candidates in the order you wish to by typing in your desir
     
 **Step by Step:**
 
-![Sort Can Step 1](images/sortCan1.png)
-
 Step 1. Type `sort can type/exp order/asc` in the *command box* and press *Enter*.
 
-![Sort Can Step 2](images/sortCan2.png)
+![Sort Can Step 1](images/sortCan1.png)
 
-Step 2. The *CANdidates* application will show the following message in the *result display* 
+Step 2. The *CANdidates* application will show the following message in the *result display*.
 >Successfully sorted list of candidates by years of experience in ascending order.
 
-:memo: *If you were on the "Jobs" tab, the application will automatically direct you to the "Candidates" tab.*
-
 Step 3. The application will show the sorted candidates list based on the sort condition given.
+
+![Sort Can Step 2](images/sortCan2.png)
 
 <br>
 
@@ -434,16 +431,16 @@ Want to view all the information of a particular candidate? *CANdidates* provide
 
 **Step by Step:**
 
-![View Can Step 1](images/viewCan1.png)
-
 Step 1. Type `view can 1` in the *command box* and press *Enter*.
 
-![View Can Step 2](images/viewCan2.png)
+![View Can Step 1](images/viewCan1.png)
 
 Step 2. The *CANdidates* application will show the following message in the *result display*. The message will depend on the candidate you have selected to display on the detailed panel. Representing the values of the candidate's input fields as "{}", the message shown in *result display* is
 >Display Candidate: {Name of candidate} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:{} Tags: {}
 
-Step 3. All the information of the specified candidate would be displayed on the detailed panel.
+Step 3. All the information of the specified candidate would be displayed on the *display panel*.
+
+![View Can Step 2](images/viewCan2.png)
 
 <br>
 
@@ -512,17 +509,17 @@ If you are informed of a job opening and you would like to add it in *CANdidates
     
 **Step by Step:**
 
+Step 1. Type `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations v/1` in the *command box* and press *Enter*.
+
 ![Add Job 1](images/addJob1.png)
 
-Step 1. Type `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@example.com a/Amelia Street, Block 123, #01-01 pr/low t/MultipleLocations v/1` in the *command box* and press *Enter*.
+Step 2. The *CANdidates* application will show the following message in the *result display*.
+>New job added: Waiter Company: Amelia’s Eating House Phone: 98765432 Email: ameliatjy@example.com Address: Amelia Street, Block 123, #01-01 Priority: low Vacancy: 1 Tags: [MultipleLocations]
+
+Step 3. The application will show the updated job listings with the newly added job in the *main list*.
 
 ![Add Job 2](images/addJob2.png)
 
-Step 2. The *CANdidates* application will automatically switch to "Jobs" tab and the following message will be shown in the *result display*
->New job added: Waiter Company: Amelia’s Eating House Phone: 98765432 Email: ameliatjy@example.com Address: Amelia Street, Block 123, #01-01 Priority: low Vacancy: 1 Tags: [MultipleLocations]
-
-Step 3. The application will show the updated job listings with the newly added job.
-    
 <br>
 
 
@@ -619,18 +616,18 @@ Too many job listings with different information? Similar to the feature above, 
     
 **Step by Step:**
 
-![Find Job Step 1](images/findJob1.png)
-
 Step 1. Type `find job v/1` in the *command box* and press *Enter*.
 
-![Find Job Step 2](images/findJob2.png)
+![Find Job Step 1](images/findJob1.png)
 
 Step 2. The *CANdidates* application will show the following message in the *result display* 
 >3 jobs listed!
 
 :memo: *If you were on the "Candidates" tab, the application will automatically direct you to the "Jobs" tab.*
 
-Step 3. The application will display jobs with all matching fields.
+Step 3. The application will display jobs with all matching fields in the *main list*.
+
+![Find Job Step 2](images/findJob2.png)
 
 <br>
 
@@ -664,11 +661,9 @@ Have too many job listings and need a way to organise them? You can get *CANdida
     
 **Step by Step:**
 
-![Sort Job Step 1](images/sortJob1.png)
-
 Step 1. Type `sort job type/pr order/asc` in the *command box* and press *Enter*.
 
-![Sort Job Step 2](images/sortJob2.png)
+![Sort Job Step 1](images/sortJob1.png)
 
 Step 2. The *CANdidates* application will show the following message in the *result display* 
 >Successfully sorted jobs by priority in ascending order.
@@ -676,6 +671,8 @@ Step 2. The *CANdidates* application will show the following message in the *res
 :memo: *If you were on the "Candidates" tab, the application will automatically direct you to the "Jobs" tab.*
 
 Step 3. The application will show the sorted job list based on the sort condition given.
+
+![Sort Job Step 2](images/sortJob2.png)
 
 <br>
 
@@ -744,16 +741,16 @@ Want to view all the information of a particular job ? *CANdidates* provides an 
 
 **Step by Step:**
 
-![View Job Step 1](images/viewJob1.png)
-
 Step 1. Type `view job 1` in the *command box* and press *Enter*.
 
-![View Job Step 2](images/viewJob2.png)
+![View Job Step 1](images/viewJob1.png)
 
 Step 2. The *CANdidates* application will show the following message in the *result display*. The message will depend on the job you have selected to display on the detailed panel. Representing the values of the job's input fields as "{}", the message shown in *result display* is
 >Display Job: {Name of job} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}
 
-Step 3. All the information of the specified job would be displayed on the detailed panel.
+Step 3. All the information of the specified job would be displayed on the *display panel*.
+
+![View Job Step 2](images/viewJob2.png)
 
 <br>
 
@@ -802,17 +799,17 @@ If you are unsure of how to use the application, we have a help function that wi
 
 **Step by Step:**
 
-![help message 1](images/helpMessage1.png)
-
 Step 1. Type `help` in the *command box* and press *Enter*.
 
-![help message 2](images/helpMessage2.png)
+![help message 1](images/helpMessage1.png)
 
 Step 2. The *CANdidates* application will show the message "Opened help window" in the *result display* to indicate that the help window has been opened.
 
-![help message 3](images/helpMessage3.png)
+![help message 2](images/helpMessage2.png)
 
 Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to *CANdidates*'s User Guide, which is this document!
+
+![help message 3](images/helpMessage3.png)
 
 <br>
 
@@ -829,7 +826,7 @@ Done with updating your information with *CANdidates*? Use this command to exit 
 ### 6.3 Detecting duplicate entries
 
 Worried that you might accidentally create duplicate entries of the same candidate or job? No need to worry, 
-CANdidates has you covered! Duplicate entries are automatically detected and prevented from being created. 
+*CANdidates* has you covered! Duplicate entries are automatically detected and prevented from being created. 
 You will be notified by an error message when this happens. No command is needed.
 
 <div markdown="span" class="alert alert-primary">
@@ -860,7 +857,30 @@ This means you will not be able to edit an entry to match another entry.*
 
 <br>
 
-### 6.4 Saving the data
+### 6.4 Auto tab switch
+
+*CANdidates* is designed for fast typers like you! Switching of tabs are done automatically, smartly detected based on the command
+that you enter so that you do not have to spend time clicking to switch tab to see the results of your entered command! With this
+feature, you can simply enter any command regardless of which tab you are on!
+
+**Step by Step:**
+
+Step 1. While on the candidates tab, type `find job t/Cleaner` in the *command box* and press *Enter*.
+
+![Tab Switch Step 1](images/tabSwitch1.png)
+
+Step 2. The *CANdidates* application will show the following message in the *result display* 
+>3 jobs listed!
+
+Step 3. The application will automatically direct you to the "Jobs" tab and display jobs with all matching fields in the *main list*.
+
+![Tab Switch Step 2](images/tabSwitch2.png)
+
+<br>
+
+<br>
+
+### 6.5 Saving the data
 
 All data is saved in the hard disk automatically after any command that changes the data. No need worry about having to save manually!
 
