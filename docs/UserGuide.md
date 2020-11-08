@@ -84,7 +84,7 @@ Name of input field   | How you can use them
 `DATE_OF_APPLICATION` | Date of job application submitted.<br/>:memo: *Date should be in the format of DD-MM-YY*<br/>:bulb: *Day and Month can be 1 or 2 digits as long as they are valid.*<br/>:black_nib: *If the date of application is 31 September 2021, input* `doa/31-9-21`
 `EXPECTED_SALARY`     | If a candidate expects a certain amount of salary,  it can be specified using this field.<br/>:memo: *This field only accepts only whole numbers.*<br/>:bulb: *You could round up your figure to the next whole number if needed!*
 `IS_BLACKLISTED`      | You may use this to blacklist candidates that are unresponsive, have poor attitude, etc. You can use this to sort or filter candidates.<br/>:memo: *This field only accepts 2 specific values: true or false.*
-`PROFILE_LINK`        | URL link to candidate profile or portfolio (e.g. LinkedIn or GitHub, etc.) to provide convenience for you to refer to their profile later on.
+`PROFILE_LINK`        | URL link to candidate profile or portfolio (e.g. LinkedIn or GitHub, etc.) to provide convenience for you to refer to their profile later on. <br/>:exclamation: *This field does not guarantee that the URL address exists, only that the format is correct.*<br/>:bulb:*If you entered an erroneous URL address, use the* [edit can](#editing-a-candidate-edit-can) *feature to correct it!*
 `JOB_TYPE`            | You can include job type tags for candidates so that it will be easier to find candidates applying for similar jobs later on. For example, you can tag them according to the job industry.<br/>:memo: *Job type should be one word, made up of up to 20 alphanumerical values with no spaces.*
 `JOB_TITLE`           | Title of a job position.<br/>:memo: *Job titles should contain only alphanumerical values or spaces.*
 `COMPANY_NAME`        | Name of the company for the job listing you are adding or editing.
@@ -254,8 +254,6 @@ This works for the job type, address, expected salary and profile link fields. S
     
 **Step by Step:**
 
-![Edit Can Step 1](images/editCan1.png)
-
 Step 1. Ensure there is at least 1 candidate in the candidates list. <br>
 Type `edit can 1 p/91234567 e/johndoe@example.com bl/true` in the *command box* and press *Enter*.
 
@@ -266,7 +264,10 @@ The command result will depend on the specific candidate that is being edited an
 Representing the original values of the candidate's input fields which were not edited as "{}", the message that will be shown in the *result display* is
 >Edited candidate: {Name of candidate} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:true Tags: {}.
 
-Step 3. The application will show the updated list of candidates with the edited candidate.
+Step 3. The application will show the updated list of candidates with the edited candidate. Type `view can 1` or click the edited candidate's
+card to view the candidate's new information in detail.
+
+![Edit Can Step 2](images/editCan2.png)
 
 <br>
 
@@ -400,12 +401,16 @@ Please ensure you do not require the candidate’s data anymore before performin
 Step 1. Ensure there is at least 1 candidate in the candidate list. <br>
 Type `delete can 1` in the *command box* and press *Enter*.
 
+![Delete Can Step 1](images/deleteCan1.png)
+
 Step 2. The *CANdidates* application will automatically switch to the "Candidates" tab if you are at the "Jobs" tab. 
 The command result will depend on the specific candidate that is being deleted.
 Representing the values of the candidate's input fields as "{}", the message that will be shown in the *result display* is
 >Deleted candidate: {Name of candidate} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {}  Expected Salary: {} Blacklisted: {} Tags: {}
 
 Step 3. The application will show the updated candidates list without the deleted candidate.
+
+![Delete Can Step 2](images/deleteCan2.png)
 
 <br>
 
@@ -467,11 +472,15 @@ Please ensure you do not require the candidate list data anymore before performi
 
 Step 1. Type `clear can` in the *command box* and press *Enter*.
 
+![Clear Can Step 1](images/clearCan1.png)
+
 Step 2. The *CANdidates* application will automatically switch to "Candidates" tab if you are at the "Jobs" tab. 
 The following message will be shown in the *result display*
 >Candidate list has been cleared!
 
 Step 3. The application will show the updated candidate list which is empty.
+
+![Clear Can Step 2](images/clearCan2.png)
     
 <br>
 
@@ -579,12 +588,17 @@ See the second example below for a demonstration.*
 Step 1. Ensure there is at least 1 job in the jobs list. <br>
 Type `edit job 1 c/Dog Cafe p/82827731 v/3 pr/high` in the *command box* and press *Enter*.
 
+![Edit Job Step 1](images/editJob1.png)
+
 Step 2. The *CANdidates* application will automatically switch to the "Jobs" tab if you are at the "Candidates" tab. 
 The command result will depend on the specific job that is being edited and the input fields that were not edited. 
 Representing the original values of the job's input fields which were not edited as "{}", the message that will be shown in the *result display* is
 >Edited job: {Job Title} Company: Dog Cafe Phone: 82827731 Email: {} Address: {} Priority: high Vacancy: 3 Tags: {}
 
-Step 3. The application will show the updated list of jobs with the edited job.
+Step 3. The application will show the updated list of jobs with the edited job. Type `view job 1` or click the edited job's
+card to view the job's new information in detail.
+
+![Edit Job Step 2](images/editJob2.png)
 
 <br>
 
@@ -711,12 +725,16 @@ Please ensure you do not require the job’s data anymore before performing this
 Step 1. Ensure there is at least 1 job in the jobs list. <br>
 Type `delete job 1` in the *command box* and press *Enter*.
 
+![Delete Job Step 1](images/deleteJob1.png)
+
 Step 2. The *CANdidates* application will automatically switch to the "Jobs" tab if you are at the "Candidates" tab. 
 The command result will depend on the specific job that is being deleted.
 Representing the values of the job's input fields as "{}", the message that will be shown in the *result display* is
 >Deleted Job: {Job Title} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}
 
 Step 3. The application will show the updated job list without the deleted job.
+
+![Delete Job Step 2](images/deleteJob2.png)
 
 <br>
 
@@ -779,11 +797,15 @@ Please ensure you do not require the job list data anymore before performing thi
 
 Step 1. Type `clear job` in the *command box* and press *Enter*.
 
+![Clear Job Step 1](images/clearJob1.png)
+
 Step 2. The *CANdidates* application will automatically switch to "Jobs" tab if you are at the "Candidates" tab. 
 The following message will be shown in the *result display*
 >Job list has been cleared!
 
 Step 3. The application will show the updated job list which is empty.
+
+![Clear Job Step 2](images/clearJob2.png)
     
 <br>
 
