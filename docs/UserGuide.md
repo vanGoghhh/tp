@@ -198,8 +198,12 @@ Step 1. Type `add can n/John Doe p/98765432 e/johnd@example.com a/John street, b
 
 ![Add Candidate 1](images/addCan1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will show the following message in the *result display*.
 >New person added: John Doe Phone: 98765432 Email: johnd@example.com Experience: 1.0 years Date of Application: 16-10-20 Address: John street, block 123, #01-01 Link:  Expected Salary:  Blacklisted: false Tags: [DogGroomer].
+
+<br>
 
 Step 3. The application will show the updated list of candidates with the newly added candidate in the *main list*.
 
@@ -259,10 +263,14 @@ Type `edit can 1 p/91234567 e/johndoe@example.com bl/true` in the *command box* 
 
 ![Edit Can Step 1](images/editCan1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will automatically switch to the "Candidates" tab if you are at the "Jobs" tab. 
 The command result will depend on the specific candidate that is being edited and the input fields that were not edited. 
 Representing the original values of the candidate's input fields which were not edited as "{}", the message that will be shown in the *result display* is
 >Edited candidate: {Name of candidate} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:true Tags: {}.
+
+<br>
 
 Step 3. The application will show the updated list of candidates with the edited candidate. Type `view can 1` or click the edited candidate's
 card to view the candidate's new information in detail.
@@ -313,8 +321,12 @@ Step 1. Type `find can n/David t/Teacher` in the *command box* and press *Enter*
 
 ![Find Can Step 1](images/findCan1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will show the following message in the *result display*.
 >1 candidates listed!
+
+<br>
 
 Step 3. The application will show candidates with all matching fields in the *main list*.
 
@@ -361,8 +373,12 @@ Step 1. Type `sort can type/exp order/asc` in the *command box* and press *Enter
 
 ![Sort Can Step 1](images/sortCan1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will show the following message in the *result display*.
 >Successfully sorted list of candidates by years of experience in ascending order.
+
+<br>
 
 Step 3. The application will show the sorted candidates list based on the sort condition given.
 
@@ -403,10 +419,14 @@ Type `delete can 1` in the *command box* and press *Enter*.
 
 ![Delete Can Step 1](images/deleteCan1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will automatically switch to the "Candidates" tab if you are at the "Jobs" tab. 
 The command result will depend on the specific candidate that is being deleted.
 Representing the values of the candidate's input fields as "{}", the message that will be shown in the *result display* is
 >Deleted candidate: {Name of candidate} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {}  Expected Salary: {} Blacklisted: {} Tags: {}
+
+<br>
 
 Step 3. The application will show the updated candidates list without the deleted candidate.
 
@@ -444,8 +464,12 @@ Step 1. Type `view can 1` in the *command box* and press *Enter*.
 
 ![View Can Step 1](images/viewCan1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will show the following message in the *result display*. The message will depend on the candidate you have selected to display on the detailed panel. Representing the values of the candidate's input fields as "{}", the message shown in *result display* is
 >Display Candidate: {Name of candidate} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:{} Tags: {}
+
+<br>
 
 Step 3. All the information of the specified candidate would be displayed on the *display panel*.
 
@@ -474,9 +498,13 @@ Step 1. Type `clear can` in the *command box* and press *Enter*.
 
 ![Clear Can Step 1](images/clearCan1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will automatically switch to "Candidates" tab if you are at the "Jobs" tab. 
 The following message will be shown in the *result display*
 >Candidate list has been cleared!
+
+<br>
 
 Step 3. The application will show the updated candidate list which is empty.
 
@@ -526,8 +554,12 @@ Step 1. Type `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@
 
 ![Add Job 1](images/addJob1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will show the following message in the *result display*.
 >New job added: Waiter Company: Amelia’s Eating House Phone: 98765432 Email: ameliatjy@example.com Address: Amelia Street, Block 123, #01-01 Priority: low Vacancy: 1 Tags: [MultipleLocations]
+
+<br>
 
 Step 3. The application will show the updated job listings with the newly added job in the *main list*.
 
@@ -590,10 +622,14 @@ Type `edit job 1 c/Dog Cafe p/82827731 v/3 pr/high` in the *command box* and pre
 
 ![Edit Job Step 1](images/editJob1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will automatically switch to the "Jobs" tab if you are at the "Candidates" tab. 
 The command result will depend on the specific job that is being edited and the input fields that were not edited. 
 Representing the original values of the job's input fields which were not edited as "{}", the message that will be shown in the *result display* is
 >Edited job: {Job Title} Company: Dog Cafe Phone: 82827731 Email: {} Address: {} Priority: high Vacancy: 3 Tags: {}
+
+<br>
 
 Step 3. The application will show the updated list of jobs with the edited job. Type `view job 1` or click the edited job's
 card to view the job's new information in detail.
@@ -638,10 +674,14 @@ Step 1. Type `find job v/1` in the *command box* and press *Enter*.
 
 ![Find Job Step 1](images/findJob1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will show the following message in the *result display* 
 >3 jobs listed!
 
 :memo: *If you were on the "Candidates" tab, the application will automatically direct you to the "Jobs" tab.*
+
+<br>
 
 Step 3. The application will display jobs with all matching fields in the *main list*.
 
@@ -683,10 +723,14 @@ Step 1. Type `sort job type/pr order/asc` in the *command box* and press *Enter*
 
 ![Sort Job Step 1](images/sortJob1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will show the following message in the *result display* 
 >Successfully sorted jobs by priority in ascending order.
 
 :memo: *If you were on the "Candidates" tab, the application will automatically direct you to the "Jobs" tab.*
+
+<br>
 
 Step 3. The application will show the sorted job list based on the sort condition given.
 
@@ -727,10 +771,14 @@ Type `delete job 1` in the *command box* and press *Enter*.
 
 ![Delete Job Step 1](images/deleteJob1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will automatically switch to the "Jobs" tab if you are at the "Candidates" tab. 
 The command result will depend on the specific job that is being deleted.
 Representing the values of the job's input fields as "{}", the message that will be shown in the *result display* is
 >Deleted Job: {Job Title} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}
+
+<br>
 
 Step 3. The application will show the updated job list without the deleted job.
 
@@ -768,8 +816,12 @@ Step 1. Type `view job 1` in the *command box* and press *Enter*.
 
 ![View Job Step 1](images/viewJob1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will show the following message in the *result display*. The message will depend on the job you have selected to display on the detailed panel. Representing the values of the job's input fields as "{}", the message shown in *result display* is
 >Display Job: {Name of job} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}
+
+<br>
 
 Step 3. All the information of the specified job would be displayed on the *display panel*.
 
@@ -799,9 +851,13 @@ Step 1. Type `clear job` in the *command box* and press *Enter*.
 
 ![Clear Job Step 1](images/clearJob1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will automatically switch to "Jobs" tab if you are at the "Candidates" tab. 
 The following message will be shown in the *result display*
 >Job list has been cleared!
+
+<br>
 
 Step 3. The application will show the updated job list which is empty.
 
@@ -830,9 +886,13 @@ Step 1. Type `help` in the *command box* and press *Enter*.
 
 ![help message 1](images/helpMessage1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will show the message "Opened help window" in the *result display* to indicate that the help window has been opened.
 
 ![help message 2](images/helpMessage2.png)
+
+<br>
 
 Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to *CANdidates*'s User Guide, which is this document!
 
@@ -906,8 +966,12 @@ Step 1. While on the candidates tab, type `find job t/Cleaner` in the *command b
 
 ![Tab Switch Step 1](images/tabSwitch1.png)
 
+<br>
+
 Step 2. The *CANdidates* application will show the following message in the *result display* 
 >3 jobs listed!
+
+<br>
 
 Step 3. The application will automatically direct you to the "Jobs" tab and display jobs with all matching fields in the *main list*.
 
