@@ -253,8 +253,12 @@ This works for the job type, address, expected salary and profile link fields. S
     
 **Step by Step:**
 
+![Edit Can Step 1](images/editCan1.png)
+
 Step 1. Ensure there is at least 1 candidate in the candidates list. <br>
 Type `edit can 1 p/91234567 e/johndoe@example.com bl/true` in the *command box* and press *Enter*.
+
+![Edit Can Step 1](images/editCan1.png)
 
 Step 2. The *CANdidates* application will automatically switch to the "Candidates" tab if you are at the "Jobs" tab. 
 The command result will depend on the specific candidate that is being edited and the input fields that were not edited. 
@@ -681,7 +685,8 @@ Step 3. The application will show the sorted job list based on the sort conditio
 
 ### 5.6 Deleting a job: `delete job`
 
-Deletes the specified job from the job listing.
+Have you successfully filled up the vacancies for a job listing and you no longer need to keep its details in CANdidates? 
+To delete a particular job from the list, you can use the command below
 
 **Format:** `delete job INDEX`
 
