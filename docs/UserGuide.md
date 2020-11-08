@@ -303,18 +303,18 @@ Candidates with no expected salary will be displayed at the top of the list.*
 
 **Step by Step:**
 
-![Find Can Step 1](images/findCan1.png)
-
 Step 1. Type `find can n/David t/Teacher` in the *command box* and press *Enter*.
 
-![Find Can Step 2](images/findCan2.png)
+![Find Can Step 1](images/findCan1.png)
 
 Step 2. The *CANdidates* application will show the following message in the *result display* 
 >1 candidates listed!
 
 :memo: *If you were on the "Jobs" tab, the application will automatically direct you to the "Candidates" tab.*
 
-Step 3. The application will display candidates with all matching fields.
+Step 3. The application will display candidates with all matching fields in the *main list*.
+
+![Find Can Step 2](images/findCan2.png)
 
 <br>
 
@@ -619,18 +619,18 @@ Too many job listings with different information? Similar to the feature above, 
     
 **Step by Step:**
 
-![Find Job Step 1](images/findJob1.png)
-
 Step 1. Type `find job v/1` in the *command box* and press *Enter*.
 
-![Find Job Step 2](images/findJob2.png)
+![Find Job Step 1](images/findJob1.png)
 
 Step 2. The *CANdidates* application will show the following message in the *result display* 
 >3 jobs listed!
 
 :memo: *If you were on the "Candidates" tab, the application will automatically direct you to the "Jobs" tab.*
 
-Step 3. The application will display jobs with all matching fields.
+Step 3. The application will display jobs with all matching fields in the *main list*.
+
+![Find Job Step 2](images/findJob2.png)
 
 <br>
 
