@@ -29,7 +29,7 @@
                   <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
                 </Menu>
             </MenuBar>
-            <TabPane fx:id="tabPane" maxWidth="650" prefHeight="800.0" styleClass="tabs" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+            <TabPane fx:id="tabPane" maxWidth="650" prefWidth="600" prefHeight="800.0" styleClass="tabs" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
               <tabs>
                 <Tab id="personTab" fx:id="personTab" text="Candidates">
                   <content>
@@ -40,7 +40,7 @@
                 </Tab>
                 <Tab fx:id="jobTab" text="Jobs">
                   <content>
-                    <VBox fx:id="jobsList" maxWidth="650" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="jobsList" maxWidth="650" prefWidth="600" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
                       <padding>
                         <Insets bottom="10" left="10" right="10" top="10" />
                       </padding>
@@ -61,7 +61,7 @@
           </children>
           <children>
             <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" style="-fx-background-color: white;" styleClass="right-scroll" vbarPolicy="NEVER">
-            <VBox maxWidth="630" minHeight="1300"  minWidth="500" spacing="10" styleClass="right-panel">
+            <VBox maxWidth="700" prefWidth="630" minHeight="1300"  spacing="10" styleClass="right-panel">
                 <StackPane fx:id="detailedView" VBox.vgrow="ALWAYS" />
             </VBox>
             </ScrollPane>
