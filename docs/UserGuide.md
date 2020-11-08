@@ -198,10 +198,10 @@ Step 1. Type `add can n/John Doe p/98765432 e/johnd@example.com a/John street, b
 
 ![Add Candidate 1](images/addCan1.png)
 
-Step 2. The *CANdidates* application will automatically switch to "Candidates" tab and the following message will be shown in the *result display* 
+Step 2. The *CANdidates* application will show the following message in the *result display*.
 >New person added: John Doe Phone: 98765432 Email: johnd@example.com Experience: 1.0 years Date of Application: 16-10-20 Address: John street, block 123, #01-01 Link:  Expected Salary:  Blacklisted: false Tags: [DogGroomer].
 
-Step 3. The application will show the updated list of candidates with the newly added candidate.
+Step 3. The application will show the updated list of candidates with the newly added candidate in the *main list*.
 
 ![Add Candidate 2](images/addCan2.png)
 
@@ -308,12 +308,10 @@ Step 1. Type `find can n/David t/Teacher` in the *command box* and press *Enter*
 
 ![Find Can Step 1](images/findCan1.png)
 
-Step 2. The *CANdidates* application will show the following message in the *result display* 
+Step 2. The *CANdidates* application will show the following message in the *result display*.
 >1 candidates listed!
 
-:memo: *If you were on the "Jobs" tab, the application will automatically direct you to the "Candidates" tab.*
-
-Step 3. The application will display candidates with all matching fields in the *main list*.
+Step 3. The application will show candidates with all matching fields in the *main list*.
 
 ![Find Can Step 2](images/findCan2.png)
 
@@ -358,10 +356,8 @@ Step 1. Type `sort can type/exp order/asc` in the *command box* and press *Enter
 
 ![Sort Can Step 1](images/sortCan1.png)
 
-Step 2. The *CANdidates* application will show the following message in the *result display* 
+Step 2. The *CANdidates* application will show the following message in the *result display*.
 >Successfully sorted list of candidates by years of experience in ascending order.
-
-:memo: *If you were on the "Jobs" tab, the application will automatically direct you to the "Candidates" tab.*
 
 Step 3. The application will show the sorted candidates list based on the sort condition given.
 
@@ -517,10 +513,10 @@ Step 1. Type `add job n/Waiter c/Amelia’s Eating House p/98765432 e/ameliatjy@
 
 ![Add Job 1](images/addJob1.png)
 
-Step 2. The *CANdidates* application will automatically switch to "Jobs" tab and the following message will be shown in the *result display*
+Step 2. The *CANdidates* application will show the following message in the *result display*.
 >New job added: Waiter Company: Amelia’s Eating House Phone: 98765432 Email: ameliatjy@example.com Address: Amelia Street, Block 123, #01-01 Priority: low Vacancy: 1 Tags: [MultipleLocations]
 
-Step 3. The application will show the updated job listings with the newly added job.
+Step 3. The application will show the updated job listings with the newly added job in the *main list*.
 
 ![Add Job 2](images/addJob2.png)
 
@@ -830,7 +826,7 @@ Done with updating your information with *CANdidates*? Use this command to exit 
 ### 6.3 Detecting duplicate entries
 
 Worried that you might accidentally create duplicate entries of the same candidate or job? No need to worry, 
-CANdidates has you covered! Duplicate entries are automatically detected and prevented from being created. 
+*CANdidates* has you covered! Duplicate entries are automatically detected and prevented from being created. 
 You will be notified by an error message when this happens. No command is needed.
 
 <div markdown="span" class="alert alert-primary">
@@ -861,7 +857,36 @@ This means you will not be able to edit an entry to match another entry.*
 
 <br>
 
-### 6.4 Saving the data
+### 6.4 Auto tab switch
+
+*CANdidates* is designed for fast typers like you! Switching of tabs are done automatically, depending on the command
+that you enter so that you do not have to spend time clicking to switch tab to see the results of your entered command!
+
+**Examples:**
+
+:black_nib: Enter a command for jobs while on the candidates tab
+
+:black_nib: Enter a command for candidates while on the jobs tab
+
+
+**Step by Step:**
+
+Step 1. While on the candidates tab, type `find job t/Cleaner` in the *command box* and press *Enter*.
+
+![Tab Switch Step 1](images/tabSwitch1.png)
+
+Step 2. The *CANdidates* application will show the following message in the *result display* 
+>3 jobs listed!
+
+Step 3. The application will automatically direct you to the "Jobs" tab and display jobs with all matching fields in the *main list*.
+
+![Tab Switch Step 2](images/tabSwitch2.png)
+
+<br>
+
+<br>
+
+### 6.5 Saving the data
 
 All data is saved in the hard disk automatically after any command that changes the data. No need worry about having to save manually!
 
