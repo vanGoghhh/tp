@@ -166,7 +166,7 @@ Refer to [Section 5. Features for Jobs](#5-features-for-jobs) for features speci
 
 If you have a new candidate who approached you and you would like to put him in *CANdidates*, you can add him into the list using the command below.
 
-**Format:** `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [t/JOB_TYPE]…​ [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK]`
+**Format:** `add can n/NAME p/PHONE_NUMBER e/EMAIL  exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [a/ADDRESS] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…​`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -225,9 +225,9 @@ To accurately reflect the latest changes of candidates in the application, you c
 
 ### 4.3 Editing a candidate: `edit can`
 
-If you would like to edit the details of a particular candidate, you can use the command below
+If you would like to edit the details of a particular candidate, you can use the command below.
 
-**Format:** `edit can INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [doa/DATE_OF_APPLICATION] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
+**Format:** `edit can INDEX [n/NAME] [p/PHONE] [e/EMAIL] [exp/YEARS_OF_EXPERIENCE] [doa/DATE_OF_APPLICATION] [a/ADDRESS] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -265,8 +265,7 @@ Type `edit can 1 p/91234567 e/johndoe@example.com bl/true` in the *command box* 
 
 <br>
 
-Step 2. The *CANdidates* application will automatically switch to the "Candidates" tab if you are at the "Jobs" tab. 
-The command result will depend on the specific candidate that is being edited and the input fields that were not edited. 
+Step 2. The command result will depend on the specific candidate that is being edited and the input fields that were not edited. 
 Representing the original values of the candidate's input fields which were not edited as "{}", the message that will be shown in the *result display* is
 >Edited candidate: {Name of candidate} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:true Tags: {}.
 
@@ -283,7 +282,7 @@ card to view the candidate's new information in detail.
 
 Too many candidates with different information? *CANdidates* provide you with a simple and quick way for you to find candidates who fulfil certain criteria(s) or even a specific candidate from the long list. All you have to do is tell CANdidates the field you are interested in, along with the keyword you are looking for!
 
-**Format:** `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/YEARS_OF_EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
+**Format:** `find can [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [exp/YEARS_OF_EXPERIENCE] [doa/DATE_OF_APPLICATION] [a/ADDRESS] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -297,9 +296,9 @@ Too many candidates with different information? *CANdidates* provide you with a 
 <br>
 :memo: *If there are multiple inputs for the same field, only the last one will be detected.*
 <br>
-:bulb: *If you do not want to see blacklisted candidates in the list, you can use the command find can bl/false, the resulting list will show only non-blacklisted candidates.*
+:bulb: *If you do not want to see blacklisted candidates in the list, you can use the command `find can bl/false`, the resulting list will show only non-blacklisted candidates.*
 <br>
-:bulb: *If you want to find candidates with no expected salary, you can use the command sort can type/sal order/asc
+:bulb: *If you want to find candidates with no expected salary, you can use the command `sort can type/sal order/asc`
 (Refer to [Section 4.5, Sorting all candidates](#45-sorting-all-candidates-sort-can).
 Candidates with no expected salary will be displayed at the top of the list.*
 
@@ -421,8 +420,7 @@ Type `delete can 1` in the *command box* and press *Enter*.
 
 <br>
 
-Step 2. The *CANdidates* application will automatically switch to the "Candidates" tab if you are at the "Jobs" tab. 
-The command result will depend on the specific candidate that is being deleted.
+Step 2. The command result will depend on the specific candidate that is being deleted.
 Representing the values of the candidate's input fields as "{}", the message that will be shown in the *result display* is
 >Deleted candidate: {Name of candidate} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {}  Expected Salary: {} Blacklisted: {} Tags: {}
 
@@ -500,8 +498,7 @@ Step 1. Type `clear can` in the *command box* and press *Enter*.
 
 <br>
 
-Step 2. The *CANdidates* application will automatically switch to "Candidates" tab if you are at the "Jobs" tab. 
-The following message will be shown in the *result display*
+Step 2. The following message will be shown in the *result display*
 >Candidate list has been cleared!
 
 <br>
@@ -523,7 +520,7 @@ Refer to [Section 4. Features for Candidates](#4-features-for-candidates) for fe
 
 If you are informed of a job opening and you would like to add it in *CANdidates*, you can add it into the list using the command below.
 
-**Format:** `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [t/JOB_DESCRIPTION]… [pr/PRIORITY]`
+**Format:** `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -582,9 +579,9 @@ To accurately reflect the latest changes of jobs in the application, you can ref
 
 ### 5.3 Editing a job: `edit job`
 
-If you would like to edit the details of a particular job, you can use the command below
+If you would like to edit the details of a particular job, you can use the command below.
 
-**Format:** `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
+**Format:** `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -624,8 +621,7 @@ Type `edit job 1 c/Dog Cafe p/82827731 v/3 pr/high` in the *command box* and pre
 
 <br>
 
-Step 2. The *CANdidates* application will automatically switch to the "Jobs" tab if you are at the "Candidates" tab. 
-The command result will depend on the specific job that is being edited and the input fields that were not edited. 
+Step 2. The command result will depend on the specific job that is being edited and the input fields that were not edited. 
 Representing the original values of the job's input fields which were not edited as "{}", the message that will be shown in the *result display* is
 >Edited job: {Job Title} Company: Dog Cafe Phone: 82827731 Email: {} Address: {} Priority: high Vacancy: 3 Tags: {}
 
@@ -642,7 +638,7 @@ card to view the job's new information in detail.
 
 Too many job listings with different information? Similar to the feature above, you can also find job listings by inserting keywords for the fields you are looking for!
 
-**Format:** `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
+**Format:** `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
 
 <div markdown="span" class="alert alert-primary">
 
@@ -678,8 +674,6 @@ Step 1. Type `find job v/1` in the *command box* and press *Enter*.
 
 Step 2. The *CANdidates* application will show the following message in the *result display* 
 >3 jobs listed!
-
-:memo: *If you were on the "Candidates" tab, the application will automatically direct you to the "Jobs" tab.*
 
 <br>
 
@@ -728,8 +722,6 @@ Step 1. Type `sort job type/pr order/asc` in the *command box* and press *Enter*
 Step 2. The *CANdidates* application will show the following message in the *result display* 
 >Successfully sorted jobs by priority in ascending order.
 
-:memo: *If you were on the "Candidates" tab, the application will automatically direct you to the "Jobs" tab.*
-
 <br>
 
 Step 3. The application will show the sorted job list based on the sort condition given.
@@ -741,7 +733,7 @@ Step 3. The application will show the sorted job list based on the sort conditio
 ### 5.6 Deleting a job: `delete job`
 
 Have you successfully filled up the vacancies for a job listing and you no longer need to keep its details in CANdidates? 
-To delete a particular job from the list, you can use the command below
+To delete a particular job from the list, you can use the command below.
 
 **Format:** `delete job INDEX`
 
@@ -773,8 +765,7 @@ Type `delete job 1` in the *command box* and press *Enter*.
 
 <br>
 
-Step 2. The *CANdidates* application will automatically switch to the "Jobs" tab if you are at the "Candidates" tab. 
-The command result will depend on the specific job that is being deleted.
+Step 2. The command result will depend on the specific job that is being deleted.
 Representing the values of the job's input fields as "{}", the message that will be shown in the *result display* is
 >Deleted Job: {Job Title} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}
 
@@ -853,8 +844,7 @@ Step 1. Type `clear job` in the *command box* and press *Enter*.
 
 <br>
 
-Step 2. The *CANdidates* application will automatically switch to "Jobs" tab if you are at the "Candidates" tab. 
-The following message will be shown in the *result display*
+Step 2. The following message will be shown in the *result display*
 >Job list has been cleared!
 
 <br>
@@ -876,7 +866,6 @@ Refer to [Section 4. Features for Candidates](#4-features-for-candidates) for fe
 
 If you are unsure of how to use the application, we have a help function that will direct you to our user guide! You might also find it helpful to refer to the summary of all the available commands [here](#8-command-summary).
 
-![help message](images/helpMessage.png)
 
 **Format:** `help`
 
@@ -888,15 +877,14 @@ Step 1. Type `help` in the *command box* and press *Enter*.
 
 <br>
 
-Step 2. The *CANdidates* application will show the message "Opened help window" in the *result display* to indicate that the help window has been opened.
-
-![help message 2](images/helpMessage2.png)
+Step 2. The *CANdidates* application will show the following message in the *result display*.
+>Opened help window.
 
 <br>
 
 Step 3. The help window will appear as a pop-up and you may click on the "copy URL" button. This URL (link) will direct you to *CANdidates*'s User Guide, which is this document!
 
-![help message 3](images/helpMessage3.png)
+![help message 3](images/helpMessage2.png)
 
 <br>
 
@@ -1020,10 +1008,10 @@ This handy command summary table provides you with all the possible commands for
 
 Action | Candidate Format | Job Format
 --------|------------------|------------------
-**Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
+**Add** | `add can n/NAME p/PHONE_NUMBER e/EMAIL exp/YEARS_OF_EXPERIENCE doa/DATE_OF_APPLICATION [a/ADDRESS] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `add job n/JOB_TITLE c/COMPANY_NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS v/VACANCY [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
 **List** | `list can` | `list job`
-**Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [doa/DATE_OF_APPLICATION] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
-**Find** | `find can [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [exp/EXPERIENCE] [doa/APPLICATION_DATE] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pr/PRIORITY] [v/VACANCY] [t/JOB_DESCRIPTION]…`
+**Edit** | `edit can INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [exp/YEARS_OF_EXPERIENCE] [doa/DATE_OF_APPLICATION] [a/ADDRESS]  [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `edit job INDEX [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
+**Find** | `find can [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [exp/YEARS_OF_EXPERIENCE] [doa/DATE_OF_APPLICATION] [a/ADDRESS] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…` | `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
 **Sort** | `sort can type/FIELD_TO_SORT order/ORDER` | `sort job type/FIELD_TO_SORT order/ORDER`
 **Delete** | `delete can INDEX` | `delete job INDEX`
 **View** | `view can INDEX` | `view job INDEX`
