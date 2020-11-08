@@ -50,7 +50,8 @@ public class HelpWindow extends UiPart<Stage> {
             + "[doa/DATE_OF_APPLICATION]\n   [a/ADDRESS]\n   [sal/EXPECTED_SALARY]\n   "
             + "[bl/IS_BLACKLISTED]\n   [link/PROFILE_LINK]\n   [t/JOB_TYPE]…";
     public static final String FIND_CANDIDATE_FORMAT = "   find can\n   [n/NAME]\n   [p/PHONE_NUMBER]\n   "
-            + "[e/EMAIL]\n   [a/ADDRESS]\n   [exp/YEARS_OF_EXPERIENCE]\n   [doa/DATE_OF_APPLICATION]\n   [sal/EXPECTED_SALARY]\n   "
+            + "[e/EMAIL]\n   [a/ADDRESS]\n   [exp/YEARS_OF_EXPERIENCE]\n   "
+            + "[doa/DATE_OF_APPLICATION]\n   [sal/EXPECTED_SALARY]\n   "
             + "[bl/IS_BLACKLISTED]\n   [link/PROFILE_LINK]\n   [t/JOB_TYPE]…";
     public static final String SORT_CANDIDATE_FORMAT = "   sort can\n   type/FIELD_TO_SORT\n   order/ORDER";
     public static final String DELETE_CANDIDATE_FORMAT = "   delete can INDEX";
