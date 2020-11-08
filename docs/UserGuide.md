@@ -355,12 +355,12 @@ You can view all the candidates in the order you wish to by typing in your desir
 
 ![Sort Can Step 1](images/sortCan1.png)
 
-Step 1. Type `sort can type/n order/asc` in the *command box* and press *Enter*.
+Step 1. Type `sort can type/exp order/asc` in the *command box* and press *Enter*.
 
 ![Sort Can Step 2](images/sortCan2.png)
 
 Step 2. The *CANdidates* application will show the following message in the *result display* 
->Successfully sorted list of candidates by name in ascending order.
+>Successfully sorted list of candidates by years of experience in ascending order.
 
 :memo: *If you were on the "Jobs" tab, the application will automatically direct you to the "Candidates" tab.*
 
