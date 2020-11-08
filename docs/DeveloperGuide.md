@@ -147,9 +147,10 @@ This section describes some noteworthy details on how certain features are imple
 
 ### 3.1 Add feature
 
-The Add feature exists, using `add can` for candidates and `add job` for jobs.
+The Add feature has two variants, one for adding candidates `add can` and one for adding jobs `add job`. We will illustrate this feature using only the candidates variant here
+as the job variant works analogously.
 
-Both implemented add mechanisms are facilitated by `ModelManager`. They both implement `Model` and contain `FilteredList` of filtered `Person` and filtered `Job`. `FilteredList` is a subclass of `ObservableList`.
+The implemented add mechanism is facilitated by `ModelManager`. They both implement `Model` and contain `FilteredList` of filtered `Person`. `FilteredList` is a subclass of `ObservableList`.
 
 Additionally, it implements the following operations:
 
@@ -157,19 +158,15 @@ Additionally, it implements the following operations:
 
 * `ModelManager#addPerson(Person person)` —  Adds the person into the FilteredList of persons.
 
-* `ModelManager#hasJob(Job job)` —  Check whether the same job exist in the FilteredList of jobs using the `equals` method of `Jobs`.
-
-* `ModelManager#addJob(Job job)` —  Adds the job into the FilteredList of jobs.
-
 Given below is an example usage scenario and how the `add can` mechanism behaves at each step. 
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/15-10-20` to add a candidate with `Name` John, `Phone` 98765432, `Email` johnd@example.com, `Address` John street, block 123, #01-01, `Experience` 5 and `Date` 15-10-20.
+Step 2. The user executes `add can n/John p/98765432 e/john@ex.com a/John street exp/5 doa/15-10-20` to add a candidate with `Name` John, `Phone` 98765432, `Email` john@ex.com, `Address` John street, `Experience` 5 and `Date` 15-10-20.
 
 Step 3. The method `AddressBookParser#parseCommand` is invoked to determine the command type. Since this is an `add can` command, the `AddPersonCommandParser#parse` is then called to parse the arguments. If the input command has an invalid format, `AddPersonCommandParser` throws a `ParseException`, if not, a `AddPersonCommand` object is created.
 
-Step 4. `ModelManager#hasJob(Person person)` is invoked to check whether the same person exist in the FilteredList of persons using the `equals` method of `Persons`. If a duplicate person exists, a `CommandException` is thrown. Otherwise, the method `ModelManager#addPerson(Person person)` is invoked to add the person into the FilteredList of persons.
+Step 4. `ModelManager#hasJob(Person person)` is invoked to check whether the same person exist in the FilteredList of persons using the `equals` method of `Person`. If a duplicate person exists, a `CommandException` is thrown. Otherwise, the method `ModelManager#addPerson(Person person)` is invoked to add the person into the FilteredList of persons.
 
 Step 5. The `savePersonAddressBook` method of `StorageManager`, which is a subclass of `Storage`, is invoked to update the new person addition in the `personAddressBook` and saved. 
 
@@ -181,7 +178,7 @@ The following sequence diagram shows how the `add can` operation works in the sc
 
 ### 3.2 Edit feature
 
-The Edit feature has two variants, one for editing candidates `edit can` and one for editing jobs `edit job` . We will illustrate this feature using only the candidates variant here
+The Edit feature has two variants, one for editing candidates `edit can` and one for editing jobs `edit job`. We will illustrate this feature using only the candidates variant here
 as the job variant works analogously. 
 
 The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
@@ -217,6 +214,9 @@ A `edit job` command works similarly for Jobs but with the analogous EditJobDesc
 
 ### 3.3 List feature
 
+The List feature has two variants, one for listing candidates `list can` and one for listing jobs `list job`. We will illustrate this feature using only the candidates variant here
+as the job variant works analogously.
+
 The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
@@ -237,6 +237,9 @@ The following sequence diagram shows how the find operation works in the scenari
 
 ### 3.4 Sort feature
 
+The Sort feature has two variants, one for sorting candidates `sort can` and one for sorting jobs `sort job`. We will illustrate this feature using only the candidates variant here
+as the job variant works analogously.
+
 The implemented sort mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `SortedList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
@@ -253,6 +256,9 @@ Step 3. A `PersonExperienceComparator` is created from parsing the command and a
 ![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png)
 
 ### 3.5 Find feature
+
+The Find feature has two variants, one for finding candidates `find can` and one for finding jobs `find job`. We will illustrate this feature using only the candidates variant here
+as the job variant works analogously.
 
 The implemented find mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
@@ -278,6 +284,9 @@ The above only demonstrates finding candidates by their `Name` and `Experience`.
 The find operation also supports finding candidates via other fields such as `Email` and `Vacancy`.
 
 ### 3.6 View feature
+
+The Edit feature has two variants, one for adding candidates `add can` and one for adding jobs `add job`. We will illustrate this feature using only the candidates variant here
+as the job variant works analogously.
 
 The implemented view feature has two variants `view can` and `view job` for viewing a candidate and viewing a job respectively.
 
