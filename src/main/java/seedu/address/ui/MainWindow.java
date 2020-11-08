@@ -209,7 +209,6 @@ public class MainWindow extends UiPart<Stage> {
         logoPlaceHolder.setImage(image);
         detailedView.getChildren().add(logoPlaceHolder);
     }
-    
     /**
      * Switches tab to the desired tab.
      */
