@@ -434,7 +434,11 @@ Want to view all the information of a particular candidate? *CANdidates* provide
 
 **Step by Step:**
 
+![View Can Step 1](images/viewCan1.png)
+
 Step 1. Type `view can 1` in the *command box* and press *Enter*.
+
+![View Can Step 2](images/viewCan2.png)
 
 Step 2. The *CANdidates* application will show the following message in the *result display*. The message will depend on the candidate you have selected to display on the detailed panel. Representing the values of the candidate's input fields as "{}", the message shown in *result display* is
 >Display Candidate: {Name of candidate} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:{} Tags: {}
@@ -740,7 +744,11 @@ Want to view all the information of a particular job ? *CANdidates* provides an 
 
 **Step by Step:**
 
+![View Job Step 1](images/viewJob1.png)
+
 Step 1. Type `view job 1` in the *command box* and press *Enter*.
+
+![View Job Step 2](images/viewJob2.png)
 
 Step 2. The *CANdidates* application will show the following message in the *result display*. The message will depend on the job you have selected to display on the detailed panel. Representing the values of the job's input fields as "{}", the message shown in *result display* is
 >Display Job: {Name of job} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}
