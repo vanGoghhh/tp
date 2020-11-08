@@ -42,14 +42,15 @@ public class HelpWindow extends UiPart<Stage> {
 
     // Candidate Formats
     public static final String ADD_CANDIDATE_FORMAT = "   add can\n   n/NAME\n   p/PHONE_NUMBER\n   e/EMAIL\n"
-            + "   a/ADDRESS\n   exp/YEARS_OF_EXPERIENCE\n   doa/DATE_OF_APPLICATION\n   [sal/EXPECTED_SALARY]\n   "
+            + "   exp/YEARS_OF_EXPERIENCE\n   doa/DATE_OF_APPLICATION\n   [a/ADDRESS]\n   [sal/EXPECTED_SALARY]\n   "
             + "[bl/IS_BLACKLISTED]\n   [link/PROFILE_LINK]\n   [t/JOB_TYPE]… ";
     public static final String LIST_CANDIDATE_FORMAT = "   list can";
     public static final String EDIT_CANDIDATE_FORMAT = "   edit can INDEX\n   "
-            + "[n/NAME]\n   [p/PHONE_NUMBER]\n   [e/EMAIL]\n   [a/ADDRESS]\n   [doa/DATE_OF_APPLICATION]\n   "
-            + "[sal/EXPECTED_SALARY]\n   [bl/IS_BLACKLISTED]\n   [link/PROFILE_LINK]\n   [t/JOB_TYPE]…";
-    public static final String FIND_CANDIDATE_FORMAT = "   find can\n   [n/NAME]\n   [p/PHONE]\n   "
-            + "[e/EMAIL]\n   [a/ADDRESS]\n   [exp/EXPERIENCE]\n   [doa/APPLICATION_DATE]\n   [sal/EXPECTED_SALARY]\n   "
+            + "[n/NAME]\n   [p/PHONE_NUMBER]\n   [e/EMAIL]\n   [exp/YEARS_OF_EXPERIENCE]\n   "
+            + "[doa/DATE_OF_APPLICATION]\n   [sal/EXPECTED_SALARY]\n   [a/ADDRESS]\n   "
+            + "[bl/IS_BLACKLISTED]\n   [link/PROFILE_LINK]\n   [t/JOB_TYPE]…";
+    public static final String FIND_CANDIDATE_FORMAT = "   find can\n   [n/NAME]\n   [p/PHONE_NUMBER]\n   "
+            + "[e/EMAIL]\n   [a/ADDRESS]\n   [exp/YEARS_OF_EXPERIENCE]\n   [doa/DATE_OF_APPLICATION]\n   [sal/EXPECTED_SALARY]\n   "
             + "[bl/IS_BLACKLISTED]\n   [link/PROFILE_LINK]\n   [t/JOB_TYPE]…";
     public static final String SORT_CANDIDATE_FORMAT = "   sort can\n   type/FIELD_TO_SORT\n   order/ORDER";
     public static final String DELETE_CANDIDATE_FORMAT = "   delete can INDEX";
@@ -61,7 +62,7 @@ public class HelpWindow extends UiPart<Stage> {
             + "p/PHONE_NUMBER\n   e/EMAIL\n   a/ADDRESS\n   v/VACANCY\n   [pr/PRIORITY]\n   [t/JOB_DESCRIPTION]…";
     public static final String LIST_JOB_FORMAT = "   list job";
     public static final String EDIT_JOB_FORMAT = "   edit job INDEX\n   [n/JOB_TITLE]\n   "
-            + "[c/COMPANY_NAME]\n   [p/PHONE] [e/EMAIL]\n   "
+            + "[c/COMPANY_NAME]\n   [p/PHONE]\n   [e/EMAIL]\n   "
             + "[a/ADDRESS]\n   [v/VACANCY]\n   [pr/PRIORITY]\n   [t/JOB_DESCRIPTION]…";
     public static final String FIND_JOB_FORMAT = "   find job\n   [n/JOB_TITLE]\n   [c/COMPANY_NAME]\n   [p/PHONE]\n"
             + "   [e/EMAIL]\n   " + "[a/ADDRESS]\n   [pr/PRIORITY]\n   [v/VACANCY]\n   [t/JOB_DESCRIPTION]…";
