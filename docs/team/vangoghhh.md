@@ -59,7 +59,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     * Updated Instructions for Manual Testing for View Candidate and View Job (Pull requests [\#310](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/310))
     * Updated class diagram for UI Component (Pull requests [\#127](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/127))
 
-* **Community**: _{To be updated}_
+* **Community**: 
   * PRs reviewed (with non-trivial review comments): (
   [\#284](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/284),
   [\#147](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/147))
