@@ -47,7 +47,7 @@ how to navigate the document and what all the symbols, special fonts and command
 This User Guide is structured into 9 sections so that it is easy to read and navigate! <br>
 These are the 9 sections and a short explanation of what they are for:
 
-Section             | What it is for
+Section             | What is it for
 --------------------|------------------------------------
 [1. Introduction](#1-introduction) | An introduction to *CANdidates* and the amazing team behind it! 
 [2. Preface](#2-preface)  | A warm-up to get you familiar with this document. This is the section you are reading now. 
@@ -65,8 +65,8 @@ This section will explain all the symbols and fonts used in this document.
 
 Symbols/Font   | Explanation
 ---------------|------------------------------------
-`command`      | A string that is highlighted in grey indicates that the string is related to a command. It could be a command format, a full command or part of a command .
-{*Description*}| Curly braces indicates a variable field that is described by *Description*. This is used to display results of commands that depend on a specific user's data. For example, the number of jobs in the list is variable and would depend on the specific user, hence this will be represented as {*Number of jobs*} in this User Guide.
+`command`      | A string that is highlighted in grey indicates that the string is related to a typed command. The string could be a command format, a full command or part of a command .
+{*Description*}| Curly braces indicates a variable field that is described by *Description*. This is used to display results of commands that vary depending on a user's specific data. For example, the number of jobs in the list is variable and would depend on the specific user, hence this will be represented as {*Number of jobs*} in this User Guide.
 :black_nib:    | An example of how to use the feature.
 :memo:         | Additional comments on the section or sub-section being explained.
 :bulb:         | Useful tips that you can keep in mind when exploring the application or this document.
@@ -98,7 +98,7 @@ are not met, and you can then make the relevant changes.
 
 Still unsure what this means without context? You will understand better when you read about the commands in later sections.
 Try taking quick glance of the command formats in [Section 4. Features for Candidates](#4-features-for-candidates) 
-or [Section 5. Features for Jobs](#4-features-for-jobs)!
+or [Section 5. Features for Jobs](#5-features-for-jobs)!
 
 You may refer to this table whenever you need help understanding the input fields.
 
@@ -107,19 +107,19 @@ Name of input field   | How to use them
 `NAME`                | Name of candidate being added or edited.<br/>:memo: *Names should contain only alphanumerical values or spaces.*
 `PHONE_NUMBER`        | Contact number of candidate or job listing being added or edited.
 `EMAIL`               | Contact email address of candidate or job listing being added or edited.<br/>:exclamation: *CANdidates does not check that the email exists, only that the format is correct.* <br/>:bulb:*If you entered an erroneous email address, use the* [edit can](#editing-a-candidate-edit-can) *feature to correct it.*
-`ADDRESS`             | Residential address of candidate or address of workplace for the job listing.
-`YEARS_OF_EXPERIENCE` | Years of experience of the candidate in the relevant field one applied for.<br/>:memo: *This field accepts up to 2 decimal points excluding trailing zeroes.*
+`ADDRESS`             | Residential address of a candidate or work address of a job listing.
+`YEARS_OF_EXPERIENCE` | Years of experience of the candidate in the relevant job he/she applied for.<br/>:memo: *This field accepts up to 2 decimal points excluding trailing zeroes.*
 `DATE_OF_APPLICATION` | Date of job application submitted.<br/>:memo: *Date should be in the format of DD-MM-YY*<br/>:bulb: *Day and Month can be 1 or 2 digits as long as they are valid.*<br/>:black_nib: *If the date of application is 31 September 2021, input* `doa/31-9-21`
-`EXPECTED_SALARY`     | Expected salary of a candidate in dollars.<br/>:memo: *This field accepts only whole numbers.*<br/>:bulb: *You can round up the figure to the next whole number if needed!*
+`EXPECTED_SALARY`     | Expected salary of a candidate in dollars.<br/>:memo: *This field accepts only whole numbers.*<br/>:bulb: *You can round up the figure to the next whole number if needed*
 `IS_BLACKLISTED`      | Blacklist status of a candidate. You may use this to blacklist candidates that are unresponsive, have poor attitude, etc. <br/>:memo: *This field only accepts 2 specific values: true or false.*
-`PROFILE_LINK`        | URL link to candidate profile or portfolio (e.g. LinkedIn or GitHub, etc.) to provide convenience for you to refer to their profile later on. <br/>:exclamation: *CANdidates* does not check that the URL address exists, only that the format is correct.*<br/>:bulb:*If you entered an erroneous URL address, use the* [edit can](#editing-a-candidate-edit-can) *feature to correct it.*
+`PROFILE_LINK`        | URL link to candidate profile or portfolio (e.g. LinkedIn or GitHub, etc.) to provide convenience for you to refer to their profile later on. <br/>:exclamation: *CANdidates does not check that the URL address exists, only that the format is correct.* <br/>:bulb:*If you entered an erroneous URL address, use the* [edit can](#editing-a-candidate-edit-can) *feature to correct it.*
 `JOB_TYPE`            | Job type tags for candidates so that it will be easier to find candidates applying for similar jobs. For example, you can tag them according to the job industry.<br/>:memo: *Job type should be one word, made up of up to 20 alphanumerical values with no spaces.*
 `JOB_TITLE`           | Title of a job position.<br/>:memo: *Job titles should contain only alphanumerical values or spaces.*
 `COMPANY_NAME`        | Name of the company for the job listing you are adding or editing.
 `VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.<br/>:memo: *This field accepts only whole numbers from 0 to 99.*
 `PRIORITY`            | Priority of a job listing. Job listings may be of different urgency levels and this field is used to indicate the urgency.<br/>:memo: *This field only accepts 3 specific values: low, moderate or high.*
 `JOB_DESCRIPTION`     | Job description tags for job listings to specify additional descriptions. For example, you can specify requirements of the job such as age or skill level.<br/>:memo: *Job description should be one word, made up of up to 20 alphanumerical values with no spaces.*
-`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:memo: *This field only accepts specific values described in the [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) subsections.*
+`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is sorted by..<br/>:memo: *This field only accepts specific values described in the [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) subsections.*
 `ORDER`               | Input field that is exclusive for [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:memo: *This field only accepts 2 specific values: asc or desc.*
 `INDEX`               | Index number of the candidate or job displayed in the list.
 
@@ -128,7 +128,9 @@ Name of input field   | How to use them
 This section will explain how to interpret all the command formats which you will encounter in [Section 4. Features for Candidates](#4-features-for-candidates), [Section 5. Features for Jobs](#5-features-for-jobs) and [Section 6. Other Features](#6-other-features).
 This will help you to understand *CANdidates*' features better.
 
-* Words in `UPPER_CASE` are the input fields which are supposed to be specified by you.<br>
+* Command formats are highlighted in grey as mentioned in [Section 2.2. Understanding Symbols](#22-understanding-symbols)
+
+* Words in `UPPER_CASE` are the input fields which are supposed to be specified by you. -fields)<br>
   e.g. in `add n/NAME`, `NAME` is a input field which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
@@ -140,7 +142,7 @@ This will help you to understand *CANdidates*' features better.
 * Input fields can be in any order you want them to be.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-*:bulb: If you are confused with the various input fields, refer to [Section 2.4. Understanding Input Fields](#23-understanding-input-fields).*
+*:bulb: If you are confused with the various input fields, refer to [Section 2.4. Understanding Input Fields](#24-understanding-input-fields).*
 
 <br>
 
@@ -177,7 +179,7 @@ Can’t wait to start using *CANdidates*? This section guides you through the st
 
 :exclamation: *Ensure you have Java 11 or above installed in your Computer.*
 <br>
-:bulb: *If you are confused with the various input fields, refer to* [Section 2.4. Understanding Input Fields](#23-understanding-input-fields).
+:bulb: *If you are confused with the various input fields, refer to* [Section 2.4. Understanding Input Fields](#24-understanding-input-fields).
 </div>
 <br>
 
@@ -199,7 +201,7 @@ If you have a new candidate who approached you and you would like to put him in 
 <div markdown="span" class="alert alert-primary">
 
 
-:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.4. Understanding Input Fields](#23-understanding-input-fields).*
+:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.4. Understanding Input Fields](#24-understanding-input-fields).*
 <br>
 :exclamation: *If `IS_BLACKLISTED` is not specified, it will be set to false by default.*
 </div>
@@ -289,9 +291,9 @@ Type `edit can 1 p/91234567 e/johndoe@example.com bl/true` in the *command box* 
 
 <br>
 
-Step 2. The command result will depend on the specific candidate that is being edited as well as the candidate's input fields which are not edited. 
+Step 2. The command result will depend on the specific candidate that is being edited, specifically his/her input fields which are not being edited. 
 The message that will be shown in the *result display* is
->Edited candidate: {*Original Name*} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {*Original Experience*} Date of Application: {*Original Date of Application*} Address: {*Original Address*} Link: {*Original Link*} Expected Salary: {*Original Expected Salary*} Blacklisted:true Tags: {*Original Tags*}.
+>Edited candidate: {*Original Name*} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {*Original Experience*} Date of Application: {*Original Date of Application*} Address: {*Original Address*} Link: {*Original Link*} Expected Salary: {*Original Expected Salary*} Blacklisted: true Tags: {*Original Tags*}.
 
 <br>
 
@@ -551,7 +553,7 @@ If you are informed of a job opening and you would like to add it in *CANdidates
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.4. Understanding Input Fields](#23-understanding-input-fields).*
+:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.4. Understanding Input Fields](#24-understanding-input-fields).*
 <br>
 :exclamation: *If `PRIORITY` is not specified, it will be set to moderate by default.*
 
@@ -645,7 +647,7 @@ Type `edit job 1 c/Dog Cafe p/82827731 v/3 pr/high` in the *command box* and pre
 
 <br>
 
-Step 2. The command result will depend on the specific job that is being edited as well as its input fields that are not edited. 
+Step 2. The command result will depend on the specific job that is being edited, specifically its input fields that are not being edited. 
 The message that will be shown in the *result display* is
 >Edited job: {*Original Job Title*} Company: Dog Cafe Phone: 82827731 Email: {*Original Email*} Address: {*Original Address*} Priority: high Vacancy: 3 Tags: {*Original Tags*}
 
