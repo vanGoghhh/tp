@@ -106,7 +106,7 @@ Name of input field   | How to use them
 ----------------------|------------------------------------
 `NAME`                | Name of candidate being added or edited.<br/>:memo: *Names should contain only alphanumerical values or spaces.*
 `PHONE_NUMBER`        | Contact number of candidate or job listing being added or edited.
-`EMAIL`               | Contact email address of candidate or job listing being added or edited.<br/>:exclamation: *CANdidates* does not check that the email exists, only that the format is correct.*<br/>:bulb:*If you entered an erroneous email address, use the* [edit can](#editing-a-candidate-edit-can) *feature to correct it.*
+`EMAIL`               | Contact email address of candidate or job listing being added or edited.<br/>:exclamation: *CANdidates does not check that the email exists, only that the format is correct.* <br/>:bulb:*If you entered an erroneous email address, use the* [edit can](#editing-a-candidate-edit-can) *feature to correct it.*
 `ADDRESS`             | Residential address of candidate or address of workplace for the job listing.
 `YEARS_OF_EXPERIENCE` | Years of experience of the candidate in the relevant field one applied for.<br/>:memo: *This field accepts up to 2 decimal points excluding trailing zeroes.*
 `DATE_OF_APPLICATION` | Date of job application submitted.<br/>:memo: *Date should be in the format of DD-MM-YY*<br/>:bulb: *Day and Month can be 1 or 2 digits as long as they are valid.*<br/>:black_nib: *If the date of application is 31 September 2021, input* `doa/31-9-21`
@@ -119,7 +119,7 @@ Name of input field   | How to use them
 `VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.<br/>:memo: *This field accepts only whole numbers from 0 to 99.*
 `PRIORITY`            | Priority of a job listing. Job listings may be of different urgency levels and this field is used to indicate the urgency.<br/>:memo: *This field only accepts 3 specific values: low, moderate or high.*
 `JOB_DESCRIPTION`     | Job description tags for job listings to specify additional descriptions. For example, you can specify requirements of the job such as age or skill level.<br/>:memo: *Job description should be one word, made up of up to 20 alphanumerical values with no spaces.*
-`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:exclamation: *This field only takes in specific values described in the respective feature sections.*
+`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:memo: *This field only accepts specific values described in the respective feature sections.*
 `ORDER`               | Input field that is exclusive for [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:memo: *This field only accepts 2 specific values: asc or desc.*
 `INDEX`               | Index number of the candidate or job displayed in the list.
 
