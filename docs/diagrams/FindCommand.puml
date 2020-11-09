@@ -16,21 +16,19 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("find can n/Alex exp/0")
+[-> LogicManager : execute("find can \nn/Alex exp/0")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("find can n/Alex exp/0")
+LogicManager -> AddressBookParser : parseCommand("find can \nn/Alex exp/0")
 activate AddressBookParser
 
 create FindPersonCommandParser
 AddressBookParser -> FindPersonCommandParser
 activate FindPersonCommandParser
 
-FindPCommandParser --> AddressBookParser
-deactivate FindPersonCommandParser
 
-AddressBookParser -> FindPersonCommandParser : parse("find can n/Alex exp/0")
-activate FindPersonCommandParser
+AddressBookParser -> FindPersonCommandParser : parse("n/Alex \nexp/0")
+
 
 create PersonNameContainsKeywordsPredicate
 FindPersonCommandParser -> PersonNameContainsKeywordsPredicate : PersonNameContainsKeywordsPredicate()
