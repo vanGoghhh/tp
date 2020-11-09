@@ -90,15 +90,15 @@ The `UI` component,
 
 1. `Logic` uses the `AddressBookParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
-1. The command execution can affect the `Model` (e.g. adding a person).
+1. The command execution can affect the `Model` (e.g. adding a candidate).
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete can 1")` API call.
 
-![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
+![Interactions Inside the Logic Component for the `delete can 1` Command](images/DeleteSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeletePersonCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 ### 2.4 Model component
@@ -220,18 +220,18 @@ as the job variant works analogously.
 The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
-* `ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
+* `ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of candidates using the supplied predicate.
 
 Given below is an example usage scenario and how the list mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniqueJobList` from `jobAddressBook` which contains a list of jobs.
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `list job` to list all jobs.
+Step 2. The user executes `list can` to list all candidates.
 
-Step 3. A `ListJobCommand` object is created from parsing the command. In the `ListJobCommand#execute` the method `ModelManager#updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS)` is invoked 
-and the `FilteredList` shows all jobs in the list as indicated by the given predicate.
+Step 3. A `ListPersonCommand` object is created from parsing the command. In the `ListPersonCommand#execute` the method `ModelManager#updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS)` is invoked 
+and the `FilteredList` shows all candidates in the list as indicated by the given predicate.
 
-The following sequence diagram shows how the find operation works in the scenario described above:
+The following sequence diagram shows how the list operation works in the scenario described above:
 
 ![ListSequenceDiagram](images/ListSequenceDiagram.png)
 
@@ -810,11 +810,11 @@ testers are expected to do more *exploratory* testing.
     1. Test case: `list can`<br>
        Expected: The application automatically changes to the candidates tab, and displays all candidates. 
         
-   <div markdown="span" class="alert alert-info">
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Listing jobs can be tested in the same way but with its analogous commands while on the candidates tab.
    
-   :information_source: **Note:** Listing jobs can be tested in the same way but with its analogous commands while on the candidates tab.
-   
-   </div>
+</div>
         
 ### 7.5 Editing a candidate
 
@@ -829,11 +829,11 @@ testers are expected to do more *exploratory* testing.
     1. Test case: `edit can INDEX` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
        Expected: No candidate edited. No fields provided error shown in the status message.
 
-   <div markdown="span" class="alert alert-info">
+<div markdown="span" class="alert alert-info">
    
-   :information_source: **Note:** Editing jobs can be tested in the same way but with its analogous commands and input fields.
+:information_source: **Note:** Editing jobs can be tested in the same way but with its analogous commands and input fields.
    
-   </div>       
+</div>       
     
 ### 7.6 Detecting duplicate candidates
 
@@ -851,7 +851,7 @@ testers are expected to do more *exploratory* testing.
 
 1. Detecting and preventing the creation of duplicate jobs
      
-   1. Prerequisites: Perform test case 1.2 from [Section 7.3. Adding a job](#73-adding-a-job)to add a new job and verify that it passes. 
+   1. Prerequisites: Perform test case 1.2 from [Section 7.3. Adding a job](#73-adding-a-job) to add a new job and verify that it passes. 
    
    1. Test case (Same job title and company name): `add job n/Delivery Man c/FedEx e/anotherfedex@example.com a/Jurong West p/84378293` <br>
       Expected: No new job listing added. Duplicate job error shown in the status message.
