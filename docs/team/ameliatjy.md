@@ -72,7 +72,7 @@ Given below are my contributions to the project.
 
 * **Documentation**:
   * About Us:
-    * Mounted team's About Us page. (Pull request [\#33](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/33))
+    * Mounted team's About Us page. (Pull request [\#33](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/33)) <br>
   * Developer Guide:
     * Wrote documentation for and maintained the sections on target user profile, value proposition and user stories. (Pull requests
     [\#34](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/34) and
@@ -93,7 +93,7 @@ Given below are my contributions to the project.
     [\#282](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/282),
     [\#294](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/294),
     [\#325](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/325) and
-    [\#329](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/329))
+    [\#329](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/329)) <br>
   * User Guide:
     * Wrote documentation for the Introduction, Authors, Preface and Understanding Symbols. (Pull request
     [\#155](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/155))
