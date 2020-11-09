@@ -29,6 +29,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * Highlights: This enhancement affects existing commands and commands to be added subsequently, such as find and sort commands. 
   A good understanding of the logic flow of the code base is required due to the multitude of classes and method involved.
 
+<br>
 <div style="page-break-after: always;"></div>
 
 * **New Feature**: Added the ability to sort job listings.
@@ -64,6 +65,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * Add sort by name feature for both candidates and jobs (Pull request [\#270](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/270))
   * Update the application icon on the GUI (Pull request [\#292](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/292))
 
+<br>
 <div style="page-break-after: always;"></div>
 
 * **Documentation**:
