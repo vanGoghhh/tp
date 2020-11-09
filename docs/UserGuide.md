@@ -173,10 +173,6 @@ If you have a new candidate who approached you and you would like to put him in 
 
 :bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).*
 <br>
-:bulb: *A candidate can have 0 or more job type(s).*
-<br>
-:memo: *If the candidate is added successfully, *CANdidates* will automatically switch to the "Candidates" tab.*
-<br>
 :exclamation: *If `IS_BLACKLISTED` is not specified, it will be set to false by default.*
 </div>
 
