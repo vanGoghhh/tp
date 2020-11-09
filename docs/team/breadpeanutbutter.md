@@ -8,24 +8,15 @@ title: Lee Joon Jie's Project Portfolio Page
 CANdidates is a powerful contact management desktop App optimised for job recruiters to manage job applicants and job listings.
 The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 25 kLoC.
 
-<img src="/docs/images/breadpeanutbutter.png" width="200px">
-
-[[github](http://github.com/BreadPeanutButter)]
-
-* Role: Developer
-* Responsibilities: Code Quality and Standards
-
 ### Given below are my contributions to the project
-
-Given below are my contributions to the project.
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=breadpeanutbutter&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=false)
 
 * **New Feature: Experience Information field**
   * What it is for: A field used to represent the number of years of experience of a candidate. Internally, it is represented as an Experience object.
   * Justification: This Information field allows job recruiters to store and keep track of the number of years of experience that candidates have.
-    This is an important value that most employers look out for. This field is also useful when used as input for the Sort and Find features. 
-      
+    This is an important value that most employers look out for. This field is also useful when used as input for the Sort and Find features. <br>
+
 * **New Feature: URL Link Information field**     
   * What it is for: A field used to represent a URL link to a candidate's profile such as his/her LinkedIn or Github page. 
     It is an optional input field for candidates since not all candidates have an online profile page. Internally, it is represented as a UrlLink object.
@@ -35,31 +26,31 @@ Given below are my contributions to the project.
     null values for this as using nulls can be "overwhelmingly likely to cause errors" as said by Brian Goetz, Java's language architect. 
     Hence, I decided to utilise Java's Optional class to contain UrlLink in an Optional object for safer results. 
   * Hightlight: It was also a challenge to validate the format of URL links as there are numerous possibilities. I decided to use a third party library, 
-    Apache Commons Validator, to validate the format for this.
+    Apache Commons Validator, to validate the format for this. <br>
     
 * **New Feature: Salary Information field**           
   * What it is for: A field used to represent the expected salary of a candidate. It is an optional input field for candidates. 
     Internally, it is represented as a Salary object.
   * Justification:  This Information field allows job recruiters to store and keep track of the expected salary of candidates. This is an important field
-  as recruiters can use this information to match candidates with suitable jobs. This field is also useful when used as input for the Sort and Find features.
-  * Highlight: Similar to URLLink, Salary is also represented as an Optional object in candidates.
+    as recruiters can use this information to match candidates with suitable jobs. This field is also useful when used as input for the Sort and Find features.
+  * Highlight: Similar to URLLink, Salary is also represented as an Optional object in candidates. <br>
   
 * **New Feature: Date Information field**           
   * What it is for: A field used to represent the date of application of a candidate. Internally, it is represented as a Date object.
   * Justification: This Information field allows job recruiters to keep track of the date that candidates applied for a job. This is important as 
-    job recruiters should not take too long to follow up with candidates or they might lose the candidate. 
-    This field is also useful when used as input for the Sort and Find features.
-    
+    job recruiters should not take too long to follow up with candidates. 
+    This field is also useful when used as input for the Sort and Find features. <br>
+
 * **New Feature: Blacklist Information field**           
   * What it is for: A field used to represent the blacklist status of candidates, i.e whether a candidate has been blacklisted.
   * Justification: This Information field allows job recruiters to keep track of candidates who have been blacklisted and have bad records. 
-    Recruiters will then know not to hire this person in the future. This field is also useful when used as input for the Sort and Find features.
+    This field is also useful when used as input for the Sort and Find features. <br>
 
 * **Project management**: 
   * In charge of looking after code quality and ensuring adherence to coding standards such as SLAP and KISS principles
   * Regularly reviewed pull requests to ensure good code quality and coding standards
-  * Actively used issue tracker to track, complete and assign tasks
-
+  * Actively used issue tracker to track, complete and assign tasks <br>
+ 
 * **Enhancements to existing features**: 
   * Modified AddressBookParser class of AB3 to be able to parse new commands of CANdidates
     (Pull requests [\#86](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/86))
@@ -81,6 +72,9 @@ Given below are my contributions to the project.
     (Example Pull requests [\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119), [\#121](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/121), 
     [\#286](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/286))
 
+<br>
+<div style="page-break-after: always;"></div>
+
 * **Documentation**:
   * User Guide:
     * Wrote documentation for Editing a candidate: `edit can` and Editing a job: `edit job`
@@ -91,11 +85,12 @@ Given below are my contributions to the project.
       (Pull requests [\#160](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/160))
     * Wrote documentation for Detecting duplicate entries 
       (Pull requests [\#228](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/228))
-    * Wrote some portions of the Introduction, FAQ, Command Summary and Glossary
+    * Wrote Section 2.1 Understanding this Document (Pull requests [\#333](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/333))
+    * Wrote some portions of the Introduction, Preface, FAQ, Command Summary and Glossary
       (Example Pull Requests [\#70](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/70), [\#298](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/298), 
-      [\#304](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/304)) 
+      [\#304](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/304), [\#333](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/333)) 
   * Developer Guide:
-    * Updated the Design of the Model component including the UML diagram along with team mate [Amelia Tan](ameliatjy.md)<br>
+    * Updated the Design of the Model component including the UML diagram along with team mate [Amelia Tan](https://ay2021s1-cs2103t-t17-3.github.io/tp/team/ameliatjy.html) <br>
       (Pull requests [\#139](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/139))
     * Wrote documentation for implementation of Edit feature including sequence diagram
       (Pull requests [\#133](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/133))
@@ -105,14 +100,19 @@ Given below are my contributions to the project.
       Editing a candidate, Detecting duplicate candidates, Deleting a candidate and Clearing all entries
       (Pull requests [\#276](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/276))
 
+<br>
+
 * **Community**: 
   * PRs reviewed (with non-trivial review comments): [\#287](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/287), 
     [\#302](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/302)
   * Reported bugs for and gave suggestions to other teams in the class: <br>
     * Team T15-1: [\#270](https://github.com/AY2021S1-CS2103T-T15-1/tp/issues/270), [\#271](https://github.com/AY2021S1-CS2103T-T15-1/tp/issues/271) <br>
-    * PE-D issues: [\#1](https://github.com/BreadPeanutButter/ped/issues/1), [\#2](https://github.com/BreadPeanutButter/ped/issues/2), 
+    * Team F11-1: Smoke tested their app and read DG and UG to find bugs
+    * PE-D testing: [\#1](https://github.com/BreadPeanutButter/ped/issues/1), [\#2](https://github.com/BreadPeanutButter/ped/issues/2), 
     [\#3](https://github.com/BreadPeanutButter/ped/issues/3), [\#6](https://github.com/BreadPeanutButter/ped/issues/6)
   * Contributed to forum discussions: [\#147](https://github.com/nus-cs2103-AY2021S1/forum/issues/147)
+  
+<br>
 
 * **Tools**: 
   * Integrated a third party library (Apache Commons Validator) to the project used to 
