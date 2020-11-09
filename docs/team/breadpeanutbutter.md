@@ -32,19 +32,19 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * What it is for: A field used to represent the expected salary of a candidate. It is an optional input field for candidates. 
     Internally, it is represented as a Salary object.
   * Justification:  This Information field allows job recruiters to store and keep track of the expected salary of candidates. This is an important field
-  as recruiters can use this information to match candidates with suitable jobs. This field is also useful when used as input for the Sort and Find features.
+    as recruiters can use this information to match candidates with suitable jobs. This field is also useful when used as input for the Sort and Find features.
   * Highlight: Similar to URLLink, Salary is also represented as an Optional object in candidates. <br>
   
 * **New Feature: Date Information field**           
   * What it is for: A field used to represent the date of application of a candidate. Internally, it is represented as a Date object.
   * Justification: This Information field allows job recruiters to keep track of the date that candidates applied for a job. This is important as 
-    job recruiters should not take too long to follow up with candidates or they might lose the candidate. 
+    job recruiters should not take too long to follow up with candidates. 
     This field is also useful when used as input for the Sort and Find features. <br>
 
 * **New Feature: Blacklist Information field**           
   * What it is for: A field used to represent the blacklist status of candidates, i.e whether a candidate has been blacklisted.
   * Justification: This Information field allows job recruiters to keep track of candidates who have been blacklisted and have bad records. 
-    Recruiters will then know not to hire this person in the future. This field is also useful when used as input for the Sort and Find features. <br>
+    This field is also useful when used as input for the Sort and Find features. <br>
 
 * **Project management**: 
   * In charge of looking after code quality and ensuring adherence to coding standards such as SLAP and KISS principles
