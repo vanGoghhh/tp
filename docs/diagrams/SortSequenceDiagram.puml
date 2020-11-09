@@ -14,29 +14,25 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("sort can exp/desc")
+[-> LogicManager : execute("sort can type/exp order/asc")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("sort can exp/desc")
+LogicManager -> AddressBookParser : parseCommand("sort can \ntype/exp \norder/asc")
 activate AddressBookParser
 
 create SortPersonCommandParser
 AddressBookParser -> SortPersonCommandParser
 activate SortPersonCommandParser
 
-SortPersonCommandParser --> AddressBookParser
-deactivate SortPersonCommandParser
 
-AddressBookParser -> SortPersonCommandParser : parse("sort can exp/desc")
-activate SortPersonCommandParser
+AddressBookParser -> SortPersonCommandParser : parse("type/exp \norder/asc")
 
-SortPersonCommandParser -> SortPersonCommandParser : selectComparator("exp")
-activate SortPersonCommandParser
+
 
 create PersonExperienceComparator
-SortPersonCommandParser -> PersonExperienceComparator
+SortPersonCommandParser -> PersonExperienceComparator : PersonExperienceComparator()
 activate PersonExperienceComparator
-deactivate SortPersonCommandParser
+
 
 create SortPersonCommand
 SortPersonCommandParser -> SortPersonCommand : SortPersonCommand(expComparator)
@@ -72,7 +68,7 @@ activate CommandResult
 CommandResult --> SortPersonCommand
 deactivate CommandResult
 
-SortPersonCommand --> LogicManager : "Successfully sorted people"
+SortPersonCommand --> LogicManager : "Successfully sorted people..."
 deactivate SortPersonCommand
 
 [<--LogicManager

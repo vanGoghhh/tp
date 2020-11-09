@@ -9,6 +9,11 @@
     src: url('PoppinsThin.ttf');
 }
 
+@font-face {
+    font-family: Poppins Medium;
+    src :url('PoppinsMediumItalic.ttf');
+}
+
 .background {
     -fx-background-color: #ffffff;
 }
@@ -39,7 +44,7 @@
 
 .label-big {
     -fx-font-size: 40px ;
-    -fx-font-family: "Poppins Thin";
+    -fx-font-family: "Poppins Regular";
     -fx-text-fill: black;
     -fx-opacity: 1;
     -fx-alignment: center;
@@ -112,7 +117,8 @@
     -fx-background-radius: 10 10 10 10;
     -fx-focus-color: transparent;
     -fx-pref-height: 35;
-    -fx-pref-width: 320;
+    -fx-pref-width: 300;
+    -fx-max-width:320;
     -fx-background-insets: 0 4 0 4,0,0,0;
 }
 .tab .tab-label {
@@ -169,7 +175,7 @@
 }
 
 .cell_small_label {
-    -fx-font-family: "Poppins thin";
+    -fx-font-family: "Poppins Thin";
     -fx-font-size: 14px;
     -fx-text-fill: #000000;
     -fx-padding: 1 3 1 3;
