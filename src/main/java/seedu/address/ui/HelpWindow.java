@@ -42,14 +42,16 @@ public class HelpWindow extends UiPart<Stage> {
 
     // Candidate Formats
     public static final String ADD_CANDIDATE_FORMAT = "   add can\n   n/NAME\n   p/PHONE_NUMBER\n   e/EMAIL\n"
-            + "   a/ADDRESS\n   exp/YEARS_OF_EXPERIENCE\n   doa/DATE_OF_APPLICATION\n   [sal/EXPECTED_SALARY]\n   "
+            + "   exp/YEARS_OF_EXPERIENCE\n   doa/DATE_OF_APPLICATION\n   [a/ADDRESS]\n   [sal/EXPECTED_SALARY]\n   "
             + "[bl/IS_BLACKLISTED]\n   [link/PROFILE_LINK]\n   [t/JOB_TYPE]… ";
     public static final String LIST_CANDIDATE_FORMAT = "   list can";
     public static final String EDIT_CANDIDATE_FORMAT = "   edit can INDEX\n   "
-            + "[n/NAME]\n   [p/PHONE_NUMBER]\n   [e/EMAIL]\n   [a/ADDRESS]\n   [doa/DATE_OF_APPLICATION]\n   "
-            + "[sal/EXPECTED_SALARY]\n   [bl/IS_BLACKLISTED]\n   [link/PROFILE_LINK]\n   [t/JOB_TYPE]…";
-    public static final String FIND_CANDIDATE_FORMAT = "   find can\n   [n/NAME]\n   [p/PHONE]\n   "
-            + "[e/EMAIL]\n   [a/ADDRESS]\n   [exp/EXPERIENCE]\n   [doa/APPLICATION_DATE]\n   [sal/EXPECTED_SALARY]\n   "
+            + "[n/NAME]\n   [p/PHONE_NUMBER]\n   [e/EMAIL]\n   [exp/YEARS_OF_EXPERIENCE]\n   "
+            + "[doa/DATE_OF_APPLICATION]\n   [a/ADDRESS]\n   [sal/EXPECTED_SALARY]\n   "
+            + "[bl/IS_BLACKLISTED]\n   [link/PROFILE_LINK]\n   [t/JOB_TYPE]…";
+    public static final String FIND_CANDIDATE_FORMAT = "   find can\n   [n/NAME]\n   [p/PHONE_NUMBER]\n   "
+            + "[e/EMAIL]\n   [a/ADDRESS]\n   [exp/YEARS_OF_EXPERIENCE]\n   "
+            + "[doa/DATE_OF_APPLICATION]\n   [sal/EXPECTED_SALARY]\n   "
             + "[bl/IS_BLACKLISTED]\n   [link/PROFILE_LINK]\n   [t/JOB_TYPE]…";
     public static final String SORT_CANDIDATE_FORMAT = "   sort can\n   type/FIELD_TO_SORT\n   order/ORDER";
     public static final String DELETE_CANDIDATE_FORMAT = "   delete can INDEX";
@@ -61,10 +63,10 @@ public class HelpWindow extends UiPart<Stage> {
             + "p/PHONE_NUMBER\n   e/EMAIL\n   a/ADDRESS\n   v/VACANCY\n   [pr/PRIORITY]\n   [t/JOB_DESCRIPTION]…";
     public static final String LIST_JOB_FORMAT = "   list job";
     public static final String EDIT_JOB_FORMAT = "   edit job INDEX\n   [n/JOB_TITLE]\n   "
-            + "[c/COMPANY_NAME]\n   [p/PHONE] [e/EMAIL]\n   "
+            + "[c/COMPANY_NAME]\n   [p/PHONE]\n   [e/EMAIL]\n   "
             + "[a/ADDRESS]\n   [v/VACANCY]\n   [pr/PRIORITY]\n   [t/JOB_DESCRIPTION]…";
     public static final String FIND_JOB_FORMAT = "   find job\n   [n/JOB_TITLE]\n   [c/COMPANY_NAME]\n   [p/PHONE]\n"
-            + "   [e/EMAIL]\n   " + "[a/ADDRESS]\n   [pr/PRIORITY]\n   [v/VACANCY]\n   [t/JOB_DESCRIPTION]…";
+            + "   [e/EMAIL]\n   " + "[a/ADDRESS]\n   [v/VACANCY]\n   [pr/PRIORITY]\n   [t/JOB_DESCRIPTION]…";
     public static final String SORT_JOB_FORMAT = "   sort job\n   type/FIELD_TO_SORT\n   order/ORDER";
     public static final String DELETE_JOB_FORMAT = "   delete job INDEX";
     public static final String CLEAR_JOB_FORMAT = "   clear job";
@@ -74,6 +76,8 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String HELP_FORMAT = "   help";
     public static final String EXIT_FORMAT = "   exit";
 
+    //@@author KishenKumarrrrr-reused
+    //Reused from https://tinyurl.com/y5ahoa7f with modifications
     private static final ObservableList<Row> tableRows =
             FXCollections.observableArrayList(
                     new Row(ADD_ACTION, ADD_CANDIDATE_FORMAT, ADD_JOB_FORMAT),
@@ -87,6 +91,7 @@ public class HelpWindow extends UiPart<Stage> {
                     new Row(HELP_ACTION, HELP_FORMAT, HELP_FORMAT),
                     new Row(EXIT_ACTION, EXIT_FORMAT, EXIT_FORMAT));
 
+    //@@author
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
 
@@ -126,12 +131,16 @@ public class HelpWindow extends UiPart<Stage> {
         action.setText(TABLE_FIRST_COLUMN);
         candidateFormat.setText(TABLE_SECOND_COLUMN);
         jobFormat.setText(TABLE_THIRD_COLUMN);
+
+        //@@author KishenKumarrrrr-reused
+        //Reused from https://tinyurl.com/y5ahoa7f with modifications
         action.setCellValueFactory(new PropertyValueFactory<Row, String>("action"));
         candidateFormat.setCellValueFactory(new PropertyValueFactory<Row, String>("candidateFormat"));
         jobFormat.setCellValueFactory(new PropertyValueFactory<Row, String>("jobFormat"));
         table.setItems(tableRows);
     }
 
+    //@@author
     /**
      * Creates a new HelpWindow.
      */
@@ -195,6 +204,8 @@ public class HelpWindow extends UiPart<Stage> {
         clipboard.setContent(url);
     }
 
+    //@@author Jakob Jenkov-reused
+    //Reused from http://tutorials.jenkov.com/javafx/tableview.html with modifications
     public static class Row {
         private String action;
         private String candidateFormat;

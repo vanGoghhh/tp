@@ -71,7 +71,7 @@ The sections below give more details of each component.
 **API** :
 [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `JobListPanel`, `PersonDetailedView`, `JobDetailedView` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class.
 
 The `UI` component uses JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
@@ -79,6 +79,7 @@ The `UI` component,
 
 * Executes user commands using the `Logic` component.
 * Listens for changes to `Model` data so that the UI can be updated with the modified data.
+* Responds to events raised by various commands which may result in changed to the UI.
 
 ### 2.3 Logic component
 
@@ -89,15 +90,15 @@ The `UI` component,
 
 1. `Logic` uses the `AddressBookParser` class to parse the user command.
 1. This results in a `Command` object which is executed by the `LogicManager`.
-1. The command execution can affect the `Model` (e.g. adding a person).
+1. The command execution can affect the `Model` (e.g. adding a candidate).
 1. The result of the command execution is encapsulated as a `CommandResult` object which is passed back to the `Ui`.
 1. In addition, the `CommandResult` object can also instruct the `Ui` to perform certain actions, such as displaying help to the user.
 
-Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete 1")` API call.
+Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("delete can 1")` API call.
 
-![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
+![Interactions Inside the Logic Component for the `delete can 1` Command](images/DeleteSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeletePersonCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </div>
 
 ### 2.4 Model component
@@ -146,9 +147,10 @@ This section describes some noteworthy details on how certain features are imple
 
 ### 3.1 Add feature
 
-The Add feature exists, using `add can` for candidates and `add job` for jobs.
+The Add feature has two variants, one for adding candidates `add can` and one for adding jobs `add job`. We will illustrate this feature using only the candidates variant here
+as the job variant works analogously.
 
-Both implemented add mechanisms are facilitated by `ModelManager`. They both implement `Model` and contain `FilteredList` of filtered `Person` and filtered `Job`. `FilteredList` is a subclass of `ObservableList`.
+The implemented add mechanism is facilitated by `ModelManager`. They both implement `Model` and contain `FilteredList` of filtered `Person`. `FilteredList` is a subclass of `ObservableList`.
 
 Additionally, it implements the following operations:
 
@@ -156,19 +158,15 @@ Additionally, it implements the following operations:
 
 * `ModelManager#addPerson(Person person)` —  Adds the person into the FilteredList of persons.
 
-* `ModelManager#hasJob(Job job)` —  Check whether the same job exist in the FilteredList of jobs using the `equals` method of `Jobs`.
-
-* `ModelManager#addJob(Job job)` —  Adds the job into the FilteredList of jobs.
-
 Given below is an example usage scenario and how the `add can` mechanism behaves at each step. 
 
 Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `add can n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 exp/5 doa/15-10-20` to add a candidate with `Name` John, `Phone` 98765432, `Email` johnd@example.com, `Address` John street, block 123, #01-01, `Experience` 5 and `Date` 15-10-20.
+Step 2. The user executes `add can n/John p/98765432 e/john@ex.com a/John street exp/5 doa/15-10-20` to add a candidate with `Name` John, `Phone` 98765432, `Email` john@ex.com, `Address` John street, `Experience` 5 and `Date` 15-10-20.
 
 Step 3. The method `AddressBookParser#parseCommand` is invoked to determine the command type. Since this is an `add can` command, the `AddPersonCommandParser#parse` is then called to parse the arguments. If the input command has an invalid format, `AddPersonCommandParser` throws a `ParseException`, if not, a `AddPersonCommand` object is created.
 
-Step 4. `ModelManager#hasJob(Person person)` is invoked to check whether the same person exist in the FilteredList of persons using the `equals` method of `Persons`. If a duplicate person exists, a `CommandException` is thrown. Otherwise, the method `ModelManager#addPerson(Person person)` is invoked to add the person into the FilteredList of persons.
+Step 4. `ModelManager#hasJob(Person person)` is invoked to check whether the same person exist in the FilteredList of persons using the `equals` method of `Person`. If a duplicate person exists, a `CommandException` is thrown. Otherwise, the method `ModelManager#addPerson(Person person)` is invoked to add the person into the FilteredList of persons.
 
 Step 5. The `savePersonAddressBook` method of `StorageManager`, which is a subclass of `Storage`, is invoked to update the new person addition in the `personAddressBook` and saved. 
 
@@ -180,7 +178,7 @@ The following sequence diagram shows how the `add can` operation works in the sc
 
 ### 3.2 Edit feature
 
-The Edit feature has two variants, one for editing candidates `edit can` and one for editing jobs `edit job` . We will illustrate this feature using only the candidates variant here
+The Edit feature has two variants, one for editing candidates `edit can` and one for editing jobs `edit job`. We will illustrate this feature using only the candidates variant here
 as the job variant works analogously. 
 
 The implemented edit mechanism is facilitated by `ModelManager`.  It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`. 
@@ -212,29 +210,37 @@ The following sequence diagram shows how the edit operation works in the scenari
 
 ![EditSequenceDiagram](images/EditSequenceDiagram.png)
 
-A `edit job` command works similarly for Jobs but with the analogous EditJobDescriptor, EditJobCommand, JobAddressBook etc. classes.
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `edit job` operation are mostly similar, using its `EditJobDescriptor`, `EditJobCommand`, `EditJobCommandParser`, `UniqueJobList` and `JobAddressBook` counterparts.
 
 ### 3.3 List feature
+
+The List feature has two variants, one for listing candidates `list can` and one for listing jobs `list job`. We will illustrate this feature using only the candidates variant here
+as the job variant works analogously.
 
 The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
-* `ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
+* `ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of candidates using the supplied predicate.
 
 Given below is an example usage scenario and how the list mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniqueJobList` from `jobAddressBook` which contains a list of jobs.
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `list job` to list all jobs.
+Step 2. The user executes `list can` to list all candidates.
 
-Step 3. A `ListJobCommand` object is created from parsing the command. In the `ListJobCommand#execute` the method `ModelManager#updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS)` is invoked 
-and the `FilteredList` shows all jobs in the list as indicated by the given predicate.
+Step 3. A `ListPersonCommand` object is created from parsing the command. In the `ListPersonCommand#execute` the method `ModelManager#updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS)` is invoked 
+and the `FilteredList` shows all candidates in the list as indicated by the given predicate.
 
-The following sequence diagram shows how the find operation works in the scenario described above:
+The following sequence diagram shows how the list operation works in the scenario described above:
 
 ![ListSequenceDiagram](images/ListSequenceDiagram.png)
 
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `list can` operation are mostly similar, using its `ListCanCommand`, `UniquePersonList` and `PersonAddressBook` counterpart.
+
 ### 3.4 Sort feature
+
+The Sort feature has two variants, one for sorting candidates `sort can` and one for sorting jobs `sort job`. We will illustrate this feature using only the candidates variant here
+as the job variant works analogously.
 
 The implemented sort mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `SortedList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
@@ -245,13 +251,18 @@ Given below is an example usage scenario and how the sort mechanism behaves at e
 
 Step 1. The user launches the application for the first time. The `SortedList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `sort can type/exp order/asc` to sort the candidates by their `Experience` in ascending order. If the `type` of comparator field e.g. `exp` or the `order` e.g `asc` is missing, `SortPersonCommandParser` throws an error message.
+Step 2. The user executes `sort can type/exp order/asc` to sort the candidates by their `Experience` in ascending order. If the `type` of comparator field i.e. `exp` or the `order` i.e. `asc` is missing, `SortPersonCommandParser` throws an error message.
 
 Step 3. A `PersonExperienceComparator` is created from parsing the command and a `SortPersonCommand` object is created. In the `SortPersonCommand#execute` the method `ModelManager#updateSortedPersonList(PersonExperienceComparator)` is invoked and the `SortedList` is sorted using the `PersonExperienceComparator`. The `UniquePersonList` in `personAddressBook` is then set to be the `SortedList`.
 
 ![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png)
 
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `sort job` operation are mostly similar, using its `SortJobCommand` ,`SortJobCommandParser`, `UniqueJobList` and `JobAddressBook` counterparts.
+
 ### 3.5 Find feature
+
+The Find feature has two variants, one for finding candidates `find can` and one for finding jobs `find job`. We will illustrate this feature using only the candidates variant here
+as the job variant works analogously.
 
 The implemented find mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
@@ -273,22 +284,29 @@ The following sequence diagram shows how the find operation works in the scenari
 
 ![FindSequenceDiagram](images/FindSequenceDiagram.png)
 
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `find job` operation are mostly similar, using its `FindJobCommand`, `FindJobCommandParser`, `UniqueJobList` and `JobAddressBook` counterparts.
+
 The above only demonstrates finding candidates by their `Name` and `Experience`.
 The find operation also supports finding candidates via other fields such as `Email` and `Vacancy`.
 
 ### 3.6 View feature
 
+The Edit feature has two variants, one for adding candidates `add can` and one for adding jobs `add job`. We will illustrate this feature using only the candidates variant here
+as the job variant works analogously.
+
 The implemented view feature has two variants `view can` and `view job` for viewing a candidate and viewing a job respectively.
 
-The mechanism for both view features are faciliated by `ModelManager` and `MainWindow`. `ModelManager` implements model and contains a `displayedPerson` which is of type `Person`.
+The mechanism for both view features are faciliated by `ModelManager` and `MainWindow`. `ModelManager` implements model and contains a `displayedPerson` which is of type `Person` and a `displayedJob` which is of type `Job`.
 
  `ModelManager` implements the following operations:
 
-* `ModelManager#setDisplayedPerson(Person person)` — Sets the `displayedPerson` in the `ModelManager` class to be the supplied person
+* `ModelManager#setDisplayedPerson(Person person)` — Sets the `displayedPerson` in the `ModelManager` class to be the supplied person.
+* `ModelManager#setDisplayedJob(Job job)` — Sets the `displayedJob` in the `ModelManager` class to be the supplied job.
 
 `MainWindow` implements the following operations:
 
-* `MainWindow#updateDetailedPersonPanel(Person person)` — Updates the view on the right panel of the GUI to contain information of the supplied person
+* `MainWindow#updateDetailedPersonPanel(Person person)` — Updates the view on the right panel of the GUI to contain information of the supplied person.
+* `MainWindow#updateDetailedJobPanel(Job job)` — Updates the view on the right panel of the GUI to contain information of the supplied job.
 
 Given below is an example usage scenario and how the `view can` mechanism behaves at each step.
 
@@ -309,6 +327,8 @@ Step 7. Candidate at `Index` 1 is now displayed on the right panel.
 The following sequence diagram shows how the view operation works in the scenario described above:
 
 ![ViewSequenceDiagram](images/ViewSequenceDiagram.png)
+
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `view job` operation are mostly similar, using its `ViewJobCommand`, `ViewJobCommandParser`, `displayableJobs` and `displayedJob` counterparts.
 
 ## **4. Proposed Features**
 
@@ -351,7 +371,7 @@ than attempting to perform the undo.
 
 </div>
 
-The following sequence diagram shows how the undo operation works:
+The following sequence diagram shows how the `undo can` operation works:
 
 ![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
 
@@ -383,7 +403,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 </div>
 
-#### 4.1.2 Design consideration:
+#### 4.1.2 Design consideration
 
 ##### 4.1.2.1 Aspect: How undo & redo executes
 
@@ -393,7 +413,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 * **Alternative 2:** Individual command knows how to undo/redo by
   itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
+  * Pros: Will use less memory (e.g. for `delete can`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -414,8 +434,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 **Target user profile**: Job Recruiter
 
-* Has a need to manage a significant number of contacts, specifically job openings and job candidates
-* Has a need to store relevant additional information of job openings and job candidates other than contact details
+* Has a need to manage a significant number of contacts, specifically job listings and candidates applying for jobs
+* Has a need to store relevant additional information of job listing and candidates applying for jobs other than contact details
 * Prefer desktop apps over other types
 * Can type fast
 * Prefers typing to mouse interactions
@@ -628,44 +648,61 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2b1. CANdidates shows an error message.
 
       Use case ends.
+    
+#### 6.3.8 Use case: UC08 - View a Candidate
 
+**MSS**
 
-#### 6.3.8 Use case: UC08 - Add a job
+1. User requests to view a candidate.
+2. CANdidates displays the information of a candidate on the right panel.
+    
+    Use case ends.
+    
+**Extensions**
+
+* 1a. The list is empty.
+
+    Use case ends.
+
+* 2a. The given index is invalid.
+    
+    * 2a1. CANdidates shows an error message.
+    
+      Use case ends.
+    
+#### 6.3.9 Use case: UC09 - Add a job
 
 Similar to UC01, except user will request to add a job instead.
 
+#### 6.3.10 Use case: UC10 - List jobs
 
-#### 6.3.9 Use case: UC09 - List jobs
+Similar to UC02, except user will request to list jobs.
 
-Similar to UC02, except user will request to list jobs and CANdidates will show a list of jobs instead.
-
-
-#### 6.3.10 Use case: UC10 - Delete a job
+#### 6.3.11 Use case: UC11 - Delete a job
 
 Similar to UC03, except user will request to delete a specific job index.
 
-
-#### 6.3.11 Use case: UC11 - Edit a candidate
+#### 6.3.12 Use case: UC12 - Edit a candidate
 
 Similar to UC04, except user will request to edit details of a specific job index.
 
-
-#### 6.3.12 Use case: UC12 - Clear all jobs
+#### 6.3.13 Use case: UC13 - Clear all jobs
 
 Similar to UC05, except user will request to clear all jobs.
 
+#### 6.3.14 Use case: UC14 - Find jobs
 
-#### 6.3.13 Use case: UC13 - Find candidates
+Similar to UC06, except user will request to find jobs with keywords.
 
-Similar to UC06, except user will request to find jobs with keywords and CANdidates will show a list of jobs instead.
-
-
-#### 6.3.14 Use case: UC14 - Sort candidates
+#### 6.3.15 Use case: UC15 - Sort jobs
 
 Similar to UC07, except user will request to sort jobs.
 
+#### 6.3.16 Use case: UC16 - View a job
 
-#### 6.3.15 Use case: UC15 - Requesting for help
+Similar to UC08, except user will request to view a job and CANdidates will display information of the job on the right panel instead.
+
+#### 6.3.17 Use case: UC17 - Requesting for help
 
 **MSS**
 
@@ -718,10 +755,19 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size should be fixed and non-adjustable.
+   1. Double-click the jar file <br>
+   Expected: Shows the GUI with a set of sample candidates and jobs. The window size should be fixed and non-adjustable.
 
-1. _{ more test cases …​ }_
+1. Exiting the application
 
+   1. Type `exit` in the command box and press *Enter*. <br>
+   Expected: The application closes. The json files `personaddressbook.json` and `jobaddressbook.json` are updated accordingly.
+   
+1. Subsequent launch
+
+   1. Double-click the jar file <br>
+   Expected: Shows the GUI with candidates and jobs loaded from the json data files. The window size should be fixed and non-adjustable.
+   
 ### 7.2 Adding a candidate
 
 1. Adding a candidate while on the candidates tab and all candidates are displayed 
@@ -767,11 +813,11 @@ testers are expected to do more *exploratory* testing.
     1. Test case: `list can`<br>
        Expected: The application automatically changes to the candidates tab, and displays all candidates. 
         
-   <div markdown="span" class="alert alert-info">
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Listing jobs can be tested in the same way but with its analogous commands while on the candidates tab.
    
-   :information_source: **Note:** Listing jobs can be tested in the same way but with its analogous commands while on the candidates tab.
-   
-   </div>
+</div>
         
 ### 7.5 Editing a candidate
 
@@ -786,11 +832,11 @@ testers are expected to do more *exploratory* testing.
     1. Test case: `edit can INDEX` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
        Expected: No candidate edited. No fields provided error shown in the status message.
 
-   <div markdown="span" class="alert alert-info">
+<div markdown="span" class="alert alert-info">
    
-   :information_source: **Note:** Editing jobs can be tested in the same way but with its analogous commands and input fields.
+:information_source: **Note:** Editing jobs can be tested in the same way but with its analogous commands and input fields.
    
-   </div>       
+</div>       
     
 ### 7.6 Detecting duplicate candidates
 
@@ -808,7 +854,7 @@ testers are expected to do more *exploratory* testing.
 
 1. Detecting and preventing the creation of duplicate jobs
      
-   1. Prerequisites: Perform test case 1.2 from [Section 7.3. Adding a job](#73-adding-a-job)to add a new job and verify that it passes. 
+   1. Prerequisites: Perform test case 1.2 from [Section 7.3. Adding a job](#73-adding-a-job) to add a new job and verify that it passes. 
    
    1. Test case (Same job title and company name): `add job n/Delivery Man c/FedEx e/anotherfedex@example.com a/Jurong West p/84378293` <br>
       Expected: No new job listing added. Duplicate job error shown in the status message.
@@ -946,10 +992,51 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
-### 7.12 Saving data
+### 7.12 Viewing a candidate
 
-1. Dealing with missing/corrupted data files
+1. Viewing a candidate with no candidates in the candidates list.
+    
+    1. Test case: `view can 1` <br>
+      Expected: No candidate would be displayed on the right panel. Invalid index message would be shown in the status message
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+2. Viewing a candidate with 5 candidates in the candidates list.
 
-1. _{ more test cases …​ }_
+    1. Test case: `view can 2`<br>
+      Expected: The information of the candidate at index 2 would be displayed on the right panel.
+      
+    2. Test case: `view can 6`<br>
+      Expected: No candidate would be displayed on the right panel. Invalid index message would be shown in the status message.
+      
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Viewing jobs can be tested in the same way but with its analogous commands.
+
+</div>
+
+### 7.13 Saving data
+
+1. Dealing with missing data files
+
+   1. Prerequisites: The `personaddressbook.json` and `jobaddressbook.json` json file exists in the application directory. The application is able to launch without error.
+       
+   1. Test case: Delete the json file `personaddressbook.json` from the application directory.<br>
+      Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
+    
+   1. Test case: Delete the json file `jobaddressbook.json` from the application directory.<br>
+      Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
+      
+   1. Other data files to try: `config.json`, `preferences.json`<br>
+      Expected: The application launches with the default configurations and preferences.
+
+1. Dealing with corrupted job data files
+
+   1. Prerequisites: The `personaddressbook.json` and `jobaddressbook.json` json file exists in the application directory. The application is able to launch without error.
+       
+   1. Test case: Insert gibberish and incorrect syntax into the json file `personaddressbook.json` from the application directory.<br>
+      Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
+    
+   1. Test case: Insert gibberish and incorrect syntax into the json file `jobaddressbook.json` from the application directory.<br>
+      Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
+      
+   1. Other data files to try: `config.json`, `preferences.json`<br>
+      Expected: The application launches with the default configurations and preferences.

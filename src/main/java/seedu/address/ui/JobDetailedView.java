@@ -17,11 +17,17 @@ public class JobDetailedView extends UiPart<Region> {
     @FXML
     private StackPane detailPersonView;
     @FXML
+    private Label detailedJobName;
+    @FXML
     private Label detailedCompanyName;
     @FXML
     private Label detailedCompanyEmail;
     @FXML
     private Label detailedCompanyPhone;
+    @FXML
+    private Label detailedCompanyAddress;
+    @FXML
+    private Label detailedCompanyVacancy;
 
     /**
      * Creates a detailed view of a {@code Job} with given Job.
@@ -29,12 +35,17 @@ public class JobDetailedView extends UiPart<Region> {
     public JobDetailedView(Job job) {
         super(FXML);
         this.job = job;
+        String jobName = this.job.getJobTitle().toString();
         String companyName = job.getCompanyName().fullCompanyName;
         String companyPhone = job.getPhone().toString();
         String companyEmail = job.getEmail().toString();
+        String companyAddress = job.getAddress().toString();
+        String vacancy = job.getVacancy().toString();
+        detailedJobName.setText(jobName);
         detailedCompanyName.setText(companyName);
         detailedCompanyPhone.setText(companyPhone);
         detailedCompanyEmail.setText(companyEmail);
+        detailedCompanyAddress.setText(companyAddress);
+        detailedCompanyVacancy.setText(vacancy);
     }
-
 }

@@ -10,6 +10,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextInputControl;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
@@ -32,15 +34,14 @@ public class MainWindow extends UiPart<Stage> {
     private static final String FXML = "MainWindow.fxml";
 
     private final Logger logger = LogsCenter.getLogger(getClass());
+    private final Image image = new Image(this.getClass().getResourceAsStream("/images/CANdidates1.png"));
 
     private Stage primaryStage;
     private Logic logic;
 
     // Independent Ui parts residing in this Ui container
-    private PersonListPanel personListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
-    private JobListPanel jobListPanel;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -68,6 +69,7 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private ScrollPane scrollPane;
+
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -142,6 +144,8 @@ public class MainWindow extends UiPart<Stage> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+
+        setUpRightPanelLogo();
     }
 
     /**
@@ -192,17 +196,28 @@ public class MainWindow extends UiPart<Stage> {
         detailedView.getChildren().add(jobDetailedView.getRoot());
     }
 
-
-
+    /**
+     * Sets up and display CANdidates logo on the right panel upon launching of the app.
+     */
+    private void setUpRightPanelLogo() {
+        ImageView logoPlaceHolder = new ImageView();
+        logoPlaceHolder.setFitWidth(550);
+        logoPlaceHolder.setTranslateY(-340);
+        logoPlaceHolder.setTranslateX(20);
+        logoPlaceHolder.setPreserveRatio(true);
+        logoPlaceHolder.setY(10);
+        logoPlaceHolder.setImage(image);
+        detailedView.getChildren().add(logoPlaceHolder);
+    }
     /**
      * Switches tab to the desired tab.
      */
     private void switchTab(String tabName) {
         switch (tabName) {
-        case PersonListPanel.TAB_NAME:
+        case Person.TAB_NAME:
             tabPane.getSelectionModel().select(0);
             break;
-        case JobListPanel.TAB_NAME:
+        case Job.TAB_NAME:
             tabPane.getSelectionModel().select(1);
             break;
         default:

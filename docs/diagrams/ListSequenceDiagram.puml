@@ -4,7 +4,7 @@
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
-participant "c:ListJobCommand" as ListCommand LOGIC_COLOR
+participant "c:ListPersonCommand" as ListCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
@@ -12,10 +12,10 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("list job")
+[-> LogicManager : execute("list can")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("list job")
+LogicManager -> AddressBookParser : parseCommand("list can")
 activate AddressBookParser
 
 create ListCommand
@@ -31,7 +31,7 @@ deactivate AddressBookParser
 LogicManager -> ListCommand : execute()
 activate ListCommand
 
-ListCommand -> Model : updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS)
+ListCommand -> Model : updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS)
 activate Model
 
 Model --> ListCommand
