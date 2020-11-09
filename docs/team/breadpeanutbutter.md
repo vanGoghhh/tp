@@ -8,16 +8,10 @@ title: Lee Joon Jie's Project Portfolio Page
 CANdidates is a powerful contact management desktop App optimised for job recruiters to manage job applicants and job listings.
 The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 25 kLoC.
 
-<img src="/docs/images/breadpeanutbutter.png" width="200px">
-
-[[github](http://github.com/BreadPeanutButter)]
-
-* Role: Developer
+* Role: Developer [[github profile](http://github.com/BreadPeanutButter)]
 * Responsibilities: Code Quality and Standards
 
 ### Given below are my contributions to the project
-
-Given below are my contributions to the project.
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=breadpeanutbutter&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=false)
 
@@ -91,9 +85,10 @@ Given below are my contributions to the project.
       (Pull requests [\#160](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/160))
     * Wrote documentation for Detecting duplicate entries 
       (Pull requests [\#228](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/228))
-    * Wrote some portions of the Introduction, FAQ, Command Summary and Glossary
+    * Wrote Section 2.1 Understanding this Document (Pull requests [\#333](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/333))
+    * Wrote some portions of the Introduction, Preface, FAQ, Command Summary and Glossary
       (Example Pull Requests [\#70](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/70), [\#298](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/298), 
-      [\#304](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/304)) 
+      [\#304](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/304), [\#333](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/333)) 
   * Developer Guide:
     * Updated the Design of the Model component including the UML diagram along with team mate [Amelia Tan](https://ay2021s1-cs2103t-t17-3.github.io/tp/team/ameliatjy.html) <br>
       (Pull requests [\#139](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/139))
@@ -110,7 +105,8 @@ Given below are my contributions to the project.
     [\#302](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/302)
   * Reported bugs for and gave suggestions to other teams in the class: <br>
     * Team T15-1: [\#270](https://github.com/AY2021S1-CS2103T-T15-1/tp/issues/270), [\#271](https://github.com/AY2021S1-CS2103T-T15-1/tp/issues/271) <br>
-    * PE-D issues: [\#1](https://github.com/BreadPeanutButter/ped/issues/1), [\#2](https://github.com/BreadPeanutButter/ped/issues/2), 
+    * Team F11-1: Helped to smoke test app and read DG and UG to find bugs
+    * PE-D testing: [\#1](https://github.com/BreadPeanutButter/ped/issues/1), [\#2](https://github.com/BreadPeanutButter/ped/issues/2), 
     [\#3](https://github.com/BreadPeanutButter/ped/issues/3), [\#6](https://github.com/BreadPeanutButter/ped/issues/6)
   * Contributed to forum discussions: [\#147](https://github.com/nus-cs2103-AY2021S1/forum/issues/147)
 
