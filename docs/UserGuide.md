@@ -46,18 +46,18 @@ how to navigate the document and what all the symbols, special fonts and command
 ### 2.1 Understanding this Document
 This User Guide is structured into 9 sections so that it is easy to read and navigate! <br>
 These are the 9 sections and a short explanation of what they are for:
-
-Section             | What is it for
---------------------|------------------------------------
-[1. Introduction](#1-introduction) | An introduction to *CANdidates* and the amazing team behind it! 
-[2. Preface](#2-preface)  | A warm-up to get you familiar with this document. This is the section you are reading now. 
-[3. Quick Start](#3-quick-start)       | A quick guide to start using *CANdidates* for those of you who are very eager to use *CANdidates*! 
+ 
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Section &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|       What is it for
+---------------------------------------|------------------------------------
+[1. Introduction](#1-introduction)                           | An introduction to *CANdidates* and the amazing team behind it! 
+[2. Preface](#2-preface)                                     | A warm-up to get you familiar with this document. This is the section you are reading now. 
+[3. Quick Start](#3-quick-start)                             | A quick guide to start using *CANdidates* for those of you who are very eager to use *CANdidates*! 
 [4. Features for Candidates](#4-features-for-candidates)     | An exhaustive list of commands to manage candidate contacts. Learn about the command formats and view examples and step-by-step instructions here.
-[5. Features for Jobs](#5-features-for-jobs)  | An exhaustive list of commands to manage job contacts. Learn about the command formats and view examples and step-by-step instructions here.
-[6. Other Features](#6-other-features) | A list of general features not specific to candidate or job contacts.
-[7. FAQ](#7-faq) | Frequently Asked Questions that we get. Take a look here if you have any lingering questions to see if they have been answered.
-[8. Command Summary](#8-command-summary)  | A table that summarises the commands and their respective formats. This is convenient for use as a quick reference for commands.
-[9. Glossary](#9-glossary) | An explanation of certain specialised terms used in this document.
+[5. Features for Jobs](#5-features-for-jobs)                 | An exhaustive list of commands to manage job contacts. Learn about the command formats and view examples and step-by-step instructions here.
+[6. Other Features](#6-other-features)                       | A list of general features not specific to candidate or job contacts.
+[7. FAQ](#7-faq)                                             | Frequently Asked Questions that we get. Take a look here if you have any lingering questions to see if they have been answered.
+[8. Command Summary](#8-command-summary)                     | A table that summarises the commands and their respective formats. This is convenient for use as a quick reference for commands.
+[9. Glossary](#9-glossary)                                   | An explanation of certain specialised terms used in this document.
 
   
 ### 2.2 Understanding Symbols
