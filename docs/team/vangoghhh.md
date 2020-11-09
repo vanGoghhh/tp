@@ -5,7 +5,8 @@ title: Nigel Ng's Project Portfolio Page
 ## Project: CANdidates
 
 CANdidates is a powerful contact management desktop App optimised for job recruiters to manage job applicants.
-The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 20 kLoC.
+
+The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 25 kLoC.
 
 ### Given below are my contributions to the project.
 
