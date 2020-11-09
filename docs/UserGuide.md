@@ -938,6 +938,7 @@ For duplicate candidates,
 For duplicate jobs,
 >This job already exists in the address book.
 
+
 <div markdown="span" class="alert alert-primary">
 
 :memo: *For candidates, duplicates are defined as entries with the same name and phone number or same name and email.*
