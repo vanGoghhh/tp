@@ -210,7 +210,7 @@ The following sequence diagram shows how the edit operation works in the scenari
 
 ![EditSequenceDiagram](images/EditSequenceDiagram.png)
 
-A `edit job` command works similarly for Jobs but with the analogous EditJobDescriptor, EditJobCommand, JobAddressBook etc. classes.
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `edit job` operation are mostly similar, using its `EditJobDescriptor`, `EditJobCommand`, `EditJobCommandParser`, `UniqueJobList` and `JobAddressBook` counterparts.
 
 ### 3.3 List feature
 
@@ -235,6 +235,8 @@ The following sequence diagram shows how the list operation works in the scenari
 
 ![ListSequenceDiagram](images/ListSequenceDiagram.png)
 
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `list can` operation are mostly similar, using its `ListCanCommand`, `UniquePersonList` and `PersonAddressBook` counterpart.
+
 ### 3.4 Sort feature
 
 The Sort feature has two variants, one for sorting candidates `sort can` and one for sorting jobs `sort job`. We will illustrate this feature using only the candidates variant here
@@ -249,11 +251,13 @@ Given below is an example usage scenario and how the sort mechanism behaves at e
 
 Step 1. The user launches the application for the first time. The `SortedList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `sort can type/exp order/asc` to sort the candidates by their `Experience` in ascending order. If the `type` of comparator field e.g. `exp` or the `order` e.g `asc` is missing, `SortPersonCommandParser` throws an error message.
+Step 2. The user executes `sort can type/exp order/asc` to sort the candidates by their `Experience` in ascending order. If the `type` of comparator field i.e. `exp` or the `order` i.e. `asc` is missing, `SortPersonCommandParser` throws an error message.
 
 Step 3. A `PersonExperienceComparator` is created from parsing the command and a `SortPersonCommand` object is created. In the `SortPersonCommand#execute` the method `ModelManager#updateSortedPersonList(PersonExperienceComparator)` is invoked and the `SortedList` is sorted using the `PersonExperienceComparator`. The `UniquePersonList` in `personAddressBook` is then set to be the `SortedList`.
 
 ![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png)
+
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `sort job` operation are mostly similar, using its `SortJobCommand` ,`SortJobCommandParser`, `UniqueJobList` and `JobAddressBook` counterparts.
 
 ### 3.5 Find feature
 
@@ -279,6 +283,8 @@ Step 4. In the `FindPersonCommand#execute`, the method `composePredicatesList(Li
 The following sequence diagram shows how the find operation works in the scenario described above:
 
 ![FindSequenceDiagram](images/FindSequenceDiagram.png)
+
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `find job` operation are mostly similar, using its `FindJobCommand`, `FindJobCommandParser`, `UniqueJobList` and `JobAddressBook` counterparts.
 
 The above only demonstrates finding candidates by their `Name` and `Experience`.
 The find operation also supports finding candidates via other fields such as `Email` and `Vacancy`.
@@ -322,6 +328,8 @@ The following sequence diagram shows how the view operation works in the scenari
 
 ![ViewSequenceDiagram](images/ViewSequenceDiagram.png)
 
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `view job` operation are mostly similar, using its `ViewJobCommand`, `ViewJobCommandParser`, `displayableJobs` and `displayedJob` counterparts.
+
 ## **4. Proposed Features**
 
 ### 4.1 Undo/redo feature
@@ -363,7 +371,7 @@ than attempting to perform the undo.
 
 </div>
 
-The following sequence diagram shows how the undo operation works:
+The following sequence diagram shows how the `undo can` operation works:
 
 ![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
 
@@ -395,7 +403,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 </div>
 
-#### 4.1.2 Design consideration:
+#### 4.1.2 Design consideration
 
 ##### 4.1.2.1 Aspect: How undo & redo executes
 
@@ -405,7 +413,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 * **Alternative 2:** Individual command knows how to undo/redo by
   itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
+  * Pros: Will use less memory (e.g. for `delete can`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -426,8 +434,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 **Target user profile**: Job Recruiter
 
-* Has a need to manage a significant number of contacts, specifically job openings and job candidates
-* Has a need to store relevant additional information of job openings and job candidates other than contact details
+* Has a need to manage a significant number of contacts, specifically job listings and candidates applying for jobs
+* Has a need to store relevant additional information of job listing and candidates applying for jobs other than contact details
 * Prefer desktop apps over other types
 * Can type fast
 * Prefers typing to mouse interactions
@@ -660,46 +668,41 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     
     * 2a1. CANdidates shows an error message.
     
-    Use case ends.
+      Use case ends.
     
-#### 6.3.9 Use case: UC08 - Add a job
+#### 6.3.9 Use case: UC09 - Add a job
 
 Similar to UC01, except user will request to add a job instead.
 
+#### 6.3.10 Use case: UC10 - List jobs
 
-#### 6.3.10 Use case: UC09 - List jobs
+Similar to UC02, except user will request to list jobs.
 
-Similar to UC02, except user will request to list jobs and CANdidates will show a list of jobs instead.
-
-
-#### 6.3.11 Use case: UC10 - Delete a job
+#### 6.3.11 Use case: UC11 - Delete a job
 
 Similar to UC03, except user will request to delete a specific job index.
 
-
-#### 6.3.12 Use case: UC11 - Edit a candidate
+#### 6.3.12 Use case: UC12 - Edit a candidate
 
 Similar to UC04, except user will request to edit details of a specific job index.
 
-
-#### 6.3.13 Use case: UC12 - Clear all jobs
+#### 6.3.13 Use case: UC13 - Clear all jobs
 
 Similar to UC05, except user will request to clear all jobs.
 
+#### 6.3.14 Use case: UC14 - Find jobs
 
-#### 6.3.14 Use case: UC13 - Find jobs
+Similar to UC06, except user will request to find jobs with keywords.
 
-Similar to UC06, except user will request to find jobs with keywords and CANdidates will show a list of jobs instead.
-
-#### 6.3.15 Use case: UC14 - Sort jobs
+#### 6.3.15 Use case: UC15 - Sort jobs
 
 Similar to UC07, except user will request to sort jobs.
 
-#### 6.3.16 Use case: UC14 - View a job
+#### 6.3.16 Use case: UC16 - View a job
 
 Similar to UC08, except user will request to view a job and CANdidates will display information of the job on the right panel instead.
 
-#### 6.3.17 Use case: UC15 - Requesting for help
+#### 6.3.17 Use case: UC17 - Requesting for help
 
 **MSS**
 
@@ -753,17 +756,17 @@ testers are expected to do more *exploratory* testing.
    1. Download the jar file and copy into an empty folder
 
    1. Double-click the jar file <br>
-   Expected: Shows the GUI with a set of sample contacts. The window size should be fixed and non-adjustable.
+   Expected: Shows the GUI with a set of sample candidates and jobs. The window size should be fixed and non-adjustable.
 
 1. Exiting the application
 
-   1. Type `Exit` in the command box and press *Enter*. <br>
+   1. Type `exit` in the command box and press *Enter*. <br>
    Expected: The application closes. The json files `personaddressbook.json` and `jobaddressbook.json` are updated accordingly.
    
 1. Subsequent launch
 
    1. Double-click the jar file <br>
-   Expected: Shows the GUI with contacts loaded from the json data files. The window size should be fixed and non-adjustable.
+   Expected: Shows the GUI with candidates and jobs loaded from the json data files. The window size should be fixed and non-adjustable.
    
 ### 7.2 Adding a candidate
 
@@ -996,7 +999,7 @@ testers are expected to do more *exploratory* testing.
     1. Test case: `view can 1` <br>
       Expected: No candidate would be displayed on the right panel. Invalid index message would be shown in the status message
 
-2. Viewing a candidate with a 5 candidates in the candidates list.
+2. Viewing a candidate with 5 candidates in the candidates list.
 
     1. Test case: `view can 2`<br>
       Expected: The information of the candidate at index 2 would be displayed on the right panel.
@@ -1029,10 +1032,10 @@ testers are expected to do more *exploratory* testing.
 
    1. Prerequisites: The `personaddressbook.json` and `jobaddressbook.json` json file exists in the application directory. The application is able to launch without error.
        
-   1. Test case: Insert glibberish and incorrect syntax into the json file `personaddressbook.json` from the application directory.<br>
+   1. Test case: Insert gibberish and incorrect syntax into the json file `personaddressbook.json` from the application directory.<br>
       Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
     
-   1. Test case: Insert glibberish and incorrect syntax into the json file `jobaddressbook.json` from the application directory.<br>
+   1. Test case: Insert gibberish and incorrect syntax into the json file `jobaddressbook.json` from the application directory.<br>
       Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
       
    1. Other data files to try: `config.json`, `preferences.json`<br>
