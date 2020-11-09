@@ -1,11 +1,12 @@
 @startuml
 !include style.puml
+scale 1.75
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":ViewPersonCommandParser" as ViewPersonCommandParser LOGIC_COLOR
-participant "d:ViewPersonCommand" as ViewPersonCommand LOGIC_COLOR
+participant "v:ViewPersonCommand" as ViewPersonCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 end box
 
@@ -26,29 +27,30 @@ activate ViewPersonCommandParser
 ViewPersonCommandParser --> AddressBookParser
 deactivate ViewPersonCommandParser
 
-AddressBookParser -> ViewPersonCommandParser : parse("1")
+AddressBookParser -> ViewPersonCommandParser : parse(" 1")
 activate ViewPersonCommandParser
 
 create ViewPersonCommand
 ViewPersonCommandParser -> ViewPersonCommand
 activate ViewPersonCommand
 
-ViewPersonCommand --> ViewPersonCommandParser : d
+ViewPersonCommand --> ViewPersonCommandParser : v
 deactivate ViewPersonCommand
 
-ViewPersonCommandParser --> AddressBookParser : d
+ViewPersonCommandParser --> AddressBookParser : v
 deactivate ViewPersonCommandParser
 'Hidden arrow to position the destroy marker below the end of the activation bar.
 ViewPersonCommandParser -[hidden]-> AddressBookParser
 destroy ViewPersonCommandParser
 
-AddressBookParser --> LogicManager : d
+AddressBookParser --> LogicManager : v
 deactivate AddressBookParser
 
 LogicManager -> ViewPersonCommand : execute()
 activate ViewPersonCommand
 
-ViewPersonCommand -> Model : setDisplayedPerson(1)
+
+ViewPersonCommand -> Model : setDisplayedPerson(Person)
 activate Model
 
 Model --> ViewPersonCommand
@@ -61,7 +63,7 @@ activate CommandResult
 CommandResult --> ViewPersonCommand
 deactivate CommandResult
 
-ViewPersonCommand --> LogicManager : result
+ViewPersonCommand --> LogicManager : "Displaying Person:..."
 deactivate ViewPersonCommand
 
 [<--LogicManager

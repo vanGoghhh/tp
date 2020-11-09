@@ -7,7 +7,7 @@ start
 
 if () then ([command commits
 PersonAddressBook])
-    :Purge redunant states;
+    :Purge redundant states;
     :Save PersonAddressBook to
     personAddressBookStateList;
 else ([else])

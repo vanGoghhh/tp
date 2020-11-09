@@ -17,6 +17,8 @@ public class JobDetailedView extends UiPart<Region> {
     @FXML
     private StackPane detailPersonView;
     @FXML
+    private Label detailedJobName;
+    @FXML
     private Label detailedCompanyName;
     @FXML
     private Label detailedCompanyEmail;
@@ -24,8 +26,6 @@ public class JobDetailedView extends UiPart<Region> {
     private Label detailedCompanyPhone;
     @FXML
     private Label detailedCompanyAddress;
-    @FXML
-    private Label detailedJobName;
     @FXML
     private Label detailedCompanyVacancy;
 
@@ -48,5 +48,4 @@ public class JobDetailedView extends UiPart<Region> {
         detailedCompanyAddress.setText(companyAddress);
         detailedCompanyVacancy.setText(vacancy);
     }
-
 }

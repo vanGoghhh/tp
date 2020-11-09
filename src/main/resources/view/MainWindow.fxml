@@ -15,7 +15,7 @@
   <scene>
     <Scene>
       <stylesheets>
-        <URL value="@DarkTheme.css" />
+        <URL value="@LightTheme.css" />
         <URL value="@Extensions.css" />
       </stylesheets>
         <HBox style="-fx-background-color: white">
@@ -41,9 +41,6 @@
                 <Tab fx:id="jobTab" text="Jobs">
                   <content>
                     <VBox fx:id="jobsList" maxWidth="650" prefWidth="650" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
-                      <padding>
-                        <Insets bottom="10" left="10" right="10" top="10" />
-                      </padding>
                         <StackPane fx:id="jobListPanelPlaceholder" VBox.vgrow="ALWAYS" />
                     </VBox>
                   </content>
