@@ -220,18 +220,18 @@ as the job variant works analogously.
 The implemented list mechanism is facilitated by `ModelManager`. It implements `Model` and contains a `FilteredList`, which is a subclass of `ObservableList`.
 Additionally, it implements the following operations:
 
-* `ModelManager#updateFilteredJobList(Predicate<Job> predicate)` —  Updates the FilteredList of jobs using the supplied predicate.
+* `ModelManager#updateFilteredPersonList(Predicate<Person> predicate)` —  Updates the FilteredList of candidates using the supplied predicate.
 
 Given below is an example usage scenario and how the list mechanism behaves at each step.
 
-Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniqueJobList` from `jobAddressBook` which contains a list of jobs.
+Step 1. The user launches the application for the first time. The `FilteredList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `list job` to list all jobs.
+Step 2. The user executes `list can` to list all candidates.
 
-Step 3. A `ListJobCommand` object is created from parsing the command. In the `ListJobCommand#execute` the method `ModelManager#updateFilteredJobList(PREDICATE_SHOW_ALL_JOBS)` is invoked 
-and the `FilteredList` shows all jobs in the list as indicated by the given predicate.
+Step 3. A `ListPersonCommand` object is created from parsing the command. In the `ListPersonCommand#execute` the method `ModelManager#updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS)` is invoked 
+and the `FilteredList` shows all candidates in the list as indicated by the given predicate.
 
-The following sequence diagram shows how the find operation works in the scenario described above:
+The following sequence diagram shows how the list operation works in the scenario described above:
 
 ![ListSequenceDiagram](images/ListSequenceDiagram.png)
 
