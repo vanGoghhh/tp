@@ -60,7 +60,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * About Us:
     * Mounted team's About Us page. (Pull request [\#33](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/33))
   * Developer Guide:
-    * Documented and maintained the sections on target user profile, value proposition and user stories. (Pull requests
+    * Wrote documentation for and maintained the sections on target user profile, value proposition and user stories. (Pull requests
     [\#34](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/34) and
     [\#234](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/234))
     * Wrote documentation for implementation of Find feature and its sequence diagram. (Pull requests
