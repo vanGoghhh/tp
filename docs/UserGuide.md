@@ -59,12 +59,15 @@ The figure below shows an annotated version of the GUI, to help you in understan
 
 ![Annotated GUI](images/UnderstandingGUI.png)
 
-:memo: *In the Tab Buttons, the tab you are currently on is marked as **red**. i.e. "Candidates" button is in red as the list shows the list of candidates.*
-<br>
-:memo: *The application window currently does not support resizing.*
-<br/>
+<div markdown="span" class="alert alert-primary">
 
+:memo: *In the Tab Buttons, the tab you are currently on is marked as red. i.e. "Jobs" button is in red as the list currently shows the list of jobs.*
+<br>
+:memo: *The current application window does not support resizing.*
+<br>
 :bulb: *The display panel is scrollable! Keep this tip in mind so that you do not miss out on any information!*
+
+</div>
 
 You may refer back to this section whenever you need help understanding the GUI terms.
 
