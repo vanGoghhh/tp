@@ -119,7 +119,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     [\#302](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/302)
   * Reported bugs for and gave suggestions to other teams in the class: <br>
     * Team T15-1: [\#270](https://github.com/AY2021S1-CS2103T-T15-1/tp/issues/270), [\#271](https://github.com/AY2021S1-CS2103T-T15-1/tp/issues/271) <br>
-    * Team F11-1: Helped to smoke test app and read DG and UG to find bugs
+    * Team F11-1: Smoke tested their app and read DG and UG to find bugs
     * PE-D testing: [\#1](https://github.com/BreadPeanutButter/ped/issues/1), [\#2](https://github.com/BreadPeanutButter/ped/issues/2), 
     [\#3](https://github.com/BreadPeanutButter/ped/issues/3), [\#6](https://github.com/BreadPeanutButter/ped/issues/6)
   * Contributed to forum discussions: [\#147](https://github.com/nus-cs2103-AY2021S1/forum/issues/147)
