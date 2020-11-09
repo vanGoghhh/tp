@@ -17,8 +17,8 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * Justification: This feature improves the product significantly as it differentiates the job list from the original AB3, 
   making it significantly personalised for job recruiters to use our application to manage many job listings at once.
   * Highlights: This enhancement affects existing commands and commands to be added subsequently, such as find and sort commands. 
-  This enhancement was also challenging as it was the first information field that was optional which had to take on a default value and 
-  no other similar implementations exists in the original codebase. A good understanding of the logic flow of the code base is required due to the multitude of classes and method involved.
+  This enhancement was also challenging as the priority field was optional and had to take on a default value. 
+  No other similar implementations exists in the original codebase and a good understanding of the logic flow of the code base is required due to the multitude of classes and method involved.
 <br>
 <br>
 * **New Feature**: Added the ability to store vacancies of job listings.
@@ -27,8 +27,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   making it significantly personalised for job recruiters to use our application to manage job listings.
   * Highlights: This enhancement affects existing commands and commands to be added subsequently, such as find and sort commands. 
   A good understanding of the logic flow of the code base is required due to the multitude of classes and method involved.
-<br>
-<br>
+<div style="page-break-after: always;"></div>
 * **New Feature**: Added the ability to sort job listings.
   * What it does: Sorts the list of jobs by their job title, company name, priority level or number of vacancies in an ascending or descending order.
   * Justification: This feature improves the product significantly because a user can quickly sort the items with a single command. 
