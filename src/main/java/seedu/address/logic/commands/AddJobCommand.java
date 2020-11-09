@@ -42,7 +42,7 @@ public class AddJobCommand extends Command {
             + PREFIX_TAG + "fulltime ";
 
     public static final String MESSAGE_SUCCESS = "New job added: %1$s";
-    public static final String MESSAGE_DUPLICATE_JOB = "This job already exists in the job address book";
+    public static final String MESSAGE_DUPLICATE_JOB = "This job already exists in the address book.";
 
     private final Job toAdd;
 
