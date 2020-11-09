@@ -48,6 +48,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * Implemented the chaining of multiple search predicates [\#137](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/137)
   * Wrote numerous utility classes for the purpose of testing (examples: [\#85](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/85), [\#87](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/87))
   * Wrote additional tests for existing features to increase code coverage by 12.16% (examples: [\#93](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/93), [\#126](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/126), [\#126](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/126), [\#138](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/138))
+  * Forced the application to fail gracefully when data files are corrupted [\#269](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/269)
 
 <br>
 
@@ -60,12 +61,17 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * Developer Guide:
     * Added documentation for the features `add can` and `add job` (examples: [\#134](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/134), [\#261](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/261))
     * Updated the design for the `Storage` component (examples: [\#134](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/134), [\#261](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/261))
+    * Updated the `redo can`/`undo can` and `redo job`/`undo job` feature under proposed implementation [#261](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/261)
+    * Update the Manual Testing section (Pull request [\#309](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/309))
+  * Demonstration Video:
+    * Recorded and edited the project [demonstration video](https://youtu.be/QK74ampajtI)
 
 <br>
 
 * **Community**:
   * Contributed to forum discussions [#68](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/68)
   * Reported bugs and suggestions (examples: [#247](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/247), [#249](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/249), [#252](https://github.com/AY2021S1-CS2103T-T17-3/tp/issues/252))
+  * Reported bugs for and gave suggestions to other teams in the class (examples: [PE Dry Run](https://github.com/raythx98/ped/issues))
 
 <br>
 
