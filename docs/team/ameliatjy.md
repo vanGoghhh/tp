@@ -38,14 +38,14 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 * **Enhancements to existing features**:
   * Refactored and renamed AB3 packages to better cater to project. (Pull request
   [\#35](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/35))
-  * Preliminary adaptation of application from AB3 to cater for Person and Job. (Pull request
+  * Preliminary adaptation from AB3 to cater for Person and Job. (Pull request
   [\#84](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/84))
   * Wrote additional tests to increase coverage from 55.80% to 63.65%, by 7.84%. (Pull request
   [\#94](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/94))
   * Created predicate package and related files to support Find command. (Pull requests
   [\#123](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/123) and
   [\#124](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/124))
-  * Enhanced the feature of finding of candidates and jobs by fields and wrote tests for them. (Pull request
+  * Enhanced the feature of finding of candidates and job listings by fields and wrote tests for them. (Pull request
   [\#148](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/148))
 
 * **Project management**:
@@ -66,7 +66,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     * Wrote documentation for implementation of Find feature and its sequence diagram. (Pull requests
     [\#131](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/131) and
     [\#282](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/282))
-    * Update documentation and design of Model component including the UML diagrams along with teammate [Joon Jie](breadpeanutbutter.md). (Pull request
+    * Update documentation and design of Model component including the UML diagrams along with teammate [Joon Jie](https://ay2021s1-cs2103t-t17-3.github.io/tp/team/breadpeanutbutter.html). (Pull request
     [\#142](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/142))
     * Identified use cases and maintained the section. (Pull requests
     [\#234](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/234) and
@@ -76,6 +76,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     * Enhanced formatting of contents page and section headers. (Pull request
     [\#293](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/293))
     * Update documentations regularly to ensure consistency in content and format. (Pull requests
+    [\#282](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/282),
     [\#294](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/294),
     [\#325](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/325) and
     [\#329](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/329))
@@ -84,15 +85,15 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     [\#155](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/155))
     * Wrote documentation for the features Finding a candidate: `find can` and Finding a job: `find job`. (Pull request
     [\#155](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/155))
+    * Wrote documentation for the feature Auto tab switch. (Pull requests
+    [\#317](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/317) and
+    [\#318](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/318))
     * Enhanced formatting of UG by separating features for candidates and jobs into different sections. (Pull request
     [\#239](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/239))
     * Enhanced formatting of contents page and section headers. (Pull request
     [\#293](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/293))
     * Enhanced formatting of every feature's step by step documentation. (Pull request
     [\#317](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/317))
-    * Wrote documentation for the feature Auto tab switch. (Pull requests
-    [\#317](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/317) and
-    [\#318](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/318))
     * Update documentations regularly to ensure consistency in content and format. (Pull requests
     [\#116](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/116),
     [\#155](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/155),
@@ -116,5 +117,5 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   [\#249](https://github.com/AY2021S1-CS2103T-W15-4/tp/issues/249),
   [\#251](https://github.com/AY2021S1-CS2103T-W15-4/tp/issues/251),
   [\#253](https://github.com/AY2021S1-CS2103T-W15-4/tp/issues/253),
-  [\#255](https://github.com/AY2021S1-CS2103T-W15-4/tp/issues/255) and
-  [\#252](https://github.com/AY2021S1-CS2103T-W15-4/tp/issues/252))
+  [\#252](https://github.com/AY2021S1-CS2103T-W15-4/tp/issues/252) and
+  [\#255](https://github.com/AY2021S1-CS2103T-W15-4/tp/issues/255))
