@@ -62,7 +62,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     * Added documentation for the features `add can` and `add job` (examples: [\#134](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/134), [\#261](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/261))
     * Updated the design for the `Storage` component (examples: [\#134](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/134), [\#261](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/261))
     * Updated the `redo can`/`undo can` and `redo job`/`undo job` feature under proposed implementation [#261](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/261)
-    * Update the Manual Testing section (Pull request [\#309](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/309))
+    * Update the Manual Testing section [\#309](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/309)
   * Demonstration Video:
     * Recorded and edited the project [demonstration video](https://youtu.be/QK74ampajtI)
 
