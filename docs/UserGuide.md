@@ -44,7 +44,8 @@ For a smoother start to your usage of *CANdidates*, read this section to find ou
 how to navigate the document and what all the symbols, special fonts and command formats mean.
 
 ### 2.1 Understanding this Document
-This User Guide is structured into 9 sections so that it is easy to read and navigate! These are the 9 sections and a short explanation
+This User Guide is structured into 9 sections so that it is easy to read and navigate! <br>
+These are the 9 sections and a short explanation
 of what they are for:
 
 Section             | Explanation
