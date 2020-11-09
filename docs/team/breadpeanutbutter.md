@@ -15,9 +15,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 * **New Feature: Experience Information field**
   * What it is for: A field used to represent the number of years of experience of a candidate. Internally, it is represented as an Experience object.
   * Justification: This Information field allows job recruiters to store and keep track of the number of years of experience that candidates have.
-    This is an important value that most employers look out for. This field is also useful when used as input for the Sort and Find features. 
-    
-<br>      
+    This is an important value that most employers look out for. This field is also useful when used as input for the Sort and Find features. <br>
 
 * **New Feature: URL Link Information field**     
   * What it is for: A field used to represent a URL link to a candidate's profile such as his/her LinkedIn or Github page. 
@@ -28,41 +26,31 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     null values for this as using nulls can be "overwhelmingly likely to cause errors" as said by Brian Goetz, Java's language architect. 
     Hence, I decided to utilise Java's Optional class to contain UrlLink in an Optional object for safer results. 
   * Hightlight: It was also a challenge to validate the format of URL links as there are numerous possibilities. I decided to use a third party library, 
-    Apache Commons Validator, to validate the format for this.
+    Apache Commons Validator, to validate the format for this. <br>
     
-<br>
-
 * **New Feature: Salary Information field**           
   * What it is for: A field used to represent the expected salary of a candidate. It is an optional input field for candidates. 
     Internally, it is represented as a Salary object.
   * Justification:  This Information field allows job recruiters to store and keep track of the expected salary of candidates. This is an important field
   as recruiters can use this information to match candidates with suitable jobs. This field is also useful when used as input for the Sort and Find features.
-  * Highlight: Similar to URLLink, Salary is also represented as an Optional object in candidates.
+  * Highlight: Similar to URLLink, Salary is also represented as an Optional object in candidates. <br>
   
-<br>
-
 * **New Feature: Date Information field**           
   * What it is for: A field used to represent the date of application of a candidate. Internally, it is represented as a Date object.
   * Justification: This Information field allows job recruiters to keep track of the date that candidates applied for a job. This is important as 
     job recruiters should not take too long to follow up with candidates or they might lose the candidate. 
-    This field is also useful when used as input for the Sort and Find features.
-    
-<br>
+    This field is also useful when used as input for the Sort and Find features. <br>
 
 * **New Feature: Blacklist Information field**           
   * What it is for: A field used to represent the blacklist status of candidates, i.e whether a candidate has been blacklisted.
   * Justification: This Information field allows job recruiters to keep track of candidates who have been blacklisted and have bad records. 
-    Recruiters will then know not to hire this person in the future. This field is also useful when used as input for the Sort and Find features.
-    
-<br>
+    Recruiters will then know not to hire this person in the future. This field is also useful when used as input for the Sort and Find features. <br>
 
 * **Project management**: 
   * In charge of looking after code quality and ensuring adherence to coding standards such as SLAP and KISS principles
   * Regularly reviewed pull requests to ensure good code quality and coding standards
-  * Actively used issue tracker to track, complete and assign tasks
-  
-<br>
-
+  * Actively used issue tracker to track, complete and assign tasks <br>
+ 
 * **Enhancements to existing features**: 
   * Modified AddressBookParser class of AB3 to be able to parse new commands of CANdidates
     (Pull requests [\#86](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/86))
