@@ -47,7 +47,7 @@ how to navigate the document and what all the symbols, special fonts and command
 This User Guide is structured into 9 sections so that it is easy to read and navigate! <br>
 These are the 9 sections and a short explanation of what they are for:
 
-Section                                                     | What is it for
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Section &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | What is it for
 ------------------------------------------------------------|------------------------------------
 [1. Introduction](#1-introduction)                          | An introduction to *CANdidates* and the amazing team behind it! 
 [2. Preface](#2-preface)                                    | A warm-up to get you familiar with this document. This is the section you are reading now. 
@@ -65,7 +65,7 @@ This section explains all the symbols and fonts used in this document.
 
 Symbols/Font   | Explanation
 ---------------|------------------------------------
-`command`      | A string that is highlighted in grey indicates that the string is related to a typed command. The string could be a command format, a full command or part of a command .
+`command`      | A string that is highlighted in grey indicates that the string is describing a typed command. The string could be a command format, a full command or part of a command.
 {*Description*}| Curly braces indicates a variable field that is described by *Description*. This is used to display results of commands that vary depending on a user's specific data. For example, the number of jobs in the list is variable and would depend on the user's data, hence this is represented as {*Number of jobs*} in this User Guide.
 :black_nib:    | An example of how to use the feature.
 :memo:         | Additional comments on the section or sub-section being explained.
