@@ -59,12 +59,15 @@ The figure below shows an annotated version of the GUI, to help you in understan
 
 ![Annotated GUI](images/UnderstandingGUI.png)
 
-:memo: *In the Tab Buttons, the tab you are currently on is marked as **red**. i.e. "Candidates" button is in red as the list shows the list of candidates.*
-<br>
-:memo: *The application window currently does not support resizing.*
-<br/>
+<div markdown="span" class="alert alert-primary">
 
+:memo: *In the Tab Buttons, the tab you are currently on is marked as red. i.e. "Jobs" button is in red as the list currently shows the list of jobs.*
+<br>
+:memo: *The current application window does not support resizing.*
+<br>
 :bulb: *The display panel is scrollable! Keep this tip in mind so that you do not miss out on any information!*
+
+</div>
 
 You may refer back to this section whenever you need help understanding the GUI terms.
 
@@ -432,7 +435,7 @@ Step 3. The application will show the updated candidates list without the delete
 
 ### 4.7 Viewing a candidate: `view can`
 
-Want to view all the information of a particular candidate? *CANdidates* provides an easy way for you to do it! Simply utilise the command below to display all the information of a candidate on the display panel of the application!
+Want to view all the information of a particular candidate? *CANdidates* provides an easy way for you to do it! Simply utilise the command below to display all the information of a candidate on the *display panel* of the application!
 
 **Format** `view can INDEX`
 
@@ -524,11 +527,8 @@ If you are informed of a job opening and you would like to add it in *CANdidates
 
 :bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).*
 <br>
-:bulb: *A job can have 0 or more job description(s).*
-<br>
-:memo: *If the job is added successfully, *CANdidates* will automatically switch to the "Jobs" tab*
-<br>
 :exclamation: *If `PRIORITY` is not specified, it will be set to moderate by default.*
+
 </div>
 
 **Examples:**
@@ -778,7 +778,7 @@ Step 3. The application will show the updated job list without the deleted job.
 
 ### 5.7 Viewing a job: `view job`
 
-Want to view all the information of a particular job ? *CANdidates* provides an easy way for you to do it! Simply utilise the command below to display the all the information of a job on the display panel of the application!
+Want to view all the information of a particular job ? *CANdidates* provides an easy way for you to do it! Simply utilise the command below to display the all the information of a job on the *display panel* of the application!
 
 **Format** `view job INDEX`
 
