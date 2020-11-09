@@ -97,7 +97,7 @@ remember them because *CANdidates* will notify you with an error message if any 
 are not met, and you can then make the relevant changes. 
 
 Still unsure what this means without context? You will understand better when you read about the commands in later sections.
-Try taking quick glance at the command formats in [Section 4. Features for Candidates](#4-features-for-candidates) 
+Try taking a quick glance at the command formats in [Section 4. Features for Candidates](#4-features-for-candidates) 
 or [Section 5. Features for Jobs](#5-features-for-jobs)!
 
 You may refer to this table whenever you need help understanding the input fields.
