@@ -210,7 +210,7 @@ The following sequence diagram shows how the edit operation works in the scenari
 
 ![EditSequenceDiagram](images/EditSequenceDiagram.png)
 
-A `edit job` command works similarly for Jobs but with the analogous EditJobDescriptor, EditJobCommand, JobAddressBook etc. classes.
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `edit job` operation are mostly similar, using its `EditJobDescriptor`, `EditJobCommand`, `EditJobCommandParser`, `UniqueJobList` and `JobAddressBook` counterparts.
 
 ### 3.3 List feature
 
@@ -235,6 +235,8 @@ The following sequence diagram shows how the list operation works in the scenari
 
 ![ListSequenceDiagram](images/ListSequenceDiagram.png)
 
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `list can` operation are mostly similar, using its `ListCanCommand`, `UniquePersonList` and `PersonAddressBook` counterpart.
+
 ### 3.4 Sort feature
 
 The Sort feature has two variants, one for sorting candidates `sort can` and one for sorting jobs `sort job`. We will illustrate this feature using only the candidates variant here
@@ -249,11 +251,13 @@ Given below is an example usage scenario and how the sort mechanism behaves at e
 
 Step 1. The user launches the application for the first time. The `SortedList` will be initialised with the `UniquePersonList` from `personAddressBook` which contains a list of candidates.
 
-Step 2. The user executes `sort can type/exp order/asc` to sort the candidates by their `Experience` in ascending order. If the `type` of comparator field e.g. `exp` or the `order` e.g `asc` is missing, `SortPersonCommandParser` throws an error message.
+Step 2. The user executes `sort can type/exp order/asc` to sort the candidates by their `Experience` in ascending order. If the `type` of comparator field i.e. `exp` or the `order` i.e. `asc` is missing, `SortPersonCommandParser` throws an error message.
 
 Step 3. A `PersonExperienceComparator` is created from parsing the command and a `SortPersonCommand` object is created. In the `SortPersonCommand#execute` the method `ModelManager#updateSortedPersonList(PersonExperienceComparator)` is invoked and the `SortedList` is sorted using the `PersonExperienceComparator`. The `UniquePersonList` in `personAddressBook` is then set to be the `SortedList`.
 
 ![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png)
+
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `sort job` operation are mostly similar, using its `SortJobCommand` ,`SortJobCommandParser`, `UniqueJobList` and `JobAddressBook` counterparts.
 
 ### 3.5 Find feature
 
@@ -279,6 +283,8 @@ Step 4. In the `FindPersonCommand#execute`, the method `composePredicatesList(Li
 The following sequence diagram shows how the find operation works in the scenario described above:
 
 ![FindSequenceDiagram](images/FindSequenceDiagram.png)
+
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `find job` operation are mostly similar, using its `FindJobCommand`, `FindJobCommandParser`, `UniqueJobList` and `JobAddressBook` counterparts.
 
 The above only demonstrates finding candidates by their `Name` and `Experience`.
 The find operation also supports finding candidates via other fields such as `Email` and `Vacancy`.
@@ -322,6 +328,8 @@ The following sequence diagram shows how the view operation works in the scenari
 
 ![ViewSequenceDiagram](images/ViewSequenceDiagram.png)
 
+:information_source: **Note:** The usage scenario and sequence diagram for the analogous `view job` operation are mostly similar, using its `ViewJobCommand`, `ViewJobCommandParser`, `displayableJobs` and `displayedJob` counterparts.
+
 ## **4. Proposed Features**
 
 ### 4.1 Undo/redo feature
@@ -363,7 +371,7 @@ than attempting to perform the undo.
 
 </div>
 
-The following sequence diagram shows how the undo operation works:
+The following sequence diagram shows how the `undo can` operation works:
 
 ![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
 
@@ -395,7 +403,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 </div>
 
-#### 4.1.2 Design consideration:
+#### 4.1.2 Design consideration
 
 ##### 4.1.2.1 Aspect: How undo & redo executes
 
@@ -405,7 +413,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 * **Alternative 2:** Individual command knows how to undo/redo by
   itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
+  * Pros: Will use less memory (e.g. for `delete can`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -426,8 +434,8 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 **Target user profile**: Job Recruiter
 
-* Has a need to manage a significant number of contacts, specifically job openings and job candidates
-* Has a need to store relevant additional information of job openings and job candidates other than contact details
+* Has a need to manage a significant number of contacts, specifically job listings and candidates applying for jobs
+* Has a need to store relevant additional information of job listing and candidates applying for jobs other than contact details
 * Prefer desktop apps over other types
 * Can type fast
 * Prefers typing to mouse interactions
