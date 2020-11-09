@@ -6,7 +6,7 @@ title: CANdidates
 [![CI Status](https://github.com/AY2021S1-CS2103T-T17-3/tp/workflows/Java%20CI/badge.svg)](https://github.com/AY2021S1-CS2103T-T17-3/tp/actions)
 [![codecov](https://codecov.io/gh/AY2021S1-CS2103T-T17-3/tp/branch/master/graph/badge.svg)](https://codecov.io/gh/AY2021S1-CS2103T-T17-3/tp)
 
-![Ui](https://i.imgur.com/d0fdrvV.png)
+![Ui](https://i.imgur.com/jkXta2z.png)
 
 CANdidates is a powerful contact management application optimised for job recruiters; a brownfield project based on [Address Book Level-3](https://se-education.org/addressbook-level3/).
 

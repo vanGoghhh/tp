@@ -1,5 +1,6 @@
 @startuml
 !include style.puml
+scale 2
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
@@ -14,7 +15,7 @@ box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
 end box
 
-[-> LogicManager : execute("sort can type/exp order/asc")
+[-> LogicManager : execute("sort can \ntype/exp order/asc")
 activate LogicManager
 
 LogicManager -> AddressBookParser : parseCommand("sort can \ntype/exp \norder/asc")
@@ -25,7 +26,7 @@ AddressBookParser -> SortPersonCommandParser
 activate SortPersonCommandParser
 
 
-AddressBookParser -> SortPersonCommandParser : parse("type/exp \norder/asc")
+AddressBookParser -> SortPersonCommandParser : parse(" type/exp \norder/asc")
 
 
 

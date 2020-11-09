@@ -1,5 +1,6 @@
 @startuml
 !include style.puml
+scale 1.75
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
@@ -28,7 +29,7 @@ activate EditPersonCommandParser
 EditPersonCommandParser --> AddressBookParser
 deactivate EditPersonCommandParser
 
-AddressBookParser -> EditPersonCommandParser : parse(\n"edit can 2 n/Rob Mi")
+AddressBookParser -> EditPersonCommandParser : parse(" 2 n/Rob Mi")
 activate EditPersonCommandParser
 
 create EditPersonDescriptor
