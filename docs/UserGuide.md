@@ -50,7 +50,7 @@ Symbols/Font  | Explanation
 --------------|------------------------------------
 **`command`** | A grey highlight means that you can type the words into *CANdidates* and it will start performing tasks.
 :black_nib:   | This gives an example of how to use the feature.
-:memo:        | This gives additional comments on the feature being explained.
+:memo:        | This gives additional comments on the section being explained.
 :bulb:        | There are additional tips that you can make use of when using the explained feature.
 :exclamation: | These are precautions you need to take note of when using the application.
 

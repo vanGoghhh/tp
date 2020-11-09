@@ -748,17 +748,17 @@ testers are expected to do more *exploratory* testing.
    1. Download the jar file and copy into an empty folder
 
    1. Double-click the jar file <br>
-   Expected: Shows the GUI with a set of sample contacts. The window size should be fixed and non-adjustable.
+   Expected: Shows the GUI with a set of sample candidates and jobs. The window size should be fixed and non-adjustable.
 
 1. Exiting the application
 
-   1. Type `Exit` in the command box and press *Enter*. <br>
+   1. Type `exit` in the command box and press *Enter*. <br>
    Expected: The application closes. The json files `personaddressbook.json` and `jobaddressbook.json` are updated accordingly.
    
 1. Subsequent launch
 
    1. Double-click the jar file <br>
-   Expected: Shows the GUI with contacts loaded from the json data files. The window size should be fixed and non-adjustable.
+   Expected: Shows the GUI with candidates and jobs loaded from the json data files. The window size should be fixed and non-adjustable.
    
 ### 7.2 Adding a candidate
 
@@ -991,7 +991,7 @@ testers are expected to do more *exploratory* testing.
     1. Test case: `view can 1` <br>
       Expected: No candidate would be displayed on the right panel. Invalid index message would be shown in the status message
 
-2. Viewing a candidate with a 5 candidates in the candidates list.
+2. Viewing a candidate with 5 candidates in the candidates list.
 
     1. Test case: `view can 2`<br>
       Expected: The information of the candidate at index 2 would be displayed on the right panel.
@@ -1024,10 +1024,10 @@ testers are expected to do more *exploratory* testing.
 
    1. Prerequisites: The `personaddressbook.json` and `jobaddressbook.json` json file exists in the application directory. The application is able to launch without error.
        
-   1. Test case: Insert glibberish and incorrect syntax into the json file `personaddressbook.json` from the application directory.<br>
+   1. Test case: Insert gibberish and incorrect syntax into the json file `personaddressbook.json` from the application directory.<br>
       Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
     
-   1. Test case: Insert glibberish and incorrect syntax into the json file `jobaddressbook.json` from the application directory.<br>
+   1. Test case: Insert gibberish and incorrect syntax into the json file `jobaddressbook.json` from the application directory.<br>
       Expected:  The application launches normally. The list of candidates will be reset to the sample data. 
       
    1. Other data files to try: `config.json`, `preferences.json`<br>
