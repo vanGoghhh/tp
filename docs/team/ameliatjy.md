@@ -5,35 +5,41 @@ title: Amelia Tan's Project Portfolio Page
 
 ## Project: CANdidates
 
-CANdidates is a powerful contact management desktop App optimised for job recruiters to manage job applicants.
+*CANdidates* is a powerful contact management desktop App optimised for job recruiters to manage job applicants.
 The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 25 kLoC.
 
-<img src="/docs/images/ameliatjy.png" width="200px">
+### Contributions Summary
 
-[[github](http://github.com/ameliatjy)]
-
-* Role: Developer
-* Responsibilities: Scheduling and Tracking
-
-### Given below are my contributions to the project.
+Given below are my contributions to the project.
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#search=ameliatjy&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByAuthors&breakdown=false&tabOpen=false)
 
-* **New Features**:
-  * Job Listings (Pull requests [\#84](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/84) and [\#94](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/94))
-    * What it does: The feature enables a job listing to be represented in the CANdidates application.
-    * Justification: The implementation of this feature is the preliminary modification of AB3 uniquely into CANdidates. It enables CANdidates to subsequently roll out features for job listings.
-    * Highlights: This allows job recruiters to store job listings in CANdidates to keep track of all jobs with recruitment opportunities.
+<br>
 
-  * Find Candidate(s) Feature (Pull requests [\#148](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/148), [\#153](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/153) and [\#167](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/167))
-    * What it does: Enables the user to find candidates with field(s) that contain(s) specified keywords.
-    * Justification: This feature improves the product significantly because a typical job recruiter has many candidates to handle, this feature will provide a convenient way for them to look for suitable candidates that fulfil a certain criteria and streamline their search.
-    * Highlights: This enhancement was challenging as it requires chaining of various predicates, based on the fields specified by the user, to achieve the desired outcome. An in-depth understanding of the code base and its logic flow are required due to the numerous other classes involved.
+* **New Feature**: Job Listings (Pull requests [\#84](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/84) and [\#94](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/94))
+  * What it does: The feature enables a job listing to be represented in the *CANdidates* application.
+  * Justification: The implementation of this feature is the preliminary modification of AB3 uniquely into *CANdidates*. It enables *CANdidates* to subsequently roll out features for job listings.
+  * Highlights: This allows job recruiters to store job listings in *CANdidates* to keep track of all jobs with recruitment opportunities.
 
-  * Find Job Listing(s) Feature (Pull requests [\#148](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/148), [\#153](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/153) and [\#167](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/167))
-    * What it does: Enables the user to find job listings with field(s) that contain(s) specified keywords.
-    * Justification: This feature improves the product significantly because a typical job recruiter has many job listings to handle. This feature will provide a convenient way for them to look for job listings with specific keywords, streamlining their search, thereby helping him/her fulfil the recruitment required in a timely manner.
-    * Highlights: This enhancement was challenging as it requires chaining of various predicates, based on the fields specified by the user, to achieve the desired outcome. An in-depth understanding of the code base and its logic flow are required due to the numerous other classes involved.
+<br>
+
+
+<div style="page-break-after: always;"></div>
+
+
+* **New Feature**: Find Candidate(s) (Pull requests [\#148](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/148), [\#153](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/153) and [\#167](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/167))
+  * What it does: Enables the user to find candidates with field(s) that contain(s) specified keywords.
+  * Justification: This feature improves the product significantly because a typical job recruiter has many candidates to handle, this feature will provide a convenient way for them to look for suitable candidates that fulfil a certain criteria and streamline their search.
+  * Highlights: This enhancement was challenging as it requires chaining of various predicates, based on the fields specified by the user, to achieve the desired outcome. An in-depth understanding of the code base and its logic flow are required due to the numerous other classes involved.
+
+<br>
+
+* **New Feature**: Find Job Listing(s) (Pull requests [\#148](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/148), [\#153](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/153) and [\#167](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/167))
+  * What it does: Enables the user to find job listings with field(s) that contain(s) specified keywords.
+  * Justification: This feature improves the product significantly because a typical job recruiter has many job listings to handle. This feature will provide a convenient way for them to look for job listings with specific keywords, streamlining their search, thereby helping him/her fulfil the recruitment required in a timely manner.
+  * Highlights: This enhancement was challenging as it requires chaining of various predicates, based on the fields specified by the user, to achieve the desired outcome. An in-depth understanding of the code base and its logic flow are required due to the numerous other classes involved.
+
+<br>
 
 * **Enhancements to existing features**:
   * Refactored and renamed AB3 packages to better cater to project. (Pull request
@@ -48,6 +54,12 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * Enhanced the feature of finding of candidates and job listings by fields and wrote tests for them. (Pull request
   [\#148](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/148))
 
+<br>
+
+
+<div style="page-break-after: always;"></div>
+
+
 * **Project management**:
   * Defined tasks for each release, assigned them to team members and tracked the completion.
   * Maintained the issue tracker, ensuring that issues were assigned and fulfilled timely.
@@ -56,9 +68,11 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   [\#291](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/291) and
   [\#329](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/329))
 
+<br>
+
 * **Documentation**:
   * About Us:
-    * Mounted team's About Us page. (Pull request [\#33](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/33))
+    * Mounted team's About Us page. (Pull request [\#33](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/33)) <br>
   * Developer Guide:
     * Wrote documentation for and maintained the sections on target user profile, value proposition and user stories. (Pull requests
     [\#34](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/34) and
@@ -79,7 +93,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     [\#282](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/282),
     [\#294](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/294),
     [\#325](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/325) and
-    [\#329](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/329))
+    [\#329](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/329)) <br>
   * User Guide:
     * Wrote documentation for the Introduction, Authors, Preface and Understanding Symbols. (Pull request
     [\#155](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/155))
@@ -104,6 +118,8 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     [\#294](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/294),
     [\#308](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/308) and
     [\#325](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/325))
+
+<br>
 
 * **Community**:
   * Contributed to forum discussions by clarifying an issue for the team project. (Example:
