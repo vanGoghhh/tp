@@ -29,6 +29,8 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 
 <br>
 
+<div style="page-break-after: always;"></div>
+
 * **Project management**:
   * Managed release `v1.2`, `v1.2.1`, `v1.3` (3 releases) on GitHub.
   * Ensured that project deliverables are done on time and in the right format.
