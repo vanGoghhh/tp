@@ -2,11 +2,9 @@
 layout: page
 title: Nigel Ng's Project Portfolio Page
 ---
-
 ## Project: CANdidates
 
 CANdidates is a powerful contact management desktop App optimised for job recruiters to manage job applicants.
-
 The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 20 kLoC.
 
 ### Given below are my contributions to the project.
@@ -49,19 +47,21 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * readME:
     * Designed a UI mock up of our application and included in the readME document (Pull request [\#69](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/69))
   * User Guide:
-    * Added documentation for the following features: sorting candidates, viewing a candidate and viewing a job (Pull requests
-    [\158](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/158),
-    [\287](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/287))
+    * Added documentation for `sort can` feature (Pull request
+    [\#158](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/158))
+    * Added documentation for `view can` and `view job` feature ((Pull request
+    [\#287](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/287)))
   * Developer Guide:
-    * Added documentation of the following features: sorting candidates, viewing a candidate and viewing a job (Pull requests                         [\#150](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/150),
-    [\#285](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/285))
+    * Added implementation details and sequence diagram for `sort can` feature (Pull request
+    [\#150](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/150))
+    * Added implementation details and sequence diagram for `view can` feature (Pull request [\#285](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/285))
     * Updated Instructions for Manual Testing for View Candidate and View Job (Pull requests [\#310](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/310))
-    * Updated class diagram for UI Component (Pull requests [\127](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/127))
+    * Updated class diagram for UI Component (Pull requests [\#127](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/127))
 
 * **Community**: _{To be updated}_
   * PRs reviewed (with non-trivial review comments): (
   [\#284](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/284),
-  [\#147](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/158))
+  [\#147](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/147))
   * Reported bugs for and gave suggestions to other teams in the class
     * PE-D issues: [\#189](https://github.com/AY2021S1-CS2103T-W16-4/tp/issues/189), [\#192](https://github.com/AY2021S1-CS2103T-W16-4/tp/issues/192)
 
