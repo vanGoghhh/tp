@@ -1,5 +1,6 @@
 @startuml
 !include style.puml
+scale 1.75
 
 '`add can n/John p/98765432 e/john@ex.com a/John street exp/5 doa/15-10-20`
 
