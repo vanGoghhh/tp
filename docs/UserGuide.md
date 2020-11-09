@@ -43,7 +43,21 @@ you may be happy to know that a [glossary](#9-glossary) is provided at the end o
 For a smoother start to your usage of *CANdidates*, read this section to find out how this document is structured, 
 how to navigate the document and what all the symbols, special fonts and command formats mean.
 
-### 2.1 Understanding Symbols
+### 2.1 Understanding this Document
+This User Guide is structured into 9 sections so that it is easy to read and navigate! These are the 9 sections and a short explanation
+of what they are for:
+
+[Section 1. Introduction](#1-introduction) : An introduction to *CANdidates* and the amazing team behind it! <br>
+[Section 2. Preface](#2-preface) : A warm-up to get you familiar with this document. This is the section you are reading now. <br>
+[Section 3. Quick Start](#3-quick-start) : A quick guide to start using *CANdidates* for those of you who are very eager to use *CANdidates*! <br>
+[Section 4. Features for Candidates](#4-features-for-candidates) : An exhaustive list of commands to manage candidate contacts. Learn about the command formats and view examples and step-by-step instructions here. <br>
+[Section 5. Features for Jobs](#5-features-for-jobs) : An exhaustive list of commands to manage job contacts. Learn about the command formats and view examples and step-by-step instructions here. <br>
+[Section 6. Other Features](#6-other-features) : A list of general features not specific to candidate or job contacts.<br>
+[Section 7. FAQ](#7-faq) : Frequently Asked Questions that we get. Take a look here if you have any lingering questions to see if they have been answered. <br>
+[Section 8. Command Summary](#8-command-summary) : A command summary table that summarises the commands and their respective formats. This is convenient for use as a quick reference for commands. <br>
+[Section 9. Glossary](#9-glossary) : An explanation of certain specialised terms used in this document.<br>
+
+### 2.2 Understanding Symbols
 This section will explain all the symbols and fonts used in this document.
 
 Symbols/Font  | Explanation
@@ -54,7 +68,7 @@ Symbols/Font  | Explanation
 :bulb:        | There are additional tips that you can keep in mind when exploring the section.
 :exclamation: | These are precautions you need to take note of when using the application.
 
-### 2.2 Understanding the CANdidates GUI
+### 2.3 Understanding the CANdidates GUI
 The figure below shows an annotated version of the GUI, to help you in understanding some of the technical terms used regarding our GUI.
 
 ![Annotated GUI](images/UnderstandingGUI.png)
@@ -71,16 +85,16 @@ The figure below shows an annotated version of the GUI, to help you in understan
 
 You may refer back to this section whenever you need help understanding the GUI terms.
 
-### 2.3 Understanding Input Fields
+### 2.4 Understanding Input Fields
 Input fields are fields that you specify in your commands to tell *CANdidates* eaxctly what you wish to do, such as what information to store.
 Most input fields have certain format or requirements that have to be followed or *CANdidates* will not be able to 
-understand your command, so it would be helpful to note these requirements that are shown the table below. If you cannot
-remember them, do not worry because *CANdidates* will notify you with an error message if any of these requirements 
+understand your command, so it would be helpful to note these requirements that are shown the table below. However, do not worry if you cannot
+remember them because *CANdidates* will notify you with an error message if any of these requirements 
 are not met, and you can then make the relevant changes. 
 
 Still unsure what this means without context? You will understand better when you read about the commands in later sections.
 Try taking quick glance of the command formats in [Section 4. Features for Candidates](#4-features-for-candidates) 
-or [Section 4. Features for Jobs](#4-features-for-jobs) first!
+or [Section 5. Features for Jobs](#4-features-for-jobs) first!
 
 You may refer to this table whenever you need help understanding the input fields.
 
@@ -105,7 +119,7 @@ Name of input field   | How to use them
 `ORDER`               | Input field that is exclusive for [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:memo: *This field only accepts 2 specific values: asc or desc.*
 `INDEX`               | Index number of the candidate or job displayed in the list.
 
-### 2.4 Understanding Command Format
+### 2.5 Understanding Command Format
 
 This section will explain how to interpret all the command formats which you will encounter in [Section 4. Features for Candidates](#4-features-for-candidates), [Section 5. Features for Jobs](#5-features-for-jobs) and [Section 6. Other Features](#6-other-features).
 This will help you to understand *CANdidates*' features better.
@@ -182,8 +196,6 @@ If you have a new candidate who approached you and you would like to put him in 
 
 
 :bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).*
-<br>
-:bulb: *A candidate can have 0 or more job type(s).*
 <br>
 :exclamation: *If `IS_BLACKLISTED` is not specified, it will be set to false by default.*
 </div>
