@@ -451,11 +451,11 @@ Want to view all the information of a particular candidate? *CANdidates* provide
 
 :black_nib: To view the candidate at index _1_,
 
-    view candidate 1
+    view can 1
 
 :black_nib: To view the candidate at index _3_,
 
-    view candidate 3
+    view can 3
 
 **Step by Step:**
 
