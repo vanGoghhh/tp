@@ -660,46 +660,41 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     
     * 2a1. CANdidates shows an error message.
     
-    Use case ends.
+      Use case ends.
     
-#### 6.3.9 Use case: UC08 - Add a job
+#### 6.3.9 Use case: UC09 - Add a job
 
 Similar to UC01, except user will request to add a job instead.
 
-
-#### 6.3.10 Use case: UC09 - List jobs
+#### 6.3.10 Use case: UC10 - List jobs
 
 Similar to UC02, except user will request to list jobs and CANdidates will show a list of jobs instead.
 
-
-#### 6.3.11 Use case: UC10 - Delete a job
+#### 6.3.11 Use case: UC11 - Delete a job
 
 Similar to UC03, except user will request to delete a specific job index.
 
-
-#### 6.3.12 Use case: UC11 - Edit a candidate
+#### 6.3.12 Use case: UC12 - Edit a candidate
 
 Similar to UC04, except user will request to edit details of a specific job index.
 
-
-#### 6.3.13 Use case: UC12 - Clear all jobs
+#### 6.3.13 Use case: UC13 - Clear all jobs
 
 Similar to UC05, except user will request to clear all jobs.
 
-
-#### 6.3.14 Use case: UC13 - Find jobs
+#### 6.3.14 Use case: UC14 - Find jobs
 
 Similar to UC06, except user will request to find jobs with keywords and CANdidates will show a list of jobs instead.
 
-#### 6.3.15 Use case: UC14 - Sort jobs
+#### 6.3.15 Use case: UC15 - Sort jobs
 
 Similar to UC07, except user will request to sort jobs.
 
-#### 6.3.16 Use case: UC14 - View a job
+#### 6.3.16 Use case: UC16 - View a job
 
 Similar to UC08, except user will request to view a job and CANdidates will display information of the job on the right panel instead.
 
-#### 6.3.17 Use case: UC15 - Requesting for help
+#### 6.3.17 Use case: UC17 - Requesting for help
 
 **MSS**
 
