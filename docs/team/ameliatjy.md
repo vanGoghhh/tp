@@ -63,33 +63,33 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     * Documented and maintained the sections on target user profile, value proposition and user stories. (Pull requests
     [\#34](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/34) and
     [\#234](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/234))
-    * Identified use cases and maintained the section. (Pull requests
-    [\#234](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/234) and
-    [\#325](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/325))
-    * Enhanced formatting of contents page and section headers. (Pull request
-    [\#293](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/293))
-    * Update Manual Testing section with tests for Finding a candidate. (Pull request
-    [\#282](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/282))
-    * Update documentation and design of Model component including the UML diagrams along with teammate [Joon Jie](breadpeanutbutter.md). (Pull request
-    [\#142](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/142))
     * Wrote documentation for implementation of Find feature and its sequence diagram. (Pull requests
     [\#131](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/131) and
     [\#282](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/282))
+    * Update documentation and design of Model component including the UML diagrams along with teammate [Joon Jie](breadpeanutbutter.md). (Pull request
+    [\#142](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/142))
+    * Identified use cases and maintained the section. (Pull requests
+    [\#234](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/234) and
+    [\#325](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/325))
+    * Update Manual Testing section with tests for Finding a candidate. (Pull request
+    [\#282](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/282))
+    * Enhanced formatting of contents page and section headers. (Pull request
+    [\#293](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/293))
     * Update documentations regularly to ensure consistency in content and format. (Pull requests
-    [#\294](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/294),
-    [#\325](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/325) and
+    [\#294](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/294),
+    [\#325](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/325) and
     [\#329](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/329))
   * User Guide:
+    * Wrote documentation for the Introduction, Authors, Preface and Understanding Symbols. (Pull request
+    [\#155](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/155))
+    * Wrote documentation for the features Finding a candidate: `find can` and Finding a job: `find job`. (Pull request
+    [\#155](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/155))
     * Enhanced formatting of UG by separating features for candidates and jobs into different sections. (Pull request
     [\#239](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/239))
     * Enhanced formatting of contents page and section headers. (Pull request
     [\#293](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/293))
     * Enhanced formatting of every feature's step by step documentation. (Pull request
     [\#317](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/317))
-    * Wrote documentation for the Introduction, Authors, Preface and Understanding Symbols. (Pull request
-    [\#155](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/155))
-    * Wrote documentation for the features Finding a candidate: `find can` and Finding a job: `find job`. (Pull request
-    [\#155](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/155))
     * Wrote documentation for the feature Auto tab switch. (Pull requests
     [\#317](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/317) and
     [\#318](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/318))
@@ -100,9 +100,9 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     [\#171](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/171),
     [\#235](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/235),
     [\#237](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/237),
-    [#\294](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/294),
+    [\#294](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/294),
     [\#308](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/308) and
-    [#\325](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/325))
+    [\#325](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/325))
 
 * **Community**:
   * Contributed to forum discussions by clarifying an issue for the team project. (Example:
