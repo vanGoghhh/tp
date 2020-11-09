@@ -65,12 +65,12 @@ This section will explain all the symbols and fonts used in this document.
 
 Symbols/Font   | Explanation
 ---------------|------------------------------------
-**`command`**  | A grey highlight means that you can type the words into *CANdidates* and it will start performing tasks.
-{*description*}|
-:black_nib:    | This gives an example of how to use the feature.
-:memo:         | This gives additional comments on the section being explained.
-:bulb:         | There are additional tips that you can keep in mind when exploring the section.
-:exclamation:  | These are precautions you need to take note of when using the application.
+`command`      | A string that is highlighted in grey indicates that the string is related to a command. It could be a command format, a full command or part of a command .
+{*Description*}| Curly braces indicates a variable field that is described by *Description*. This is used to display results of commands that depend on a specific user's data. For example, the number of jobs in the list is variable and would depend on the specific user, hence this will be represented as {*Number of jobs*} in this User Guide.
+:black_nib:    | An example of how to use the feature.
+:memo:         | Additional comments on the section or sub-section being explained.
+:bulb:         | Useful tips that you can keep in mind when exploring the application or this document.
+:exclamation:  | Precautions you should take note of when using the application.
 
 ### 2.3 Understanding the CANdidates GUI
 The figure below shows an annotated version of the GUI, to help you in understanding some of the technical terms used regarding our GUI.
@@ -98,7 +98,7 @@ are not met, and you can then make the relevant changes.
 
 Still unsure what this means without context? You will understand better when you read about the commands in later sections.
 Try taking quick glance of the command formats in [Section 4. Features for Candidates](#4-features-for-candidates) 
-or [Section 5. Features for Jobs](#4-features-for-jobs) first!
+or [Section 5. Features for Jobs](#4-features-for-jobs)!
 
 You may refer to this table whenever you need help understanding the input fields.
 
@@ -119,7 +119,7 @@ Name of input field   | How to use them
 `VACANCY`             | Vacancy of a job listing i.e. Number of available slots open for hiring.<br/>:memo: *This field accepts only whole numbers from 0 to 99.*
 `PRIORITY`            | Priority of a job listing. Job listings may be of different urgency levels and this field is used to indicate the urgency.<br/>:memo: *This field only accepts 3 specific values: low, moderate or high.*
 `JOB_DESCRIPTION`     | Job description tags for job listings to specify additional descriptions. For example, you can specify requirements of the job such as age or skill level.<br/>:memo: *Job description should be one word, made up of up to 20 alphanumerical values with no spaces.*
-`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:memo: *This field only accepts specific values described in the respective feature sections.*
+`FIELD_TO_SORT`       | Input field that is exclusive for [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) commands, to specify the field that the candidate or job list is being sorted by.<br/>:memo: *This field only accepts specific values described in the [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) subsections.*
 `ORDER`               | Input field that is exclusive for [sort can](#45-sorting-all-candidates-sort-can) and [sort job](#55-sorting-all-jobs-sort-job) commands, to specify the sort order.<br/>:memo: *This field only accepts 2 specific values: asc or desc.*
 `INDEX`               | Index number of the candidate or job displayed in the list.
 
@@ -140,7 +140,7 @@ This will help you to understand *CANdidates*' features better.
 * Input fields can be in any order you want them to be.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-*:bulb: If you are confused with the various input fields, refer to [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).*
+*:bulb: If you are confused with the various input fields, refer to [Section 2.4. Understanding Input Fields](#23-understanding-input-fields).*
 
 <br>
 
@@ -149,7 +149,7 @@ This will help you to understand *CANdidates*' features better.
 ## **3. Quick Start**
 Can’t wait to start using *CANdidates*? This section guides you through the starting up process, so that you can proceed on to use the application for your own needs!
 
-1. Download the latest `Candidates.jar` from [here](https://github.com/AY2021S1-CS2103T-T17-3/tp/releases/tag/v1.3).
+1. Download the latest Candidates.jar file from [here](https://github.com/AY2021S1-CS2103T-T17-3/tp/releases/tag/v1.3).
 
 1. Copy the file to the folder you want to use as the _home folder_ for your *CANdidates*.
 
@@ -177,7 +177,7 @@ Can’t wait to start using *CANdidates*? This section guides you through the st
 
 :exclamation: *Ensure you have Java 11 or above installed in your Computer.*
 <br>
-:bulb: *If you are confused with the various input fields, refer to* [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).
+:bulb: *If you are confused with the various input fields, refer to* [Section 2.4. Understanding Input Fields](#23-understanding-input-fields).
 </div>
 <br>
 
@@ -199,7 +199,7 @@ If you have a new candidate who approached you and you would like to put him in 
 <div markdown="span" class="alert alert-primary">
 
 
-:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).*
+:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.4. Understanding Input Fields](#23-understanding-input-fields).*
 <br>
 :exclamation: *If `IS_BLACKLISTED` is not specified, it will be set to false by default.*
 </div>
@@ -289,9 +289,9 @@ Type `edit can 1 p/91234567 e/johndoe@example.com bl/true` in the *command box* 
 
 <br>
 
-Step 2. The command result will depend on the specific candidate that is being edited and the input fields that were not edited. 
-Representing the original values of the candidate's input fields which were not edited as "{}", the message that will be shown in the *result display* is
->Edited candidate: {Name of candidate} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:true Tags: {}.
+Step 2. The command result will depend on the specific candidate that is being edited as well as the candidate's input fields which are not edited. 
+The message that will be shown in the *result display* is
+>Edited candidate: {*Original Name*} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {*Original Experience*} Date of Application: {*Original Date of Application*} Address: {*Original Address*} Link: {*Original Link*} Expected Salary: {*Original Expected Salary*} Blacklisted:true Tags: {*Original Tags*}.
 
 <br>
 
@@ -349,7 +349,7 @@ Step 1. Type `find can n/David t/Teacher` in the *command box* and press *Enter*
 <br>
 
 Step 2. The *CANdidates* application will show the following message in the *result display*.
->{Number of candidates found} candidates listed!
+>{*Number of candidates found*} candidates listed!
 
 <br>
 
@@ -447,8 +447,8 @@ Type `delete can 1` in the *command box* and press *Enter*.
 <br>
 
 Step 2. The command result will depend on the specific candidate that is being deleted.
-Representing the values of the candidate's input fields as "{}", the message that will be shown in the *result display* is
->Deleted candidate: {Name of candidate} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {}  Expected Salary: {} Blacklisted: {} Tags: {}
+The message that will be shown in the *result display* is
+>Deleted candidate: {*Name*} Phone: {*Phone*} Email: {*Email*} Experience: {*Experience*} Date of Application: {*Date of application*} Address: {*Address*} Link: {*Link*}  Expected Salary: {*Expected salary*} Blacklisted: {*Blacklist status*} Tags: {*Tags*}
 
 <br>
 
@@ -490,8 +490,9 @@ Step 1. Type `view can 1` in the *command box* and press *Enter*.
 
 <br>
 
-Step 2. The *CANdidates* application will show the following message in the *result display*. The message will depend on the candidate you have selected to display on the detailed panel. Representing the values of the candidate's input fields as "{}", the message shown in *result display* is
->Display Candidate: {Name of candidate} Phone: {} Email: {} Experience: {} Date of Application: {} Address: {} Link: {} Expected Salary: {} Blacklisted:{} Tags: {}
+Step 2. The command result will depend on the candidate you have selected to display on the detailed panel. The *CANdidates* application will show the following message in the *result display* 
+>Display Candidate: {*Name*} Phone: {*Phone*} Email: {*Email*} Experience: {*Experience*} Date of Application: {*Date of application*} Address: {*Address*} Link: {*Link*}  Expected Salary: {*Expected salary*} Blacklisted: {*Blacklist status*} Tags: {*Tags*}
+
 
 <br>
 
@@ -550,7 +551,7 @@ If you are informed of a job opening and you would like to add it in *CANdidates
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).*
+:bulb: *If you're unsure of what you are supposed to input in each field, refer to [Section 2.4. Understanding Input Fields](#23-understanding-input-fields).*
 <br>
 :exclamation: *If `PRIORITY` is not specified, it will be set to moderate by default.*
 
@@ -644,9 +645,9 @@ Type `edit job 1 c/Dog Cafe p/82827731 v/3 pr/high` in the *command box* and pre
 
 <br>
 
-Step 2. The command result will depend on the specific job that is being edited and the input fields that were not edited. 
-Representing the original values of the job's input fields which were not edited as "{}", the message that will be shown in the *result display* is
->Edited job: {Job Title} Company: Dog Cafe Phone: 82827731 Email: {} Address: {} Priority: high Vacancy: 3 Tags: {}
+Step 2. The command result will depend on the specific job that is being edited as well as its input fields that are not edited. 
+The message that will be shown in the *result display* is
+>Edited job: {*Original Job Title*} Company: Dog Cafe Phone: 82827731 Email: {*Original Email*} Address: {*Original Address*} Priority: high Vacancy: 3 Tags: {*Original Tags*}
 
 <br>
 
@@ -697,7 +698,7 @@ Step 1. Type `find job v/1` in the *command box* and press *Enter*.
 <br>
 
 Step 2. The *CANdidates* application will show the following message in the *result display* 
->{Number of jobs found} jobs listed!
+>{*Number of jobs found*} jobs listed!
 
 <br>
 
@@ -790,8 +791,8 @@ Type `delete job 1` in the *command box* and press *Enter*.
 <br>
 
 Step 2. The command result will depend on the specific job that is being deleted.
-Representing the values of the job's input fields as "{}", the message that will be shown in the *result display* is
->Deleted Job: {Job Title} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}
+The message that will be shown in the *result display* is
+>Deleted Job: {*Job Title*} Company: {*Company Name*} Phone: {*Phone*} Email: {*Email*} Address: {*Address*} Priority: {*Priority*} Vacancy: {*Vacancy*} Tags: {*Tags*}
 
 <br>
 
@@ -833,8 +834,8 @@ Step 1. Type `view job 1` in the *command box* and press *Enter*.
 
 <br>
 
-Step 2. The *CANdidates* application will show the following message in the *result display*. The message will depend on the job you have selected to display on the detailed panel. Representing the values of the job's input fields as "{}", the message shown in *result display* is
->Display Job: {Name of job} Company: {} Phone: {} Email: {} Address: {} Priority: {} Vacancy: {} Tags: {}
+Step 2. The command result will depend on the job you have selected to display on the detailed panel. The *CANdidates* application will show the following message in the *result display*  
+>Display Job: {*Job Title*} Company: {*Company Name*} Phone: {*Phone*} Email: {*Email*} Address: {*Address*} Priority: {*Priority*} Vacancy: {*Vacancy*} Tags: {*Tags*}
 
 <br>
 
@@ -1011,7 +1012,8 @@ All data is saved in the hard disk automatically after any command that changes 
 **Q**: Can I modify the data from the data files directly?<br>
 **A**: We recommend that you do not modify the data files unless you are an advanced user, and that you make any changes through the UI instead. 
        In the event that the data becomes corrupted, *CANdidates* will start up with sample data as a fallback. There is a risk of losing
-       all your original data should this happen.      
+       all your original data should this happen. Should you still wish to modify the data files directly, we recommend that you first create a copy
+       of the original data files as a back-up in case the data becomes corrupt after modification.     
 
 **Q**: I modified my existing data file and it is now corrupted. My *CANdidates* application started up with the sample data. How can I get my data back?<br>
 **A**: Currently, our application is unfortunately not able to support recovering corrupted data files. We are sorry for any inconveniences caused. 
@@ -1056,7 +1058,7 @@ Terms | Explanation
 **Input field** | Input to the command that the user specifies.
 **Cumulative** | Increasing in quantity by successive additions.
 **Hard disk** | Storage of information in a computer.
-**Root folder** | The top-level folder of a file system. In this context, it is the folder you put the *Candidates.jar* file in.
+**Root folder** | The top-level folder of a file system. In this context, it is the folder you put the Candidates.jar file in.
 **Repository** | Online container where your code can be stored, contributed to and managed over time.
 **Pull Request** | Formal request to merge one’s code into a larger codebase.
 **Bug** | A software bug is an error, flaw or fault in a computer program or system that causes it to produce an incorrect or unexpected result, or to behave in unintended ways.
