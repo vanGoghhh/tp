@@ -148,7 +148,7 @@ Can’t wait to start using *CANdidates*? This section guides you through the st
 <div markdown="span" class="alert alert-primary">
 
 :exclamation: *Ensure you have Java 11 or above installed in your Computer.*
-
+<br>
 :bulb: *If you are confused with the various input fields, refer to* [Section 2.3. Understanding Input Fields](#23-understanding-input-fields).
 </div>
 <br>
