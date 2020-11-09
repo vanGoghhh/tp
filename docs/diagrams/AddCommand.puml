@@ -30,7 +30,7 @@ activate AddPersonCommandParser
 AddPersonCommandParser --> AddressBookParser
 deactivate AddPersonCommandParser
 
-AddressBookParser -> AddPersonCommandParser : parse("n/John p/98765432 \ne/john@ex.com a/John street \nexp/5 doa/15-10-20")
+AddressBookParser -> AddPersonCommandParser : parse(" n/John p/98765432 \ne/john@ex.com a/John street \nexp/5 doa/15-10-20")
 activate AddPersonCommandParser
 
 create AddPersonCommand
