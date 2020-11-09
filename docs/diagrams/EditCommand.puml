@@ -29,7 +29,7 @@ activate EditPersonCommandParser
 EditPersonCommandParser --> AddressBookParser
 deactivate EditPersonCommandParser
 
-AddressBookParser -> EditPersonCommandParser : parse(\n"edit can 2 n/Rob Mi")
+AddressBookParser -> EditPersonCommandParser : parse(" 2 n/Rob Mi")
 activate EditPersonCommandParser
 
 create EditPersonDescriptor

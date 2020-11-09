@@ -26,7 +26,7 @@ AddressBookParser -> SortPersonCommandParser
 activate SortPersonCommandParser
 
 
-AddressBookParser -> SortPersonCommandParser : parse("type/exp \norder/asc")
+AddressBookParser -> SortPersonCommandParser : parse(" type/exp \norder/asc")
 
 
 
