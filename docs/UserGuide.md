@@ -72,12 +72,13 @@ The figure below shows an annotated version of the GUI, to help you in understan
 You may refer back to this section whenever you need help understanding the GUI terms.
 
 ### 2.3 Understanding Input Fields
-Input fields are fields that you have to specify in your commands. Still not sure what this means without context? 
-Try getting a quick glance at [Section 3. Quick Start](#3-quick-start) first!
+Input fields are fields that you have to specify in your commands. 
+Still unsure what this means without context? 
+Try taking quick glance at [Section 3. Quick Start](#3-quick-start) first!
 
 You may refer back to this table whenever you need help understanding the input fields.
 
-Name of input field   | How you can use them
+Name of input field   | How to use them
 ----------------------|------------------------------------
 `NAME`                | Name of candidate being added or edited.<br/>:memo: *Names should contain only alphanumerical values or spaces.*
 `PHONE_NUMBER`        | Contact number of candidate or job listing being added or edited.
@@ -178,8 +179,6 @@ If you have a new candidate who approached you and you would like to put him in 
 <br>
 :bulb: *A candidate can have 0 or more job type(s).*
 <br>
-:memo: *If the candidate is added successfully, *CANdidates* will automatically switch to the "Candidates" tab.*
-<br>
 :exclamation: *If `IS_BLACKLISTED` is not specified, it will be set to false by default.*
 </div>
 
@@ -222,7 +221,7 @@ To accurately reflect the latest changes of candidates in the application, you c
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: *This command is usually used after a* [`find can`](#44-finding-a-candidate-find-can) *or* [`sort can`](#45-sorting-all-candidates-sort-can) *command to show the full list of candidates again.*
+:bulb: *This command can be used after a* [`find can`](#44-finding-a-candidate-find-can) *command to show the full list of candidates again.*
 </div>
 <br>
 
@@ -573,7 +572,7 @@ To accurately reflect the latest changes of jobs in the application, you can ref
 
 <div markdown="span" class="alert alert-primary">
 
-:bulb: *This command is usually used after a* [`find job`](#54-finding-a-job-find-job) *or* [`sort job`](#55-sorting-all-jobs-sort-job) *command to show the full list of job listings again.*
+:bulb: *This command can be used after a* [`find job`](#54-finding-a-job-find-job) *command to show the full list of job listings again.*
 </div>
 <br>
 
