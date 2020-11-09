@@ -8,7 +8,7 @@
 <?import javafx.stage.*?>
 
 <?import javafx.geometry.Insets?>
-<fx:root maxHeight="700" maxWidth="1280" onCloseRequest="#handleExit" resizable="false"  title="CANdidates" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root minHeight="700" minWidth="1280" onCloseRequest="#handleExit"  title="CANdidates" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
     <Image url="@/images/CANdidates1.png" />
   </icons>
@@ -29,18 +29,18 @@
                   <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
                 </Menu>
             </MenuBar>
-            <TabPane fx:id="tabPane" maxWidth="650" prefHeight="800.0" styleClass="tabs" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+            <TabPane fx:id="tabPane" maxWidth="650" prefWidth="650"  styleClass="tabs" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
               <tabs>
                 <Tab id="personTab" fx:id="personTab" text="Candidates">
                   <content>
-                    <VBox fx:id="personList" maxWidth="650" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="personList" maxWidth="650" prefWidth="650" VBox.vgrow="ALWAYS">
                       <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" />
                     </VBox>
                   </content>
                 </Tab>
                 <Tab fx:id="jobTab" text="Jobs">
                   <content>
-                    <VBox fx:id="jobsList" maxWidth="650" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="jobsList" maxWidth="650" prefWidth="650" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
                       <padding>
                         <Insets bottom="10" left="10" right="10" top="10" />
                       </padding>
@@ -50,9 +50,9 @@
                 </Tab>
               </tabs>
             </TabPane>
-              <StackPane fx:id="resultDisplayPlaceholder" maxHeight="100" maxWidth="650" minHeight="100" prefHeight="100" styleClass="status-panel" VBox.vgrow="ALWAYS">
+              <StackPane fx:id="resultDisplayPlaceholder" maxHeight="100" maxWidth="650" prefWidth="650" minHeight="100" prefHeight="100" styleClass="status-panel" VBox.vgrow="ALWAYS">
               </StackPane>
-              <StackPane fx:id="commandBoxPlaceholder" maxWidth="650" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
+              <StackPane fx:id="commandBoxPlaceholder" maxWidth="650" prefWidth="650" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
                 <padding>
                   <Insets bottom="5" left="10" right="10" top="5" />
                 </padding>
@@ -61,7 +61,7 @@
           </children>
           <children>
             <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" style="-fx-background-color: white;" styleClass="right-scroll" vbarPolicy="NEVER">
-            <VBox maxWidth="630" minHeight="1300"  minWidth="500" spacing="10" styleClass="right-panel">
+            <VBox maxWidth="700" prefWidth="630" minHeight="1300"  minWidth="600" spacing="10" styleClass="right-panel">
                 <StackPane fx:id="detailedView" VBox.vgrow="ALWAYS" />
             </VBox>
             </ScrollPane>
