@@ -21,6 +21,8 @@ Given below are my contributions to the project.
   * Justification: The implementation of this feature is the preliminary modification of AB3 uniquely into *CANdidates*. It enables *CANdidates* to subsequently roll out features for job listings.
   * Highlights: This allows job recruiters to store job listings in *CANdidates* to keep track of all jobs with recruitment opportunities.
 
+<br>
+
 
 <div style="page-break-after: always;"></div>
 
@@ -51,6 +53,8 @@ Given below are my contributions to the project.
   [\#124](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/124))
   * Enhanced the feature of finding of candidates and job listings by fields and wrote tests for them. (Pull request
   [\#148](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/148))
+
+<br>
 
 
 <div style="page-break-after: always;"></div>
