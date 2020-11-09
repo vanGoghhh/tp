@@ -851,7 +851,7 @@ testers are expected to do more *exploratory* testing.
 
 1. Detecting and preventing the creation of duplicate jobs
      
-   1. Prerequisites: Perform test case 1.2 from [Section 7.3. Adding a job](#73-adding-a-job)to add a new job and verify that it passes. 
+   1. Prerequisites: Perform test case 1.2 from [Section 7.3. Adding a job](#73-adding-a-job) to add a new job and verify that it passes. 
    
    1. Test case (Same job title and company name): `add job n/Delivery Man c/FedEx e/anotherfedex@example.com a/Jurong West p/84378293` <br>
       Expected: No new job listing added. Duplicate job error shown in the status message.
