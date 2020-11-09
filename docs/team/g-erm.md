@@ -57,8 +57,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * Fixed sort candidate success message bug (Pull request [\#222](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/222))
   * Add sort by name feature for both candidates and jobs (Pull request [\#270](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/270))
   * Update the application icon on the GUI (Pull request [\#292](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/292))
-<br>
-<br>
+<div style="page-break-after: always;"></div>
 * **Documentation**:
   * README:
     * Updated the README document to solve documentation bugs (Pull request [\#77](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/77))
