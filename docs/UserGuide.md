@@ -47,17 +47,17 @@ how to navigate the document and what all the symbols, special fonts and command
 This User Guide is structured into 9 sections so that it is easy to read and navigate! <br>
 These are the 9 sections and a short explanation of what they are for:
 
-Section             | What is it for
---------------------|------------------------------------
-[1. Introduction](#1-introduction) | An introduction to *CANdidates* and the amazing team behind it! 
-[2. Preface](#2-preface)  | A warm-up to get you familiar with this document. This is the section you are reading now. 
-[3. Quick Start](#3-quick-start)       | A quick guide to start using *CANdidates* for those of you who are very eager to use *CANdidates*! 
-[4. Features for Candidates](#4-features-for-candidates)     | An exhaustive list of commands to manage candidate contacts. Learn about the command formats and view examples and step-by-step instructions here.
-[5. Features for Jobs](#5-features-for-jobs)  | An exhaustive list of commands to manage job contacts. Learn about the command formats and view examples and step-by-step instructions here.
-[6. Other Features](#6-other-features) | A list of general features not specific to candidate or job contacts.
-[7. FAQ](#7-faq) | Frequently Asked Questions that we get. Take a look here if you have any lingering questions to see if they have been answered.
-[8. Command Summary](#8-command-summary)  | A table that summarises the commands and their respective formats. This is convenient for use as a quick reference for commands.
-[9. Glossary](#9-glossary) | An explanation of certain specialised terms used in this document.
+Section                                                     | What is it for
+------------------------------------------------------------|------------------------------------
+[1. Introduction](#1-introduction)                          | An introduction to *CANdidates* and the amazing team behind it! 
+[2. Preface](#2-preface)                                    | A warm-up to get you familiar with this document. This is the section you are reading now. 
+[3. Quick Start](#3-quick-start)                            | A quick guide to start using *CANdidates* for those of you who are very eager to begin using our application! 
+[4. Features for Candidates](#4-features-for-candidates)    | An exhaustive list of commands to manage your list of candidates. Learn about the command formats, view examples and step-by-step instructions here.
+[5. Features for Jobs](#5-features-for-jobs)                | An exhaustive list of commands to manage your job listings. Learn about the command formats, view examples and step-by-step instructions here.
+[6. Other Features](#6-other-features)                      | A list of general features not specific to candidates or job listings.
+[7. FAQ](#7-faq)                                            | Frequently Asked Questions that we receive. Take a look here if you have any lingering questions to see if they have been answered.
+[8. Command Summary](#8-command-summary)                    | A table that summarises the commands and their respective formats. This is convenient as a quick reference for commands.
+[9. Glossary](#9-glossary)                                  | An explanation of certain specialised terms used in this document.
 
   
 ### 2.2 Understanding Symbols
@@ -66,14 +66,15 @@ This section explains all the symbols and fonts used in this document.
 Symbols/Font   | Explanation
 ---------------|------------------------------------
 `command`      | A string that is highlighted in grey indicates that the string is related to a typed command. The string could be a command format, a full command or part of a command .
-{*Description*}| Curly braces indicates a variable field that is described by *Description*. This is used to display results of commands that vary depending on a user's specific data. For example, the number of jobs in the list is variable and would depend on the specific user, hence this is represented as {*Number of jobs*} in this User Guide.
+{*Description*}| Curly braces indicates a variable field that is described by *Description*. This is used to display results of commands that vary depending on a user's specific data. For example, the number of jobs in the list is variable and would depend on the user's data, hence this is represented as {*Number of jobs*} in this User Guide.
 :black_nib:    | An example of how to use the feature.
 :memo:         | Additional comments on the section or sub-section being explained.
 :bulb:         | Useful tips that you can keep in mind when exploring the application or this document.
 :exclamation:  | Precautions you should take note of when using the application.
 
 ### 2.3 Understanding the CANdidates GUI
-The figure below shows an annotated version of the GUI, to help you in understanding some of the technical terms used regarding our GUI.
+The figure below shows an annotated version of the GUI, to help you in understanding some of the technical terms used regarding our GUI. <br>
+You may refer back to this section whenever you need help understanding the GUI terms.
 
 ![Annotated GUI](images/UnderstandingGUI.png)
 
@@ -87,18 +88,17 @@ The figure below shows an annotated version of the GUI, to help you in understan
 
 </div>
 
-You may refer back to this section whenever you need help understanding the GUI terms.
 
 ### 2.4 Understanding Input Fields
-Input fields are fields that you specify in your commands to tell *CANdidates* eaxctly what you wish to do, such as what information to store.
-Most input fields have certain format or requirements that have to be followed or *CANdidates* will not be able to 
-understand your command, so it would be helpful to note these requirements that are shown in the table below. However, do not worry if you cannot
+Input fields are fields that you specify in your commands to tell *CANdidates* eaxctly what you wish to do, such as the
+information to store. Most input fields have specific requirements that have to be fulfilled or *CANdidates* will not be able to 
+understand you! The table below provides a summary of the requirements, but do not worry if you cannot
 remember them because *CANdidates* will notify you with an error message if any of these requirements 
-are not met, and you can then make the relevant changes. 
+are not met, and you can then make the relevant changes!
 
-Still unsure what this means without context? You will understand better when you read about the commands in later sections.
-Try taking a quick glance at the command formats in [Section 4. Features for Candidates](#4-features-for-candidates) 
-or [Section 5. Features for Jobs](#5-features-for-jobs)!
+If you feel unsure while exploring this section due to the lack of prior context, fret not! You will certainly understand
+better when you read about the commands in the later sections. Try taking a quick glance at the command formats
+in [Section 4. Features for Candidates](#4-features-for-candidates)  or [Section 5. Features for Jobs](#5-features-for-jobs)!
 
 You may refer to this table whenever you need help understanding the input fields.
 
@@ -293,7 +293,7 @@ Type `edit can 1 p/91234567 e/johndoe@example.com bl/true` in the *command box* 
 
 Step 2. The result of the command in the *result display* will depend on the specific candidate that is being edited, specifically his/her input fields that were not edited. 
 The message that will be shown in the *result display* is
->Edited candidate: {*Original Name*} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {*Original Experience*} Date of Application: {*Original Date of Application*} Address: {*Original Address*} Link: {*Original Link*} Expected Salary: {*Original Expected Salary*} Blacklisted: true Tags: {*Original Tags*}.
+>Edited candidate: {Original Name} Phone: 91234567 Email: john<span>doe</span>@example.com Experience: {Original Experience} Date of Application: {Original Date of Application} Address: {Original Address} Link: {Original Link} Expected Salary: {Original Expected Salary} Blacklisted: true Tags: {Original Tags}.
 
 <br>
 
@@ -351,7 +351,7 @@ Step 1. Type `find can n/David t/Teacher` in the *command box* and press *Enter*
 <br>
 
 Step 2. The *CANdidates* application will show the following message in the *result display*.
->{*Number of candidates found*} candidates listed!
+>{Number of candidates found} candidates listed!
 
 <br>
 
@@ -450,7 +450,7 @@ Type `delete can 1` in the *command box* and press *Enter*.
 
 Step 2. The result of the command in the *result display* will depend on the specific candidate that is being deleted.
 The message that will be shown in the *result display* is
->Deleted candidate: {*Name*} Phone: {*Phone*} Email: {*Email*} Experience: {*Experience*} Date of Application: {*Date of application*} Address: {*Address*} Link: {*Link*}  Expected Salary: {*Expected salary*} Blacklisted: {*Blacklist status*} Tags: {*Tags*}
+>Deleted candidate: {Name} Phone: {Phone} Email: {Email} Experience: {Experience} Date of Application: {Date of application} Address: {Address} Link: {Link}  Expected Salary: {Expected salary} Blacklisted: {Blacklist status} Tags: {Tags}
 
 <br>
 
@@ -493,7 +493,7 @@ Step 1. Type `view can 1` in the *command box* and press *Enter*.
 <br>
 
 Step 2. The command result will depend on the candidate you have selected to display on the detailed panel. The *CANdidates* application will show the following message in the *result display* 
->Display Candidate: {*Name*} Phone: {*Phone*} Email: {*Email*} Experience: {*Experience*} Date of Application: {*Date of application*} Address: {*Address*} Link: {*Link*}  Expected Salary: {*Expected salary*} Blacklisted: {*Blacklist status*} Tags: {*Tags*}
+>Display Candidate: {Name} Phone: {Phone} Email: {Email} Experience: {Experience} Date of Application: {Date of application} Address: {Address} Link: {Link}  Expected Salary: {Expected salary} Blacklisted: {Blacklist status} Tags: {Tags}
 
 
 <br>
@@ -649,7 +649,7 @@ Type `edit job 1 c/Dog Cafe p/82827731 v/3 pr/high` in the *command box* and pre
 
 Step 2. The result of the command in the *result display* will depend on the specific job that is being edited, specifically its input fields that were not edited. 
 The message that will be shown in the *result display* is
->Edited job: {*Original Job Title*} Company: Dog Cafe Phone: 82827731 Email: {*Original Email*} Address: {*Original Address*} Priority: high Vacancy: 3 Tags: {*Original Tags*}
+>Edited job: {Original Job Title} Company: Dog Cafe Phone: 82827731 Email: {Original Email} Address: {Original Address} Priority: high Vacancy: 3 Tags: {Original Tags}
 
 <br>
 
@@ -700,7 +700,7 @@ Step 1. Type `find job v/1` in the *command box* and press *Enter*.
 <br>
 
 Step 2. The *CANdidates* application will show the following message in the *result display* 
->{*Number of jobs found*} jobs listed!
+>{Number of jobs found} jobs listed!
 
 <br>
 
@@ -794,7 +794,7 @@ Type `delete job 1` in the *command box* and press *Enter*.
 
 Step 2. The result of the command in the *result display* will depend on the specific job that is being deleted.
 The message that will be shown in the *result display* is
->Deleted Job: {*Job Title*} Company: {*Company Name*} Phone: {*Phone*} Email: {*Email*} Address: {*Address*} Priority: {*Priority*} Vacancy: {*Vacancy*} Tags: {*Tags*}
+>Deleted Job: {Job Title} Company: {Company Name} Phone: {Phone} Email: {Email} Address: {Address} Priority: {Priority} Vacancy: {Vacancy} Tags: {Tags}
 
 <br>
 
@@ -837,7 +837,7 @@ Step 1. Type `view job 1` in the *command box* and press *Enter*.
 <br>
 
 Step 2. The command result will depend on the job you have selected to display on the detailed panel. The *CANdidates* application will show the following message in the *result display*  
->Display Job: {*Job Title*} Company: {*Company Name*} Phone: {*Phone*} Email: {*Email*} Address: {*Address*} Priority: {*Priority*} Vacancy: {*Vacancy*} Tags: {*Tags*}
+>Display Job: {Job Title} Company: {Company Name} Phone: {Phone} Email: {Email} Address: {Address} Priority: {Priority} Vacancy: {Vacancy} Tags: {Tags}
 
 <br>
 
