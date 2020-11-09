@@ -27,7 +27,9 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   making it significantly personalised for job recruiters to use our application to manage job listings.
   * Highlights: This enhancement affects existing commands and commands to be added subsequently, such as find and sort commands. 
   A good understanding of the logic flow of the code base is required due to the multitude of classes and method involved.
+
 <div style="page-break-after: always;"></div>
+
 * **New Feature**: Added the ability to sort job listings.
   * What it does: Sorts the list of jobs by their job title, company name, priority level or number of vacancies in an ascending or descending order.
   * Justification: This feature improves the product significantly because a user can quickly sort the items with a single command. 
@@ -57,7 +59,9 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * Fixed sort candidate success message bug (Pull request [\#222](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/222))
   * Add sort by name feature for both candidates and jobs (Pull request [\#270](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/270))
   * Update the application icon on the GUI (Pull request [\#292](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/292))
+
 <div style="page-break-after: always;"></div>
+
 * **Documentation**:
   * README:
     * Updated the README document to solve documentation bugs (Pull request [\#77](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/77))
