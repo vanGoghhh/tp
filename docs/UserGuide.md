@@ -276,7 +276,9 @@ card to view the candidate's new information in detail.
 
 ### 4.4 Finding a candidate: `find can`
 
-Too many candidates with different information? *CANdidates* provide you with a simple and quick way for you to find candidates who fulfil certain criteria(s) or even a specific candidate from the long list. All you have to do is tell CANdidates the field you are interested in, along with the keyword you are looking for!
+Too many candidates with different information? *CANdidates* provide you with a simple and quick way for you to find 
+candidates who fulfil certain criteria(s) or even a specific candidate from the long list. All you have to do is tell *CANdidates* 
+the field you are interested in, along with the keyword you are looking for!
 
 **Format:** `find can [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [exp/YEARS_OF_EXPERIENCE] [doa/DATE_OF_APPLICATION] [a/ADDRESS] [sal/EXPECTED_SALARY] [bl/IS_BLACKLISTED] [link/PROFILE_LINK] [t/JOB_TYPE]…`
 
@@ -319,7 +321,7 @@ Step 1. Type `find can n/David t/Teacher` in the *command box* and press *Enter*
 <br>
 
 Step 2. The *CANdidates* application will show the following message in the *result display*.
->1 candidates listed!
+>{Number of candidates found} candidates listed!
 
 <br>
 
@@ -632,7 +634,8 @@ card to view the job's new information in detail.
 
 ### 5.4 Finding a job: `find job`
 
-Too many job listings with different information? Similar to the feature above, you can also find job listings by inserting keywords for the fields you are looking for!
+Too many job listings with different information? You can find job listings that have certain criteria(s) or even a specific one from the long list 
+simply by inserting keywords for the field(s) you are looking for!
 
 **Format:** `find job [n/JOB_TITLE] [c/COMPANY_NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [v/VACANCY] [pr/PRIORITY] [t/JOB_DESCRIPTION]…`
 
@@ -669,7 +672,7 @@ Step 1. Type `find job v/1` in the *command box* and press *Enter*.
 <br>
 
 Step 2. The *CANdidates* application will show the following message in the *result display* 
->3 jobs listed!
+>{Number of jobs found} jobs listed!
 
 <br>
 
@@ -953,7 +956,7 @@ Step 1. While on the candidates tab, type `find job t/Cleaner` in the *command b
 <br>
 
 Step 2. The *CANdidates* application will show the following message in the *result display* 
->3 jobs listed!
+>{Number of jobs found} jobs listed!
 
 <br>
 
