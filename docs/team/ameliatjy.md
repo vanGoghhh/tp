@@ -56,8 +56,6 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   [\#291](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/291) and
   [\#329](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/329))
 
-<div style="page-break-after: always;"></div>
-
 * **Documentation**:
   * About Us:
     * Mounted team's About Us page. (Pull request [\#33](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/33))
