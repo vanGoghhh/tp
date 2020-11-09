@@ -810,11 +810,11 @@ testers are expected to do more *exploratory* testing.
     1. Test case: `list can`<br>
        Expected: The application automatically changes to the candidates tab, and displays all candidates. 
         
-   <div markdown="span" class="alert alert-info">
+<div markdown="span" class="alert alert-info">
+
+:information_source: **Note:** Listing jobs can be tested in the same way but with its analogous commands while on the candidates tab.
    
-   :information_source: **Note:** Listing jobs can be tested in the same way but with its analogous commands while on the candidates tab.
-   
-   </div>
+</div>
         
 ### 7.5 Editing a candidate
 
@@ -829,11 +829,11 @@ testers are expected to do more *exploratory* testing.
     1. Test case: `edit can INDEX` where `INDEX` is the list index of the candidate just added in the prerequisite step <br>
        Expected: No candidate edited. No fields provided error shown in the status message.
 
-   <div markdown="span" class="alert alert-info">
+<div markdown="span" class="alert alert-info">
    
-   :information_source: **Note:** Editing jobs can be tested in the same way but with its analogous commands and input fields.
+:information_source: **Note:** Editing jobs can be tested in the same way but with its analogous commands and input fields.
    
-   </div>       
+</div>       
     
 ### 7.6 Detecting duplicate candidates
 
