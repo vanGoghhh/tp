@@ -8,9 +8,6 @@ title: Lee Joon Jie's Project Portfolio Page
 CANdidates is a powerful contact management desktop App optimised for job recruiters to manage job applicants and job listings.
 The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 25 kLoC.
 
-* Role: Developer [[github profile](http://github.com/BreadPeanutButter)]
-* Responsibilities: Code Quality and Standards
-
 ### Given below are my contributions to the project
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2021s1.github.io/tp-dashboard/#breakdown=true&search=breadpeanutbutter&sort=groupTitle&sortWithin=title&since=2020-08-14&timeframe=commit&mergegroup=&groupSelect=groupByRepos&checkedFileTypes=docs~functional-code~test-code~other&tabOpen=false)
@@ -19,7 +16,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
   * What it is for: A field used to represent the number of years of experience of a candidate. Internally, it is represented as an Experience object.
   * Justification: This Information field allows job recruiters to store and keep track of the number of years of experience that candidates have.
     This is an important value that most employers look out for. This field is also useful when used as input for the Sort and Find features. 
-      
+<br>      
 * **New Feature: URL Link Information field**     
   * What it is for: A field used to represent a URL link to a candidate's profile such as his/her LinkedIn or Github page. 
     It is an optional input field for candidates since not all candidates have an online profile page. Internally, it is represented as a UrlLink object.
@@ -30,30 +27,30 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     Hence, I decided to utilise Java's Optional class to contain UrlLink in an Optional object for safer results. 
   * Hightlight: It was also a challenge to validate the format of URL links as there are numerous possibilities. I decided to use a third party library, 
     Apache Commons Validator, to validate the format for this.
-    
+<br>    
 * **New Feature: Salary Information field**           
   * What it is for: A field used to represent the expected salary of a candidate. It is an optional input field for candidates. 
     Internally, it is represented as a Salary object.
   * Justification:  This Information field allows job recruiters to store and keep track of the expected salary of candidates. This is an important field
   as recruiters can use this information to match candidates with suitable jobs. This field is also useful when used as input for the Sort and Find features.
   * Highlight: Similar to URLLink, Salary is also represented as an Optional object in candidates.
-  
+<br> 
 * **New Feature: Date Information field**           
   * What it is for: A field used to represent the date of application of a candidate. Internally, it is represented as a Date object.
   * Justification: This Information field allows job recruiters to keep track of the date that candidates applied for a job. This is important as 
     job recruiters should not take too long to follow up with candidates or they might lose the candidate. 
     This field is also useful when used as input for the Sort and Find features.
-    
+<br>    
 * **New Feature: Blacklist Information field**           
   * What it is for: A field used to represent the blacklist status of candidates, i.e whether a candidate has been blacklisted.
   * Justification: This Information field allows job recruiters to keep track of candidates who have been blacklisted and have bad records. 
     Recruiters will then know not to hire this person in the future. This field is also useful when used as input for the Sort and Find features.
-
+<br>
 * **Project management**: 
   * In charge of looking after code quality and ensuring adherence to coding standards such as SLAP and KISS principles
   * Regularly reviewed pull requests to ensure good code quality and coding standards
   * Actively used issue tracker to track, complete and assign tasks
-
+<br>
 * **Enhancements to existing features**: 
   * Modified AddressBookParser class of AB3 to be able to parse new commands of CANdidates
     (Pull requests [\#86](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/86))
@@ -75,6 +72,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     (Example Pull requests [\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119), [\#121](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/121), 
     [\#286](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/286))
 
+<div style="page-break-after: always;"></div>
 * **Documentation**:
   * User Guide:
     * Wrote documentation for Editing a candidate: `edit can` and Editing a job: `edit job`
@@ -100,6 +98,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
       Editing a candidate, Detecting duplicate candidates, Deleting a candidate and Clearing all entries
       (Pull requests [\#276](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/276))
 
+<br>
 * **Community**: 
   * PRs reviewed (with non-trivial review comments): [\#287](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/287), 
     [\#302](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/302)
@@ -109,7 +108,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     * PE-D testing: [\#1](https://github.com/BreadPeanutButter/ped/issues/1), [\#2](https://github.com/BreadPeanutButter/ped/issues/2), 
     [\#3](https://github.com/BreadPeanutButter/ped/issues/3), [\#6](https://github.com/BreadPeanutButter/ped/issues/6)
   * Contributed to forum discussions: [\#147](https://github.com/nus-cs2103-AY2021S1/forum/issues/147)
-
+<br>
 * **Tools**: 
   * Integrated a third party library (Apache Commons Validator) to the project used to 
     check the validity of the format of URL links in the UrlLink class ([\#119](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/119))
