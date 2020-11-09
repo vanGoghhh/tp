@@ -255,7 +255,7 @@ Step 2. The user executes `sort can type/exp order/asc` to sort the candidates b
 
 Step 3. A `PersonExperienceComparator` is created from parsing the command and a `SortPersonCommand` object is created. In the `SortPersonCommand#execute` the method `ModelManager#updateSortedPersonList(PersonExperienceComparator)` is invoked and the `SortedList` is sorted using the `PersonExperienceComparator`. The `UniquePersonList` in `personAddressBook` is then set to be the `SortedList`.
 
-![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png)
+![SortPersonSequenceDiagram](images/SortSequenceDiagramC.png )
 
 :information_source: **Note:** The usage scenario and sequence diagram for the analogous `sort job` operation are mostly similar, using its `SortJobCommand` ,`SortJobCommandParser`, `UniqueJobList` and `JobAddressBook` counterparts.
 
