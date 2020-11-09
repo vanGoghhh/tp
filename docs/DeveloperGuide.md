@@ -668,7 +668,7 @@ Similar to UC01, except user will request to add a job instead.
 
 #### 6.3.10 Use case: UC10 - List jobs
 
-Similar to UC02, except user will request to list jobs and CANdidates will show a list of jobs instead.
+Similar to UC02, except user will request to list jobs.
 
 #### 6.3.11 Use case: UC11 - Delete a job
 
@@ -684,7 +684,7 @@ Similar to UC05, except user will request to clear all jobs.
 
 #### 6.3.14 Use case: UC14 - Find jobs
 
-Similar to UC06, except user will request to find jobs with keywords and CANdidates will show a list of jobs instead.
+Similar to UC06, except user will request to find jobs with keywords.
 
 #### 6.3.15 Use case: UC15 - Sort jobs
 
