@@ -90,7 +90,7 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
     [\#79](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/79), 
     [\#277](https://github.com/AY2021S1-CS2103T-T17-3/tp/pull/277)) <br>
   * Contributed to forum discussions (example: CS2103T Forum Issue [\#165](https://github.com/nus-cs2103-AY2021S1/forum/issues/165)) <br>
-  * Reported bugs and suggestions for other teams in the class (examples: ped issues 
+  * Reported bugs and suggestions for other teams in the class (examples: PE-D issues 
     [\#3](https://github.com/g-erm/ped/issues/3), 
     [\#6](https://github.com/g-erm/ped/issues/6), 
     [\#11](https://github.com/g-erm/ped/issues/11))
