@@ -6,8 +6,8 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":FindPersonCommandParser" as FindPersonCommandParser LOGIC_COLOR
-participant "n: PersonNameContainsKeywordsPredicate" as PersonNameContainsKeywordsPredicate LOGIC_COLOR
-participant "e: PersonExperienceContainsKeywordsPredicate" as PersonExperienceContainsKeywordsPredicate LOGIC_COLOR
+participant "n: PersonName\nContainsKeywordsPredicate" as PersonNameContainsKeywordsPredicate LOGIC_COLOR
+participant "e: PersonExperience\nContainsKeywordsPredicate" as PersonExperienceContainsKeywordsPredicate LOGIC_COLOR
 participant "f : FindPersonCommand" as FindPersonCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
 
@@ -20,7 +20,7 @@ end box
 [-> LogicManager : execute("find can \nn/Alex exp/0")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("find can \nn/Alex exp/0")
+LogicManager -> AddressBookParser : parseCommand("find \ncan n/Alex exp/0")
 activate AddressBookParser
 
 create FindPersonCommandParser
@@ -28,11 +28,11 @@ AddressBookParser -> FindPersonCommandParser
 activate FindPersonCommandParser
 
 
-AddressBookParser -> FindPersonCommandParser : parse("n/Alex \nexp/0")
+AddressBookParser -> FindPersonCommandParser : parse(" n/Alex exp/0")
 
 
 create PersonNameContainsKeywordsPredicate
-FindPersonCommandParser -> PersonNameContainsKeywordsPredicate : PersonNameContainsKeywordsPredicate()
+FindPersonCommandParser -> PersonNameContainsKeywordsPredicate : PersonNameContains\nKeywordsPredicate()
 activate PersonNameContainsKeywordsPredicate
 
 create PersonExperienceContainsKeywordsPredicate
